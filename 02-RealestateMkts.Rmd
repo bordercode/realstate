@@ -1,0 +1,84 @@
+# House prices as internal migration determinants.
+
+```{r, echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
+library(dygraphs)
+library(mapview)
+library(leafem)
+library(tidyverse)
+library(sf)
+library(leaflet)
+library(gganimate)
+library(gifski)
+library(png)
+library(ggrepel)
+library(scales)
+library(plotly)
+library(ggthemes)
+library(xts)
+library(zoo)
+library(htmltools)
+library(stringr)
+library(broom)
+library(ggeasy)
+library(usmap) 
+
+library(TSstudio)
+
+```
+
+
+From an economic perspective, house prices represent a main component of inflation, overall price level trends are currently a priority for economic policy in general and particularly relevant when studying residential mobility.
+
+Empirical evidence reported by current academic research  [@https://doi.org/10.1002/psp.2412] as well as market experts [@s&p/case-shillerEconomicData2023], indicate that, beyond labor market incentives, housing affordability represent a key factor when considering the selection of a place to reside [@FUSS201635].
+
+In fact, real state markets may play a critical role for important social processes such as migration, both internal (within the same country)^[For the purposes of this investigation, internal migration is defined as the change in residence location from one particular Metropolitan area to another] or international. 
+
+In this chapter, exploratory data analysis is conducted on house property values, focusing on metropolitan areas as the geographic scale across the US.  
+
+Metropolitan areas are geographic units that are particularly suited to understand regional real state dynamics and provide a base scenario to study internal migration patterns within the US territory as well as specific regions such as the US-Mexico border.
+
+## Data and methods.
+
+The study strategy follows a spatial and temporal design, it is argued that analyzing housing costs evolution in a geographic context may reveal patterns that help to better understand residential mobility and deliver valuable insights about internal migration flows and the underlying regional economic incentives.
+
+The primary spatial unit of analysis for this study is the Metropolitan Statistical area (MSAs). MSAs are geographical regions defined by the Office of Management and Budget (OMB) that consist of one or more counties that contain a core city of 50,000 or more inhabitants, and surrounding areas with significant social and economic ties [@ofr1990federalregister]. 
+
+It is argued that Metropolitan statistical areas provide an appropriate level of detail, improving over the aggregate perspective that states offer or the traditional county boundaries scale, which lack the economic synergies and the broad social component that MSAs achieve by considering the interaction between a core and a set of adjacent communities. For this theoretical considerations MSAs were selected over other alternative geographical scales for this particular analysis. 
+
+The study covers all 48 continental adjacent US states, excluding: District of Columbia, Alaska and non continental territories Hawaii and Puerto Rico.
+
+A primary goal is to explore real state market fluctuations over time, to achieve this purpose we measure three concepts: house price levels, price appreciation and purchasing parity based on housing prices.
+
+To measure house price levels the main input variable is the quarterly seasonally adjusted house price index for the period 1991:Q1 (base year) to 2022:Q4 for 387 MSAs for which  Federal housing finance agency  (FHFA) price indices are available. 
+
+The FHFA House Price Index (FHFA HPI) is a broad economic measure of the movement of single family house prices in the United States [@fhfaHousePriceIndex2022].  The data set analyzed in this chapter contains purchase only  transactions, the aim is to capture the price level fluctuations a feature estimated by using sales price data as opposed to appreciation. (which considers a repet transaction methodology.
+
+To measure the underlying rate of appreciation of a given house price, the Freddie Mac House price index (FMHPI), is incorporated. This is a repeat transaction index, which compares the price of the same property over two or more transactions and is explicitly designed to capture appreciation while holding constant basic factors such as physical location, climate, housing type, etc.,between transactions. [@freddiemacFreddieMacHouse2023].
+
+By construction, therefore, the repeat transaction requirement exclude new homes.
+
+Whereas HPI in data sets such as FHFA, measures current price level not considering transactions over the same property.  
+
+To complement the perspective obtained by the Federal housing finance agency HPI data and the Freddie Mac HPI,  the housing component of the regional price parities (RPPs) indicator for year 2022 (the latest release as the time of writing this investigation) is included.
+
+This is an official indicator reported by the Bureau of economic analysis (BEA) which measure the differences in price levels across states and metropolitan areas for a given year and are expressed as a percentage of the overall national price level[@bureauofeconomicanalysisRegionalPriceParities2023]. 
+
+This indicator is particularly informative of the population buying power, specially it allows price comparisons relative to the national average.
+
+To capture demand side factors, Official population estimates from the US Census Bureau were obtained for years 2010-2020 [@uscensusbureauPopulationEstimatesEstimated2023, this is a variable that captures demographic dynamics overtime and serve as a proxy for housing demand.  
+
+Per capita personal Income (PPI) by metropolitan area from the U.S. Bureau of Economic Analysis is also included.
+[@bureauofeconomicanalysisPersonalIncomeCounty2023]. This variable contributes to capture inequality and financial barriers to access the housing market. In addition the income to house price ratio is useful to inform on the contextual factors affecting the decisions to move. 
+
+To understand out-migration related to real state markets a relevant indicator is the income to house price ratio, this measure captures two dimensions of what is termed in this work as the priced-out effect a situation defined by the pressure that unaffordable housing prices relative to income infringes on the population, which in turn as has been documented by  [@meen2020economics], [@meenHousingReallyUnaffordable2020], [@lensExtremelyLowincomeHouseholds2018], [@MolloyRaven2011Imit]and others, increases the probability of search for a new destination.  
+
+
+### Exploratory data analysis.
+
+The analysis is organized in two stages: the first provides a national approach to the housing prices fluctuations for metropolitan areas in all states. While the second focuses on the US Mexico border region.
+
+when we analyze inflation patterns, the housing component for the regional price parity (RPP),developed by Bureau of economic analysis to measure price fluctuations at a regional scale, it is possible to distinguish which states of the country hold the most expensive housing markets.
+
+Here the base level national average is 100
+The following graph shows this pattern for the 50 US states for 2021.  
+

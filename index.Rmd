@@ -1,9 +1,162 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title: "Moving south. The double priced-out effect"
+author: "José Luis Manzanares Rivera"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+output: bookdown::bs4_book
+always_allow_html: true
+documentclass: krantz
+bibliography: [Housing_border_cities_library.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+graphics: yes
+description: "This is a book about housing access conditions for the mexican populaion living in cities located along the northern border. It provides a current characterization of the economic conditions that prevail in border communities and dive into emerging forces that shape the real state industry today in this strategic region."
+cover-image: "images/homeless.png"
+url: https://price-out.netlify.app/
 ---
 
-# Down the rabbit-hole
+# Welcome {-}
+
+This is the online site of the book *Moving south. The double priced-out effect*
+
+<img src="images/homeless.png" class="cover" width="250" height="328"/>
+<hr>
+
+## Contribute to the project  {-}
+
+If you find the book helpful, you can contribute to the project by:
+
+- Sharing it with your team and networks.
+- Commenting on digital media, for example, using the hashtag #Housingontheborder on Twitter.
+- Citing it or linking to it.
+- Enjoy the read by purchasing a copy at: [BlackDogPublishing](https://insight4health.netlify.app/)
+- You can also download a **free** copy in PDF or epub format.
+
+
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(downloadthis)
+
+download_link(
+  link = "https://www.dropbox.com/s/g9jz1nzh3nc2dns/Chile3030.pdf?dl=0",
+  button_label = "Download PDF file",
+  button_type = "danger",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+# Prologue {-}
+
+
+> *"The rate of interest is, in fact, nothing more than the price paid for the use of capital, and, like all prices, is naturally regulated by supply and demand... "*    
+<div style="text-align: right"> --- Knut Wicksel Mill</div>
+
+Economic relationships between Mexico and the US have been increasing at a dynamic pase during the first decades of this century. Partially responsible for this trend are specific policy instruments that have been designed to deliver a mutual benefit for the interests of both countries.
+
+However at a local scale, particular economic sectors have been shaped by this partnership. From a public policy perspective one of those areas of concern  where there is a growing interest to understand bi national interaction is housing prices and the underlying real state markets. 
+
+Specially given that housing markets are closely related to economic determinants, including labor market dynamics, that influence a series of important social processes such as migration patterns; understanding house price fluctuations can be particularly relevant for regional development.
+
+Considering an economic perspective, there are at least five key indicators that demonstrate the increasing US-Mexico integration: trade patterns and resulting supply chain links, productive investment, labor market dynamics, remittances trends and tourism flows.
+
+Considering the exchange of goods and services, according to United States Census Bureau, based on data from the Foreign Trade Division, in 2020, Mexico was the US's second-largest goods trading partner, with a total of $577.6 billion in two-way trade [@usmexicotrade2020].
+
+To place in perspective this trade volume, a contrast  against the size of the whole Mexican economy measured by the gross domestic product, revels that the US-Mexico trade value accounted for 52.9%^[it can be argued that this figure overestimates the trade relationship between both countries since the maquiladora industry, an important component of the trade sector, includes many production processes that require a input to cross the border many times before it reaches the final product.] of the total Méxican GDP in 2020,[@inegi2020],[@mexicoeconomy2020] a robust figure if we consider China, Méxicos´s second largest trading partner after the US, whose´s trade value, accounted for a 7.6%[@mexicoeconomy2020], [@worldbank-mexico-gdp]  share of the country´s GDP for the same period of time. 
+
+Furthermore, the Mexican total trade volume in 2020 was worth in current prices 1.03 trillion,[@worldbank2020mexico] which means that the US-Mexico trade volume represented over half of all Mexican world trade.
+
+The US-México trade relationship was further propelled by the implementation of the (USMCA) agreement, also known in Spanish as the T-MEC (Tratado entre México Estados Undos y Canadá), which was created during the Trump administration and signed by member countries on November 30, 2018, during the G-20 summit in Buenos Aires, Argentina [@ustr2018usmca].
+
+When productive investment is considered, particular regions in México have turned into strategic logistic hubs and supply chain pillars to support the manufacturing and resulting trade flows that currently define the US-Mexico economic relationship. 
+
+Among this regional economic hubs, the Mexican northern border represent a clear example, where geographic proximity enables efficient productive integration between both countries. 
+
+Current features of the global economy impacting the north american region such as near-shoring, a trend partially influenced by a less dynamic post pandemic US-China relationship, are expanding productive partnerships between Mexico and the US in cities across it's share border region with tangible results on important local markets.
+
+Additionally, as the Mexican population living in the US has increased, the total amount of money sent from the US to Mexico has experienced a significant growth over the past few decades and have developed into a major source of foreign currency.
+
+According to the World Bank, total remittance volume from the US to Mexico increased from \$2.4 billion in 1995 to \$40.6 billion in 2020, [@worldbank_remittances] furthermore in 2020, remittances accounted for 4.2% of Mexico's GDP.[@bankofmexico_remittances] which places the country among the highest remittances recipients in the world. 
+
+Although this robust currency flow indicates a high level of economic and labor market interaction between both countries, Mexico´s dependence on external sources of income highlights an area of opportunity regarding sustainable economic development and job creation within the country that has been regarded by some scholars such as  [@lopez2020economic], [@1ILEGAL], as one of the causes of north bound irregular migration in the first place.  
+
+Whereas economic ties among the two countries are a clear indication of a strong integration and provide a portrait of underlying productive structure and it´s related labor markets, there are several industries where economic asymmetries have been developing impacting local communities and its residents. 
+
+Empirically it can be argued that each of these economic features has been influencing most of Mexican regions, with wide scale impacts, going beyond the economic sphere, ranging from environmental, urban planning and public health, however a particular geographic region where this economic structure translates into a continuous tangible social development process is the Mexican northern border. 
+
+At a regional scale and particularly considering the US-Mexico border population centers, one of such areas where impacts are of concern, is real state and the resulting housing market.
+
+While the manufacturing industrial sector demand for warehouse space for instance, has been a key driver of commercial land prices in these border urban areas, until recently, less understood were Mexico´s northern border city´s residential housing patterns. 
+
+A central argument for this work is that explaining regional economic dynamics is relevant to better understand local scale opportunities that the US-Mexico relationship offers to improve border residents´s quality of live.
+
+Following a data driven approach this research work  analyzes housing prices on US Metropolitan areas and internal migration patterns within US states, with a focus in California and it´s southern border region. 
+
+This analysis is important to understand recent real state features such as residential space demand at bi-national urban areas and to provide key insights not just to implement adaptation policies to prevent negative side effects, but to design strategies based on evidence to guide a long run development process.        
+
+
+
+
+# Introduction  {-}
+
+Economic relationships between Mexico and the US have been increasing at a dynamic pase during the first decades of this century. Partially responsible for this trend are specific policy instruments that have been designed to deliver a mutual benefit for the interests of both countries.
+
+However at a local scale, particular economic sectors have been shaped by this partnership. From a public policy perspective one of those areas of concern  where there is a growing interest to understand bi national interaction is housing prices and the underlying real state markets. 
+
+Specially given that housing markets are closely related to economic determinants, including labor market dynamics, that influence a series of important social processes such as migration patterns; understanding house price fluctuations can be particularly relevant for regional development.
+
+Considering an economic perspective, there are at least five key indicators that demonstrate the increasing US-Mexico integration: trade patterns and resulting supply chain links, productive investment, labor market dynamics, remittances trends and tourism flows.
+
+Considering the exchange of goods and services, according to United States Census Bureau, based on data from the Foreign Trade Division, in 2020, Mexico was the US's second-largest goods trading partner, with a total of $577.6 billion in two-way trade [@usmexicotrade2020].
+
+To place in perspective this trade volume, a contrast  against the size of the whole Mexican economy measured by the gross domestic product, revels that the US-Mexico trade value accounted for 52.9%^[it can be argued that this figure overestimates the trade relationship between both countries since the maquiladora industry, an important component of the trade sector, includes many production processes that require a input to cross the border many times before it reaches the final product.] of the total Méxican GDP in 2020,[@inegi2020],[@mexicoeconomy2020] a robust figure if we consider China, Méxicos´s second largest trading partner after the US, whose´s trade value, accounted for a 7.6%[@mexicoeconomy2020], [@worldbank-mexico-gdp]  share of the country´s GDP for the same period of time. 
+
+Furthermore, the Mexican total trade volume in 2020 was worth in current prices 1.03 trillion,[@worldbank2020mexico] which means that the US-Mexico trade volume represented over half of all Mexican world trade.
+
+The US-México trade relationship was further propelled by the implementation of the (USMCA) agreement, also known in Spanish as the T-MEC (Tratado entre México Estados Undos y Canadá), which was created during the Trump administration and signed by member countries on November 30, 2018, during the G-20 summit in Buenos Aires, Argentina [@ustr2018usmca].
+
+When productive investment is considered, particular regions in México have turned into strategic logistic hubs and supply chain pillars to support the manufacturing and resulting trade flows that currently define the US-Mexico economic relationship. 
+
+Among this regional economic hubs, the Mexican northern border represent a clear example, where geographic proximity enables efficient productive integration between both countries. 
+
+Current features of the global economy impacting the north american region such as near-shoring, a trend partially influenced by a less dynamic post pandemic US-China relationship, are expanding productive partnerships between Mexico and the US in cities across it's share border region with tangible results on important local markets.
+
+Additionally, as the Mexican population living in the US has increased, the total amount of money sent from the US to Mexico has experienced a significant growth over the past few decades and have developed into a major source of foreign currency.
+
+According to the World Bank, total remittance volume from the US to Mexico increased from \$2.4 billion in 1995 to \$40.6 billion in 2020, [@worldbank_remittances] furthermore in 2020, remittances accounted for 4.2% of Mexico's GDP.[@bankofmexico_remittances] which places the country among the highest remittances recipients in the world. 
+
+Although this robust currency flow indicates a high level of economic and labor market interaction between both countries, Mexico´s dependence on external sources of income highlights an area of opportunity regarding sustainable economic development and job creation within the country that has been regarded by some scholars such as  [@lopez2020economic], [@1ILEGAL], as one of the causes of north bound irregular migration in the first place.  
+
+Whereas economic ties among the two countries are a clear indication of a strong integration and provide a portrait of underlying productive structure and it´s related labor markets, there are several industries where economic asymmetries have been developing impacting local communities and its residents. 
+
+Empirically it can be argued that each of these economic features has been influencing most of Mexican regions, with wide scale impacts, going beyond the economic sphere, ranging from environmental, urban planning and public health, however a particular geographic region where this economic structure translates into a continuous tangible social development process is the Mexican northern border. 
+
+At a regional scale and particularly considering the US-Mexico border population centers, one of such areas where impacts are of concern, is real state and the resulting housing market.
+
+While the manufacturing industrial sector demand for warehouse space for instance, has been a key driver of commercial land prices in these border urban areas, until recently, less understood were Mexico´s northern border city´s residential housing patterns. 
+
+A central argument for this work is that explaining regional economic dynamics is relevant to better understand local scale opportunities that the US-Mexico relationship offers to improve border residents´s quality of live.
+
+Following a data driven approach this research work  analyzes housing prices on US Metropolitan areas and internal migration patterns within US states, with a focus in California and it´s southern border region. 
+
+This analysis is important to understand recent real state features such as residential space demand at bi-national urban areas and to provide key insights not just to implement adaptation policies to prevent negative side effects, but to design strategies based on evidence to guide a long run development process.           
+
+This book is organized into 3 chapters: Chapter I sets the stage to understand House prices as internal migration determinants, Chapter II examines homeless trends across US metropolitan areas a perspective that offers a look to a central issue when analyzing home affordability.  Chapter III explores bi national real estate market implications at a regional scale focusing on the US Mexico border presenting an emblematic case study:  the San Diego-Tijuana connection.
+
+
+
 
