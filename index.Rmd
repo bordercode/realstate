@@ -63,8 +63,8 @@ knitr::write_bib(c(
 # Prologue {-}
 
 
-> *"The rate of interest is, in fact, nothing more than the price paid for the use of capital, and, like all prices, is naturally regulated by supply and demand... "*    
-<div style="text-align: right"> --- Knut Wicksel Mill</div>
+> *"Real estate is an imperishable asset, ever increasing in value. It is the most solid security that human ingenuity has devised. It is the basis of all security and about the only indestructible security"*    
+<div style="text-align: right"> --- Russell Sage</div>
 
 Economic relationships between Mexico and the US have been increasing at a dynamic pase during the first decades of this century. Partially responsible for this trend are specific policy instruments that have been designed to deliver a mutual benefit for the interests of both countries.
 
