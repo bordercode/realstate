@@ -4,7 +4,7 @@ The housing market for Mexican cities at the US border has been attracting the a
 
 A behavior that in turn creates a local upward path for housing prices on border urban areas on the Mexican side such as Tijuana, where local people facing higher housing prices are being priced out of residential areas suitable to accommodate an increasing housing demand that newcomers from the north are creating.
 
-Empirical evidence documented by ecademic experts on the field such as  Soto-Rubui and Hausman, [@SOTORUBIO201976] indicates that the local real estate market has experimented continuous pressures that has resulted in affordability issues for residents in Mexican cities such as Tijuana or Juárez. 
+Empirical evidence documented by Academic experts on the field such as  Soto-Rubui and Hausman, [@SOTORUBIO201976] indicates that the local real estate market has experimented continuous pressures that has resulted in affordability issues for residents in Mexican cities such as Tijuana or Juárez. 
 
 In this chapter the goal is to analyze the economic conditions that explain the movement of people from the US into Mexican border cities. And it´s effects on real estate industry, in particular the chapter focuses on the biggest Mexican border city Tijuana. 
 
@@ -17,7 +17,7 @@ According to official information provided by the Bureau of transportation stati
 
 [INSERT PLOT HER FOR WIAT TIMES AND TRAFFIC BY TYPE: EJ. PASSANGER VS. TRUCKS (COMMERCIAL ACTIVITY)]
 
-This intense people movement reflects the underlying social dynamics that this region generates which are strongly influenced by specific economic determinants, one such key driving factor being bi-national labor market conditions and housing market prices differentials.
+This intense people movement reflects the underlying social dynamics that this region generates[@doi:10.1177/019791839603000407] which are strongly influenced by specific economic determinants, one such key driving factor being bi-national labor market conditions and housing market prices differentials.
 
 Historically, there has been several structural factors that contribute to housing shortages in the Mexican city of Tijuana.[@SOTORUBIO201976], however recently, added pressures of binational economic nature, to enter the housing market have emerged, for the local population living in specific neighborhoods situated in close proximity to border crossings or residential areas that are particularly attractive to US commuters and remote workers coming from the San Diego area and the southern California region.
 

@@ -12,7 +12,7 @@ link-citations: yes
 colorlinks: yes
 graphics: yes
 description: "This is a book about housing access conditions for the mexican populaion living in cities located along the northern border. It provides a current characterization of the economic conditions that prevail in border communities and dive into emerging forces that shape the real state industry today in this strategic region."
-cover-image: "images/homeless.png"
+cover-image: "images/cover1.jpg"
 url: https://price-out.netlify.app/
 ---
 
@@ -20,7 +20,7 @@ url: https://price-out.netlify.app/
 
 This is the online site of the book *Moving south. The double priced-out effect*
 
-<img src="images/homeless.png" class="cover" width="250" height="328"/>
+<img src="images/cover1.jpg" class="cover" width="250" height="328"/>
 <hr>
 
 ## Contribute to the project  {-}
