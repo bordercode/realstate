@@ -49,7 +49,7 @@ The study covers all 48 continental adjacent US states, excluding: District of C
 
 A primary goal is to explore real state market fluctuations over time, to achieve this purpose we measure three concepts: house price levels, price appreciation and purchasing parity based on housing prices. 
 
-To measure house price levels the main input variable is the quarterly seasonally adjusted house price index for the period 1991:Q1 (base year) to 2022:Q4 for 387 MSAs for which  Federal housing finance agency  (FHFA) price indices are available. 
+To measure house price levels the main input variable is the quarterly seasonally adjusted house price index for the period 1995:Q1 (base year) to 2022:Q4 for 387 MSAs for which  Federal housing finance agency  (FHFA) price indices are available. 
 
 The FHFA House Price Index (FHFA HPI) is a broad economic measure of the movement of single family house prices in the United States [@fhfaHousePriceIndex2022].  The data set analyzed in this chapter contains purchase only  transactions, the aim is to capture the price level fluctuations a feature estimated by using sales price data as opposed to appreciation. (which considers a repet transaction methodology.
 
@@ -84,7 +84,7 @@ By analyzing the search behavior of internet users, Google Trends offers a valua
 This keywords allow to answer questions on where an when does people (Google users) are looking for this words, specially the term Foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
 
 
-### Exploratory data analysis.
+## Exploratory data analysis.
 
 The analysis is organized in two stages: the first provides a national approach to the housing prices fluctuations for state and MSA scales. While the second focuses on the US Mexico border region.
 
@@ -99,8 +99,8 @@ The RPP base level is the national average which takes a value of 100, so RPP va
 
 Figure 1 shows regional price parities by state relative the average US for 2021.  
 
-
-```{r, echo=FALSE}
+**Figure 1 Regional price parities (RPP) by state 2022**
+```{r, echo=FALSE, warning=FALSE,message=FALSE}
 
 ### Plot  For Regional price parities for the housing component
 
@@ -131,6 +131,7 @@ scale_fill_manual(values=c("deepskyblue4","firebrick"), labels=c("Below average"
 
 ggplotly(rppp)%>%
   layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+
  #ggsave("rpp2022_housing_USstates.tiff", width = 25, height = 17, units = "cm",dpi=300)
 ```
 Source: José Luis Manzanares analysis of Regional price parities data 2021 [@bureauofeconomicanalysisRegionalPriceParities2023]
@@ -142,9 +143,131 @@ In order to get a higher level of detail on the behavior of house price fluctuat
 
 The data analysis strategy design aims to extract the appreciation over a two decade time frame for each metropolitan area, so, we are able to measure not only which metropolitan areas have registered the bigger price gains between 2000 and 2020 but also it´s annual rate of growth. 
 
-Measuring appreciation using the HPI developed by a government sponsored enterprise such as the FM, is important for two reasons in the context of this investigation: I) It informs on the potential changes on home equity fluctuations over time with a geographic perspective, which expose real estate investment opportunities  II) It reflects existing financial barriers and/or opportunities to entry into the housing market for household looking to relocate, so is an appropriate economic indicator that  helps to explain  current internal migration patterns.  
+Measuring appreciation using the HPI developed by a government sponsored enterprise such as the FM, is important for two reasons in the context of this investigation: I) It informs on the potential changes on home equity fluctuations over time with a geographic perspective, which expose real estate investment opportunities  II) It reflects existing financial barriers and/or opportunities to entry into the housing market for households looking to relocate, so is an appropriate economic indicator that helps to explain  current internal migration patterns.  
 
-The following interactive map shows the resulting representation  the House Price index (HPI),  for the 387 U.S. Metropolitan statistical areas as of 2020. Each circle represents a HPI measure with its size corresponding to the HPI value.T
+Figure 2 below shows the House Price index (HPI) distribution across the 387 U.S. Metropolitan statistical areas as of 2020. Each circle represents a HPI measure with its size corresponding to the HPI value.
 
-he index depicts housing market prices taking as base year 1991. So higher values indicate a relative appreciation and therefore more expensive locations than those with smaller circles.   
+The index depicts housing market prices taking as base year 1995. So higher values indicate a relative appreciation and therefore more expensive locations than those with smaller circles.   
+
+
+**Figure 2 Metropolitan Statiscal areas House Price Index distribution 2020**
+```{r,  warning=FALSE, message=FALSE, echo=FALSE}
+
+## This datas set contains 387   MSA as of  2020 with geo atribututes and avg hpi  2020  base year is 1995   which means that HPI for uS is 100% in 1995. The avg_q  variable takes into account a mean for q1,q2,q3,q4  in the given year.
+
+df<-readRDS("datageo2020.rds")%>%rename(Year=yr, MSA=msa.x, Annual.HPI.growth00.20=gwr00_20, State=state)
+
+# Adding a factor  variable for border states 
+df <- st_as_sf(df,  crs = 4326)
+ca<-filter(df,State==" CA"|State==" CA (MSAD)")
+# Interactive Map 
+
+mapviewOptions(vector.palette=colorRampPalette(c("blue","orange","red")))
+
+mapa<-mapview(df, map.types =  "OpenStreetMap.DE",cex="hpi20", zcol="hpi20", layer.name= "MSA House Price Index",legend = FALSE,homebutton =FALSE)
+  
+leafem::addMouseCoordinates(mapa)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
+```
+Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
+
+
+
+Empirical findings reveal a pronounced surge in housing prices, as gauged by the House Price Index (HPI), within geographically delineated metropolitan areas across the United States. Noteworthy regions exhibiting such trends encompass metropolitan statistical areas (MSAs) situated along the West Coast, the southeastern part of Florida, and the northwestern region. Over the span of the past three decades, these identified regions have witnessed substantial increase in housing values.
+
+Among the states located on the West Coast, the State of California is particularly outstanding with areas of concern such as the Bay area where the so called silicon valley region represents a mayor labor market hub particularly for highly skilled workers associated with the technology sector. This geographic area holds substantial economic importance due to its concentration of technological innovation, fostering an environment  that attracts and sustains a skilled workforce with above average income which also translates into relevant tax revenue sources for the entire state. 
+
+Furthermore within California, and right at the US southern border, the San Diego MSA, ranks among the top 10 most  expensive metropolitan areas of the entire state with a relative house price increase of 363.6 per cent in the last 25 years.
+
+Using the above estimated pattern it si convenient determine **which metropolitan areas registered the highest price increments since base year 1995** according to the Federal House Finance HPI? 
+
+Figure 3 illustrates the ranking of the nation's 20 foremost metropolitan areas based on their respective positions in the House Price Index (HPI) for the year 2020. It is important to note that these areas signify the highest relative increases in home prices compared to the base year of 1995, rather than indicating the absolute highest-priced urban population centers. 
+
+**Figure 3 Top 20 Metropolitan areas by HPI increase.**
+```{r, echo=FALSE}
+
+
+df<-readRDS("datageo2020.rds")
+
+# Here we use slice_max to get the top n rows of var avg_q20
+
+top20<-df%>%
+ slice_max(hpi20, n=20)%>%
+  mutate(State=as.factor(ifelse(state==" CA"|state==" CA (MSAD)","California","Other state")))
+  
+number<-count(top20, State=="California")
+## The plot.
+
+top<-ggplot(top20, aes(hpi20, reorder(msa.x, hpi20), fill=State))+
+  geom_col()+
+  scale_fill_manual(values = alpha(c("dodgerblue4", "gray")))+
+  labs(
+    x = 'House Price index 2020. (1995=100 percent)',
+    y = 'Metropolitan statiscal areas (MSAs)',
+    alpha = 'Class',
+    title = '')+ theme(legend.position="bottom")
+
+ggplotly(top)%>%
+  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+
+```
+Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
+
+
+Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, One question that arises in the context of economic determinants is house prices is:  What role does available economic policy instruments have played to   shape the US real state markets in the last two decades of the current century? 
+
+Certainly this period has witnessed at least two of the most remarkable and complex scenarios in economic recent history that deserve to be explained given its relevance for US society in general and households paying a mortgage in particular: I) the great recession, the economic downturn that occurred between December 2007 and June 2009. II) the COVID19 health emergency.
+
+In accordance with conventional economic theory, a fundamental factor influencing the overall fluctuations in the aggregate price level is the cost of borrowing, commonly known as the interest rate. Interest rates are a core instrument of monetary policy that play a pivotal role in shaping economic dynamics and has significant implications for various sectors of the economy, including real estate markets. 
+
+Therefore, understanding the evolution in time of interest rates is crucial for comprehending not only the aggregate price level fluctuations, but also its impacts on particular components, among which housing prices bear a specially important role households. 
+
+We now turn to the analysis of this important macroeconomic determinant and begin by presenting the trayectory overtime for the Federal Funds effective rate. 
+This rate serves as a benchmark or reference point for other short-term interest rates, exerting a considerable influence on the overall cost of borrowing and lending in the economy.
+
+The importance of the Federal Funds effective rate (FFER) is particularly pronounced in relation to the housing sector and real estate markets. Firstly, it directly affects the cost of mortgage borrowing for homebuyers. Changes in the Federal Funds rate can lead to adjustments in mortgage interest rates, impacting affordability and demand for housing. Lower rates tend to stimulate borrowing and housing activity, while higher rates may dampen demand. This inverse relation is paramount to explain demand side factors that have been taking place in the US housing market as we will soon discover. 
+
+Figure 4, presents the evolution of the FFER in the period from  to July 2000 to May 2023. 
+
+
+```{r, echo = FALSE}
+
+# FFER plot 
+
+ts_FFER<-readRDS("ts_FFER.rds")
+
+dygraph(ts_FFER, main = "Quantitative easing")%>% 
+dyRangeSelector()%>%
+dyHighlight(highlightCircleSize = 3, 
+highlightSeriesBackgroundAlpha = 0.2
+)%>%
+dySeries("FEDFUNDS", color = "#D35400",fillGraph = TRUE,label ="Federal Funds Effective Rate")%>%
+dyAxis("y", label = "Percent")%>%
+dyLegend(width = 300)%>%
+dyEvent("2008-07-01", "QE Subprime mortgage market collapse", labelLoc = "top", color = "black")%>%
+dyEvent("2020-02-01", "NBER Economic recession: QE -Ultra Low interest rates-", labelLoc = "top", color = "blue")%>%
+  dyEvent("2022-02-01", "Monetary policy change ending quantitative easing", labelLoc = "top", color = "red")%>%
+dyOptions(axisLineWidth = 1.5, fillGraph = TRUE, drawGrid = FALSE)
+
+# Source: https://fred.stlouisfed.org/series/FEDFUNDS
+```
+
+Source: José Luis Manzanares Rivera based on data from Federal Reserve. [@boardofgovernorsofthefederalreservesystemFederalFundsEffective2023]
+
+The representation above covers 23 years of interest rates fluctuations, over the span of this period, monetary policy has experienced important changes with implications for the housing markets. The first, marked here with a benchmark date in reference to the sub-prime mortgage market collapse ^(Following real state market terminology a sub-prime mortgage is defined here as higher-risk loans granted to borrowers with lower creditworthiness), an episode in US economic recent history that constitutes one of the main factors defining the so called great recession.
+
+Prior to this period, the Federal Reserve´s monetary policy had set the FFER at $5.26\%$ which its the highest interest rate that US society has experienced between July 2007 and the moment of the writing of this work (May 2023).
+
+Following the sub-prime mortgage market collapse, which set the stage for the beginning of the global financial crisis, the US central bank, decided to implement measures via the its key monetary policy instruments, to stimulate the economy. Given the magnitude and scope of the economic downturn, the recovery path was expected to be a long upward slope, so the FFER, was decidedly moved down to historic lows reaching  $0.07\%$ in January 2014.
+
+How does the housing market reacted to this unprecedented period of ultra low interest rates? 
+
+Before moving on to answer that question, let´s study a second relevant shift in monetary policy. According to empirical evidence shown above,  the monetary policy stimulus period to promote economic recovery related to the great recession, lasted 7 years, (Jan 2009-Dec 2015).
+
+However when quantitative easing seemed to be reversed, on January 31, 2020, Department of Health and Human Services (HHS) under the Public Health Service Act, declared a public COVID-19 health emergency. This declaration allowed the HHS to activate emergency response mechanisms, mobilize resources, and coordinate efforts to contain and mitigate the spread of the virus within the country. Among those measures, as we now Know, there were significant mobility restrictions that infringed a toll on economic activity with emphasis in the labor market. Triggering a relevant economic slowdown, that required once more, ta decesive intervention by the central bank authorities to prevent a deeper economic crisis and to stimulate a recovery!!!
+
+
+
+
+
+Figure 5, below shows the 
 
