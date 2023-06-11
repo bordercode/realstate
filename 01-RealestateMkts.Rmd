@@ -184,20 +184,17 @@ Figure 3 illustrates the ranking of the nation's 20 foremost metropolitan areas 
 
 **Figure 3 Top 20 Metropolitan areas by HPI increase.**
 ```{r, echo=FALSE}
+#df<-readRDS("datageo2020.rds")
+
+msa2022<-readRDS("msa2022.rds")%>%
+  mutate(State=as.factor(ifelse(state==" CA"|state==" CA (MSAD)","California","Other state")), top2022=ifelse(hpi>=479.435,1,0))%>%
+mutate(MSA=fct_reorder(msa, hpi))%>%
+  rename(place_id=cbsa_code)
 
 
-df<-readRDS("datageo2020.rds")
-
-# Here we use slice_max to get the top n rows of var avg_q20
-
-top20<-df%>%
- slice_max(hpi20, n=20)%>%
-  mutate(State=as.factor(ifelse(state==" CA"|state==" CA (MSAD)","California","Other state")))
-  
-number<-count(top20, State=="California")
 ## The plot.
 
-top<-ggplot(top20, aes(hpi20, reorder(msa.x, hpi20), fill=State))+
+top22_hpi<-ggplot(msa2022, aes(hpi, MSA, fill=State))+
   geom_col()+
   scale_fill_manual(values = alpha(c("dodgerblue4", "gray")))+
   labs(
@@ -206,14 +203,59 @@ top<-ggplot(top20, aes(hpi20, reorder(msa.x, hpi20), fill=State))+
     alpha = 'Class',
     title = '')+ theme(legend.position="bottom")
 
-ggplotly(top)%>%
+ggplotly(top22_hpi)%>%
   layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
 
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
 
+USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")),hpi=round(hpi, 2))
 
-Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, One question that arises in the context of economic determinants is house prices is:  What role does available economic policy instruments have played to   shape the US real state markets in the last two decades of the current century? 
+
+**Figure 3a House price index annual growth rate 1995-2022**
+
+```{r, include=FALSE}
+#floflo<-data.frame(f=c(" FL"))
+
+#rate<-readRDS("rate.rds")%>%mutate(geo=as.factor(ifelse(state%in%border_st$border,"USMXBorder", ifelse(state%in%floflo$f,"Florida","No Border"))))
+                                         
+#rate$msa[rate$msa=="Fort Lauderdale-Pompano Beach-Sunrise"] <- "Fort Lauderdale"
+
+#rate$msa[rate$msa=="West Palm Beach-Boca Raton-Boynton Beach"] <- "West Palm Beach-Boca Raton"
+
+#saveRDS(rate, "rate.rds")
+```
+
+```{r, echo=FALSE}
+rate<-readRDS("rate.rds")
+cols <- c( "#E74C3C","#154360", "#1E8449")
+          
+tsplot<-ggplot(rate, aes( Year, AnnualGrowth,color=geo, label = state))+
+  geom_line() + 
+facet_wrap(~msa, scales = "free_y")+
+  geom_hline(yintercept=0)+
+  geom_vline(xintercept=2009, linetype="dotdash")+
+  scale_color_manual(values = cols, name="")+
+  labs(y="Annual HPI growth rate (%)")
+  
+ggplotly(tsplot)%>%
+  layout(legend = list(orientation = "h", x = 0.2, y = -0.1))
+```
+Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
+
+I would like to take on four patterns found when analyzing the top 20 metropolitan areas with the highest appreciation rates as measured by the annual growth on the HPI during the last 27 years  
+I) The importance of the USMX border region. $40\%$ of the top 20 (MSAs) with the highest appreciation rates are located  at border states.
+
+II) Within the US Mexico border, the impartance of California state is clear representing $75\%$ of the border MSA with highest HPI growth. In fact San Diego-Chula Vista-Carlsbad exhibits the highest annual increase in 2022 with a $18.55\%$  
+
+II) The real state market in Florida shows the fastest growing level of prices with sharp increases particularly during the Trump administration, with Metropolitan areas such as West Palm Beach, North Port-Sarasota-Bradenton, Naples Marco Island and Tampa featurin double digit increases with amex growth of  32.77 the highest HPI annual growth in the nation.   
+
+III) Traditional non high HPI areas in border states such as Texas are now starting to gain dynamism, the clear example in this reagion is the Austin-Roundrock-Georgetown Metropolitan area, where external economic factors such as the recent establishment of companies to support the electric vehicle industry have contribute to create speculative pressures on the real estate local markets.^[
+In 2020, Tesla announced its decision to build a Gigafactory in Austin, which is expected to manufacture electric vehicles and employ thousands of workers. Suppliers, service providers, and other companies in the electric vehicle industry have begun to establish operations near the Gigafactory, creating additional job opportunities and further contributing to housing demand. The presence of a major company like Tesla often attracts real estate investors looking to capitalize on the economic growth and potential appreciation in property values. Increased investor interest can lead to higher demand for housing, further impacting the housing market dynamics] 
+
+
+
+Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, one question that arises in the context of economic determinants of house prices is:  What role does available economic policy instruments have played to   shape the US real state markets in the last two decades of the current century? 
 
 Certainly this period has witnessed at least two of the most remarkable and complex scenarios in economic recent history that deserve to be explained given its relevance for US society in general and households paying a mortgage in particular: I) the Great Recession, the economic downturn that occurred between December 2007 and June 2009. II) the COVID19 health emergency.
 
@@ -280,7 +322,7 @@ We may now turn to study the effects of this macroeconomic determinants and exte
 
 Figure 5, below examines time series from the Federal Reserve financial accounts data to show the evolution of mortgage debt outstanding in relation to the housing stock market value, an important feature that offers a unique perspective to measure home equity growth a key indicator that reflects supply and demand dynamics for the housing market as a result of fluctuations registered on primary macroeconomic environment instruments such as the federal funds effective rates. 
 
-Although this approach provides an nation wide perspective it is necessary to capture a base trend that then can be examined using a detailed geographic scale. 
+Although this approach provides an nation wide perspective it is necessary to capture a base trend whose implications then can be examined using a detailed geographic scale. 
 
 
 **Figure 5 Real estate at market value and rising equity 1980-2023**
@@ -322,5 +364,46 @@ dyOptions(drawGrid = FALSE))
 htmltools::browsable(htmltools::tagList(dy_graph_equity))
 ```
 Source: José Luis Manzanares Rivera based on data from [@federalreseveFinancialAccountsUnited2023]
+
+
+For existing home owners, home equity has more than double during the last decade (from 2006Q4 to 2022Q4 with a 213% growth).
+
+Why there was such growth in home equity in the nation during the last decade? 
+
+As we have seen, monetary policy is partially responsible for this trend, given a sustained period of quantitative easing. (starting from December 2008 with a Federal reserve effective rate (FFFER) = $0.16\%$ down from $5.26\%$ in July 2007 -prior to sub prime mortgage market collapse- Followed by a second ultra low FFER period that was implemented to cope with a deceleration of the economy in the presence of the global public health emergency triggered  by the COVID-19 restrictions, starting at 2020Q1 with FFER = $0.05\%$ down from FFER=$2.40 \%$ in june 2019. 
+
+Who benefited from this historically monetary policy scenario  characterized by ultra low interest rate? 
+
+Specially people who buy homes in attracting real state markets areas with dynamic internal migration patterns, who manage to profit from this  historic ultra low interest rate period, by entering the market and securing a Fixed-rate mortgage just after the sub prime mortgage collapse, that is between December 2008 and November 2015.  
+
+This movers took advantage of the economic stimulus provided the macroeconomic environment created with a monetary policy oriented for quantitative easing, a strategy  designed to lower the price of money in an effort to boost consumption and investment,among other things. For example, home equity for existing housing stock in the US in 2012Q1 was $10.25$T and it grew to $33.78$T in 10 years,  a 3X order of magnitude increase!
+
+Lets now take a closer look froma geographic perspective of this real estate markets impacts. Figure 6 below 
+
+
+
+
+```{r, echo=FALSE}
+
+#top20_metros_inv<-readRDS("top20metros_invest.rds")%>%  mutate(USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")))%>% slice_max(t, n=20)
+
+#saveRDS(top20_metros_inv, "top20_metros_inv.rds")
+
+top20_metros_inv<-readRDS("top20_metros_inv.rds")%>%
+  rename(Investment.Loans=t, MetropolitanArea=GEO_Name)%>%
+  mutate(MSA=fct_reorder(MetropolitanArea, Investment.Loans))
+
+inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)) +
+  geom_col() +
+  scale_fill_manual(values = c("#AEB6BF", "#C0392B")) +
+  labs(title = "Top 20 Metropolitan Areas. Investment Home loans 2022-Q1",
+       x = 'Total investment loans',
+       y = 'Metropolitan Statistical area')
+
+ggplotly(inv_plot)%>%
+  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+```
+
+Source: José Luis Manzanares River based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
 
 
