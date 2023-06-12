@@ -126,11 +126,11 @@ annotate("text", x="Alabama", y=50, size=3.1,label="US Housing RPP=100 per cent"
   annotate("text", x="California", y=70, size=3.1,label="64.9")+
   annotate("text", x="Arizona", y=6, size=3.1,label="2.4")+   annotate("text", x="Texas", y=-8, size=3.1,label="-4.4")+ 
    annotate("text", x="NewMexico", y=-30, size=3.1,label="-27")+
-scale_fill_manual(values=c("deepskyblue4","firebrick"), labels=c("Below average","Above average" ))+
+scale_fill_manual(values=c("deepskyblue4","firebrick"), labels=c("Below average","Above average" ), name="")+
   theme(legend.position = "bottom", legend.title = element_blank()) 
 
 ggplotly(rppp)%>%
-  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+  layout(legend = list(orientation = "h", x = 0.3, y = -0.2))
 
  #ggsave("rpp2022_housing_USstates.tiff", width = 25, height = 17, units = "cm",dpi=300)
 ```
@@ -196,7 +196,7 @@ mutate(MSA=fct_reorder(msa, hpi))%>%
 
 top22_hpi<-ggplot(msa2022, aes(hpi, MSA, fill=State))+
   geom_col()+
-  scale_fill_manual(values = alpha(c("dodgerblue4", "gray")))+
+  scale_fill_manual(values = alpha(c("dodgerblue4", "gray")), name="")+
   labs(
     x = 'House Price index 2020. (1995=100 percent)',
     y = 'Metropolitan statiscal areas (MSAs)',
@@ -204,13 +204,10 @@ top22_hpi<-ggplot(msa2022, aes(hpi, MSA, fill=State))+
     title = '')+ theme(legend.position="bottom")
 
 ggplotly(top22_hpi)%>%
-  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+  layout(legend = list(orientation = "h", x = 0.3, y = -0.2))
 
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
-
-USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")),hpi=round(hpi, 2))
-
 
 **Figure 3a House price index annual growth rate 1995-2022**
 
@@ -395,13 +392,13 @@ top20_metros_inv<-readRDS("top20_metros_inv.rds")%>%
 
 inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)) +
   geom_col() +
-  scale_fill_manual(values = c("#AEB6BF", "#C0392B")) +
+  scale_fill_manual(values = c("#AEB6BF", "#C0392B"), name="") +
   labs(title = "Top 20 Metropolitan Areas. Investment Home loans 2022-Q1",
        x = 'Total investment loans',
        y = 'Metropolitan Statistical area')
 
 ggplotly(inv_plot)%>%
-  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+  layout(legend = list(orientation = "h", x = 0.3, y = -0.2))
 ```
 
 Source: José Luis Manzanares River based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
