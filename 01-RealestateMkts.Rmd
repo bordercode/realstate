@@ -21,9 +21,7 @@ library(stringr)
 library(broom)
 library(ggeasy)
 library(usmap) 
-
-library(TSstudio)
-
+library(htmlwidgets)
 ```
 
 
@@ -97,10 +95,10 @@ Regional price parties capture variations in the cost of living across different
 
 The RPP base level is the national average which takes a value of 100, so RPP values above this national threshold indicate relative more expensive states in terms of housing prices.
 
-Figure 1 shows regional price parities by state relative the average US for 2021.  
+Figure 1 shows regional price parities by state relative the average US for 2021
 
-**Figure 1 Regional price parities (RPP) by state 2022**
-```{r, echo=FALSE, warning=FALSE,message=FALSE}
+[Figure 1 Regional price parities (RPP) by state 2022](../speech/F1_rpp.html).  
+```{r, echo=FALSE, warning=FALSE,message=FALSE, fig.height = 7, fig.width = 9.4}
 
 ### Plot  For Regional price parities for the housing component
 
@@ -120,7 +118,7 @@ rppp<-ggplot(prices, aes(x = reorder(state,rppindex), y=rppindex, fill = type))+
   theme_minimal()+
 labs(fill="RPP")+
 theme(legend.justification=c(1,0), legend.position=c(.9,.4))+
-ylab("Regional Price Parities (RPP) 2022. Housing component. (%) Deviation")+
+ylab("Housing component of RPP. (%) Deviation")+
 xlab("State")+
 annotate("text", x="Alabama", y=50, size=3.1,label="US Housing RPP=100 per cent")+
   annotate("text", x="California", y=70, size=3.1,label="64.9")+
@@ -130,7 +128,12 @@ scale_fill_manual(values=c("deepskyblue4","firebrick"), labels=c("Below average"
   theme(legend.position = "bottom", legend.title = element_blank()) 
 
 ggplotly(rppp)%>%
-  layout(legend = list(orientation = "h", x = 0.3, y = -0.2))
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+#htmlwidgets::saveWidget(widget = rppplot, 
+#the plotly object file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F1_rpp.html", 
+#the path & file name selfcontained = TRUE #creates a single html file)
+
 
  #ggsave("rpp2022_housing_USstates.tiff", width = 25, height = 17, units = "cm",dpi=300)
 ```
@@ -149,9 +152,9 @@ Figure 2 below shows the House Price index (HPI) distribution across the 387 U.S
 
 The index depicts housing market prices taking as base year 1995. So higher values indicate a relative appreciation and therefore more expensive locations than those with smaller circles.   
 
+[Figure 2 Regional price parities (RPP) by state 2022](../speech/F2map.html).
 
-**Figure 2 Metropolitan Statiscal areas House Price Index distribution 2020**
-```{r,  warning=FALSE, message=FALSE, echo=FALSE}
+```{r,  warning=FALSE, message=FALSE, echo=FALSE, fig.height = 6.5, fig.width = 8}
 
 ## This datas set contains 387   MSA as of  2020 with geo atribututes and avg hpi  2020  base year is 1995   which means that HPI for uS is 100% in 1995. The avg_q  variable takes into account a mean for q1,q2,q3,q4  in the given year.
 
@@ -167,6 +170,8 @@ mapviewOptions(vector.palette=colorRampPalette(c("blue","orange","red")))
 mapa<-mapview(df, map.types =  "OpenStreetMap.DE",cex="hpi20", zcol="hpi20", layer.name= "MSA House Price Index",legend = FALSE,homebutton =FALSE)
   
 leafem::addMouseCoordinates(mapa)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
+
+#htmlwidgets::saveWidget(widget = mapita, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F2map.html",  selfcontained = TRUE)
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
 
@@ -182,34 +187,41 @@ Using the above estimated pattern it si convenient determine **which metropolita
 
 Figure 3 illustrates the ranking of the nation's 20 foremost metropolitan areas based on their respective positions in the House Price Index (HPI) for the year 2020. It is important to note that these areas signify the highest relative increases in home prices compared to the base year of 1995, rather than indicating the absolute highest-priced urban population centers. 
 
-**Figure 3 Top 20 Metropolitan areas by HPI increase.**
-```{r, echo=FALSE}
+[Figure 3 Top 20 Metropolitan areas by HPI increase 2020](../speech/F3_top20.html)
+```{r, include=FALSE}
 #df<-readRDS("datageo2020.rds")
 
-msa2022<-readRDS("msa2022.rds")%>%
-  mutate(State=as.factor(ifelse(state==" CA"|state==" CA (MSAD)","California","Other state")), top2022=ifelse(hpi>=479.435,1,0))%>%
-mutate(MSA=fct_reorder(msa, hpi))%>%
-  rename(place_id=cbsa_code)
+#msa2020<-readRDS("msa2020.rds")%>%  mutate(State=as.factor(ifelse(state==" CA"|state==" CA (MSAD)","California","Other state")), top2022=ifelse(hpi>=479.435,1,0))%>%mutate(MSA=fct_reorder(msa, hpi))%>%  rename(place_id=cbsa_code)
 
+#df<-readRDS("datageo2020.rds")
 
+#top20<-df%>%slice_max(hpi20, n=20)%>%  mutate(State=as.factor(ifelse(state==" CA"|state==" CA (MSAD)","California","Other state")))
+
+#saveRDS(top20, "top20.rds")
+```
+
+```{r,echo=FALSE, fig.height = 6, fig.width = 9.4}
+top20<-readRDS("top20.rds")%>%
+rename(Place=State, State=state)  
 ## The plot.
 
-top22_hpi<-ggplot(msa2022, aes(hpi, MSA, fill=State))+
+top20_hpi<-ggplot(top20, aes(hpi20, reorder(msa.x, hpi20), label=State, fill=Place))+
   geom_col()+
-  scale_fill_manual(values = alpha(c("dodgerblue4", "gray")), name="")+
+  scale_fill_manual(values = alpha(c("dodgerblue4", "gray")),name="")+
   labs(
     x = 'House Price index 2020. (1995=100 percent)',
-    y = 'Metropolitan statiscal areas (MSAs)',
-    alpha = 'Class',
-    title = '')+ theme(legend.position="bottom")
+    y = 'Metropolitan statiscal areas (MSAs)')+
+  theme(legend.position="bottom")
 
-ggplotly(top22_hpi)%>%
-  layout(legend = list(orientation = "h", x = 0.3, y = -0.2))
+ggplotly(top20_hpi)%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+#htmlwidgets::saveWidget(widget = f3top20, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F3_top20.html",  selfcontained = TRUE)
 
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
 
-**Figure 3a House price index annual growth rate 1995-2022**
+[Figure 3a House price index annual growth rate 1995-2022](../speech/F3a_panel_growth.html)
 
 ```{r, include=FALSE}
 #floflo<-data.frame(f=c(" FL"))
@@ -220,15 +232,17 @@ Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfa
 
 #rate$msa[rate$msa=="West Palm Beach-Boca Raton-Boynton Beach"] <- "West Palm Beach-Boca Raton"
 
+#rate$msa[rate$msa=="San Francisco-San Mateo-Redwood City"] <- "San Francisco-Redwood City"
+
 #saveRDS(rate, "rate.rds")
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.height = 6.3, fig.width = 9.5}
 rate<-readRDS("rate.rds")
 cols <- c( "#E74C3C","#154360", "#1E8449")
           
 tsplot<-ggplot(rate, aes( Year, AnnualGrowth,color=geo, label = state))+
-  geom_line() + 
+  geom_line(linewidth=.3) + 
 facet_wrap(~msa, scales = "free_y")+
   geom_hline(yintercept=0)+
   geom_vline(xintercept=2009, linetype="dotdash")+
@@ -236,7 +250,10 @@ facet_wrap(~msa, scales = "free_y")+
   labs(y="Annual HPI growth rate (%)")
   
 ggplotly(tsplot)%>%
-  layout(legend = list(orientation = "h", x = 0.2, y = -0.1))
+layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+
+#htmlwidgets::saveWidget(widget = panel, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F3a_panel_growth.html",  selfcontained = TRUE)
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
 
@@ -267,14 +284,14 @@ The importance of the Federal Funds effective rate (FFER) is particularly pronou
 
 Figure 4, presents the evolution of the FFER in the period from  to July 2000 to May 2023. 
 
-**Figure 4. Monetary policy: The federal Funds Effective reate evolution July 2000 - May 2023**
-```{r, echo = FALSE}
+[Figure 4 Monetary policy: The federal Funds Effective reate evolution July 2000  May 2023](../speech/F4_FFER.html)
+```{r, echo = FALSE, fig.height = 6, fig.width = 9.4}
 
 # FFER plot 
 
 ts_FFER<-readRDS("ts_FFER.rds")
 
-dygraph(ts_FFER, main = "Monetary policy: FFER")%>% 
+dygraph(ts_FFER)%>% 
 dyRangeSelector()%>%
 dyHighlight(highlightCircleSize = 3, 
 highlightSeriesBackgroundAlpha = 0.2
@@ -286,6 +303,8 @@ dyEvent("2008-07-01", "QE Subprime mortgage market collapse", labelLoc = "top", 
 dyEvent("2020-02-01", "NBER Economic recession: QE -Ultra Low interest rates-", labelLoc = "top", color = "blue")%>%
   dyEvent("2022-02-01", "Monetary policy change ending quantitative easing", labelLoc = "top", color = "red")%>%
 dyOptions(axisLineWidth = 1.5, fillGraph = TRUE, drawGrid = FALSE)
+
+# htmlwidgets::saveWidget(widget = ts_FFERp, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F4_FFER.html",  selfcontained = TRUE)
 
 # Source: https://fred.stlouisfed.org/series/FEDFUNDS
 ```
@@ -378,9 +397,9 @@ This movers took advantage of the economic stimulus provided the macroeconomic e
 Lets now take a closer look froma geographic perspective of this real estate markets impacts. Figure 6 below 
 
 
+[Figure xx](../speech/inve.html)
 
-
-```{r, echo=FALSE}
+```{r, include=FALSE ,echo=FALSE}
 
 #top20_metros_inv<-readRDS("top20metros_invest.rds")%>%  mutate(USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")))%>% slice_max(t, n=20)
 
@@ -397,10 +416,18 @@ inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)
        x = 'Total investment loans',
        y = 'Metropolitan Statistical area')
 
-ggplotly(inv_plot)%>%
-  layout(legend = list(orientation = "h", x = 0.3, y = -0.2))
+invplotly<-ggplotly(inv_plot)%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05), annotations =  list(x = 1, y = -0.1, text = "Source: José Luis Manzanares  based on Single-Family Loan-Level 2022Q1 (Freddie Mac Home, 2023) data",  showarrow = F, xref='paper', yref='paper', 
+      xanchor='right', yanchor='auto', xshift=0, yshift=0,
+      font=list(size=7, color="#17202A")))
+
+htmlwidgets::saveWidget(
+  widget = invplotly, #the plotly object
+  file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/inve.html", #the path & file name
+  selfcontained = TRUE #creates a single html file
+)
 ```
 
-Source: José Luis Manzanares River based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
+Source: José Luis Manzanares Rivera based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
 
 
