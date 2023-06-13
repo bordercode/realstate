@@ -98,7 +98,7 @@ The RPP base level is the national average which takes a value of 100, so RPP va
 Figure 1 shows regional price parities by state relative the average US for 2021
 
 [Figure 1 Regional price parities (RPP) by state 2022](../speech/F1_rpp.html).  
-```{r, echo=FALSE, warning=FALSE,message=FALSE, fig.height = 7, fig.width = 9.4}
+```{r, echo=FALSE, warning=FALSE,message=FALSE}
 
 ### Plot  For Regional price parities for the housing component
 
@@ -154,7 +154,7 @@ The index depicts housing market prices taking as base year 1995. So higher valu
 
 [Figure 2 Regional price parities (RPP) by state 2022](../speech/F2map.html).
 
-```{r,  warning=FALSE, message=FALSE, echo=FALSE, fig.height = 6.5, fig.width = 8}
+```{r,  warning=FALSE, message=FALSE, echo=FALSE}
 
 ## This datas set contains 387   MSA as of  2020 with geo atribututes and avg hpi  2020  base year is 1995   which means that HPI for uS is 100% in 1995. The avg_q  variable takes into account a mean for q1,q2,q3,q4  in the given year.
 
@@ -200,7 +200,7 @@ Figure 3 illustrates the ranking of the nation's 20 foremost metropolitan areas 
 #saveRDS(top20, "top20.rds")
 ```
 
-```{r,echo=FALSE, fig.height = 6, fig.width = 9.4}
+```{r,echo=FALSE}
 top20<-readRDS("top20.rds")%>%
 rename(Place=State, State=state)  
 ## The plot.
@@ -237,7 +237,7 @@ Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfa
 #saveRDS(rate, "rate.rds")
 ```
 
-```{r, echo=FALSE, fig.height = 6.3, fig.width = 9.5}
+```{r, echo=FALSE}
 rate<-readRDS("rate.rds")
 cols <- c( "#E74C3C","#154360", "#1E8449")
           
@@ -257,35 +257,33 @@ layout(legend = list(orientation = "h", x = 0, y = -.05))
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
 
-I would like to take on four patterns found when analyzing the top 20 metropolitan areas with the highest appreciation rates as measured by the annual growth on the HPI during the last 27 years  
+I would like to take on four patterns found when analyzing the top 20 metropolitan areas with the highest appreciation rates as measured by the annual growth on the HPI during the last 27 years.
+
 I) The importance of the USMX border region. $40\%$ of the top 20 (MSAs) with the highest appreciation rates are located  at border states.
 
 II) Within the US Mexico border, the impartance of California state is clear representing $75\%$ of the border MSA with highest HPI growth. In fact San Diego-Chula Vista-Carlsbad exhibits the highest annual increase in 2022 with a $18.55\%$  
-
 II) The real state market in Florida shows the fastest growing level of prices with sharp increases particularly during the Trump administration, with Metropolitan areas such as West Palm Beach, North Port-Sarasota-Bradenton, Naples Marco Island and Tampa featurin double digit increases with amex growth of  32.77 the highest HPI annual growth in the nation.   
 
 III) Traditional non high HPI areas in border states such as Texas are now starting to gain dynamism, the clear example in this reagion is the Austin-Roundrock-Georgetown Metropolitan area, where external economic factors such as the recent establishment of companies to support the electric vehicle industry have contribute to create speculative pressures on the real estate local markets.^[
 In 2020, Tesla announced its decision to build a Gigafactory in Austin, which is expected to manufacture electric vehicles and employ thousands of workers. Suppliers, service providers, and other companies in the electric vehicle industry have begun to establish operations near the Gigafactory, creating additional job opportunities and further contributing to housing demand. The presence of a major company like Tesla often attracts real estate investors looking to capitalize on the economic growth and potential appreciation in property values. Increased investor interest can lead to higher demand for housing, further impacting the housing market dynamics] 
 
-
-
-Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, one question that arises in the context of economic determinants of house prices is:  What role does available economic policy instruments have played to   shape the US real state markets in the last two decades of the current century? 
+Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, one question that arises in the context of economic determinants of house prices is:  What role does available economic policy instruments have played to shape the US real state markets in the last two decades of the current century? 
 
 Certainly this period has witnessed at least two of the most remarkable and complex scenarios in economic recent history that deserve to be explained given its relevance for US society in general and households paying a mortgage in particular: I) the Great Recession, the economic downturn that occurred between December 2007 and June 2009. II) the COVID19 health emergency.
 
-In accordance with conventional economic theory, a fundamental factor influencing the overall fluctuations in the aggregate price level is the cost of borrowing, commonly known as the interest rate. Interest rates are a core instrument of monetary policy that play a pivotal role in shaping economic dynamics and has significant implications for various sectors of the economy, including real estate markets. 
+In accordance with conventional economic theory, a fundamental factor influencing the overall fluctuations in the aggregate price level is the cost of borrowing, formaly known as the interest rate. Interest rates are a core instrument of monetary policy that play a pivotal role in shaping economic dynamics and has significant implications for various sectors of the economy, including real estate markets. 
 
 Therefore, understanding the evolution in time of interest rates is crucial for comprehending not only the aggregate price level fluctuations, but also its impacts on particular components, among which housing prices bear a specially important role households. 
 
-We now turn to the analysis of this important macroeconomic determinant and begin by presenting the trayectory overtime for the Federal Funds effective rate. 
+We now turn to the analysis of this important macroeconomic determinant and begin by presenting the trajectory overtime for the Federal Funds effective rate. 
 This rate serves as a benchmark or reference point for other short-term interest rates, exerting a considerable influence on the overall cost of borrowing and lending in the economy.
 
 The importance of the Federal Funds effective rate (FFER) is particularly pronounced in relation to the housing sector and real estate markets. Firstly, it directly affects the cost of mortgage borrowing for homebuyers. Changes in the Federal Funds rate can lead to adjustments in mortgage interest rates, impacting affordability and demand for housing. Lower rates tend to stimulate borrowing and housing activity, while higher rates may dampen demand. This inverse relation is paramount to explain demand side factors that have been taking place in the US housing market as we will soon discover. 
 
 Figure 4, presents the evolution of the FFER in the period from  to July 2000 to May 2023. 
 
-[Figure 4 Monetary policy: The federal Funds Effective reate evolution July 2000  May 2023](../speech/F4_FFER.html)
-```{r, echo = FALSE, fig.height = 6, fig.width = 9.4}
+[Figure 4 Monetary policy: The federal Funds Effective rate evolution July 2000  May 2023](../speech/F4_FFER.html)
+```{r, echo = FALSE}
 
 # FFER plot 
 
@@ -304,7 +302,7 @@ dyEvent("2020-02-01", "NBER Economic recession: QE -Ultra Low interest rates-", 
   dyEvent("2022-02-01", "Monetary policy change ending quantitative easing", labelLoc = "top", color = "red")%>%
 dyOptions(axisLineWidth = 1.5, fillGraph = TRUE, drawGrid = FALSE)
 
-# htmlwidgets::saveWidget(widget = ts_FFERp, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F4_FFER.html",  selfcontained = TRUE)
+#htmlwidgets::saveWidget(widget = ts_FFERp, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F4_FFER.html",  selfcontained = TRUE)
 
 # Source: https://fred.stlouisfed.org/series/FEDFUNDS
 ```
@@ -341,7 +339,7 @@ Figure 5, below examines time series from the Federal Reserve financial accounts
 Although this approach provides an nation wide perspective it is necessary to capture a base trend whose implications then can be examined using a detailed geographic scale. 
 
 
-**Figure 5 Real estate at market value and rising equity 1980-2023**
+**Figure 5 Real estate at market value and rising equity 1980-2023** [See F5a](../speech/F5_dy1.html), [See F5b](../speech/F5_dy1.html)
 ```{r, echo=FALSE}
 # Plots.
 ## Rising equity 
@@ -394,10 +392,85 @@ Specially people who buy homes in attracting real state markets areas with dynam
 
 This movers took advantage of the economic stimulus provided the macroeconomic environment created with a monetary policy oriented for quantitative easing, a strategy  designed to lower the price of money in an effort to boost consumption and investment,among other things. For example, home equity for existing housing stock in the US in 2012Q1 was $10.25$T and it grew to $33.78$T in 10 years,  a 3X order of magnitude increase!
 
-Lets now take a closer look froma geographic perspective of this real estate markets impacts. Figure 6 below 
+Lets now analyze from a geographic perspective, how real estate markets behave during this economic policy changes.
+
+Figure 6 below shows a national perspective for the distribution of home price index at a moment before the implementation of a dovish monetary policy. 
 
 
-[Figure xx](../speech/inve.html)
+[Figure 6 HPI by state 2006](../speech/F6_hpi.html)
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+#library(tigris)
+
+#us_geo <- tigris::states(cb = TRUE, resolution = '20m')%>%rename(state=STUSPS)
+#master_freddie_2006<-readRDS("master_freddie_2006.rds")
+#Index<-inner_join(us_geo, master_freddie_2006, by ="state")%>%select(HPI, state, NAME)%>%rename(HPI_2006=HPI)
+
+#saveRDS(Index,"Index.rds")
+
+library(wesanderson)
+
+Level<-readRDS("Index.rds")%>%
+  rename(HPI2006=HPI_2006)
+
+hpi06_map <- mapview(Level, zcol = "HPI2006", col.regions = wes_palette(n = 5, name = "Zissou1"), alpha.regions = 2)
+
+leafem::addMouseCoordinates(hpi06_map)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
+
+# htmlwidgets::saveWidget(  widget = map06, #the plotly objectfile = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F6_hpi.html", #the path & file nameselfcontained = TRUE #creates a single html file)
+
+
+
+```
+Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
+
+
+[Figure 7 HPI by state 2023](../speech/F7_hpi23.html)
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+
+library(wesanderson)
+
+
+#master_freddie_2023<-readRDS("master_freddie_2023.rds")
+
+#Index23<-inner_join(us_geo, master_freddie_2023, by ="state")%>%select(values, state, NAME)%>%rename(HPI_2023=values)
+
+#saveRDS(Index23,"Index23.rds")
+
+Levels<-readRDS("Index23.rds")
+
+hpi23_map <- mapview(Levels, zcol = "HPI_2023", col.regions = wes_palette(n = 5, name = "Zissou1"), alpha.regions = 2)
+
+leafem::addMouseCoordinates(hpi23_map)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
+
+#htmlwidgets::saveWidget(  widget = map23, #the plotly object
+                        #  file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F7_hpi23.html", 
+#the path & file name
+#selfcontained = TRUE #creates a single html file)
+
+```
+Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
+
+
+[Figure 8 HPI by state evolution over time 1975-2022](../speech/F8_hpi.html)
+```{r}
+library(magick)
+
+## Representing a map to show HPI (apretiation ) HPI 1975-2022  Using data from Freddie Mac. 
+
+# Base month  is The FMHPI is calculated so that the index value for December 2000 equals 100.
+
+# Read the .gif file
+image <- image_read("HPI_apreciation_map.gif")
+
+# Print some information about the image
+print(image)
+
+```
+
+[Figure 9. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F9_invest.html)
 
 ```{r, include=FALSE ,echo=FALSE}
 
@@ -416,16 +489,13 @@ inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)
        x = 'Total investment loans',
        y = 'Metropolitan Statistical area')
 
-invplotly<-ggplotly(inv_plot)%>%
+ggplotly(inv_plot)%>%
   layout(legend = list(orientation = "h", x = 0, y = -.05), annotations =  list(x = 1, y = -0.1, text = "Source: José Luis Manzanares  based on Single-Family Loan-Level 2022Q1 (Freddie Mac Home, 2023) data",  showarrow = F, xref='paper', yref='paper', 
       xanchor='right', yanchor='auto', xshift=0, yshift=0,
       font=list(size=7, color="#17202A")))
 
-htmlwidgets::saveWidget(
-  widget = invplotly, #the plotly object
-  file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/inve.html", #the path & file name
-  selfcontained = TRUE #creates a single html file
-)
+#htmlwidgets::saveWidget(widget = invplotly, #the plotly object file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F9_invest.html", #the path & file name selfcontained = TRUE 
+  #creates a single html file )
 ```
 
 Source: José Luis Manzanares Rivera based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
