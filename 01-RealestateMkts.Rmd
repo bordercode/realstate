@@ -340,7 +340,7 @@ Although this approach provides an nation wide perspective it is necessary to ca
 
 
 **Figure 5 Real estate at market value and rising equity 1980-2023** [See F5a](../speech/F5_dy1.html), [See F5b](../speech/F5_dy1.html)
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.height=4, fig.width=6}
 # Plots.
 ## Rising equity 
 ## loading data 
@@ -455,7 +455,8 @@ Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base yea
 
 
 [Figure 8 HPI by state evolution over time 1975-2022](../speech/F8_hpi.html)
-```{r}
+```{r, echo=FALSE, warning=FALSE, message=FALSE,fig.height=8, fig.width=10}
+
 library(magick)
 
 ## Representing a map to show HPI (apretiation ) HPI 1975-2022  Using data from Freddie Mac. 
@@ -464,15 +465,13 @@ library(magick)
 
 # Read the .gif file
 image <- image_read("HPI_apreciation_map.gif")
-
-# Print some information about the image
-print(image)
+image
 
 ```
 
 [Figure 9. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F9_invest.html)
 
-```{r, include=FALSE ,echo=FALSE}
+```{r, echo=FALSE, fig.height=6, fig.width=8}
 
 #top20_metros_inv<-readRDS("top20metros_invest.rds")%>%  mutate(USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")))%>% slice_max(t, n=20)
 
@@ -485,14 +484,11 @@ top20_metros_inv<-readRDS("top20_metros_inv.rds")%>%
 inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)) +
   geom_col() +
   scale_fill_manual(values = c("#AEB6BF", "#C0392B"), name="") +
-  labs(title = "Top 20 Metropolitan Areas. Investment Home loans 2022-Q1",
-       x = 'Total investment loans',
+  labs(      x = 'Total investment loans',
        y = 'Metropolitan Statistical area')
 
 ggplotly(inv_plot)%>%
-  layout(legend = list(orientation = "h", x = 0, y = -.05), annotations =  list(x = 1, y = -0.1, text = "Source: José Luis Manzanares  based on Single-Family Loan-Level 2022Q1 (Freddie Mac Home, 2023) data",  showarrow = F, xref='paper', yref='paper', 
-      xanchor='right', yanchor='auto', xshift=0, yshift=0,
-      font=list(size=7, color="#17202A")))
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
 
 #htmlwidgets::saveWidget(widget = invplotly, #the plotly object file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F9_invest.html", #the path & file name selfcontained = TRUE 
   #creates a single html file )
