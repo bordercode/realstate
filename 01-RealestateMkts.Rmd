@@ -332,14 +332,66 @@ In this unprecedented complex global economic setting, the Federal Reserve of th
 This monetary policy was extended for almost two years and started to be normalized by april 2022. 
 
 
-We may now turn to study the effects of this macroeconomic determinants and external shocks to the economy into the housing markets and its relation to cirrent internal migration patterns with a focus in specific regions of the country, such as the US-Mexico border states and metropolitan areas. 
+To capture the effects of this economic determinants on the housing markets,  we proposed to analyze google search data. We compare the search frequency overtime for specific termns related to the housing market, this novel approach captures  the broader social dimension that just raw economic indicators ca not uncover. 
 
-Figure 5, below examines time series from the Federal Reserve financial accounts data to show the evolution of mortgage debt outstanding in relation to the housing stock market value, an important feature that offers a unique perspective to measure home equity growth a key indicator that reflects supply and demand dynamics for the housing market as a result of fluctuations registered on primary macroeconomic environment instruments such as the federal funds effective rates. 
+The following analysis contains the trend for google score for terms:  "affordable home", "foreclosure" and "eviction". This terms are then plotted against the macroeconomic policy threshold dates and  external shocks events. Results are shown by figures xxx
 
-Although this approach provides an nation wide perspective it is necessary to capture a base trend whose implications then can be examined using a detailed geographic scale. 
+[Figure 5 California Google trends score 2004-2023. Selected terms](../speech/F5_google_a.html)[Fig5b](../speech/F5_google_b.html)
+```{r, echo=FALSE}
+
+# Plots  google trends.
 
 
-**Figure 5 Real estate at market value and rising equity 1980-2023** [See F5a](../speech/F5_dy1.html), [See F5b](../speech/F5_dy2.html)
+ts_foreclosure<-readRDS("ts_foreclosure.rds")
+ts_trends<-readRDS("ts_trends.rds")
+
+
+
+ggsearch <- list(
+dygraph(ts_trends,  group= "a", main = "Affordable home")%>% 
+dyRangeSelector()%>%
+dyHighlight(highlightCircleSize = 3, 
+highlightSeriesBackgroundAlpha = 0.2,
+hideOnMouseOut = FALSE)%>%
+dySeries("score", label ="Term: Affordable home", fillGraph = TRUE)%>%
+dyAxis("y", label = "California. Google trends score")%>%
+dyLegend(width = 300)%>%
+dyEvent("2008-07-01", "Subprime mortgage market collpse 2008-07-01", labelLoc = "top", color = "red"),
+  
+dygraph(ts_foreclosure, group= "a", main = "Terms: Eviction, Foreclosure")%>% dyRangeSelector()%>%
+dyHighlight(highlightCircleSize = 3, 
+highlightSeriesBackgroundAlpha = 0.2,
+hideOnMouseOut = FALSE)%>%
+dySeries("foreclosure", color = "#E74C3C",fillGraph = TRUE, label = "Foreclosure" )%>%
+dyAxis("y", label = "California Google trends score")%>%
+dySeries("eviction", color="#2874A6",label = "Evictions", axis = 'y2')%>%
+dyAxis("y2", label = "Score")%>%
+dyLegend(width = 300)%>%
+dyOptions(drawGrid = FALSE,  strokeWidth = c(1, 3))%>%
+dyEvent("2020-02-01", "January 31, 2020 COVID-19 Health emergency", labelLoc = "top", color = "gray"))
+
+htmltools::browsable(htmltools::tagList(ggsearch))
+
+
+#htmlwidgets::saveWidget(widget = GG5b, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F5_google_b.html",  selfcontained = TRUE)
+
+```
+Source: José Luis Manzanares Rivera based on data from [@googleGoogleTrendss2023]
+
+We can clearly note the effect of the *sub-prime mortgage market* collapse in the population sentiment reflected as a higher volume of search for terms such as "affordable home" which indicate a tight real state market during the second quarter of 2009. 
+
+In addition, during this period we found the highest scores over the last two decades for the term foreclosure^[a legal process in which a lender attempts to recover the balance of a loan from a borrower who has stopped making payments to the lender by forcing the sale of the asset used as the collateral for the loan.], interestingly enough, when we analyze "eviction" a term that reflects housing market stress associated to the renters segment, we observe a clear indication of the labor market tightening caused by the health emergency restrictions after January 2020.
+
+Considering evidence on real state market prices in Californian MSA, labor market conditions and well as supply and demand exogenous shocks the analysis suggest that search for affordability  is one of the reasons why some people have decided to relocate out of state  or even to make the move across the border. 
+
+We may now turn to study the effects of this macroeconomic determinants and external shocks to the economy into the housing markets and its relation to current internal migration patterns with a focus in specific regions of the country, such as the US-Mexico border states and metropolitan areas. 
+
+Figure 6, below examines time series from the Federal Reserve financial accounts data to show the evolution of mortgage debt outstanding in relation to the housing stock market value, an important feature that offers a unique perspective to measure home equity growth a key indicator that reflects supply and demand dynamics for the housing market as a result of fluctuations registered on primary macroeconomic environment instruments such as the federal funds effective rates. 
+
+Although this approach provides an nation wide perspective it captures a base trend whose implications then can be examined using a detailed geographic scale. 
+
+
+**Figure 6 Real estate at market value and rising equity 1980-2023** [See F6a](../speech/F6_dy1.html), [See F6b](../speech/F6_dy2.html)
 ```{r, echo=FALSE, fig.height=4, fig.width=6}
 # Plots.
 ## Rising equity 
@@ -376,6 +428,9 @@ dyLegend(width = 300)%>%
 dyOptions(drawGrid = FALSE))
 
 htmltools::browsable(htmltools::tagList(dy_graph_equity))
+
+#htmlwidgets::saveWidget(widget = F6b, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F6b_equity.html",  selfcontained = TRUE)
+
 ```
 Source: José Luis Manzanares Rivera based on data from [@federalreseveFinancialAccountsUnited2023]
 
@@ -392,12 +447,54 @@ Specially people who buy homes in attracting real state markets areas with dynam
 
 This movers took advantage of the economic stimulus provided the macroeconomic environment created with a monetary policy oriented for quantitative easing, a strategy  designed to lower the price of money in an effort to boost consumption and investment,among other things. For example, home equity for existing housing stock in the US in 2012Q1 was $10.25$T and it grew to $33.78$T in 10 years,  a 3X order of magnitude increase!
 
+In addition, detailed mortgage records kept by governmet sponsored enterprises such as Freddie Mac and Fannie Mae, allow to distinguish the type of loan granted to actual current mortgage clients, this data is important to show real estate investment trends across Metropolitan areas. 
+
+Nationwide 87.3% of FM clients are paying the loan for a house that is a primary residence. Almost 4% of  Freddie Mac home buyers are buying a secondary home.  And 8.9% are paying a home loan  classified as investment. 
+
+If we think of second home loans as a proxy for social status, say, better off household get this type of loan, then the  families in the states of  Virginia, Vermont, Delaware  Maine and Florida are the places were this type of families mostly live. 
+
+Figure 6  below ranks metro MSAs by the number of loans classified as investment by Freddie Mac single family loan data for the first quarter of 2022 [@freddiemachomeSingleFamilyLoanLevel2023]. 
+
+[Figure 6. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F9_invest.html)
+
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+
+#top20_metros_inv<-readRDS("top20metros_invest.rds")%>%  mutate(USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")))%>% slice_max(t, n=20)
+
+#saveRDS(top20_metros_inv, "top20_metros_inv.rds")
+
+top20_metros_inv<-readRDS("top20_metros_inv.rds")%>%
+  rename(Investment.Loans=t, MetropolitanArea=GEO_Name)%>%
+  mutate(MSA=fct_reorder(MetropolitanArea, Investment.Loans))
+
+inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)) +
+  geom_col() +
+  scale_fill_manual(values = c("#AEB6BF", "#C0392B"), name="") +
+  labs(      x = 'Total investment loans',
+       y = 'Metropolitan Statistical area')
+
+ggplotly(inv_plot)%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+# htmlwidgets::saveWidget(widget = f6, #the plotly object 
+                       # file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F6_invest.html", 
+                        #the path & file name selfcontained = TRUE 
+  #creates a single html file  )
+```
+
+Source: José Luis Manzanares Rivera based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
+
+The information above for  loan category: investment,  indicates which metropolitan areas are conceived as dynamic real estate areas. It is found that The Phoenix-Mesa-Scottsdale Arizona MSA, shows the highest investment property type of loans in the US for data on the firts quarter of 2022.  
+
+Furthermore, data analysis at the state scale indicates that California is the state with the highest percentage of home loans classified as investment ($11.88\%$ a proportion statistically different from the US median $7.9\%$). Given the raising trend for home prices in the state, this pattern suggest the presence of speculative pressures, that may limit the supply of affordable homes in this particular area of the country. 
+
+
 Lets now analyze from a geographic perspective, how real estate markets behave during this economic policy changes.
 
 Figure 6 below shows a national perspective for the distribution of home price index at a moment before the implementation of a dovish monetary policy. 
 
 
-[Figure 6 HPI by state 2006](../speech/F6_hpi.html)
+[Figure 7 HPI by state 2006](../speech/F6_hpi.html)
 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
@@ -469,31 +566,62 @@ image
 
 ```
 
-[Figure 9. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F9_invest.html)
 
-```{r, echo=FALSE, fig.height=6, fig.width=8}
 
-#top20_metros_inv<-readRDS("top20metros_invest.rds")%>%  mutate(USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")))%>% slice_max(t, n=20)
 
-#saveRDS(top20_metros_inv, "top20_metros_inv.rds")
 
-top20_metros_inv<-readRDS("top20_metros_inv.rds")%>%
-  rename(Investment.Loans=t, MetropolitanArea=GEO_Name)%>%
-  mutate(MSA=fct_reorder(MetropolitanArea, Investment.Loans))
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
 
-inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)) +
-  geom_col() +
-  scale_fill_manual(values = c("#AEB6BF", "#C0392B"), name="") +
-  labs(      x = 'Total investment loans',
-       y = 'Metropolitan Statistical area')
+## THIS IS THE PLOT  income,  population,   hpi  2020 for border states msa.
 
-ggplotly(inv_plot)%>%
-  layout(legend = list(orientation = "h", x = 0, y = -.05))
+## HPI Source> https://www.fhfa.gov/DataTools/Tools/Pages/Four-Quarter-Heat-Map.aspx
 
-#htmlwidgets::saveWidget(widget = invplotly, #the plotly object file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F9_invest.html", #the path & file name selfcontained = TRUE 
-  #creates a single html file )
+
+only_border2020<-readRDS("df_inc_pop_hpi2020.rds")%>%
+  mutate(state=as.factor(state))
+
+p <- ggplot(only_border2020, aes(pp_inccome, hpi, size = Population, colour = state, label=msa)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(1, 6))  +
+  scale_colour_manual(values = c("red","blue", "darkgoldenrod4", "grey"))+
+labs(title = "House price index, population and Income 2020. MSA at Border states 2020", x = 'Per capita personal income 2020', y = 'HPI 1991=100', colour = "state", size="HPI", caption="Source: Federal Housing Finance Agency. 2023") +
+scale_x_log10(labels =  comma ) +
+geom_hline(yintercept=median(only_border2020$hpi), linetype="dotted", color="black")+
+geom_vline(xintercept =mean(only_border2020$pp_inccome), linetype="dotted", color="black")+
+geom_smooth(method="lm", se=FALSE, linewidth=.2 )+
+theme_classic()+
+annotate("text", x=100000, y=270, size=3.1,label="Median HPI")
+
+
+ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>% 
+  layout(
+  legend = list(orientation = 'h', x = 0.3, y = -0.13,title=list(text="State")))
+
+## Methodology note:  Data considers Purchase only, PO.  quarterly for MSA  base 1991-Q1. FHFA. https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx. 
+
+# Detailed source site for smaller areas Such as Census tracks.  https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index-Datasets.aspx#qpo
 ```
+Source: Federal Housing Agency  [@fhfaHousePriceIndex2022]
 
-Source: José Luis Manzanares Rivera based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
+Although data provides sound evidence that personal per capita income and house prices are positively correlated, degrees of correlation varies between border state´s metropolitan areas, with the strongest relationship being observed by Californian MSA, where we also find the most expensive metropolitan areas of the border states considering housing prices. 
+
+In addition, there is only a weak positive relationship between house prices as measured by the HPI and population size, this is the case for New Mexico, where relative large size metropolitan areas such as Albuquerque still exhibit affordable house prices. Population size being a proxy for housing demand. 
+
+While this pattern found makes sense considering the basic principles of economics concerning scarcity, it also suggest that other factors influence house price fluctuations, including the underlying labor market structure and demand for highly skilled labor force, which is certainly the case for metropolitan areas located near the Silicon valley region in California such as the San Jose-Sunnyvale-Santa Clara msa, which is the most expensive metropolitan area in the whole country considering the house price index for 2022, but is not necessarily a big size metropolitan area.
 
 
+Secondly, using a Cartesian approach to analyze resulting patterns from the above data representation, and dividing the  plot into four quadrants:  starting with the top right section being quadrant one, where the combination of higher than average house prices and  higher than average income levels are found and moving counter clock wise towards quadrant four, formed by the combination of higher than average house prices  together with lower than average personal income levels; we found that within the subset of msa that are located along the US-Mexico border, 95% lay inside the third quadrant, where there is a combination of below average personal income with relatively inexpensive house prices, Whereas only one  msa in this particular geographic region, which is San Diego-Chula vista-Carlsbad, is situated at the first quadrant.
+
+ 
+This feature denotes a very different set of economic dynamics for the local movement of people across the border making San Diego-Chula Vista-Carlsbad a very prone area for out  migration, including cross border migration given the real state price differentials combined with the economic integration that bi national trade and manufacture hubs have developed in the Tijuana metropolitan area.  
+
+Furthermore,  considering the information for  year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices and we find for example that El Paso, TX, the second largest border metropolitan area  along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA.  the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US- Mexico border, Tijuana-San Diego being an emblematic case study.  
+
+
+
+```{r, echo= FALSE, fig.width=10, fig.height=8, message=FALSE, Warnig=FALSE}
+## Making the animated line plot
+library(magick)
+evolution <- image_read("border_HPI_evolution.gif")
+evolution
+```
