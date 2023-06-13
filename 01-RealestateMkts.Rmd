@@ -339,7 +339,7 @@ Figure 5, below examines time series from the Federal Reserve financial accounts
 Although this approach provides an nation wide perspective it is necessary to capture a base trend whose implications then can be examined using a detailed geographic scale. 
 
 
-**Figure 5 Real estate at market value and rising equity 1980-2023** [See F5a](../speech/F5_dy1.html), [See F5b](../speech/F5_dy1.html)
+**Figure 5 Real estate at market value and rising equity 1980-2023** [See F5a](../speech/F5_dy1.html), [See F5b](../speech/F5_dy2.html)
 ```{r, echo=FALSE, fig.height=4, fig.width=6}
 # Plots.
 ## Rising equity 
