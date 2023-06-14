@@ -393,7 +393,7 @@ Figure 6, below examines time series from the Federal Reserve financial accounts
 Although this approach provides an nation wide perspective it captures a base trend whose implications then can be examined using a detailed geographic scale. 
 
 
-**Figure 6 Real estate at market value and rising equity 1980-2023** [See F6a](../speech/F6a_equity.html), [See F6b](../speech/F6b_equity.html)
+[Figure 6 Real estate at market value and rising equity 1980-2023](../speech/F6a_equity.html), [See F6b](../speech/F6b_equity.html)
 ```{r, echo=FALSE, fig.height=4, fig.width=6}
 # Plots.
 ## Rising equity 
@@ -451,13 +451,13 @@ This movers took advantage of the economic stimulus provided the macroeconomic e
 
 In addition, detailed mortgage records kept by government sponsored enterprises such as Freddie Mac and Fannie Mae, allow to distinguish the type of loan granted to actual current mortgage clients, this data is important to show real estate investment trends across Metropolitan areas. 
 
-Nationwide 87.3% of FM clients are paying the loan for a house that is a primary residence. Almost 4% of  Freddie Mac home buyers are buying a secondary home.  And 8.9% are paying a home loan  classified as investment. 
+Nationwide **87.3%** of **Freddie Mac clients** are paying a loan for a house that is a **primary residence.** Almost **4%** of  Freddie Mac home buyers are buying a **second home**.  And **8.9%** are paying a home loan classified as **investment.** 
 
-If we think of second home loans as a proxy for social status, say, better off household get this type of loan, then the  families in the states of  Virginia, Vermont, Delaware  Maine and Florida are the places were this type of families mostly live. 
+If we think of **second home loans** as a proxy for social status, say, better off household get this type of loan, then the  families in the states of  **Virginia, Vermont, Delaware  Maine and Florida** are the places were this type of families mostly live. 
 
-Figure 6  below ranks metro MSAs by the number of loans classified as investment by Freddie Mac single family loan data for the first quarter of 2022 [@freddiemachomeSingleFamilyLoanLevel2023]. 
+Figure 7  below ranks metro (MSAs) by the number of loans classified as investment by Freddie Mac single family loan data for the first quarter of 2022 [@freddiemachomeSingleFamilyLoanLevel2023]. 
 
-[Figure 6. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F9_invest.html)
+[Figure 7. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F7_invest.html)
 
 ```{r, echo=FALSE, fig.height=6, fig.width=8}
 
@@ -478,26 +478,24 @@ inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)
 ggplotly(inv_plot)%>%
   layout(legend = list(orientation = "h", x = 0, y = -.05))
 
-# htmlwidgets::saveWidget(widget = f6, #the plotly object 
-                       # file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F6_invest.html", 
+#htmlwidgets::saveWidget(widget = fig7, #the plotly object 
+                        #file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F7_invest.html", 
                         #the path & file name selfcontained = TRUE 
-  #creates a single html file  )
+  #creates a single html file )
 ```
 
 Source: José Luis Manzanares Rivera based on data from Freddie Mac Single-Family Loan-Level 2022Q1 [@freddiemachomeSingleFamilyLoanLevel2023]
 
-The information above for  loan category: investment,  indicates which metropolitan areas are conceived as dynamic real estate areas. It is found that The Phoenix-Mesa-Scottsdale Arizona MSA, shows the highest investment property type of loans in the US for data on the firts quarter of 2022.  
+The information above for loan category: investment,  indicates which metropolitan areas are conceived as dynamic real estate centers across the nation.  It is found that The **Phoenix-Mesa-Scottsdale Arizona MSA**, shows the highest investment property type of loans in the US for data on the first quarter of 2022.  
 
-Furthermore, data analysis at the state scale indicates that California is the state with the highest percentage of home loans classified as investment ($11.88\%$ a proportion statistically different from the US median $7.9\%$). Given the raising trend for home prices in the state, this pattern suggest the presence of speculative pressures, that may limit the supply of affordable homes in this particular area of the country. 
-
+Furthermore, data analysis at the state scale indicates that **California** is the state with the highest percentage of home loans classified as investment ($11.88\%$ a proportion statistically different from the US median $7.9\%$). Given the raising trend for home prices in the state, this pattern suggest the presence of speculative pressures, that may limit the supply of affordable homes in this particular area of the country. 
 
 Lets now analyze from a geographic perspective, how real estate markets behave during this economic policy changes.
 
-Figure 6 below shows a national perspective for the distribution of home price index at a moment before the implementation of a dovish monetary policy. 
+Figure 8 below shows a national perspective for the distribution of home price index at a moment before the implementation of a dovish monetary policy. 
 
 
-[Figure 7 HPI by state 2006](../speech/F6_hpi.html)
-
+[Figure 8 HPI by state 2006](../speech/F6_hpi.html)
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -526,7 +524,7 @@ leafem::addMouseCoordinates(hpi06_map)%>%setView(zoom = 3.6, -96.5716694, 39.183
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
 
-[Figure 7 HPI by state 2023](../speech/F7_hpi23.html)
+[Figure 8b HPI by state 2023](../speech/F7_hpi23.html)
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 library(wesanderson)
@@ -553,7 +551,7 @@ leafem::addMouseCoordinates(hpi23_map)%>%setView(zoom = 3.6, -96.5716694, 39.183
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
 
-[Figure 8 HPI by state evolution over time 1975-2022](../speech/F8_hpi.html)
+**Figure 8c HPI by state evolution over time 1975-2022**
 ```{r, echo=FALSE, warning=FALSE, message=FALSE,fig.height=8, fig.width=10}
 
 library(magick)
@@ -571,7 +569,7 @@ image
 
 
 
-
+[Figure 9 Housing market determinants: HPI, population and percapita income 2020](../speech/F9_scatter.html)
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
 
 ## THIS IS THE PLOT  income,  population,   hpi  2020 for border states msa.
@@ -586,7 +584,7 @@ p <- ggplot(only_border2020, aes(pp_inccome, hpi, size = Population, colour = st
   geom_point(alpha = 0.7) +
   scale_size(range = c(1, 6))  +
   scale_colour_manual(values = c("red","blue", "darkgoldenrod4", "grey"))+
-labs(title = "House price index, population and Income 2020. MSA at Border states 2020", x = 'Per capita personal income 2020', y = 'HPI 1991=100', colour = "state", size="HPI", caption="Source: Federal Housing Finance Agency. 2023") +
+labs(x = 'Per capita personal income 2020', y = 'HPI 1991=100', colour = "state", size="HPI", caption="Source: Federal Housing Finance Agency. 2023") +
 scale_x_log10(labels =  comma ) +
 geom_hline(yintercept=median(only_border2020$hpi), linetype="dotted", color="black")+
 geom_vline(xintercept =mean(only_border2020$pp_inccome), linetype="dotted", color="black")+
@@ -594,10 +592,15 @@ geom_smooth(method="lm", se=FALSE, linewidth=.2 )+
 theme_classic()+
 annotate("text", x=100000, y=270, size=3.1,label="Median HPI")
 
-
 ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>% 
   layout(
   legend = list(orientation = 'h', x = 0.3, y = -0.13,title=list(text="State")))
+
+#htmlwidgets::saveWidget(  widget = f9, #the plotly object
+                      #file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F9_scatter.html", 
+#the path & file name
+#selfcontained = TRUE #creates a single html file)
+
 
 ## Methodology note:  Data considers Purchase only, PO.  quarterly for MSA  base 1991-Q1. FHFA. https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx. 
 
@@ -620,6 +623,7 @@ This feature denotes a very different set of economic dynamics for the local mov
 Furthermore,  considering the information for  year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices and we find for example that El Paso, TX, the second largest border metropolitan area  along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA.  the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US- Mexico border, Tijuana-San Diego being an emblematic case study.  
 
 
+**Figure 10 US-Mexico border (MSAs). Housing prices evolution**
 
 ```{r, echo= FALSE, fig.width=10, fig.height=8, message=FALSE, Warnig=FALSE}
 ## Making the animated line plot
