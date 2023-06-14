@@ -35,7 +35,7 @@ In this chapter, exploratory data analysis is conducted on house property values
 
 Metropolitan areas are geographic units that are particularly suited to understand regional real state dynamics and provide a base scenario to study internal migration patterns within the US territory as well as specific regions such as the US-Mexico border.
 
-## Data and methods.
+# Data and methods.
 
 The study strategy follows a spatial and temporal design, it is argued that analyzing housing costs evolution in a geographic context may reveal patterns that help to better understand residential mobility and deliver valuable insights about internal migration flows and the underlying regional economic incentives.
 
@@ -82,7 +82,7 @@ By analyzing the search behavior of internet users, Google Trends offers a valua
 This keywords allow to answer questions on where an when does people (Google users) are looking for this words, specially the term Foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
 
 
-## Exploratory data analysis.
+# Results.
 
 The analysis is organized in two stages: the first provides a national approach to the housing prices fluctuations for state and MSA scales. While the second focuses on the US Mexico border region.
 
@@ -257,28 +257,29 @@ layout(legend = list(orientation = "h", x = 0, y = -.05))
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
 
-I would like to take on four patterns found when analyzing the top 20 metropolitan areas with the highest appreciation rates as measured by the annual growth on the HPI during the last 27 years.
+We now examenine four discernible patterns that emerge when analyzing the top 20 metropolitan areas with the highest appreciation rates as measured by the annual growth on the HPI during the last 27 years: 
 
-I) The importance of the USMX border region. $40\%$ of the top 20 (MSAs) with the highest appreciation rates are located  at border states.
+I) The importance of the US Mexico border region. $40\%$ of the top 20 (MSAs) with the highest appreciation rates are located at border states with Mexico.
 
 II) Within the US Mexico border, the impartance of California state is clear representing $75\%$ of the border MSA with highest HPI growth. In fact San Diego-Chula Vista-Carlsbad exhibits the highest annual increase in 2022 with a $18.55\%$  
-II) The real state market in Florida shows the fastest growing level of prices with sharp increases particularly during the Trump administration, with Metropolitan areas such as West Palm Beach, North Port-Sarasota-Bradenton, Naples Marco Island and Tampa featurin double digit increases with amex growth of  32.77 the highest HPI annual growth in the nation.   
+II) The real state market in Florida shows the fastest growing level of prices with sharp increases particularly during the Trump administration, with Metropolitan areas such as West Palm Beach, North Port-Sarasota-Bradenton, Naples Marco Island and Tampa featuring double digit increases with a maximum increase of $32.77\%$ the highest HPI annual growth in the nation.   
 
-III) Traditional non high HPI areas in border states such as Texas are now starting to gain dynamism, the clear example in this reagion is the Austin-Roundrock-Georgetown Metropolitan area, where external economic factors such as the recent establishment of companies to support the electric vehicle industry have contribute to create speculative pressures on the real estate local markets.^[
-In 2020, Tesla announced its decision to build a Gigafactory in Austin, which is expected to manufacture electric vehicles and employ thousands of workers. Suppliers, service providers, and other companies in the electric vehicle industry have begun to establish operations near the Gigafactory, creating additional job opportunities and further contributing to housing demand. The presence of a major company like Tesla often attracts real estate investors looking to capitalize on the economic growth and potential appreciation in property values. Increased investor interest can lead to higher demand for housing, further impacting the housing market dynamics] 
+III) Traditional non high HPI areas in border states such as Texas are now starting to gain dynamism, the clear example in this region is the Austin-Roundrock-Georgetown Metropolitan area, where external economic factors such as the recent establishment of companies to support the electric vehicle industry have contribute to create speculative pressures on local real estate  markets.^[In 2020, Tesla announced its decision to build a Gigafactory in Austin, which currently  manufactures electric vehicles and attracts thousands of employment opportunities. Suppliers, service providers, and other companies in the electric vehicle industry have begun to establish operations near the Gigafactory, creating additional job opportunities and further contributing to housing demand. The presence of a major company like Tesla often attracts real estate investors looking to capitalize on the economic growth and potential appreciation in property values. Increased investor interest can lead to higher demand for housing, further impacting the housing market dynamics.] 
 
-Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, one question that arises in the context of economic determinants of house prices is:  What role does available economic policy instruments have played to shape the US real state markets in the last two decades of the current century? 
+Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, one question that arises in the context of economic determinants of house prices is:  What role does available economic policy instruments have played to shape the US real state markets in the last two decades? 
 
-Certainly this period has witnessed at least two of the most remarkable and complex scenarios in economic recent history that deserve to be explained given its relevance for US society in general and households paying a mortgage in particular: I) the Great Recession, the economic downturn that occurred between December 2007 and June 2009. II) the COVID19 health emergency.
+## Interest rates as a key macroeconomic policy instrument shaping real estate decisions.
 
-In accordance with conventional economic theory, a fundamental factor influencing the overall fluctuations in the aggregate price level is the cost of borrowing, formaly known as the interest rate. Interest rates are a core instrument of monetary policy that play a pivotal role in shaping economic dynamics and has significant implications for various sectors of the economy, including real estate markets. 
+Certainly this period has witnessed at least two of the most remarkable and complex scenarios in economic recent history that deserve to be explained given its relevance for US society in general and households paying a mortgage in particular: **I) the Great Recession**, the economic downturn that occurred between December 2007 and June 2009. II) **The COVID19 health emergency** declared in January 2020.
 
-Therefore, understanding the evolution in time of interest rates is crucial for comprehending not only the aggregate price level fluctuations, but also its impacts on particular components, among which housing prices bear a specially important role households. 
+In accordance with conventional economic theory, a fundamental factor influencing the overall fluctuations in the aggregate price level is the cost of borrowing, formally known as the interest rate. Interest rates are a core instrument of monetary policy that play a pivotal role in shaping economic dynamics and has significant implications for various sectors of the economy, including real estate markets. 
+
+Therefore, understanding the evolution in time of interest rates is crucial for comprehending not only the aggregate price level fluctuations, but also its impacts on particular components, among which housing prices bear a specially important role for households. 
 
 We now turn to the analysis of this important macroeconomic determinant and begin by presenting the trajectory overtime for the Federal Funds effective rate. 
 This rate serves as a benchmark or reference point for other short-term interest rates, exerting a considerable influence on the overall cost of borrowing and lending in the economy.
 
-The importance of the Federal Funds effective rate (FFER) is particularly pronounced in relation to the housing sector and real estate markets. Firstly, it directly affects the cost of mortgage borrowing for homebuyers. Changes in the Federal Funds rate can lead to adjustments in mortgage interest rates, impacting affordability and demand for housing. Lower rates tend to stimulate borrowing and housing activity, while higher rates may dampen demand. This inverse relation is paramount to explain demand side factors that have been taking place in the US housing market as we will soon discover. 
+The importance of the **Federal Funds effective rate (FFER)** is particularly pronounced in relation to the housing sector and real estate markets. Firstly, it directly affects the cost of mortgage borrowing for home buyers. Changes in the Federal Funds rate can lead to adjustments in mortgage interest rates, impacting affordability and demand for housing. Lower rates tend to stimulate borrowing and housing activity, while higher rates may dampen demand. This inverse relation is paramount to explain supply and demand side factors that have been taking place in the US housing market as we will soon discover. 
 
 Figure 4, presents the evolution of the FFER in the period from  to July 2000 to May 2023. 
 
@@ -311,9 +312,9 @@ Source: José Luis Manzanares Rivera based on data from Federal Reserve. [@board
 
 The representation above covers 23 years of Federal Funds effective rate fluctuations. Over the span of this period, monetary policy has experienced important changes with implications for the housing markets. 
 
-The first, marked here with a benchmark date in reference to the sub-prime mortgage market collapse ^[Sub-prime mortgage is defined here as higher-risk loans granted to borrowers with lower creditworthiness], An episode in the recent economic history of the United States that embodies one of the primary determinants shaping the so called  "Great Recession."
+The first, marked here with a benchmark date in reference to the **sub-prime mortgage market collapse** ^[Sub-prime mortgage is defined here as higher-risk loans granted to borrowers with lower creditworthiness], An episode in the recent economic history of the United States that embodies one of the primary determinants shaping the so called  **"Great Recession."**
 
-Prior to this period, the Federal Reserve´s monetary policy had set the FFER at $5.26\%$ which its the highest interest levek that US society has experienced between July 2007 and the moment of the writing of this work (May 2023).
+Prior to this period, the Federal Reserve´s monetary policy had set the FFER at $5.26\%$ which its the highest interest level that US society has experienced between July 2007 and the moment of the writing of this work (May 2023).
 
 Following the sub-prime mortgage market collapse, which set the stage for the beginning of the global financial crisis, the US central bank, decided to implement measures via the its key monetary policy instruments, to stimulate the economy. 
 
@@ -321,20 +322,21 @@ Considering the substantial scale and breadth of the economic contraction, it wa
 
 How does the housing market reacted to this unprecedented period of ultra low interest rates? 
 
-Before moving on to answer that question, let´s study a second relevant shift in monetary policy. According to empirical evidence shown above,  the monetary policy stimulus period to promote economic recovery related to the Great Recession, lasted 7 years, (Jan 2009-Dec 2015).
+Before moving on to answer that question, let´s study a second relevant shift in monetary policy. According to empirical evidence shown above, the monetary policy stimulus period to promote economic recovery related to the **Great Recession, lasted 7 years**, (Jan 2009-Dec 2015).
 
-However when quantitative easing^[For the purposes of the present investigation we use the term Quantitative easing to refer to a monetary policy tool employed by central banks to stimulate the economy and promote lending and investment. QE involves the central bank purchasing government bonds or other financial assets from commercial banks and other financial institutions. By doing so, the central bank injects new money into the financial system, increasing the money supply and lowering interest rates. The aim of quantitative easing is to encourage borrowing and spending, thereby boosting economic activity] seemed to be reversed; on January 31, 2020, Department of Health and Human Services (HHS) under the Public Health Service Act, declared a public COVID-19 health emergency. This declaration allowed the HHS to activate emergency response mechanisms, mobilize resources, and coordinate efforts to contain and mitigate the spread of the public heath threat within the country. 
+However, when quantitative easing^[For the purposes of the present investigation we use the term Quantitative easing to refer to a monetary policy tool employed by central banks to stimulate the economy and promote lending and investment. QE involves the central bank purchasing government bonds or other financial assets from commercial banks and other financial institutions. By doing so, the central bank injects new money into the financial system, increasing the money supply and lowering interest rates. The aim of quantitative easing is to encourage borrowing and spending, thereby boosting economic activity] seemed to be ending; on January 31, 2020, Department of Health and Human Services (HHS) under the Public Health Service Act, declared a public COVID-19 health emergency. This declaration allowed the HHS to activate emergency response mechanisms, mobilize resources and coordinate efforts to contain and mitigate the spread of the public health threat within the country. 
 
-Among those measures, as we now Know, there were significant mobility restrictions that infringed a toll on economic activity with emphasis in the labor market. Triggering a relevant economic slowdown, that required once more, a decisive intervention by the central bank authorities to prevent a deeper economic crisis and to stimulate a recovery.
+Among those measures, as we now know, there were significant mobility restrictions that infringed an unprecedented toll on economic activity with emphasis in the labor market. Triggering a relevant economic slowdown, that required once more, a decisive intervention by the central bank authorities to prevent a deeper economic crisis and to stimulate a recovery.
 
-In this unprecedented complex global economic setting, the Federal Reserve of the United States decided to move the FFER from a $2.4%$ in July 2019 to an ultra low  $0.05\%$ in April 2020, sending a clear signal to the markets  to stimulate spending and investment in a afford to correct the sharp decline in consumer spending associated with the labor market disruptions caused by the overall restrictive measures put in place during the global health emergency. 
+In this unprecedented complex global economic setting, the Federal Reserve of the United States decided to move the FFER from a $2.4%$ in July 2019 to an ultra low  $0.05\%$ in April 2020, (the lowest on record in this century) sending a clear signal to the markets in an effort to stimulate spending and investment aiming to correct the **sharp decline in consumer spending** associated with the labor market disruptions caused by the overall restrictive measures put in place during the global health emergency. 
 
-This monetary policy was extended for almost two years and started to be normalized by april 2022. 
+This dovish monetary policy strategy was extended for almost two years and only started to be normalized by April 2022. 
 
+## Capturing housing market social sentiment embedded in google search engine data. 
 
-To capture the effects of this economic determinants on the housing markets,  we proposed to analyze google search data. We compare the search frequency overtime for specific termns related to the housing market, this novel approach captures  the broader social dimension that just raw economic indicators ca not uncover. 
+To capture the broader social dimension and the effects of this economic determinants on the housing markets, we proposed to analyze Google search data. A social sentiment data driven approach by which we compare the relative search frequency overtime for specific terms related to the housing market. This approach has been gaining increasing attention and it offers a complementary perspective.
 
-The following analysis contains the trend for google score for terms:  "affordable home", "foreclosure" and "eviction". This terms are then plotted against the macroeconomic policy threshold dates and  external shocks events. Results are shown by figures xxx
+The following analysis contains the Google score trend for terms:  "affordable home", "foreclosure" and "eviction". This terms are  plotted against particular macroeconomic policy threshold dates and external shocks events. Results are shown by figure 5. Specifically with this terms selection the segment of home owners and renters are incorporated into the analysis.
 
 [Figure 5 California Google trends score 2004-2023. Selected terms](../speech/F5_google_a.html)[Fig5b](../speech/F5_google_b.html)
 ```{r, echo=FALSE}
@@ -378,11 +380,11 @@ htmltools::browsable(htmltools::tagList(ggsearch))
 ```
 Source: José Luis Manzanares Rivera based on data from [@googleGoogleTrendss2023]
 
-We can clearly note the effect of the *sub-prime mortgage market* collapse in the population sentiment reflected as a higher volume of search for terms such as "affordable home" which indicate a tight real state market during the second quarter of 2009. 
+We can clearly note the effect of the *sub-prime mortgage market* collapse in the population sentiment reflected as a higher volume of search for terms such as "affordable home" which indicate a tight real state market during the second quarter of **2009**. 
 
-In addition, during this period we found the highest scores over the last two decades for the term foreclosure^[a legal process in which a lender attempts to recover the balance of a loan from a borrower who has stopped making payments to the lender by forcing the sale of the asset used as the collateral for the loan.], interestingly enough, when we analyze "eviction" a term that reflects housing market stress associated to the renters segment, we observe a clear indication of the labor market tightening caused by the health emergency restrictions after January 2020.
+In addition, during this period we found the highest scores over the last two decades for the term **foreclosure**^[a legal process in which a lender attempts to recover the balance of a loan from a borrower who has stopped making payments to the lender by forcing the sale of the asset used as the collateral for the loan.], interestingly enough, when we analyze "eviction" a term that reflects housing market stress associated to the **renters segment**, we observe a clear indication of the labor market tightening caused by the **health emergency restrictions** after January **2020**.
 
-Considering evidence on real state market prices in Californian MSA, labor market conditions and well as supply and demand exogenous shocks the analysis suggest that search for affordability  is one of the reasons why some people have decided to relocate out of state  or even to make the move across the border. 
+## Housing market reactions and potential investment opportunities.  
 
 We may now turn to study the effects of this macroeconomic determinants and external shocks to the economy into the housing markets and its relation to current internal migration patterns with a focus in specific regions of the country, such as the US-Mexico border states and metropolitan areas. 
 
@@ -391,7 +393,7 @@ Figure 6, below examines time series from the Federal Reserve financial accounts
 Although this approach provides an nation wide perspective it captures a base trend whose implications then can be examined using a detailed geographic scale. 
 
 
-**Figure 6 Real estate at market value and rising equity 1980-2023** [See F6a](../speech/F6_dy1.html), [See F6b](../speech/F6_dy2.html)
+**Figure 6 Real estate at market value and rising equity 1980-2023** [See F6a](../speech/F6a_equity.html), [See F6b](../speech/F6b_equity.html)
 ```{r, echo=FALSE, fig.height=4, fig.width=6}
 # Plots.
 ## Rising equity 
