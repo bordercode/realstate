@@ -524,6 +524,15 @@ leafem::addMouseCoordinates(hpi06_map)%>%setView(zoom = 3.6, -96.5716694, 39.183
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
 
+Evidence suggest that before the great recession and prior to the implementation of quantitative easing monetary policies, the  Us housing market, featured California and Florida as the top most expensive regions of the country. Together with a well defined region along the north eastern cost with New York Virginia and Maryland comprised a traditional high cost set of states. Virtually the central regions of the country were not showing sings of significant house price increases as of 2006.
+
+As we have shown, the implementation of historic measures to stabilize the economic environment lead to very especial and not usual conditions that served as changing forces that have impacted the real state market landscape. This factors created both,market incentives for investment opportunities as well as affordability issues for some segments of the US population, that in the face of being price-out are reinforcing internal migration patterns.
+
+
+The following map shows the "after" scenario featuring HPI levels for 2023. 
+
+
+
 [Figure 8b HPI by state 2023](../speech/F7_hpi23.html)
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -550,6 +559,28 @@ leafem::addMouseCoordinates(hpi23_map)%>%setView(zoom = 3.6, -96.5716694, 39.183
 ```
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
+Following the implementation of macroeconomic policy with an extended period of favorable interest rates, empirical evidence suggest that the housing market have been diversifying out of the **traditional high cost regions** of the country. 
+
+In this regard we identify at least two important geographic patterns  I)Aa movement of high housing prices from the pacific west cost towards the northeastern states closer to Canadian border.  Also, considering the south, two Mexican border states are showing a rapidly increasing real state market: Arizona and Texas II) Traditionally expensive states in the north east, have been experiencing a relative cooling off in favor of emerging regions. 
+
+
+There are two particular cases that require a closer examination:
+
+
+**The case of Arizona** The significant House Price Index (HPI) increase observed in Arizona, particularly in the Phoenix metropolitan area, can be attributed to various real estate elements and economic features. Some factors that may explain this trend include: population growth and economic development, both factors impacting prices via a growing housing demand. 
+
+Population Growth: Phoenix has experienced substantial population growth over the last two decades. The increasing population creates a higher demand for housing, leading to upward pressure on home prices, as shown  by  figure 9 below.
+
+
+Economic Development: Phoenix has been a hub for economic development, attracting industries such as technology, finance, healthcare, and manufacturing. The presence of major companies, business-friendly policies related to tax regulations, and a growing job market have contributed to the region's economic growth. This, in turn, stimulates demand for housing which exhibits a direct positive relation to price increases as we will now analyze using population, per capita income and house prices at a metropolitan area scale for selected US-Mexico Border (MSAs).
+
+
+**The case of Idaho.** 
+
+Migration patterns: According to the U.S. Census Bureau's population estimates and migration data, Idaho has experienced consistent net positive domestic migration (inflow of people from other states, particularly from high-cost areas like California and the Pacific Northwest) over the past two decades. 
+
+Within Idaho, specific Metropolitan Statistical Areas (MSAs) have experienced substantial population flows from other out-of-state MSAs. For example, the **Boise metropolitan area**, which includes Ada County, has been a major recipient of in-migration. It has attracted individuals and families from various out-of-state MSAs, including mainly areas in California, Washington and Oregon.  Chapter 5 covers this topic and analyses internal migration flows in detail.
+
 
 **Figure 8c HPI by state evolution over time 1975-2022**
 ```{r, echo=FALSE, warning=FALSE, message=FALSE,fig.height=8, fig.width=10}
@@ -566,6 +597,18 @@ image
 
 ```
 
+
+
+## Housing demand determinants: population growth, income and home prices
+
+
+Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration shape housing demand  which in turn, given the scarcity principle,  ensures an upward signal to the pricing system. 
+
+Although net migration flows allow to distinguish more subtle attraction elements that each geographic area has offer, it is the population movement that manifest to balance supply and demand. But why population moves, centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to the labor market dynamics in a given time and particular space. 
+
+Finally home values by itself reinforce the demand and supply equilibrium, although this important factor can be particularly flexible when considering real state market  environment, given forces such as expectations play a pivotal role in the fluctuations of home prices creating additional complexities.
+
+The following figure considers data on the factors discussed above, for the all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distiguish patterns within the border region.   
 
 
 
@@ -622,6 +665,7 @@ This feature denotes a very different set of economic dynamics for the local mov
 
 Furthermore,  considering the information for  year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices and we find for example that El Paso, TX, the second largest border metropolitan area  along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA.  the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US- Mexico border, Tijuana-San Diego being an emblematic case study.  
 
+Finally figure 10 below represents the evolution of house prices for US Mexico border Metropolitan statistical areas. 
 
 **Figure 10 US-Mexico border (MSAs). Housing prices evolution**
 
@@ -631,3 +675,8 @@ library(magick)
 evolution <- image_read("border_HPI_evolution.gif")
 evolution
 ```
+
+
+The clear upward trend for San Diego-Chula Vista-Carlsbad area situated right across the Border from the major Mexican border city Tijuana, certainly represents a relevant case study considering affordability restrictions and opportunities that appear given this close geographic proximity. 
+
+Considering evidence on real state market prices in Californian (MSAs), labor market conditions as well as supply and demand exogenous shocks, the analysis suggest that search for affordability  may be one of the reasons why some people have decided to relocate out of state or even to make the move across the border, this is however an hypothesis that is subject to further empirical validation. 
