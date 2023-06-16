@@ -1,5 +1,5 @@
 --- 
-title: "Seminario Unidad Nogales Junio 2023"
+title: "Moving south: The double price-out effect"
 author: "José Luis Manzanares Rivera"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -16,13 +16,9 @@ cover-image: "images/cover1.jpg"
 url: https://price-out.netlify.app/
 ---
 
-# Bienvenidos {-}
+# Welcome {-}
 
-Este es un foro para análisis y trabajo colaborativo.  
 
-El proyecto prentado el día de hoy es: **Precios de vivienda un análisis a escala de Area metropolitana.** 
-
-José Luis Manzanares Rivera
 
 <img src="images/cover1.jpg" class="cover" width="250" height="328"/>
 <hr>
