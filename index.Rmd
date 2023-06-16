@@ -18,6 +18,7 @@ url: https://price-out.netlify.app/
 
 # Welcome {-}
 
+This is the online site of the book *Moving south. The double priced-out effect*
 
 
 <img src="images/cover1.jpg" class="cover" width="250" height="328"/>
@@ -28,8 +29,12 @@ url: https://price-out.netlify.app/
 If you find the research helpful, you can contribute to the project by:
 
 - Sharing it with your team and networks.
+
 - Commenting on digital media, for example, using the hashtag #Housingontheborder on Twitter.
+
 - Citing it or linking to it.
+
+- Enjoy the read by purchasing a copy at: [BlackDogPublishing]()
 
 - You can also download a **free** copy in PDF or epub format.
 
