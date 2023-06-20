@@ -1,9 +1,10 @@
-house-prices-as-internal-migration-determinants.
+house-prices-interest-rates-and-investment-opportunities.
 data-and-methods.
 results.
 interest-rates-as-a-key-macroeconomic-policy-instrument-shaping-real-estate-decisions.
 capturing-housing-market-social-sentiment-embedded-in-google-search-engine-data.
 housing-market-reactions-and-potential-investment-opportunities.
+internal-migration-patterns.
+inter-state-geographic-mobility.
 housing-demand-determinants-population-growth-income-and-home-prices
-homeless
 the-san-diego-tijuana-connection.

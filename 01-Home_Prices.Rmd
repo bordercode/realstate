@@ -1,4 +1,4 @@
-# House prices as internal migration determinants.
+# House prices, interest rates and investment opportunities.
 
 ```{r, echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
 library(dygraphs)
@@ -599,75 +599,9 @@ image
 
 
 
-## Housing demand determinants: population growth, income and home prices
+Finally figure 9 below represents the evolution of house prices for US Mexico border Metropolitan statistical areas. 
 
-
-Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration shape housing demand  which in turn, given the scarcity principle,  ensures an upward signal to the pricing system. 
-
-Although net migration flows allow to distinguish more subtle attraction elements that each geographic area has offer, it is the population movement that manifest to balance supply and demand. But why population moves, centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to the labor market dynamics in a given time and particular space. 
-
-Finally home values by itself reinforce the demand and supply equilibrium, although this important factor can be particularly flexible when considering real state market  environment, given forces such as expectations play a pivotal role in the fluctuations of home prices creating additional complexities.
-
-The following figure considers data on the factors discussed above, for the all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distiguish patterns within the border region.   
-
-
-
-[Figure 9 Housing market determinants: HPI, population and percapita income 2020](../speech/F9_scatter.html)
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
-
-## THIS IS THE PLOT  income,  population,   hpi  2020 for border states msa.
-
-## HPI Source> https://www.fhfa.gov/DataTools/Tools/Pages/Four-Quarter-Heat-Map.aspx
-
-
-only_border2020<-readRDS("df_inc_pop_hpi2020.rds")%>%
-  mutate(state=as.factor(state))
-
-p <- ggplot(only_border2020, aes(pp_inccome, hpi, size = Population, colour = state, label=msa)) +
-  geom_point(alpha = 0.7) +
-  scale_size(range = c(1, 6))  +
-  scale_colour_manual(values = c("red","blue", "darkgoldenrod4", "grey"))+
-labs(x = 'Per capita personal income 2020', y = 'HPI 1991=100', colour = "state", size="HPI", caption="Source: Federal Housing Finance Agency. 2023") +
-scale_x_log10(labels =  comma ) +
-geom_hline(yintercept=median(only_border2020$hpi), linetype="dotted", color="black")+
-geom_vline(xintercept =mean(only_border2020$pp_inccome), linetype="dotted", color="black")+
-geom_smooth(method="lm", se=FALSE, linewidth=.2 )+
-theme_classic()+
-annotate("text", x=100000, y=270, size=3.1,label="Median HPI")
-
-ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>% 
-  layout(
-  legend = list(orientation = 'h', x = 0.3, y = -0.13,title=list(text="State")))
-
-#htmlwidgets::saveWidget(  widget = f9, #the plotly object
-                      #file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F9_scatter.html", 
-#the path & file name
-#selfcontained = TRUE #creates a single html file)
-
-
-## Methodology note:  Data considers Purchase only, PO.  quarterly for MSA  base 1991-Q1. FHFA. https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx. 
-
-# Detailed source site for smaller areas Such as Census tracks.  https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index-Datasets.aspx#qpo
-```
-Source: Federal Housing Agency  [@fhfaHousePriceIndex2022]
-
-Although data provides sound evidence that personal per capita income and house prices are positively correlated, degrees of correlation varies between border state´s metropolitan areas, with the strongest relationship being observed by Californian MSA, where we also find the most expensive metropolitan areas of the border states considering housing prices. 
-
-In addition, there is only a weak positive relationship between house prices as measured by the HPI and population size, this is the case for New Mexico, where relative large size metropolitan areas such as Albuquerque still exhibit affordable house prices. Population size being a proxy for housing demand. 
-
-While this pattern found makes sense considering the basic principles of economics concerning scarcity, it also suggest that other factors influence house price fluctuations, including the underlying labor market structure and demand for highly skilled labor force, which is certainly the case for metropolitan areas located near the Silicon valley region in California such as the San Jose-Sunnyvale-Santa Clara msa, which is the most expensive metropolitan area in the whole country considering the house price index for 2022, but is not necessarily a big size metropolitan area.
-
-
-Secondly, using a Cartesian approach to analyze resulting patterns from the above data representation, and dividing the  plot into four quadrants:  starting with the top right section being quadrant one, where the combination of higher than average house prices and  higher than average income levels are found and moving counter clock wise towards quadrant four, formed by the combination of higher than average house prices  together with lower than average personal income levels; we found that within the subset of msa that are located along the US-Mexico border, 95% lay inside the third quadrant, where there is a combination of below average personal income with relatively inexpensive house prices, Whereas only one  msa in this particular geographic region, which is San Diego-Chula vista-Carlsbad, is situated at the first quadrant.
-
- 
-This feature denotes a very different set of economic dynamics for the local movement of people across the border making San Diego-Chula Vista-Carlsbad a very prone area for out  migration, including cross border migration given the real state price differentials combined with the economic integration that bi national trade and manufacture hubs have developed in the Tijuana metropolitan area.  
-
-Furthermore,  considering the information for  year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices and we find for example that El Paso, TX, the second largest border metropolitan area  along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA.  the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US- Mexico border, Tijuana-San Diego being an emblematic case study.  
-
-Finally figure 10 below represents the evolution of house prices for US Mexico border Metropolitan statistical areas. 
-
-**Figure 10 US-Mexico border (MSAs). Housing prices evolution**
+**Figure 9 US-Mexico border (MSAs). Housing prices evolution**
 
 ```{r, echo= FALSE, fig.width=10, fig.height=8, message=FALSE, Warnig=FALSE}
 ## Making the animated line plot

@@ -1,0 +1,529 @@
+# Internal migration  patterns.
+
+
+```{r, include= FALSE}
+library(tidyverse)
+library(plotly)
+```
+
+
+In this chapter, we explore the interplay among geographic mobility of the population, income, and race, with a specific emphasis on analyzing out-of-state mobility within Metropolitan areas as the primary geographic unit of analysis. Drawing on economic theory, our study delves into the intricate dynamics that shape the patterns of population movement, shedding light on the factors influencing individuals' decisions to relocate across state lines. By examining the nexus of geographic mobility, income differentials, and racial composition, we aim to deepen our understanding of the complex interrelationships within metropolitan contexts and their implications for regional economic development with a focus on the Hispanic population. 
+
+We initially consider housing demand in relation to income. According to human capital theory, income is determined among other factors by education attainment levels (both formal as represented by a particular schooling level or a specific job training), age (which captures experience and skills acquired overtime) and several personal characteristics that may include gender and race, a particular important factor in the context of a diverse country like the US. Together this factors impact productivity determining income levels across occupations and industries. 
+
+
+## Inter state geographic mobility. 
+
+
+
+
+## Housing demand determinants: population growth, income and home prices
+
+
+Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration shape housing demand  which in turn, given the scarcity principle,  ensures an upward signal to the pricing system. 
+
+Although net migration flows allow to distinguish more subtle attraction elements that each geographic area has offer, it is the population movement that manifest to balance supply and demand. But why population moves, centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to the labor market dynamics in a given time and particular space. 
+
+Home values by itself act as signals to achieve  demand and supply equilibrium, although this important factor can be particularly flexible when considering real state market  environment, given that forces such as expectations play a pivotal role in the fluctuations of home prices creating additional complexities.
+
+The following figure considers data on the factors discussed above, for all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distiguish patterns within the border region.   
+
+
+
+[Figure 9 Housing market determinants: HPI, population and percapita income 2020](../speech/F9_scatter.html)
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
+
+## THIS IS THE PLOT  income,  population,   hpi  2020 for border states msa.
+
+## HPI Source> https://www.fhfa.gov/DataTools/Tools/Pages/Four-Quarter-Heat-Map.aspx
+
+
+only_border2020<-readRDS("df_inc_pop_hpi2020.rds")%>%
+  mutate(state=as.factor(state))
+
+p <- ggplot(only_border2020, aes(pp_inccome, hpi, size = Population, colour = state, label=msa)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(1, 6))  +
+  scale_colour_manual(values = c("red","blue", "darkgoldenrod4", "grey"))+
+labs(x = 'Per capita personal income 2020', y = 'HPI 1991=100', colour = "state", size="HPI", caption="Source: Federal Housing Finance Agency. 2023") +
+scale_x_log10(labels =  comma ) +
+geom_hline(yintercept=median(only_border2020$hpi), linetype="dotted", color="black")+
+geom_vline(xintercept =mean(only_border2020$pp_inccome), linetype="dotted", color="black")+
+geom_smooth(method="lm", se=FALSE, linewidth=.2 )+
+theme_classic()+
+annotate("text", x=100000, y=270, size=3.1,label="Median HPI")
+
+ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>% 
+  layout(
+  legend = list(orientation = 'h', x = 0.3, y = -0.13,title=list(text="State")))
+
+#htmlwidgets::saveWidget(  widget = f9, #the plotly object
+                      #file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F9_scatter.html", 
+#the path & file name
+#selfcontained = TRUE #creates a single html file)
+
+
+## Methodology note:  Data considers Purchase only, PO.  quarterly for MSA  base 1991-Q1. FHFA. https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx. 
+
+# Detailed source site for smaller areas Such as Census tracks.  https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index-Datasets.aspx#qpo
+```
+Source: Federal Housing Agency  [@fhfaHousePriceIndex2022]
+
+Although data provides sound evidence that personal per capita income and house prices are positively correlated, degrees of correlation varies between border state´s metropolitan areas, with the strongest relationship being observed by Californian MSA, where we also find the most expensive metropolitan areas of the border states considering housing prices. 
+
+In addition, there is only a weak positive relationship between house prices as measured by the HPI and population size, this is the case for New Mexico, where relative large size metropolitan areas such as Albuquerque still exhibit affordable house prices. Population size being a proxy for housing demand. 
+
+While this pattern found makes sense considering the basic principles of economics concerning scarcity, it also suggest that other factors influence house price fluctuations, including the underlying labor market structure and demand for highly skilled labor force, which is certainly the case for metropolitan areas located near the Silicon valley region in California such as the San Jose-Sunnyvale-Santa Clara msa, which is the most expensive metropolitan area in the whole country considering the house price index for 2022, but is not necessarily a big size metropolitan area.
+
+
+Secondly, using a Cartesian approach to analyze resulting patterns from the above data representation, and dividing the  plot into four quadrants:  starting with the top right section being quadrant one, where the combination of higher than average house prices and  higher than average income levels are found and moving counter clock wise towards quadrant four, formed by the combination of higher than average house prices  together with lower than average personal income levels; we found that within the subset of msa that are located along the US-Mexico border, 95% lay inside the third quadrant, where there is a combination of below average personal income with relatively inexpensive house prices, Whereas only one  msa in this particular geographic region, which is San Diego-Chula vista-Carlsbad, is situated at the first quadrant.
+
+ 
+This feature denotes a very different set of economic dynamics for the local movement of people across the border making San Diego-Chula Vista-Carlsbad a very prone area for out  migration, including cross border migration given the real state price differentials combined with the economic integration that bi national trade and manufacture hubs have developed in the Tijuana metropolitan area.  
+
+Furthermore,  considering the information for  year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices and we find for example that El Paso, TX, the second largest border metropolitan area  along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA.  the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US- Mexico border, Tijuana-San Diego being an emblematic case study.  
+
+
+```{r, include=FALSE}
+
+full<-readRDS("B07004X_005E.rds")
+
+mig<-read.csv("all_mig.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)%>%left_join(full)%>%na.omit
+
+mig <- mig %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+mig <- mig %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%
+filter(type!="Micro")%>%
+na.omit%>%
+mutate(t.mig=sum(B07001_001E), den=B07001_001E/t.mig, t.mig.I=sum(B07004I_005E), num=B07004I_005E/t.mig.I, lq_I=round(num/den,2))
+
+
+# Do not run, DATA WRANGLING.
+
+## Migration analysis from the 2021 ACS. 5yr data estimates.
+
+
+#  API call  url="https://api.census.gov/data/2021/acs/acs5?get=NAME,B07001_065E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:*&key={0}".format(census_api_key)	
+
+## Additional sources: 
+# Table shell list. 
+# See files in ACS2020_Table_Shells.csv  in Analysis  folder from current  project path. C:\Users\josel\Desktop\on\I\2023\HOUSING\Analysis
+
+## https://www.census.gov/programs-surveys/acs/technical-documentation/table-shells.html
+
+# IMPORTANT REFERENCE SOURCE FOR TABLE ID'S
+
+# https://www.census.gov/programs-surveys/acs/data/data-tables/table-ids-explained.html
+
+geo_codes <- readRDS("geo_codes.rds")
+
+
+B07001_065E <- read.csv("B07001_065E.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+B07001_065E <- B07001_065E %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+B07001_065E <- B07001_065E %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+#^ indicates the start of a string. It ensures that the match starts from the beginning of the string.
+#[^,] is a negated character class that matches any character except a comma (,). The ^ inside the character class negates the class, so [^,] matches any character that is not a comma.
+# + means that the previous pattern (in this case, [^,]) should match one or more times. It allows the regular expression to match multiple non-comma characters in sequence.
+
+# \\b is a word boundary anchor. It matches the position between a word character and a non-word character. In this case, it ensures that the state code is not part of a longer word.
+
+# [A-Z]{2} is a character class that matches any uppercase letter (A to Z). The {2} quantifier specifies that exactly two uppercase letters should be matched consecutively.
+
+# \\b is another word boundary anchor that ensures the state code is not part of a longer word.
+
+#####################
+# HISPANOS
+########################
+
+
+B07004I_005E <- read.csv("HISPMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+B07004I_005E <- B07004I_005E %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+B07004I_005E <- B07004I_005E %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(B07004I_005E, B07001_065E)%>%
+na.omit%>%
+mutate(p_hisp=round(B07004I_005E/B07001_065E,2), t.osmig=sum(B07001_065E), den=B07001_065E/t.osmig, t.mig.I=sum(B07004I_005E), num=B07004I_005E/t.mig.I, lq_I=round(num/den,2))
+
+
+#############
+#  A
+##############
+
+A <- read.csv("AMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+A <- A %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+A <- A %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(A, df)%>%
+na.omit%>%
+mutate(p_A=round(B07004A_005E/B07001_065E,2))
+
+#############
+#  B
+##############
+
+B <- read.csv("BMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+B <- B %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+B <- B %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(B, df)%>%
+na.omit%>%
+mutate(p_B=round(B07004B_005E/B07001_065E,2))
+
+
+
+#############
+#  C
+##############
+
+C <- read.csv("CMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+C <- C %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+C <- C %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(C, df)%>%
+na.omit%>%
+mutate(p_C=round(B07004C_005E/B07001_065E,2))
+
+#############
+#  D
+##############
+
+D <- read.csv("DMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+D <- D %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+D <- D %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(D, df)%>%
+na.omit%>%
+mutate(p_D=round(B07004D_005E/B07001_065E,2))
+
+#############
+#  E
+##############
+
+E <- read.csv("EMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+E <- E %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+E <- E %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(E, df)%>%
+na.omit%>%
+mutate(p_E=round(B07004E_005E/B07001_065E,2))
+
+#############
+#  F
+##############
+
+EFE <- read.csv("FMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+EFE <- EFE %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+EFE <- EFE %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(EFE, df)%>%
+na.omit%>%
+mutate(p_F=round(B07004F_005E/B07001_065E,2))
+
+#############
+#  G
+##############
+
+G <- read.csv("GMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+G <- G %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+G <- G %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(G, df)%>%
+na.omit%>%
+mutate(p_G=round(B07004G_005E/B07001_065E,2))
+
+#############
+#  H
+##############
+
+H <- read.csv("HMIG.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+H <- H %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+H <- H %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")
+
+
+df<-left_join(H, df)%>%
+na.omit%>%
+mutate(p_H=round(B07004H_005E/B07001_065E,2))
+
+
+df<-df%>%mutate(movein=p_hisp+p_B+p_C+p_D+p_E+p_F+p_H, err=ifelse(movein==1,0,ifelse(movein>=1,1,2)))
+
+ggplot(df, aes(movein))+
+  geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)
+
+errores<-df%>%group_by(err)%>%summarize(total= n())
+names(  df)
+
+#saveRDS(df, "B07004X_005E.rds") 
+# # Moved from different state GEOGRAPHICAL MOBILITY IN THE PAST YEAR ACS from API CALL: B07004I_005="https://api.census.gov/data/2021/acs/acs5?get=NAME,B07004I_005E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:*&key={0}".format(census_api_key)	
+
+# we join 9 tables one for each race category. 
+
+```
+
+```{r, echo=FALSE}
+library(scales)
+library(wesanderson)
+
+border_st<-data.frame(state=c("TX", "CA","NM","AZ"))
+
+#  Source 2017-2021 ACS 5-Year estimates 
+#  API call  url="https://api.census.gov/data/2021/acs/acs5?get=NAME,B07001_065E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:*&key={0}".format(census_api_key)	
+
+df_2021<-readRDS("B07004X_005E.rds")%>%
+  mutate(state = str_extract(State, "\\b[A-Z]{2}\\b"),
+  border=as.factor(ifelse(state%in%border_st$state,"BorderUS-MX","No Border")))
+  
+#saveRDS(df_2021,"df_2021.rds")
+
+top20<-df_2021%>%
+  rename(Pop=B07001_065E)%>%
+mutate(MSA=fct_reorder(City, Pop), border=as.factor(ifelse(state%in%border_st$state,"BorderUS-MX","No Border")))%>%
+slice_max(MSA,n=20)%>%
+  select(Pop, City, state,border)
+
+
+
+top20_mig<-ggplot(top20, aes(Pop, reorder(City,Pop), label=state, fill=border))+
+  geom_col()+
+  scale_fill_manual(values = c("#3B9AB2", "#78B7C5"), name="") +
+
+  labs(
+    x = 'Population moving from out of state',
+    y = 'Metropolitan statiscal areas (MSAs)')+
+  theme(legend.position="bottom")
+
+ggplotly(top20_mig)%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+
+## Information: Phoenix-Mesa-Chandler, AZ Metro Area was the third MSA with the greatest inter state migration. According to ACS 2017-2021. 5yr estimates.
+
+# Although Border MSA  are not particularly important destinations for in migration for the total population,  San Diego is the only MSA that is part of the top 20 MSA receiving the largest inflows in the country. Sone other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following.  
+
+# Dallas-Fort Worth-Arlington, TX Metro Area rank 5
+# Los Angeles-Long Beach-Anaheim, CA Metro Area  8
+# Houston-The Woodlands-Sugar Land, TX Metro Area 12
+# San Diego-Chula Vista-Carlsbad, CA Metro Area 18
+```
+
+
+```{r, include=FALSE}
+
+### DATA WRANGLING FOR MIGRATION RATES PER 1000 
+## rate by 1000 from total  MSA pop Migration out of state 
+
+## Here we read the custom data set called   B07004X_005E.rds which contains all the pupulation races for category moved from other state.
+all.races<-readRDS("B07004X_005E.rds")
+
+uspop<-read.csv("uspop.csv")%>%
+  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+uspop <- uspop %>%
+  mutate(City = str_extract(NAME, "^[^,]+"),
+         State = str_extract(NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(NAME, "\\b[^,]+$"))
+
+uspop <- uspop %>%
+  separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%filter(type!="Micro")%>%
+  select(GEO_Code,B01001_001E)
+names(uspop)
+
+all.races<-left_join(uspop, all.races)%>%
+na.omit
+
+
+cities<-all.races%>%select(GEO_Code, City, State)
+
+#saveRDS(cities,"cities.rds")
+
+allpop<-all.races%>%select(GEO_Code,B01001_001E)
+
+rates100k<-all.races%>%select(GEO_Code, B07004G_005E, B07004F_005E, B07004E_005E, B07004D_005E,B07004C_005E,B07004B_005E,B07004A_005E,B07004I_005E,B07001_065E, B07004H_005E, B07004I_005E)
+
+
+  long_data <- rates100k %>%
+  pivot_longer(cols = starts_with("B0"),
+               names_to = "table_id",
+               values_to = "mig")%>%
+    left_join(allpop)%>%
+  mutate(rate = round(1000 * (mig / B01001_001E), 2))
+  
+# saveRDS(long_data, "rates_raw.rds")
+```
+
+
+```{r, echo=FALSE}
+
+## This are the rates of migration from out of state  2017-2021
+cities<-readRDS("cities.rds")  
+
+long_data<- readRDS("rates_raw.rds")
+  # Hispanics 
+  rate_I<-long_data%>%filter(table_id=="B07004I_005E")%>%
+    left_join(cities)%>%
+    mutate(t.mig=sum(mig), num=mig/t.mig, t.pop=sum(B01001_001E), den=B01001_001E/t.pop, lq=round(num/den,2))
+### Here we ca see this raw rate bias, it favors structural demographic trends for example captures the effect of population moving to military bases and   colleges towns. 
+  
+## For Hispanics the highest raw rates are:   Jacksonville, NC, Hinesville, GA, Las Cruces, NM, Yuma,AZ, East Stroudsburg, PA
+# The first is a large military base. and the second too with Fort Stewart, the largest U.S. Army installation by area in the eastern United States.
+  
+  # The bottom or places that are not destinations for hispanics are: 
+#Wheeling, WV, Sheboygan,WI, Gadsden, AL,  Lewiston-Auburn,ME, Pine Bluff,AR
+  
+# Blacks
+  rate_B<-long_data%>%filter(table_id=="B07004B_005E")%>%
+    left_join(cities)
+# The highest rate are in Hinesville, GA  (Military base related migration),  Killeen-Temple, TX, which is known as a military "boom town
+  
+# Asians alone no hispanic 
+  
+  rate_D<-long_data%>%filter(table_id=="B07004D_005E")%>%
+    left_join(cities)
+### Asians are migrating towards Colleges towns and tech hub markets.
+  
+  # Whites  alone no hispanic 
+   rate_H<-long_data%>%filter(table_id=="B07004H_005E")%>%
+    left_join(cities)
+## Interesante Aqui podemos conjuntar la idea de racial differentiation. the question here is what are the places towards which, the white population is not  migrating.   The bottom 5 are:  Mexican border towns: Laredo, Brownsville, Madera CA, Vineland-Bridgeton, NJ. (A black town) McAllen-Edinburg-Mission and 
+```
+
+```{r, echo=FALSE}
+
+df_2021<-readRDS("df_2021.rds")
+# Where does Hispanics mostly migrate to?
+
+top20I<-df_2021%>%
+mutate(MSA=fct_reorder(City, p_hisp))%>%
+slice_max(MSA,n=20)%>%
+  select(p_hisp, City, state,border)%>%
+  rename(Percent=p_hisp)
+
+## plot  Hispanics moving from out of state  % of total population moved from out state. 
+
+top20_hisp<-ggplot(top20I, aes(Percent, reorder(City,Percent), label=City,fill=border, text=state))+
+  scale_fill_manual(values = c("#A93226","#34495E"), name="") +
+  geom_col() +
+
+  labs(
+    x = '(% of total pop moved out state)',
+    y = 'Metropolitan statiscal areas (MSAs)')+
+  theme(legend.position="bottom")
+
+ggplotly(top20_hisp, tooltip=c("text", "Percent", "City" ))%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+## 70% of the MSA where the majority of Hispanic population migrated are located in the border with mexico.  The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo. All of theme in Texas Lower Rio grande region. a low cost low income, High poverty rate area. 
+
+###############################
+
+## questions to be aswered with this data> 
+
+## Where does Asians migrate to? 
+
+## What is the demographic composition of the migration flows for the  high priced areas. Ej. Sunnyvale , Are Hispanics migrating to Bay area?
+
+# What is the Mortgage to income rate for  expensive areas?
+# What is the homeless rate for high price areas. 
+
+
+
+```
+
+
+
