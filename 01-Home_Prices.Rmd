@@ -35,7 +35,7 @@ In this chapter, exploratory data analysis is conducted on house property values
 
 Metropolitan areas are geographic units that are particularly suited to understand regional real state dynamics and provide a base scenario to study internal migration patterns within the US territory as well as specific regions such as the US-Mexico border.
 
-# Data and methods.
+## Data and methods.
 
 The study strategy follows a spatial and temporal design, it is argued that analyzing housing costs evolution in a geographic context may reveal patterns that help to better understand residential mobility and deliver valuable insights about internal migration flows and the underlying regional economic incentives.
 
@@ -82,7 +82,7 @@ By analyzing the search behavior of internet users, Google Trends offers a valua
 This keywords allow to answer questions on where an when does people (Google users) are looking for this words, specially the term Foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
 
 
-# Results.
+## Results.
 
 The analysis is organized in two stages: the first provides a national approach to the housing prices fluctuations for state and MSA scales. While the second focuses on the US Mexico border region.
 
@@ -268,7 +268,7 @@ III) Traditional non high HPI areas in border states such as Texas are now start
 
 Although the above spatial patterns offer detailed empirical evidence to understand the incentives for population movements between metropolitan areas within states, one question that arises in the context of economic determinants of house prices is:  What role does available economic policy instruments have played to shape the US real state markets in the last two decades? 
 
-## Interest rates as a key macroeconomic policy instrument shaping real estate decisions.
+### Interest rates as a key macroeconomic policy instrument shaping real estate decisions.
 
 Certainly this period has witnessed at least two of the most remarkable and complex scenarios in economic recent history that deserve to be explained given its relevance for US society in general and households paying a mortgage in particular: **I) the Great Recession**, the economic downturn that occurred between December 2007 and June 2009. II) **The COVID19 health emergency** declared in January 2020.
 
@@ -332,7 +332,7 @@ In this unprecedented complex global economic setting, the Federal Reserve of th
 
 This dovish monetary policy strategy was extended for almost two years and only started to be normalized by April 2022. 
 
-## Capturing housing market social sentiment embedded in google search engine data. 
+### Capturing housing market social sentiment embedded in google search engine data. 
 
 To capture the broader social dimension and the effects of this economic determinants on the housing markets, we proposed to analyze Google search data. A social sentiment data driven approach by which we compare the relative search frequency overtime for specific terms related to the housing market. This approach has been gaining increasing attention and it offers a complementary perspective.
 
@@ -384,7 +384,7 @@ We can clearly note the effect of the *sub-prime mortgage market* collapse in th
 
 In addition, during this period we found the highest scores over the last two decades for the term **foreclosure**^[a legal process in which a lender attempts to recover the balance of a loan from a borrower who has stopped making payments to the lender by forcing the sale of the asset used as the collateral for the loan.], interestingly enough, when we analyze "eviction" a term that reflects housing market stress associated to the **renters segment**, we observe a clear indication of the labor market tightening caused by the **health emergency restrictions** after January **2020**.
 
-## Housing market reactions and potential investment opportunities.  
+### Housing market reactions and potential investment opportunities.  
 
 We may now turn to study the effects of this macroeconomic determinants and external shocks to the economy into the housing markets and its relation to current internal migration patterns with a focus in specific regions of the country, such as the US-Mexico border states and metropolitan areas. 
 
@@ -614,3 +614,7 @@ evolution
 The clear upward trend for San Diego-Chula Vista-Carlsbad area situated right across the Border from the major Mexican border city Tijuana, certainly represents a relevant case study considering affordability restrictions and opportunities that appear given this close geographic proximity. 
 
 Considering evidence on real state market prices in Californian (MSAs), labor market conditions as well as supply and demand exogenous shocks, the analysis suggest that search for affordability  may be one of the reasons why some people have decided to relocate out of state or even to make the move across the border, this is however an hypothesis that is subject to further empirical validation. 
+
+## Discussion.
+
+## Conclusions.
