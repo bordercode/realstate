@@ -5,6 +5,7 @@ interest-rates-as-a-key-macroeconomic-policy-instrument-shaping-real-estate-deci
 capturing-housing-market-social-sentiment-embedded-in-google-search-engine-data.
 housing-market-reactions-and-potential-investment-opportunities.
 internal-migration-patterns.
+data-and-methods
 inter-state-geographic-mobility.
 housing-demand-determinants-population-growth-income-and-home-prices
 the-san-diego-tijuana-connection.

@@ -11,9 +11,62 @@ In this chapter, we explore the interplay among geographic mobility of the popul
 
 We initially consider housing demand in relation to income. According to human capital theory, income is determined among other factors by education attainment levels (both formal as represented by a particular schooling level or a specific job training), age (which captures experience and skills acquired overtime) and several personal characteristics that may include gender and race, a particular important factor in the context of a diverse country like the US. Together this factors impact productivity determining income levels across occupations and industries. 
 
+## Data and Methods
+
+In this chapter the main source of information analyzed is the American Community Survey (ACS) 5 year estimates for the period 2017-2021. This official data set is the premier source for detailed population and housing information in th US. Is collected by the US Census Bureau.  Although other temporal report formats are available for the ACS, this investigation chose the 5 year estimates for the most up to date release available at the moment of conducting this research given its wide geographic coverage which allows to detect detailed spatial patterns. 
 
 ## Inter state geographic mobility. 
 
+How real state market dynamics and home prices in particular are driving the geographic mobility of the US population across state boundaries.  To analyze this issue we focus in the out of state population movement within US (MSAs).
+
+First it is shown which Metropolitan areas have been attracting the most out of state population in the period 2017-2021.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(scales)
+library(wesanderson)
+
+border_st<-data.frame(state=c("TX", "CA","NM","AZ"))
+
+#  Source 2017-2021 ACS 5-Year estimates 
+#  API call  url="https://api.census.gov/data/2021/acs/acs5?get=NAME,B07001_065E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:*&key={0}".format(census_api_key)	
+
+df_2021<-readRDS("B07004X_005E.rds")%>%
+  mutate(state = str_extract(State, "\\b[A-Z]{2}\\b"),
+  border=as.factor(ifelse(state%in%border_st$state,"BorderUS-MX","No Border")))
+  
+#saveRDS(df_2021,"df_2021.rds")
+
+top20<-df_2021%>%
+  rename(Pop=B07001_065E)%>%
+mutate(MSA=fct_reorder(City, Pop), border=as.factor(ifelse(state%in%border_st$state,"BorderUS-MX","No Border")))%>%
+slice_max(MSA,n=20)%>%
+  select(Pop, City, state,border)%>%
+  rename(MSA=City, MoveinPop=Pop)
+
+
+
+top20_mig<-ggplot(top20, aes(MoveinPop, reorder(MSA,MoveinPop), label=MSA,fill=border, text=state))+
+  geom_col()+
+  scale_fill_manual(values = c("#3B9AB2", "#78B7C5"), name="") +
+
+  labs(
+    x = 'Population moving from out of state',
+    y = 'Metropolitan statiscal areas (MSAs)')+
+  theme(legend.position="bottom")
+
+ggplotly(top20_mig, tooltip=c("text", "MoveinPop", "MSA" ))%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+
+## Information: Phoenix-Mesa-Chandler, AZ Metro Area was the third MSA with the greatest inter state migration. According to ACS 2017-2021. 5yr estimates.
+
+# Although Border MSA  are not particularly important destinations for in migration for the total population,  San Diego is the only MSA that is part of the top 20 MSA receiving the largest inflows in the country. Sone other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following.  
+
+# Dallas-Fort Worth-Arlington, TX Metro Area rank 5
+# Los Angeles-Long Beach-Anaheim, CA Metro Area  8
+# Houston-The Woodlands-Sugar Land, TX Metro Area 12
+# San Diego-Chula Vista-Carlsbad, CA Metro Area 18
+```
 
 
 
@@ -355,51 +408,6 @@ names(  df)
 
 ```
 
-```{r, echo=FALSE}
-library(scales)
-library(wesanderson)
-
-border_st<-data.frame(state=c("TX", "CA","NM","AZ"))
-
-#  Source 2017-2021 ACS 5-Year estimates 
-#  API call  url="https://api.census.gov/data/2021/acs/acs5?get=NAME,B07001_065E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:*&key={0}".format(census_api_key)	
-
-df_2021<-readRDS("B07004X_005E.rds")%>%
-  mutate(state = str_extract(State, "\\b[A-Z]{2}\\b"),
-  border=as.factor(ifelse(state%in%border_st$state,"BorderUS-MX","No Border")))
-  
-#saveRDS(df_2021,"df_2021.rds")
-
-top20<-df_2021%>%
-  rename(Pop=B07001_065E)%>%
-mutate(MSA=fct_reorder(City, Pop), border=as.factor(ifelse(state%in%border_st$state,"BorderUS-MX","No Border")))%>%
-slice_max(MSA,n=20)%>%
-  select(Pop, City, state,border)
-
-
-
-top20_mig<-ggplot(top20, aes(Pop, reorder(City,Pop), label=state, fill=border))+
-  geom_col()+
-  scale_fill_manual(values = c("#3B9AB2", "#78B7C5"), name="") +
-
-  labs(
-    x = 'Population moving from out of state',
-    y = 'Metropolitan statiscal areas (MSAs)')+
-  theme(legend.position="bottom")
-
-ggplotly(top20_mig)%>%
-  layout(legend = list(orientation = "h", x = 0, y = -.05))
-
-
-## Information: Phoenix-Mesa-Chandler, AZ Metro Area was the third MSA with the greatest inter state migration. According to ACS 2017-2021. 5yr estimates.
-
-# Although Border MSA  are not particularly important destinations for in migration for the total population,  San Diego is the only MSA that is part of the top 20 MSA receiving the largest inflows in the country. Sone other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following.  
-
-# Dallas-Fort Worth-Arlington, TX Metro Area rank 5
-# Los Angeles-Long Beach-Anaheim, CA Metro Area  8
-# Houston-The Woodlands-Sugar Land, TX Metro Area 12
-# San Diego-Chula Vista-Carlsbad, CA Metro Area 18
-```
 
 
 ```{r, include=FALSE}
@@ -448,7 +456,7 @@ rates100k<-all.races%>%select(GEO_Code, B07004G_005E, B07004F_005E, B07004E_005E
 ```
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
 ## This are the rates of migration from out of state  2017-2021
 cities<-readRDS("cities.rds")  
@@ -483,7 +491,7 @@ long_data<- readRDS("rates_raw.rds")
 ## Interesante Aqui podemos conjuntar la idea de racial differentiation. the question here is what are the places towards which, the white population is not  migrating.   The bottom 5 are:  Mexican border towns: Laredo, Brownsville, Madera CA, Vineland-Bridgeton, NJ. (A black town) McAllen-Edinburg-Mission and 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
 df_2021<-readRDS("df_2021.rds")
 # Where does Hispanics mostly migrate to?
