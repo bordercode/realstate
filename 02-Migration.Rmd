@@ -4,32 +4,34 @@
 ```{r, include= FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(plotly)
+library(scales)
+library(wesanderson)
 ```
 
 
-In this chapter, we explore the interplay among geographic mobility of the population, income, and race, with a specific emphasis on analyzing out-of-state mobility for current residence at Metropolitan areas as the primary geographic unit of analysis. Drawing on economic theory, our study delves into the intricate dynamics that shape the patterns of population movement, shedding light on the factors influencing individuals' decisions to relocate across state lines. By examining the nexus of geographic mobility, income differentials, and racial composition, we aim to deepen our understanding of the complex interrelationships within metropolitan contexts and their implications for regional economic development with a focus on the Hispanic population. 
+In this chapter, we explore the interplay among geographic mobility of the population; income, and race, with a specific emphasis on analyzing out-of-state mobility for current residence at Metropolitan areas as the primary geographic unit of analysis. Drawing on economic theory, our study delves into the intricate dynamics that shape the patterns of population movement, shedding light on the factors influencing individuals' decisions to relocate across state lines. By examining the nexus of geographic mobility, income differentials, and racial composition, we aim to deepen our understanding of the complex interrelationships within metropolitan contexts and their implications for regional economic development with a focus on the Hispanic population. 
 
-We initially consider housing demand in relation to income. According to human capital theory, income is determined among other factors, by education attainment levels (both formal as represented by a particular schooling level or a specific job training), age (which captures experience and skills acquired overtime) and several personal characteristics that may include gender[@reardonIncomeInequalityIncome2011] and race[@goetzRaciallyConcentratedAreas2019], a particular important factor in the context of a diverse country like the US. Together this factors impact productivity determining earning potential and actual income levels across occupations and industries. 
+We initially consider housing demand in relation to income. According to human capital theory, income is determined among other factors, by education attainment levels [@stiglitzAlternativeTheoriesInequality2022] both formal as represented by a particular schooling level or a specific job training, age, which captures experience and skills acquired overtime) and several personal characteristics that may include gender[@reardonIncomeInequalityIncome2011] and race[@goetzRaciallyConcentratedAreas2019], a particular important factor in the context of a diverse country like the US. Together this factors impact productivity determining earning potential and actual income levels across occupations [@dumenilChangingPatternsIncome2022] and industries. 
 
 Empirical evidence suggest that less educated households are less likely to be homeowners, [@choiHeterogeneousEffectsInteractions2022], furthermore,  education inequality could be a factor contributing to an increasing lack of housing affordability in Metropolitan areas associated with particular highly skilled labor markets. 
 
-Data on US population growth, shows that cities with more educated residents have grown faster than comparable cities with less human capital[@glaeser2004rise]. This environment, in turn creates a cycle where some areas of the country are more attractive to specific population groups[@choi2021wage] and at the same time generate incentives to migrate for particular demographic segments as they are being priced-out of the housing market. 
+Data on US population growth, shows that cities with more educated residents have grown faster than comparable cities with less human capital[@glaeser2004rise]. This environment, in turn creates a cycle where some areas of the country are more attractive to specific population groups[@berryDivergenceHumanCapital2005],[@choiWageTrickleRent2021] and at the same time generate incentives to migrate for particular demographic segments as they are being priced-out of the housing market. 
 
 
 
 ## Data and Methods
 
-In this chapter the main source of information analyzed is the American Community Survey (ACS) 5 year estimates for the period 2017-2021. This official data set is the premier source for detailed population and housing information in th US. Is collected by the US Census Bureau.  Although other temporal report formats are available for the ACS, this investigation chose the 5 year estimates for the most up to date release available at the moment of conducting this research given its wide geographic coverage which allows to detect detailed spatial patterns. 
+In this chapter the main source of information analyzed is the American Community Survey (ACS) 5 year estimates for the period 2017-2021. This official data set is the premier source for detailed population and housing information in th US. Is collected by the US Census Bureau and is publicly available for a wide set of geographical scales including Metropolita Statistical areas (MSAs).   
 
-## Inter state geographic mobility. 
+Although other temporal report formats are available for the ACS, this investigation chose the 5 year estimates for the most up to date release available at the moment of conducting this research given its wide geographic coverage which allows to detect detailed spatial patterns and is representative of the US population characteristics.  
+
+## Moving across state borders.  
 
 How real state market dynamics and home prices in particular are driving the geographic mobility of the US population across state boundaries.  To analyze this issue we focus in the out of state population movement within US (MSAs).
 
-First it is shown which Metropolitan areas have been attracting the most out of state population in the period 2017-2021.
+Figure 1, showns which Metropolitan areas have been attracting the most out of state population in the period 2017-2021.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library(scales)
-library(wesanderson)
 
 border_st<-data.frame(state=c("TX", "CA","NM","AZ"))
 
@@ -64,32 +66,81 @@ ggplotly(top20_mig, tooltip=c("text", "MoveinPop", "MSA" ))%>%
   layout(legend = list(orientation = "h", x = 0, y = -.05))
 
 
-## Information: Phoenix-Mesa-Chandler, AZ Metro Area was the third MSA with the greatest inter state migration. According to ACS 2017-2021. 5yr estimates.
-
-# Although Border MSA  are not particularly important destinations for in migration for the total population,  San Diego is the only MSA that is part of the top 20 MSA receiving the largest inflows in the country. Sone other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following.  
+# Although Border MSA  are not particularly important destinations for in migration for the total population,  San Diego is the only MSA that is part of the top 20 MSA receiving the largest inflows in the country. Some other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following.  
 
 # Dallas-Fort Worth-Arlington, TX Metro Area rank 5
 # Los Angeles-Long Beach-Anaheim, CA Metro Area  8
 # Houston-The Woodlands-Sugar Land, TX Metro Area 12
 # San Diego-Chula Vista-Carlsbad, CA Metro Area 18
 ```
+Source: José Luis Manzanares Rivera with dad from:  Rivera[@uscensusbureauAmericanCommunitySurvey2021]
+
+According to ACS 2017-2021. 5 year estimates. New York-Newark-Jersey City, Washington-Arlington-Alexandria and Phoenix-Mesa-Chandler, AZ Metro Area received the greatest flows of inter state migration in this period. 
+
+Although Border MSA  are not particularly important destinations for in migration considering the total population,  San Diego-Chula Vista Carlsbad is the only MSA that is part of the top 20 MSA by its magnitude of inflows in the country. Some other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following:  Dallas-Fort Worth-Arlington, TX Metro Area rank 5, 
+Los Angeles-Long Beach-Anaheim, CA Metro Area 8th place and Houston-The Woodlands-Sugar Land, TX Metro Area, 12th position.
+
+This base scenario considers the total population, However, by incorporating population race as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
 
 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+df_2021<-readRDS("df_2021.rds")
+# Where does Hispanics mostly migrate to?
+
+top20I<-df_2021%>%
+mutate(MSA=fct_reorder(City, p_hisp))%>%
+slice_max(MSA,n=20)%>%
+  select(p_hisp, City, state,border)%>%
+  rename(Percent=p_hisp)
+
+## plot  Hispanics moving from out of state  % of total population moved from out state. 
+
+top20_hisp<-ggplot(top20I, aes(Percent, reorder(City,Percent), label=City,fill=border, text=state))+
+  scale_fill_manual(values = c("#A93226","#34495E"), name="") +
+  geom_col() +
+
+  labs(
+    x = '(% of total pop moved out state)',
+    y = 'Metropolitan statiscal areas (MSAs)')+
+  theme(legend.position="bottom")
+
+ggplotly(top20_hisp, tooltip=c("text", "Percent", "City" ))%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+## 70% of the MSA where the majority of Hispanic population migrated are located in the border with mexico.  The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo. All of theme in Texas Lower Rio grande region. a low cost low income, High poverty rate area. 
+
+###############################
+
+## questions to be aswered with this data> 
+
+## Where does Asians migrate to? 
+
+## What is the demographic composition of the migration flows for the  high priced areas. Ej. Sunnyvale , Are Hispanics migrating to Bay area?
+
+# What is the Mortgage to income rate for  expensive areas?
+# What is the homeless rate for high price areas. 
+
+```
+
+
+******Here explain!!!!
+
+Before turning our attention to the interplay between race and geographic mobility we take on the association between income, Metropolitan area size as measure by its population and personal income. 
 
 ## Housing demand determinants: population growth, income and home prices
 
+Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration shape housing demand  which in turn, given the scarcity principle that ultimately rules all human endeavor,  ensures an upward signal to the pricing system. 
 
-Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration shape housing demand  which in turn, given the scarcity principle,  ensures an upward signal to the pricing system. 
+Although net migration flows allow to distinguish more subtle attraction elements that each geographic area is featuring, it is the population movement that manifest to balance supply and demand. But why population moves?  Centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to labor market dynamics in a given moment in time. 
 
-Although net migration flows allow to distinguish more subtle attraction elements that each geographic area has offer, it is the population movement that manifest to balance supply and demand. But why population moves, centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to the labor market dynamics in a given time and particular space. 
+Despite that home values by themselves act as signals to achieve  demand and supply equilibrium, this important factor can be particularly volatile when considering the real state market environment, given that forces such as expectations play a pivotal role, home prices fluctuations can be particularly susceptible to the wider macroeconomic policy decisions. 
 
-Home values by itself act as signals to achieve  demand and supply equilibrium, although this important factor can be particularly flexible when considering real state market  environment, given that forces such as expectations play a pivotal role in the fluctuations of home prices creating additional complexities.
-
-The following figure considers data on the factors discussed above, for all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distiguish patterns within the border region.   
-
+The following figure considers data on the factors discussed above, for all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distinguish patterns within the Us-Mexico border region.   
 
 
-[Figure 9 Housing market determinants: HPI, population and percapita income 2020](../speech/F9_scatter.html)
+**Figure 2 Housing market determinants: HPI, population and percapita income 2020**
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
 
 ## THIS IS THE PLOT  income,  population,   hpi  2020 for border states msa.
@@ -413,9 +464,6 @@ names(  df)
 # we join 9 tables one for each race category. 
 
 ```
-
-
-
 ```{r, include=FALSE}
 
 ### DATA WRANGLING FOR MIGRATION RATES PER 1000 
@@ -460,9 +508,7 @@ rates100k<-all.races%>%select(GEO_Code, B07004G_005E, B07004F_005E, B07004E_005E
   
 # saveRDS(long_data, "rates_raw.rds")
 ```
-
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r, include=FALSE, warning=FALSE, message=FALSE}
 
 ## This are the rates of migration from out of state  2017-2021
 cities<-readRDS("cities.rds")  
@@ -496,48 +542,5 @@ long_data<- readRDS("rates_raw.rds")
     left_join(cities)
 ## Interesante Aqui podemos conjuntar la idea de racial differentiation. the question here is what are the places towards which, the white population is not  migrating.   The bottom 5 are:  Mexican border towns: Laredo, Brownsville, Madera CA, Vineland-Bridgeton, NJ. (A black town) McAllen-Edinburg-Mission and 
 ```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-
-df_2021<-readRDS("df_2021.rds")
-# Where does Hispanics mostly migrate to?
-
-top20I<-df_2021%>%
-mutate(MSA=fct_reorder(City, p_hisp))%>%
-slice_max(MSA,n=20)%>%
-  select(p_hisp, City, state,border)%>%
-  rename(Percent=p_hisp)
-
-## plot  Hispanics moving from out of state  % of total population moved from out state. 
-
-top20_hisp<-ggplot(top20I, aes(Percent, reorder(City,Percent), label=City,fill=border, text=state))+
-  scale_fill_manual(values = c("#A93226","#34495E"), name="") +
-  geom_col() +
-
-  labs(
-    x = '(% of total pop moved out state)',
-    y = 'Metropolitan statiscal areas (MSAs)')+
-  theme(legend.position="bottom")
-
-ggplotly(top20_hisp, tooltip=c("text", "Percent", "City" ))%>%
-  layout(legend = list(orientation = "h", x = 0, y = -.05))
-
-## 70% of the MSA where the majority of Hispanic population migrated are located in the border with mexico.  The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo. All of theme in Texas Lower Rio grande region. a low cost low income, High poverty rate area. 
-
-###############################
-
-## questions to be aswered with this data> 
-
-## Where does Asians migrate to? 
-
-## What is the demographic composition of the migration flows for the  high priced areas. Ej. Sunnyvale , Are Hispanics migrating to Bay area?
-
-# What is the Mortgage to income rate for  expensive areas?
-# What is the homeless rate for high price areas. 
-
-
-
-```
-
 
 

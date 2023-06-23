@@ -8,6 +8,6 @@ discussion.
 conclusions.
 internal-migration-patterns.
 data-and-methods
-inter-state-geographic-mobility.
+moving-across-state-borders.
 housing-demand-determinants-population-growth-income-and-home-prices
 the-san-diego-tijuana-connection.
