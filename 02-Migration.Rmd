@@ -6,14 +6,18 @@ library(tidyverse)
 library(plotly)
 library(scales)
 library(wesanderson)
+library(readr)
+library(ineq)
+library(parsetR)
+library(RColorBrewer)
 ```
 
 
-In this chapter, we explore the interplay among: geographic mobility of the population, income, and race, with a specific emphasis on analyzing out-of-state mobility for current residence at Metropolitan areas as the primary geographic unit of analysis. Drawing on economic theory, our study delves into the intricate dynamics that shape the patterns of population movement, shedding light on the factors influencing individuals' decisions to relocate across state lines. By examining the nexus of geographic mobility, income differentials, and racial composition, we aim to deepen our understanding of the complex interrelationships within metropolitan contexts and their implications for regional economic development with a focus on the Hispanic population. 
+In this chapter, we explore the interplay among: geographic mobility of the population, income, and ethnicity, with a specific emphasis on analyzing out-of-state mobility for current residence at Metropolitan areas as the primary geographic unit of analysis. Drawing on economic theory, our study delves into the intricate dynamics that shape the patterns of population movement, shedding light on the factors influencing individuals' decisions to relocate across state lines. By examining the nexus of geographic mobility, income differentials, and racial composition, we aim to deepen our understanding of the complex interrelationships within metropolitan contexts and their implications for regional economic development with a focus on the Hispanic population. 
 
 We initially consider housing demand in relation to income. According to the basic principles of human capital theory, lay out during the last century by pioneer scholars such as: Ted Schultz, Jacob Mincer, Milton Friedman, Sherwin Rosen and of course, Gary Becker in his classic book:  Human Capital: A Theoretical and Empirical Analysis with Special Reference to Education [@beckerInvestmentHumanCapital1962],  income is determined among other factors, by education attainment levels,  both formal as represented by a particular schooling degree or a specific job training. 
 
-Age, which captures experience and skills acquired overtime [@stiglitzAlternativeTheoriesInequality2022] and several personal characteristics that may include gender [@reardonIncomeInequalityIncome2011] and race [@goetzRaciallyConcentratedAreas2019], a particular important factor in the context of a diverse country like the US. 
+Age, which captures experience and skills acquired overtime [@stiglitzAlternativeTheoriesInequality2022] and several personal characteristics that may include gender [@reardonIncomeInequalityIncome2011] and ethnicity [@goetzRaciallyConcentratedAreas2019], a particular important factor in the context of a diverse country like the US. 
 
 Together this factors impact productivity determining earning potential and actual income levels across occupations [@dumenilChangingPatternsIncome2022] and industries. 
 
@@ -25,9 +29,29 @@ Data on US population growth, shows that cities with more educated residents hav
 
 ## Data and Methods
 
+Note in data sources: We gather data on three main sources to evaluate internal migration patterns. Current Population Survey (CPS) 
+
+
+
 In this chapter the main source of information analyzed is the American Community Survey (ACS) 5 year estimates for the period 2017-2021. This official data set is the premier source for detailed population and housing information in the US. It is collected by the US Census Bureau and is publicly available for a wide set of geographical scales including Metropolitan Statistical areas (MSAs).   
 
 Although other temporal report formats are available for the ACS, this investigation choose the 5 year estimates for the most up to date release available at the moment of conducting this research given its reliable representativeness of the US population and its wide geographic coverage which allows to detect detailed spatial patterns.  
+
+To retrieve the data, Census API endpoints calls are made using Python and jupyter notebooks environment. The visualization and data management is done with R studio´s Rmarkdown integrated development environment.
+
+In a first stage, exploratory data analysis is conducted to determine which MSA are receiving population coming from out of the state, For this purpose the variable *Geographical mobility in the past year by age for current residence in the United States*, (for Population 1 year and over in the United States) is considered.
+
+Although we are interested in documenting the magnitude of this flows, absolute values offer a partial perspective of the relative importance of such incoming population movements. Thus in order to control for the relative MSA size and important population characteristics such as ethnicity, we proceed to estimate a location quotient (LQ), this is a classical indicator commonly applied in regional science analysis based on the following specification $$LQ=\frac{A}{B}$$ where $A=\frac{PI_i}{\sum_{i=1}^{384}PI}$ and $B=\frac{P_i}{\sum_{i=1}^{384}P}$
+
+In this particular case, **LQ** estimation considers the following variables: 
+
+$PI_i=B07004I_005E$ Where **B07004I_005E** is table id for data on Geographical mobility in the past year (Hispanic or Latino) for current residence in the United States for $MSA_i$. PI, represents the total population count of this variable for the 384 MSA included in the study.  So in essence **A** measures the proportion or relative importance that Hispanics moving from out of state in MSA_i, represent among the total population that moved from out of state for the reference period. 
+
+
+$P_i=B07001_065E$  where **B07001_065E**  is table id for data on Geographical mobility in the past year for current residence in the United States, category: Moved from different state, for $MSA_{i}$  And P, is the total for the 384 MSA considered in the study.  So in essence **B** measures the proportion that MSA represents within the total US MSA set. 
+
+
+As can be seen form the specification, LQ is a relative measure, that captures the geographic concentration of a particular variable relative to a reference area. 
 
 
 ## Moving across state borders.  
@@ -85,7 +109,7 @@ According to ACS 2017-2021. 5 year estimates. New York-Newark-Jersey City, Washi
 Although Border MSA  are not particularly important destinations for in migration considering the total population,  San Diego-Chula Vista Carlsbad is the only MSA that is part of the top 20 MSA by its magnitude of inflows in the country. Some other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following:  Dallas-Fort Worth-Arlington, TX Metro Area rank 5, 
 Los Angeles-Long Beach-Anaheim, CA Metro Area 8th place and Houston-The Woodlands-Sugar Land, TX Metro Area, 12th position.
 
-This base scenario considers the total population, However, by incorporating population race as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
+This base scenario considers the total population, However, by incorporating population ethnicity as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
 
 
 
@@ -132,7 +156,7 @@ ggplotly(top20_hisp, tooltip=c("text", "Percent", "City" ))%>%
 
 ******Here explain!!!!
 
-Before turning our attention to the interplay between race and geographic mobility we take on the association between income, Metropolitan area size as measure by its population and personal income. 
+Before turning our attention to the interplay between ethnicity and geographic mobility we take on the association between income, Metropolitan area size as measure by its population and personal income. 
 
 ## Housing demand determinants: population growth, income and home prices
 
@@ -200,11 +224,17 @@ Furthermore,  considering the information for  year 2020, there is evidence of s
 
 
 ```{r, include=FALSE}
+#full<-readRDS("B07004X_005E.rds")
+#xmig<-read.csv("x_mig.csv")%>%  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)%>%left_join(full)%>%na.omit
+
+```
+
+
+```{r, include=FALSE}
 
 full<-readRDS("B07004X_005E.rds")
 
-mig<-read.csv("all_mig.csv")%>%
-  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)%>%left_join(full)%>%na.omit
+mig<-read.csv("all_mig.csv")%>%  rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)%>%left_join(full)%>%na.omit
 
 mig <- mig %>%
   mutate(City = str_extract(NAME, "^[^,]+"),
@@ -214,9 +244,15 @@ mig <- mig %>%
 mig <- mig %>%
   separate(Area, into = c("State", "type"), sep = "\\s", remove = FALSE)%>%
 filter(type!="Micro")%>%
-na.omit%>%
-mutate(t.mig=sum(B07001_001E), den=B07001_001E/t.mig, t.mig.I=sum(B07004I_005E), num=B07004I_005E/t.mig.I, lq_I=round(num/den,2))
+na.omit
 
+##mutate(t.mig=sum(B07001_001E), den=B07001_001E/t.mig, t.mig.I=sum(B07004I_005E), num=B07004I_005E/t.mig.I, lq_I=round(num/den,2))
+
+
+
+#uspop<-read.csv("uspop.csv")
+
+#lq<-mig%>%mutate(LQx=B07001_001E/B01001_001E)
 
 # Do not run, DATA WRANGLING.
 
@@ -466,7 +502,7 @@ names(  df)
 #saveRDS(df, "B07004X_005E.rds") 
 # # Moved from different state GEOGRAPHICAL MOBILITY IN THE PAST YEAR ACS from API CALL: B07004I_005="https://api.census.gov/data/2021/acs/acs5?get=NAME,B07004I_005E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:*&key={0}".format(census_api_key)	
 
-# we join 9 tables one for each race category. 
+# we join 9 tables one for each ethnicity category. 
 
 ```
 ```{r, include=FALSE}
@@ -474,8 +510,8 @@ names(  df)
 ### DATA WRANGLING FOR MIGRATION RATES PER 1000 
 ## rate by 1000 from total  MSA pop Migration out of state 
 
-## Here we read the custom data set called   B07004X_005E.rds which contains all the pupulation races for category moved from other state.
-all.races<-readRDS("B07004X_005E.rds")
+## Here we read the custom data set called   B07004X_005E.rds which contains all the pupulation ethnicitys for category moved from other state.
+all.ethnicitys<-readRDS("B07004X_005E.rds")
 
 uspop<-read.csv("uspop.csv")%>%
   rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
@@ -491,17 +527,27 @@ uspop <- uspop %>%
   select(GEO_Code,B01001_001E)
 names(uspop)
 
-all.races<-left_join(uspop, all.races)%>%
+all.ethnicitys<-left_join(uspop, all.ethnicitys)%>%
 na.omit
 
+#### 
+den<-all.ethnicitys%>%summarize(den=sum(B07001_065E)/sum(B01001_001E))
+lq<-all.ethnicitys%>%mutate(lqx=(B07001_065E/B01001_001E)/0.02315713)
 
-cities<-all.races%>%select(GEO_Code, City, State)
+A<-mig%>%summarize(A=sum(B07001_065E))
+B<-mig%>%summarize(B=sum(B07001_001E))
+
+aaa<-read.csv("all_mig.csv")
+lq2<-mig%>%mutate( lqx=(B07001_065E/B07001_001E)/den)
+names(mig)
+#####
+cities<-all.ethnicitys%>%select(GEO_Code, City, State)
 
 #saveRDS(cities,"cities.rds")
 
-allpop<-all.races%>%select(GEO_Code,B01001_001E)
+allpop<-all.ethnicitys%>%select(GEO_Code,B01001_001E)
 
-rates100k<-all.races%>%select(GEO_Code, B07004G_005E, B07004F_005E, B07004E_005E, B07004D_005E,B07004C_005E,B07004B_005E,B07004A_005E,B07004I_005E,B07001_065E, B07004H_005E, B07004I_005E)
+rates100k<-all.ethnicitys%>%select(GEO_Code, B07004G_005E, B07004F_005E, B07004E_005E, B07004D_005E,B07004C_005E,B07004B_005E,B07004A_005E,B07004I_005E,B07001_065E, B07004H_005E, B07004I_005E)
 
 
   long_data <- rates100k %>%
@@ -548,4 +594,411 @@ long_data<- readRDS("rates_raw.rds")
 ## Interesante Aqui podemos conjuntar la idea de racial differentiation. the question here is what are the places towards which, the white population is not  migrating.   The bottom 5 are:  Mexican border towns: Laredo, Brownsville, Madera CA, Vineland-Bridgeton, NJ. (A black town) McAllen-Edinburg-Mission and 
 ```
 
+
+```{r, include=FALSE}
+## Flows. Data on net migration flow between (MSAs)
+## Source> ACS 5 yr estimates 2016-2020.
+
+#https://api.census.gov/data/2020/acs/flows/examples.html
+
+# API CALL  flows="https://api.census.gov/data/2020/acs/flows?get=MOVEDIN,GEOID1,GEOID2,MOVEDOUT,FULL1_NAME,FULL2_NAME,MOVEDNET&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:*&key={0}".format(census_api_key)
+
+flows<-read.csv("migration_flows.csv")%>%
+rename(GEO_Code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+
+flows <- flows %>%
+  mutate(City = str_extract(FULL1_NAME, "^[^,]+"),
+         State = str_extract(FULL1_NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(FULL1_NAME, "\\b[^,]+$"))
+
+# saveRDS(flows, "netflows_2016-2020.rds")
+
+geo_codes<-flows%>%select(GEO_Code, FULL2_NAME, City)
+#######################################
+```
+
+As has been discussed in {Chapter1}, the state of California features the most expensive real state market in the country according to official estimations publish by the Bureau of Economic Analysis  (BEA), such as the Regional price parity housing component. 
+
+Empirical evidence from the American Community Survey (ACS), internal migration flows, indicate that California is a leading state concerning negative migration flows and has been consistently experiencing negative net flows in its main Metropolitan areas.
+
+A question that is important to solve in the context is: Where are Californians moving to? Are they looking for more affordable locations?  How far are they moving? 
+
+Considering net migration flows reported by the ACS, almost half of the population ($43\%$) that decided to migrate out to a different Metropolitan area  did it across state lines. In fact only $7\%$ of the total destinations documented in the period 2016-2020, correspond to: within the state movements This reflects a dynamic demographic process with implications for both origin and destination MSAs.
+
+
+In light of the previous research question, Figure XX provides an analysis of the distribution of destination states based on their respective housing market affordability scale. This scale encompasses four distinct categories that correspond to the distribution of the regional price parity (RPP) indicator across states. The reference values for these categories are as follows: "High cost" (RPP > 125), "Expensive" (125 >= RPP > 110), "Affordable" (110 >= RPP > 70), and "Low cost" (RPP < 70). By employing this classification framework, we can gain valuable insights into the varying degrees of housing affordability among destination states.
+
+
+**Figure XX, Net migration flows from California, by state and Housing market cost**
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(wesanderson)
+
+## California out of state migration
+#### plot for  type of  state migration  Affordable or High cost
+
+
+#netflows<-readRDS("netflows_2016-2020.rds")
+
+#CA<-netflows%>%filter(State=="CA"&MOVEDNET<0)%>%group_by(FULL2_NAME)%>%  summarize(flow=sum(MOVEDNET))%>%mutate(City2 = str_extract(FULL2_NAME, "^[^,]+"),State2 = str_extract(FULL2_NAME, "\\b[A-Z]{2}\\b"),Area2 = str_extract(FULL2_NAME, "\\b[^,]+$"), type=ifelse(State2=="CA",1,0))%>%na.omit
+
+
+#saveRDS(CA, "CA.rds")
+
+####
+#states_abreviations<-read.csv("states_code.csv")%>%filter(State!="AK"&State!="HI"&State!="DC",State!="PR")
+
+
+
+#prices<-read.csv("prices.csv")%>%mutate(type=as.factor(type), type=ifelse(type==0, "Below avg", "Above avg"))%>%filter(!row_number() %in% 9)%>%filter(state!="Alaska" &  state!="Hawaii")%>%mutate(cost=ifelse(housing<=70,"Low cost",ifelse(housing>70&housing<=110,"Affordable",ifelse(housing>110&housing<=125,"Expensive","High cost"))))%>%mutate(state = ifelse(grepl("[A-Z]", state),gsub("([a-z])([A-Z])", "\\1 \\2", state),state))%>%left_join(states_abreviations)%>%select(State,cost,housing)
+
+ #destination_ca<-readRDS("CA.rds")%>%filter(type==0)%>%mutate(moved=abs(flow), State=as.factor(State2))%>%group_by(State)%>%summarize(total=sum(moved))%>%left_join(prices)%>%na.omit%>%rename(Net.mig=total, RPP=housing )
+ 
+ #saveRDS(destination_ca, "destination_ca.rds")
+
+#class<-destination_ca%>%group_by(cost)%>%summarize(total=n())%>%mutate(prtop=total/sum(total))
+
+## Plot 
+
+destination_ca<-readRDS("destination_ca.rds")
+ 
+typecost<-ggplot(destination_ca, aes(Net.mig, reorder(State,Net.mig), fill=cost, label=RPP, text=State ))+
+scale_fill_manual(values=c("#409E65","orange", "#EF551F", "#5D8DE7"), name="")+  
+geom_col()+
+  labs(
+    x = 'Net migration from California MSA',
+    y = 'Destination State')+
+  theme(legend.position="bottom")+
+  theme_classic()
+
+ggplotly(typecost, tooltip = c("text", "RPP", "cost", "Net.mig"))%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+```
+
+Source: José Luis Manzanares Rivera based on [@uscensusbureauacsCountyMCDtoCountyMCD2023]
+
+
+In accordance with the findings, among those Californian households choosing to live in a different state, We can observe that the vast majority of movers ($81\%$) are choosing states classified as either affordable ($60\%$) or low cost ($21\%$). The main destination state is Texas followed by neighboring states: Arizona, Nevada and Oregon. 
+
+Although inter state patterns above are informative of the overall preferences  of Californian internal migrants, it is important to determine which particular Metropolitan areas within these states have been the main destinations. 
+
+To achieve this goal we now analyze the negative net migration flows by metropolitan area for the state of California. 
+
+
+
+
+Figure xxxx below shows results. In this representation MSAs have been  classified to determine the housing market price level of the particular MSA using the House price index (HPI) from the Federal Housing Finance Agency (FHFA) for year 2016, which is the beginning year of the ACS sample period for migration flows 5 year release  estimates (2016-2020).  This year is selected to control the effect prior to the migration to the destination MSAs. 
+
+The classification is based on four categories to measure the savings potential (SP) implicit by the move. The savings potential is defined by the fraction that the HPI gap represents relative to origin housing prices level.   
+
+
+
+
+
+
+
+```{r, include=FALSE}
+
+##  Data wrangling only to gett net flows for CAlifornia. 
+
+# Federal Housing Finance Agency  with   Base year  1995.
+# Source> https://www.fhfa.gov/DataTools/Downloads/Documents/HPI/HPI_AT_metro.txt
+
+FHFA.hpi<-read.csv("HPI_At_metro.csv")%>%
+  mutate(hpi = as.numeric(hpi))%>%
+  filter(year==2016)%>%
+  group_by(MSA)%>%
+  summarize(hpiq=mean(hpi))%>%
+  separate(MSA, into = c("City", "State"), sep = ",\\s*", remove = FALSE)
+
+summary(FHFA.hpi)
+
+
+
+## Here !!!! Asign HPi for all origin and destination 
+
+#Answer the following  Question  the movement was likely due to affordable home prices. If So then, the gap between hpi of origin versus desination should be  positive, that is average hpis from all contribtion origins are higher than the  hpi for  destimnation
+
+ #If this pattern prevails for at leas 50+1 % of the destinations, then we can say that migration was driven by a serch of affordable housing. 
+
+## FOREGET ABORU THE EXPENSIVE, HIGH OCST AND AFFORDABLE CLASSIFICATION.!!!! 
+
+#####################################################
+
+#ggplot(FHFA.hpi, aes(hpiq))+geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)
+
+#percentiles <- quantile(FHFA.hpi$hpiq, probs = seq(0.1, 0.9, by = 0.1))
+#df_percentiles <- data.frame(Percentile = names(percentiles), Value = percentiles)
+
+
+netflows<-readRDS("netflows_2016-2020.rds")
+
+CA<-netflows%>%filter(State=="CA"&MOVEDNET<0)%>%
+  group_by(FULL2_NAME)%>%
+  summarize(moved=sum(MOVEDNET))%>%
+  mutate(City = str_extract(FULL2_NAME, "^[^,]+"),
+         State = str_extract(FULL2_NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(FULL2_NAME, "\\b[^,]+$"), type=ifelse(State=="CA",1,0))%>%na.omit%>%
+  filter(State!="DC")
+
+
+tipo<-CA%>%group_by(type)%>%
+  summarize(where=sum(moved))%>%
+  mutate(proportion=where/sum(where))
+
+
+
+
+
+CAlocals<-CA%>%
+  filter(type==1)
+
+
+
+## From those who moved out of CA, the majority moved to Texas and Arizona MSA.
+
+ca_out<-CA%>%filter(type==0)%>%
+  filter(State!="DC")%>%
+mutate(moved=moved*-1)%>%
+  left_join(FHFA.hpi, by=c('City', "State"))%>%
+  na.omit
+
+#mutate(cost=ifelse(hpiq>=205.1305,"High cost", ifelse(hpiq<205.1305&hpiq>=185.7063, "Expensive", ifelse(hpiq<185.7063&hpiq>=170.6170,"Affordable","Low cost" ))))
+
+  
+
+#COUNTS<-ca_out%>%group_by(cost)%>%count(cost)
+
+
+### Plot #### 
+
+#saveRDS(ca_out, "ca_out.rds")
+```
+
+
+
+**Figxxx  Main Metropolitan destinations for out of state Californian  movers 2020**
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+### Plot  top MSa destinations for CA movers by net flow #### 
+
+
+# Where does Californians are moving to? 
+
+# The Phoenix-Mesa-Chandler, AZ Metro Area was the main area for out migration for Californians moving to another MSA out the state with a net migration flow  -22,769 people for the 5 year  estimate in the period 2013-2020.
+
+
+ca_out<-readRDS("ca_out.rds")%>%
+  rename(Population=moved)%>%
+  arrange(desc(Population))%>%
+  mutate(acumulado=cumsum(Population ), cdf=acumulado/sum(Population))%>%
+  slice_max(Population, n=78)%>%
+  rename(Netflow=Population)
+
+
+
+############   Concentration fo net migration out of state flows #############
+
+
+
+#ineq(ca_out$Population,type = "Gini")
+#Lc(ca_out$Population, plot = TRUE)
+
+
+#lorenzo<-data.frame(a=Lc(ca_out$Population, plot = TRUE)$L.general, MSA=Lc(ca_out$Population, plot = TRUE)$L, pop=Lc(ca_out$Population, plot = TRUE)$p )
+
+
+
+####################################
+msap<-ggplot(ca_out, aes(Netflow, reorder(MSA,Netflow), label=City, text=State, fill=Netflow, ))+
+geom_col()+
+ scale_fill_gradient(low = "grey", high = "#FF0F0F", name="" )+
+  labs(
+    x = 'Net migration from California MSA',
+    y = 'Destination (MSAs)')+
+  theme(legend.position="bottom")+
+  theme_classic()
+
+ggplotly(msap, tooltip=c("text",  "City", "Netflow"))%>%
+  layout(legend = list(orientation = "h", x = 0, y = -.05))
+
+# we observe a Gini coef =.71 which reflects a highly unequal pattern of concentration of movers in a tggh   MSA set. 
+```
+
+Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCountyMCDtoCountyMCD2023]
+
+Although internal migrants moving out of California dispersed to virtually all geographic regions of the country, 80% of the total net flow of out of state migrants, moved to a highly concentrated fraction of places representing only 26% of the total 300 destination MSAs as shown in figure xx above.   
+
+Furthermore,  when we consider the housing market price differentials between origin and destination MSAs, it is found that  only 3.1 %  of the destinations present a negative hpi gap, (a negative HPi gap indicates a movement from a lower to a higher housing cost MSA). Once the magnitude of the net migration  by origin MSA flow is considered, the hpi gap proportion adjust to $6\%$ for movers to more costly areas. Which indicates that the vast majority $94\%$ of out of state migrants from California preferred a more affordable destination. 
+
+The main destinations Metro areas during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
+Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
+^[Interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which my indicate a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area].
+ 
+```{r, include=FALSE}
+
+## Do not run.
+
+# Just a test plot to see HPI vs. magnitud of net flows for destination MSA for California out of state movers. 
+
+#ca_out<-readRDS("ca_out.rds")
+
+##p <- ggplot(ca_out, aes(hpiq, moved, label=City)) +geom_point(alpha = 0.7) +scale_size(range = c(1, 6))  +labs(x = 'HPI 1995=100', y = 'Net.mig') +scale_y_log10(labels =  comma ) +geom_smooth(method="lm", se=FALSE, linewidth=.2 )+theme_classic()
+
+#p
+
+# IMPORTANT Add to this data a categorical variable that classify  MSA according to Expensive, high cost , affordable and  low cost homes (HPI distribution). Are Californians moving to low cost MSA?  Further more is Phoenix a High cost MSA. 
+
+## See https://personal.tcu.edu/kylewalker/interactive-flow-visualization-in-r.html
+```
+```{r, include=FALSE}
+
+#netflows<-readRDS("netflows_2016-2020.rds")
+
+#origin<-netflows%>%
+#select(-FULL2_NAME)
+####################################
+
+## data wrangling only to get HPI  to join to migration flows
+
+#subset_df <- origin[is.na(origin$hpiq) & !duplicated(origin$FULL1_NAME), ]
+
+
+#subset_df<-subset_df%>%
+  #filter(State!="PR")%>%
+  #select(City)%>%
+  #rename(new_city=City)%>%
+ # mutate(City=c("Austin-Round Rock-Georgetown",
+#"Boston", 
+#"Chicago-Naperville-Evanston", 
+#"Dallas-Plano-Irving", 
+#"Detroit-Dearborn-Livonia", 
+#"Hartford-East Hartford-Middletown", 
+#"Johnstown", 
+#"Los Angeles-Long Beach-Glendale",
+#"Miami-Miami Beach-Kendall",
+#"Morgantown", "Morristown",
+#"New York-Jersey City-White Plains",
+#"Philadelphia",
+#"Poughkeepsie-Newburgh-Middletown",
+#"San Francisco-San Mateo-Redwood City",
+#"Seattle-Bellevue-Kent"))
+  #left_join(FHFA.hpi)
+
+#FHFA.hpi<-read.csv("HPI_At_metro.csv")%>%mutate(City = str_extract(MSA, "^[^,]+"),State = str_extract(MSA, "\\b[A-Z]{2}\\b"),Area = str_extract(MSA, "\\b[^,]+$"))%>%mutate(hpi = parse_number(hpi))%>%filter(year==2016) %>%left_join(subset_df)
+
+#FHFA.hpi$City <- ifelse(is.na(FHFA.hpi$new_city), FHFA.hpi$City, FHFA.hpi$new_city)
+
+#FHFA.hpi<-FHFA.hpi%>%select(-new_city)%>%group_by(City, State)%>%summarise(hpi=mean(hpi))
+
+#########################################
+
+# Do not run 
+
+#Separate only   origin
+
+#origin<-netflows%>%select(-FULL2_NAME)
+
+
+#destination<-netflows%>%select(FULL2_NAME)%>%mutate(City = str_extract(FULL2_NAME, "^[^,]+"),State = str_extract(FULL2_NAME, "\\b[A-Z]{2}\\b"),Area = str_extract(FULL2_NAME, "\\b[^,]+$"))%>%select(-Area)%>%left_join(FHFA.hpi)%>%rename(City2=City, State2=State,hpi2=hpi)
+
+
+#ori.des<-origin%>%cbind(destination )%>%
+  #filter(State=="CA"&MOVEDNET<0, State2!="HI",State2!="AK",State2!="DC")%>%mutate(type=ifelse(State2=="CA",1,0))%>%na.omit%>%filter(type==0)%>%mutate(hpigap=hpi-hpi2)
+
+###################################################
+
+### This is the important data set to work on the final hpi classification for destination MSA.
+
+# saveRDS(ori.des,"ori.des.rds")
+
+#orides<-readRDS("ori.des.rds")
+  
+#gapsumary<-ori.des%>%group_by(FULL2_NAME)%>%
+#summarise(gap=mean(hpigap))
+
+#saveRDS(gapsumary,"gapsumary.rds")
+
+#gapsumary<-readRDS("gapsumary.rds")
+
+## plot hpi gap  not pondered 
+
+#ggplot(gapsumary, aes(gap))+geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)
+
+# 11/350  Only 3.1 %  of the destinations present a negative hpi gap, (a negative HPi gap indicates a movement from a lower to a higher housing cost) of the movers did so to a higher cost area.
+# Basically Californians where relocating to more affordable areas of the country. A
+
+## Plot  density   
+
+#ponderador<-ori.des%>%group_by(FULL1_NAME)%>%mutate(ponderador=MOVEDNET/sum(MOVEDNET), typemove=ifelse(hpigap>=0,"Cheaper","Expensive"))%>%mutate(weightgap=hpigap*ponderador)%>%group_by(FULL2_NAME)%>%summarise(gap2=mean(weightgap))
+
+#saveRDS(ponderador,"ponderador.rds")
+
+# Once the magnitud or the size of the net migration  by origin MSA flow is considered, the hpi gap proportion adjust to 6 % for movers to more costly areas. This is just complementary data to highlight that there was a relevant gap between orign  and destination MSA for out of state movers.  
+
+#### HERERER HERER!! CREATE A CLSSIFICATION FOR THE HPI GAP NAD REPRENT  DDESTINATION MSA  BY ITS HPI GAP SIZE, THIS WILL INFORME ON THE HOUSING MARKET INCENTIVES AND OBSERVED   HOUSE PRICE DIFFERENCITIALS BETWEEN ORIGIN AND DESTINATON MSAS.
+
+## The clasification name is housing market savngs potential, it has 4 categories representing saving potential . the grated teh positive gap the bigger the savingswtih the move. 
+
+#ggplot(ponderador, aes(gap2))+
+#geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)
+
+
+#saveRDS(ponderador,"ponderador1.rds")
+
+#ponderador1<-readRDS("ponderador1.rds")
+
+#Pop<-ponderador1%>%filter(typemove=="Cheaper")%>%group_by(City2, State2)%>%summarize(Pop=abs(sum(MOVEDNET)))
+
+#hpigap<-ponderador1%>%filter(typemove=="Cheaper")%>%group_by(City2, State2)%>%summarize(hpigap=mean(hpigap))%>%left_join(Pop)
+
+#Cheapermove<-ponderador1%>%
+  #filter(typemove=="Cheaper")%>%mutate(sp=hpigap/hpi)%>%group_by(City2, State2)%>%summarize(savings=mean(sp))%>%left_join(hpigap)
+
+#Cheapermove$Location <- paste(Cheapermove$City2, Cheapermove$State2, sep = ", ")
+
+#location_MSA<-read.csv("locationsMSACheap.csv")%>%na.omit()
+
+#location_MSA<-st_as_sf(location_MSA, coords = c("Longitude", "Latitude"),  crs=4326)  %>%select(savings, hpigap, Pop, geometry, Location)
+
+#saveRDS(location_MSA, "location_MSA_coded.rds")
+
+#location_MSA<-readRDS("location_MSA_coded.rds")
+
+
+#### Here introduce the paarset flordiagram  and make a map !!!
+
+
+#Expensive<-ponderador%>%filter(typemove=="Expensive")
+
+## Cheaper areas   positive MSA hpI gaps
+
+#hpigap_sizemove <- ggplot(Cheapermove, aes(ponderador, hpigap, label=City, color=typemove)) +geom_point(alpha = 0.7) +scale_size(range = c(1, 6))  +labs(x = 'Size of Moved', y = 'HPI Gap') +scale_x_log10(labels =  comma ) +geom_smooth(method="lm", se=FALSE, linewidth=.2 )+theme_classic()hpigap_sizemove
+
+## Expensive areas   Negative Hpi gap
+#hpigap_sizemove <- ggplot(Expensive, aes(ponderador, hpigap, label=City)) +geom_point(alpha = 0.7) +scale_size(range = c(1, 6))  +labs(x = 'Size of Moved', y = 'HPI Gap') +scale_x_log10(labels =  comma ) +geom_smooth(method="lm", se=FALSE, linewidth=.2 )+theme_classic()hpigap_sizemove
+
+## The bigger the size of the population flowing out From a particular MSA, the lower the HPI gap. That is, bigger negative net migration movements took place between MSAs with smaller HPI gaps or more similar housing markets. In addition this negative relationship  is not significan for  movers tbetween a low cost area and high cost MSA (negative Hpi gaps between orign and destination)  which indicates  that not necesarily big netfows take place to more expensive areas. 
+```
+
+Figure xxx below shows the geographic distribution of destinations adding de HPI gap between origin and destination along with the net flow and  the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, represents relative to the origin home price level. 
+
+**Figure xxx  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin  HPI. ACS 2016-2020**
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+location_MSA<-readRDS("location_MSA_coded.rds")%>%
+  rename(Netflow=Pop)
+
+
+cheaper<-mapview(location_MSA, map.types =  "CartoDB.DarkMatter",cex="Netflow", zcol="savings", layer.name= "Saving %",legend = TRUE,homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)
+
+
+leafem::addMouseCoordinates(cheaper)%>%
+setView(zoom = 3.6, -96.5716694, 39.1836082)
+
+```
+Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCountyMCDtoCountyMCD2023; @fhfaHousePriceIndex2022]
 

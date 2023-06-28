@@ -1,0 +1,156 @@
+
+
+```{r, include=FALSE}
+
+netflows<-readRDS("netflows_2016-2020.rds")
+
+origin<-netflows%>%
+select(-FULL2_NAME)
+####################################
+
+## data wrangling only to get HPI  to join to migration flows
+
+subset_df <- origin[is.na(origin$hpiq) & !duplicated(origin$FULL1_NAME), ]
+
+
+subset_df<-subset_df%>%
+  filter(State!="PR")%>%
+  select(City)%>%
+  rename(new_city=City)%>%
+  mutate(City=c("Austin-Round Rock-Georgetown",
+"Boston", 
+"Chicago-Naperville-Evanston", 
+"Dallas-Plano-Irving", 
+"Detroit-Dearborn-Livonia", 
+"Hartford-East Hartford-Middletown", 
+"Johnstown", 
+"Los Angeles-Long Beach-Glendale",
+"Miami-Miami Beach-Kendall",
+"Morgantown", "Morristown",
+"New York-Jersey City-White Plains",
+"Philadelphia",
+"Poughkeepsie-Newburgh-Middletown",
+"San Francisco-San Mateo-Redwood City",
+"Seattle-Bellevue-Kent"))
+  left_join(FHFA.hpi)
+
+FHFA.hpi<-read.csv("HPI_At_metro.csv")%>%
+ mutate(City = str_extract(MSA, "^[^,]+"),
+        State = str_extract(MSA, "\\b[A-Z]{2}\\b"),
+       Area = str_extract(MSA, "\\b[^,]+$"))%>%
+ mutate(hpi = parse_number(hpi))%>%
+ filter(year==2016) %>%
+ left_join(subset_df)
+
+FHFA.hpi$City <- ifelse(is.na(FHFA.hpi$new_city), FHFA.hpi$City, FHFA.hpi$new_city)
+
+FHFA.hpi<-FHFA.hpi%>%select(-new_city)%>%
+ group_by(City, State)%>%
+ summarise(hpi=mean(hpi))
+
+#########################################
+
+# Do not run 
+
+#Separate only   origin
+
+origin<-netflows%>%
+select(-FULL2_NAME)
+
+
+
+  left_join(FHFA.hpi)
+
+
+destination<-netflows%>%
+select(FULL2_NAME)%>%
+  mutate(City = str_extract(FULL2_NAME, "^[^,]+"),
+         State = str_extract(FULL2_NAME, "\\b[A-Z]{2}\\b"),
+         Area = str_extract(FULL2_NAME, "\\b[^,]+$"))%>%
+  select(-Area)%>%
+left_join(FHFA.hpi)%>%
+    rename(City2=City, State2=State,hpi2=hpi)
+
+
+ori.des<-origin%>%cbind(destination )%>%
+  filter(State=="CA"&MOVEDNET<0, State2!="HI",State2!="AK",State2!="DC")%>%
+  mutate(type=ifelse(State2=="CA",1,0))%>%na.omit%>%
+  filter(type==0)%>%
+  mutate(hpigap=hpi-hpi2)
+
+###################################################
+
+### This is the important data set to work on the final hpi classification for destination MSA.
+
+# saveRDS(ori.des,"ori.des.rds")
+
+orides<-readRDS("ori.des.rds")
+  
+#gapsumary<-ori.des%>%group_by(FULL2_NAME)%>%
+#summarise(gap=mean(hpigap))
+
+#saveRDS(gapsumary,"gapsumary.rds")
+
+gapsumary<-readRDS("gapsumary.rds")
+
+## plot hpi gap  not pondered 
+
+ggplot(gapsumary, aes(gap))+
+geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)
+
+# 11/350  Only 3.1 %  of the destinations present a negative hpi gap, (a negative HPi gap indicates a movement from a lower to a higher housing cost) of the movers did so to a higher cost area.
+# Basically Californians where relocating to more affordable areas of the country. A
+
+## Plot  density   
+
+ponderador<-ori.des%>%group_by(FULL1_NAME)%>%
+  mutate(ponderador=MOVEDNET/sum(MOVEDNET), typemove=ifelse(hpigap>=0,"Cheaper","Expensive"))%>%
+  mutate(weightgap=hpigap*ponderador)%>%
+  group_by(FULL2_NAME)%>%
+  summarise(gap2=mean(weightgap))
+
+#saveRDS(ponderador,"ponderador.rds")
+
+# Once the magnitud or the size of the net migration  by origin MSA flow is considered, the hpi gap proportion adjust to 6 % for movers to more costly areas. This is just complementary data to highlight that there was a relevant gap between orign  and destination MSA for out of state movers.  
+
+#### HERERER HERER!! CREATE A CLSSIFICATION FOR THE HPI GAP NAD REPRENT  DDESTINATION MSA  BY ITS HPI GAP SIZE, THIS WILL INFORME ON THE HOUSING MARKET INCENTIVES AND OBSERVED   HOUSE PRICE DIFFERENCITIALS BETWEEN ORIGIN AND DESTINATON MSAS.
+
+## The clasification name is housing market savngs potential, it has 4 categories representing saving potential . the grated teh positive gap the bigger the savingswtih the move. 
+
+ggplot(ponderador, aes(gap2))+
+geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8)
+
+
+#saveRDS(ponderador,"ponderador1.rds")
+
+ponderador1<-readRDS("ponderador1.rds")
+
+Cheapermove<-ponderador%>%
+  filter(typemove=="Cheaper")
+
+Expensive<-ponderador%>%
+  filter(typemove=="Expensive")
+
+## Cheaper areas   positive MSA hpI gaps
+
+hpigap_sizemove <- ggplot(Cheapermove, aes(ponderador, hpigap, label=City, color=typemove)) +
+geom_point(alpha = 0.7) +
+scale_size(range = c(1, 6))  +
+labs(x = 'Size of Moved', y = 'HPI Gap') +
+  scale_x_log10(labels =  comma ) +
+geom_smooth(method="lm", se=FALSE, linewidth=.2 )+
+theme_classic()
+hpigap_sizemove
+
+## Expensive areas   Negative Hpi gap
+
+hpigap_sizemove <- ggplot(Expensive, aes(ponderador, hpigap, label=City)) +
+geom_point(alpha = 0.7) +
+scale_size(range = c(1, 6))  +
+labs(x = 'Size of Moved', y = 'HPI Gap') +
+  scale_x_log10(labels =  comma ) +
+geom_smooth(method="lm", se=FALSE, linewidth=.2 )+
+theme_classic()
+hpigap_sizemove
+## The bigger the size of the population flowing out From a particular MSA, the lower the HPI gap. That is, bigger negative net migration movements took place between MSAs with smaller HPI gaps or more similar housing markets. In addition this negative relationship  is not significan for  movers tbetween a low cost area and high cost MSA (negative Hpi gaps between orign and destination)  which indicates  that not necesarily big netfows take place to more expensive areas. 
+```

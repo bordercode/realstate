@@ -1,4 +1,7 @@
-# House prices, interest rates and investment opportunities.
+# House prices, interest rates and investment opportunities.  {Chaper1}
+
+
+
 
 ```{r, echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
 library(dygraphs)
@@ -110,6 +113,7 @@ prices<-read.csv("prices.csv")%>%
   filter(!row_number() %in% 9)%>%
   filter(state!="Alaska" &  state!="Hawaii")
 
+
 ### Plot  
 
 rppp<-ggplot(prices, aes(x = reorder(state,rppindex), y=rppindex, fill = type))+ 
@@ -152,13 +156,14 @@ Figure 2 below shows the House Price index (HPI) distribution across the 387 U.S
 
 The index depicts housing market prices taking as base year 1995. So higher values indicate a relative appreciation and therefore more expensive locations than those with smaller circles.   
 
-[Figure 2 Regional price parities (RPP) by state 2022](../speech/F2map.html).
+[Figure 2 Home price index HPI ](../speech/F2map.html).
 
 ```{r,  warning=FALSE, message=FALSE, echo=FALSE}
 
 ## This datas set contains 387   MSA as of  2020 with geo atribututes and avg hpi  2020  base year is 1995   which means that HPI for uS is 100% in 1995. The avg_q  variable takes into account a mean for q1,q2,q3,q4  in the given year.
 
 df<-readRDS("datageo2020.rds")%>%rename(Year=yr, MSA=msa.x, Annual.HPI.growth00.20=gwr00_20, State=state)
+
 
 # Adding a factor  variable for border states 
 df <- st_as_sf(df,  crs = 4326)
@@ -238,7 +243,9 @@ Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfa
 ```
 
 ```{r, echo=FALSE}
+
 rate<-readRDS("rate.rds")
+
 cols <- c( "#E74C3C","#154360", "#1E8449")
           
 tsplot<-ggplot(rate, aes( Year, AnnualGrowth,color=geo, label = state))+
