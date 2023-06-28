@@ -630,11 +630,9 @@ Considering net migration flows reported by the ACS, almost half of the populati
 In light of the previous research question, Figure XX provides an analysis of the distribution of destination states based on their respective housing market affordability scale. This scale encompasses four distinct categories that correspond to the distribution of the regional price parity (RPP) indicator across states. The reference values for these categories are as follows: "High cost" (RPP > 125), "Expensive" (125 >= RPP > 110), "Affordable" (110 >= RPP > 70), and "Low cost" (RPP < 70). By employing this classification framework, we can gain valuable insights into the varying degrees of housing affordability among destination states.
 
 
-**Figure XX, Net migration flows from California, by state and Housing market cost**
+**Figure XX, Net migration flows from California, by state and Regional price parities**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-
-library(wesanderson)
 
 ## California out of state migration
 #### plot for  type of  state migration  Affordable or High cost
@@ -778,10 +776,7 @@ mutate(moved=moved*-1)%>%
 #saveRDS(ca_out, "ca_out.rds")
 ```
 
-
-
-**Figxxx  Main Metropolitan destinations for out of state Californian  movers 2020**
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, include=FALSE, message=FALSE, warning=FALSE}
 
 ### Plot  top MSa destinations for CA movers by net flow #### 
 
@@ -791,12 +786,7 @@ mutate(moved=moved*-1)%>%
 # The Phoenix-Mesa-Chandler, AZ Metro Area was the main area for out migration for Californians moving to another MSA out the state with a net migration flow  -22,769 people for the 5 year  estimate in the period 2013-2020.
 
 
-ca_out<-readRDS("ca_out.rds")%>%
-  rename(Population=moved)%>%
-  arrange(desc(Population))%>%
-  mutate(acumulado=cumsum(Population ), cdf=acumulado/sum(Population))%>%
-  slice_max(Population, n=78)%>%
-  rename(Netflow=Population)
+#ca_out<-readRDS("ca_out.rds")%>%rename(Population=moved)%>%arrange(desc(Population))%>%mutate(acumulado=cumsum(Population ), cdf=acumulado/sum(Population))%>%slice_max(Population, n=78)%>%rename(Netflow=Population)
 
 
 
@@ -813,22 +803,13 @@ ca_out<-readRDS("ca_out.rds")%>%
 
 
 ####################################
-msap<-ggplot(ca_out, aes(Netflow, reorder(MSA,Netflow), label=City, text=State, fill=Netflow, ))+
-geom_col()+
- scale_fill_gradient(low = "grey", high = "#FF0F0F", name="" )+
-  labs(
-    x = 'Net migration from California MSA',
-    y = 'Destination (MSAs)')+
-  theme(legend.position="bottom")+
-  theme_classic()
 
-ggplotly(msap, tooltip=c("text",  "City", "Netflow"))%>%
-  layout(legend = list(orientation = "h", x = 0, y = -.05))
+#msap<-ggplot(ca_out, aes(Netflow, reorder(MSA,Netflow), label=City, text=State, fill=Netflow ))+geom_col()+scale_fill_gradient(low = "grey", high = "#FF0F0F", name="" )+labs(  x = 'Net migration from California MSA',y = 'Destination (MSAs)')+ theme(legend.position="bottom")+theme_classic()
+
+#ggplotly(msap, tooltip=c("text",  "City", "Netflow"))%>%layout(legend = list(orientation = "h", x = 0, y = -.05))
 
 # we observe a Gini coef =.71 which reflects a highly unequal pattern of concentration of movers in a tggh   MSA set. 
 ```
-
-Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCountyMCDtoCountyMCD2023]
 
 Although internal migrants moving out of California dispersed to virtually all geographic regions of the country, 80% of the total net flow of out of state migrants, moved to a highly concentrated fraction of places representing only 26% of the total 300 destination MSAs as shown in figure xx above.   
 
@@ -951,16 +932,17 @@ Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakers
 
 #ponderador1<-readRDS("ponderador1.rds")
 
-#Pop<-ponderador1%>%filter(typemove=="Cheaper")%>%group_by(City2, State2)%>%summarize(Pop=abs(sum(MOVEDNET)))
+#Pop<-ponderador1%>%group_by(City2, State2)%>%summarize(Pop=abs(sum(MOVEDNET)))
 
-#hpigap<-ponderador1%>%filter(typemove=="Cheaper")%>%group_by(City2, State2)%>%summarize(hpigap=mean(hpigap))%>%left_join(Pop)
+#hpigap<-ponderador1%>%group_by(City2, State2)%>%summarize(hpigap=mean(hpigap))%>%left_join(Pop)
 
-#Cheapermove<-ponderador1%>%
-  #filter(typemove=="Cheaper")%>%mutate(sp=hpigap/hpi)%>%group_by(City2, State2)%>%summarize(savings=mean(sp))%>%left_join(hpigap)
+#all<-ponderador1%>%mutate(sp=hpigap/hpi)%>%group_by(City2, State2)%>%summarize(savings=mean(sp))%>%left_join(hpigap)
 
-#Cheapermove$Location <- paste(Cheapermove$City2, Cheapermove$State2, sep = ", ")
+#all$Location <- paste(all$City2, all$State2, sep = ", ")
 
-#location_MSA<-read.csv("locationsMSACheap.csv")%>%na.omit()
+#write.csv(all,"all.csv")
+
+#location_MSA<-read.csv("all_msa_CAout_geocoded.csv")%>%na.omit()
 
 #location_MSA<-st_as_sf(location_MSA, coords = c("Longitude", "Latitude"),  crs=4326)  %>%select(savings, hpigap, Pop, geometry, Location)
 
@@ -984,19 +966,21 @@ Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakers
 ## The bigger the size of the population flowing out From a particular MSA, the lower the HPI gap. That is, bigger negative net migration movements took place between MSAs with smaller HPI gaps or more similar housing markets. In addition this negative relationship  is not significan for  movers tbetween a low cost area and high cost MSA (negative Hpi gaps between orign and destination)  which indicates  that not necesarily big netfows take place to more expensive areas. 
 ```
 
-Figure xxx below shows the geographic distribution of destinations adding de HPI gap between origin and destination along with the net flow and  the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, represents relative to the origin home price level. 
+Figure xxx below shows the geographic distribution of destinations adding de HPI gap between origin and destination along with the net flow and  the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, accounts relative to the origin home price level. 
 
-**Figure xxx  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin  HPI. ACS 2016-2020**
+**Figure xxx  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin HPI 2020.** 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
 location_MSA<-readRDS("location_MSA_coded.rds")%>%
-  rename(Netflow=Pop)
+  rename(Netflow=Pop)%>%
+mutate(savings=round(savings,2))  
+  
 
 
-cheaper<-mapview(location_MSA, map.types =  "CartoDB.DarkMatter",cex="Netflow", zcol="savings", layer.name= "Saving %",legend = TRUE,homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)
+allCA_out<-mapview(location_MSA, map.types =  "CartoDB.DarkMatter",cex="Netflow", zcol="savings", layer.name= "Savings %",legend = TRUE,homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)
 
 
-leafem::addMouseCoordinates(cheaper)%>%
+leafem::addMouseCoordinates(allCA_out)%>%
 setView(zoom = 3.6, -96.5716694, 39.1836082)
 
 ```
