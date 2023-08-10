@@ -968,14 +968,14 @@ Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakers
 
 Figure xxx below shows the geographic distribution of destinations adding de HPI gap between origin and destination along with the net flow and  the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, accounts relative to the origin home price level. 
 
-**Figure xxx  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin HPI 2020.** 
+**Figure xxx  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin HPI 2020.**
+
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
 location_MSA<-readRDS("location_MSA_coded.rds")%>%
   rename(Netflow=Pop)%>%
 mutate(savings=round(savings,2))  
   
-
 
 allCA_out<-mapview(location_MSA, map.types =  "CartoDB.DarkMatter",cex="Netflow", zcol="savings", layer.name= "Savings %",legend = TRUE,homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)
 

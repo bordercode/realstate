@@ -1,5 +1,4 @@
-# House prices, interest rates and investment opportunities.  {Chaper1}
-
+# House prices, interest rates and investment opportunities.
 
 
 
@@ -52,7 +51,7 @@ A primary goal is to explore real state market fluctuations over time, to achiev
 
 To measure house price levels the main input variable is the quarterly seasonally adjusted house price index for the period 1995:Q1 (base year) to 2022:Q4 for 387 MSAs for which  Federal housing finance agency  (FHFA) price indices are available. 
 
-The FHFA House Price Index (FHFA HPI) is a broad economic measure of the movement of single family house prices in the United States [@fhfaHousePriceIndex2022].  The data set analyzed in this chapter contains purchase only  transactions, the aim is to capture the price level fluctuations a feature estimated by using sales price data as opposed to appreciation. (which considers a repet transaction methodology.
+The FHFA House Price Index (FHFA HPI) is a broad economic measure of the movement of single family house prices in the United States [@fhfaHousePriceIndex2022].  The data set analyzed in this chapter contains purchase only  transactions, the aim is to capture the price level fluctuations a feature estimated by using sales price data as opposed to appreciation. (which considers a repeat transaction methodology).
 
 To measure the underlying rate of appreciation of a given house price, the Freddie Mac House price index (FMHPI), is incorporated. This is a repeat transaction index, which compares the price of the same property over two or more transactions and is explicitly designed to capture appreciation while holding constant basic factors such as physical location, climate, housing type, etc.,between transactions. [@freddiemacFreddieMacHouse2023].
 
@@ -62,7 +61,7 @@ Whereas HPI in data sets such as FHFA, measures current price level not consider
 
 To complement the perspective obtained by the Federal housing finance agency HPI data and the Freddie Mac HPI,  the housing component of the regional price parities (RPPs) indicator for year 2022 (the latest release as the time of writing this investigation) is included.
 
-This is an official indicator reported by the Bureau of economic analysis (BEA) which measure the differences in price levels across states and metropolitan areas for a given year and are expressed as a percentage of the overall national price level[@bureauofeconomicanalysisRegionalPriceParities2023]. 
+This is an official indicator reported by the Bureau of economic analysis (BEA) which measure the differences in price levels across states and metropolitan areas for a given year and are expressed as a percentage of the overall national price level [@bureauofeconomicanalysisRegionalPriceParities2023]. 
 
 This indicator is particularly informative of the population purchasing power, specially it allows price comparisons relative to the national average.
 
@@ -71,27 +70,27 @@ To capture demand side factors, Official population estimates from the US Census
 Per capita personal Income (PPI) by metropolitan area from the U.S. Bureau of Economic Analysis is also included.
 [@bureauofeconomicanalysisPersonalIncomeCounty2023]. This variable contributes to capture inequality and financial barriers to access the housing market. In addition the income to house price ratio is useful to inform on the contextual factors affecting the decisions to move. 
 
-A second goal is to emphasize the impact of monetary policy shifts on housing demand by examining time series data for interest rates. Specifically, we analyze how changes in interest rates influence the demand for home loans, which, in turn, has a significant effect on home prices.
+A second goal of this chapter is to reveal the impact of monetary policy shifts on housing demand by examining time series data for interest rates. Specifically, we analyze how changes in interest rates influence the demand for home loans, which, in turn, has a significant effect on home prices.
 
-Interest rates serve as a crucial economic indicator that directly affects the demand for housing. By exploring the dynamics of interest rates over time, we aim to shed light on the influential role they play in shaping housing market trends in the presence of external economic shocks, particularly important during the study period we document: a)  the effect of the so called "Great Recession" related to the sub-prime mortgage market collapse in 2009 and b) the global health emergency declaration of early 2020.
+Interest rates serve as a crucial macroeconomic indicator that directly affects the demand for housing. By exploring the dynamics of interest rates over time, we aim to shed light on the influential role they play in shaping housing market trends in the presence of external economic shocks, particularly important during the study period we document: a)  the effect of the so called "Great Recession" related to the sub-prime mortgage market collapse in 2009 and b) the global health emergency declaration of early 2020.
 
 A third goal is to analyze non-conventional economic data^[Conventional economic data is defined for the purposes of this investigation as repositories generated by the Census Bureau, Bureau of economic analysis and federal agencies and institutions that provide estimates, projections and indicators related to the housing market], to understand the population sentiment towards the housing market, we propose the use of the Google trends tool. 
 
-This tool provides insights into the relative popularity of search terms over a particular period of time and across different regions. And it has become a relevant source for academic research recently from areas in the social sciences field as wellas other disciplines such as natural sciences and public health. [@askitasTrendSpottingHousingMarket2016], [@avramescuNowcastingRomanianMigration2021], [@vazquezGRANDESDATOSGOOGLE2020], [@kamMonitoringDroughtAwareness2019].
+This tool provides insights into the relative popularity of search terms over a particular period of time and across different regions. And it has become a relevant source for academic research recently from areas in the social sciences field as well as other disciplines such as natural sciences and public health. [@askitasTrendSpottingHousingMarket2016], [@avramescuNowcastingRomanianMigration2021], [@vazquezGRANDESDATOSGOOGLE2020], [@kamMonitoringDroughtAwareness2019].
 
-By analyzing the search volume data obtained from Google, Google Trends allows us to observe and compare the changes in interest and search patterns for various topics using a score in the close domain [0-100], where 100 indicates the highest volume of searches for a particular and 0 indicates the lowest volume for the term at a precise moment in time and location.
+By analyzing the search volume data obtained from Google Trends, this data source allows us to observe and compare the changes in interest and search patterns for various topics using a score in the close domain [0-100], where 100 indicates the highest volume of searches for a particular place and time and 0 indicates the lowest volume for the term at a precise moment in time and location.
 
-By analyzing the search behavior of internet users, Google Trends offers a valuable resource for understanding the relative level of interest and attention that a topic or keyword generates within the online population. We analyze three important words that characterize equal number of aspects for the housing markets: affordable home, Foreclosure and eviction. 
-This keywords allow to answer questions on where an when does people (Google users) are looking for this words, specially the term Foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
+By analyzing the search behavior of internet users, Google Trends offers a valuable resource for understanding the relative level of interest and attention that a topic or keyword generates within the online population. We analyze three important words that characterize equal number of aspects for the US housing markets: affordable home, Foreclosure and eviction. 
+This keywords allow to answer questions on where and when does people (Google users) are looking for this words, specially the term Foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
 
 
 ## Results.
 
 The analysis is organized in two stages: the first provides a national approach to the housing prices fluctuations for state and MSA scales. While the second focuses on the US Mexico border region.
 
-When we analyze real estate market fluctuations in the context of affordability housing, understanding regional inflation patterns is crucial, in particular in this section the analysis starts by exploring the housing component for the regional price parity (RPP), this is an indicator developed by the Bureau of Economic Analysis (BEA) to measure price fluctuations at a regional scale. 
+When we analyze real estate market fluctuations in the context of affordability housing, understanding regional inflation patterns is crucial. In particular in this section the analysis starts by exploring the housing component for the regional price parity (RPP), this is an indicator developed by the Bureau of Economic Analysis (BEA) to measure price fluctuations at a regional scale. 
 
-Examining this aggregate economic indicator it is possible to distinguish which states of the country exhibit the most expensive housing markets and therefore which areas of the country represent particular challenges either for households entering the market or those families already paying a mortgage. 
+By xamining this aggregate economic indicator it is possible to distinguish which states of the country exhibit the most expensive housing markets and therefore which areas of the country represent particular challenges either for households entering the market or those families already paying a mortgage. 
 
 
 Regional price parties capture variations in the cost of living across different region of the country, this indicator is important because it helps to understand the relative purchasing power and living standards in different geographic areas and particularly when considering the housing component, it provides a measure to compare the real estate market conditions relative to the country.  
@@ -141,20 +140,20 @@ ggplotly(rppp)%>%
 
  #ggsave("rpp2022_housing_USstates.tiff", width = 25, height = 17, units = "cm",dpi=300)
 ```
-Source: José Luis Manzanares analysis of Regional price parities data 2021 [@bureauofeconomicanalysisRegionalPriceParities2023]
+Source: José Luis Manzanares analysis of Regional price parities based on data from [@bureauofeconomicanalysisRegionalPriceParities2023]
 
 
-It can be seen that the Us west coast border state of California has the highest housing price parity among the 48 states (excluding Hawaii and Alaska) for 2021. This  pattern suggest financial pressures for residents in west coast states that may explain the current out of state internal migration documented by academic research elsewhere [@blumenbergJobsHousingBalance2021] for states such as California.
+It can be seen that the US west coast border state of California has the highest housing price parity among the 48 states (excluding Hawaii, Alaska and DC) for 2021. This  pattern suggest financial pressures for residents in west coast states that may influence the current out of state internal migration documented by academic research elsewhere [@blumenbergJobsHousingBalance2021] for states such as California.
 
-In order to get a higher level of detail on the behavior of house price fluctuations,  metropolitan statistical areas around the country are now analyzed, considering the House price index developed by the Federal Home Loan Mortgage Corporation^[Freddie Mac, indicated as FM for further reference in this work], this measure is explicitly designed to capture appreciation of the housing market as discussed in the methodology section of this chapter.  
+In order to get a higher level of detail on the behavior of house price fluctuations,  metropolitan statistical areas around the country are now analyzed, considering the House price index developed by the Federal Housing Finance Agency, ^[indicated as FHFA for further reference in this work], this measure is explicitly designed to capture fluctuations of the housing market since it includes prices of new homes as discussed in the methodology section of this chapter.  
 
-The data analysis strategy design aims to extract the appreciation over a two decade time frame for each metropolitan area, so, we are able to measure not only which metropolitan areas have registered the bigger price gains between 2000 and 2020 but also it´s annual rate of growth. 
+The data analysis strategy design aims to extract the changes in prices over a two decade time frame for each metropolitan area so, we are able to measure not only which metropolitan areas have registered the bigger price gains between 2000 and 2020 but also it´s annual rate of growth. 
 
-Measuring appreciation using the HPI developed by a government sponsored enterprise such as the FM, is important for two reasons in the context of this investigation: I) It informs on the potential changes on home equity fluctuations over time with a geographic perspective, which expose real estate investment opportunities  II) It reflects existing financial barriers and/or opportunities to entry into the housing market for households looking to relocate, so is an appropriate economic indicator that helps to explain  current internal migration patterns.  
+Measuring price fluctuations using the HPI developed by an independent federal agency such as FHFA, is important for two reasons in the context of this investigation: I) It informs on the potential changes on home equity fluctuations over time with a geographic perspective, which expose real estate investment opportunities  II) It reflects existing financial barriers and/or opportunities to entry into the housing market for households looking to relocate, so is an appropriate economic indicator that helps to explain  current internal migration patterns.  
 
 Figure 2 below shows the House Price index (HPI) distribution across the 387 U.S. Metropolitan statistical areas as of 2020. Each circle represents a HPI measure with its size corresponding to the HPI value.
 
-The index depicts housing market prices taking as base year 1995. So higher values indicate a relative appreciation and therefore more expensive locations than those with smaller circles.   
+The index depicts housing market prices taking 1995 as base year.  So higher values indicate a relative average increase overtime and therefore more expensive locations than those with smaller circles.   
 
 [Figure 2 Home price index HPI ](../speech/F2map.html).
 
@@ -184,11 +183,11 @@ Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfa
 
 Empirical findings reveal a pronounced surge in housing prices, as gauged by the House Price Index (HPI), within geographically delineated metropolitan areas across the United States. Noteworthy regions exhibiting such trends encompass metropolitan statistical areas (MSAs) situated along the West Coast, the southeastern part of Florida, and the northwestern region. Over the span of the past three decades, these identified regions have witnessed substantial increase in housing values.
 
-Among the states located on the West Coast, the State of California is particularly outstanding with areas of concern such as the Bay area where the so called silicon valley region represents a mayor labor market hub particularly for highly skilled workers associated with the technology sector. This geographic area holds substantial economic importance due to its concentration of technological innovation, fostering an environment  that attracts and sustains a skilled workforce with above average income which also translates into relevant tax revenue sources for the entire state. 
+Among the states located on the West Coast, the State of California is particularly outstanding with areas of concern such as the Bay area where the so called Silicon Valley region represents a mayor labor market hub particularly for highly skilled workers associated with the technology sector. This geographic area holds substantial economic importance due to its concentration of technological innovation, fostering an environment  that attracts and sustains a skilled workforce with above average income which also translates into relevant tax revenue sources for the entire state. 
 
 Furthermore within California, and right at the US southern border, the San Diego MSA, ranks among the top 10 most  expensive metropolitan areas of the entire state with a relative house price increase of 363.6 per cent in the last 25 years.
 
-Using the above estimated pattern it si convenient determine **which metropolitan areas registered the highest price increments since base year 1995** according to the Federal House Finance HPI? 
+Using the above estimated pattern it is convenient to determine **which metropolitan areas registered the highest price increments since base year 1995** according to the Federal House Finance HPI? 
 
 Figure 3 illustrates the ranking of the nation's 20 foremost metropolitan areas based on their respective positions in the House Price Index (HPI) for the year 2020. It is important to note that these areas signify the highest relative increases in home prices compared to the base year of 1995, rather than indicating the absolute highest-priced urban population centers. 
 
@@ -264,11 +263,11 @@ layout(legend = list(orientation = "h", x = 0, y = -.05))
 ```
 Source: Jose Luis Manzanares Rivera based on  House price index data from [@fhfaHousePriceIndex2022]
 
-We now examenine four discernible patterns that emerge when analyzing the top 20 metropolitan areas with the highest appreciation rates as measured by the annual growth on the HPI during the last 27 years: 
+We now examine four discernible patterns that emerge when analyzing the top 20 metropolitan areas with the highest appreciation rates as measured by the annual growth on the HPI during the last 27 years: 
 
 I) The importance of the US Mexico border region. $40\%$ of the top 20 (MSAs) with the highest appreciation rates are located at border states with Mexico.
 
-II) Within the US Mexico border, the impartance of California state is clear representing $75\%$ of the border MSA with highest HPI growth. In fact San Diego-Chula Vista-Carlsbad exhibits the highest annual increase in 2022 with a $18.55\%$  
+II) Within the US Mexico border, the importance of California state is clear, representing $75\%$ of the border MSA with highest HPI growth. In fact San Diego-Chula Vista-Carlsbad exhibits the highest annual increase in 2022 with a $18.55\%$  
 II) The real state market in Florida shows the fastest growing level of prices with sharp increases particularly during the Trump administration, with Metropolitan areas such as West Palm Beach, North Port-Sarasota-Bradenton, Naples Marco Island and Tampa featuring double digit increases with a maximum increase of $32.77\%$ the highest HPI annual growth in the nation.   
 
 III) Traditional non high HPI areas in border states such as Texas are now starting to gain dynamism, the clear example in this region is the Austin-Roundrock-Georgetown Metropolitan area, where external economic factors such as the recent establishment of companies to support the electric vehicle industry have contribute to create speculative pressures on local real estate  markets.^[In 2020, Tesla announced its decision to build a Gigafactory in Austin, which currently  manufactures electric vehicles and attracts thousands of employment opportunities. Suppliers, service providers, and other companies in the electric vehicle industry have begun to establish operations near the Gigafactory, creating additional job opportunities and further contributing to housing demand. The presence of a major company like Tesla often attracts real estate investors looking to capitalize on the economic growth and potential appreciation in property values. Increased investor interest can lead to higher demand for housing, further impacting the housing market dynamics.] 
@@ -329,13 +328,13 @@ Considering the substantial scale and breadth of the economic contraction, it wa
 
 How does the housing market reacted to this unprecedented period of ultra low interest rates? 
 
-Before moving on to answer that question, let´s study a second relevant shift in monetary policy. According to empirical evidence shown above, the monetary policy stimulus period to promote economic recovery related to the **Great Recession, lasted 7 years**, (Jan 2009-Dec 2015).
+Before moving on to answer that question, let´s study a second relevant shift in monetary policy. According to empirical evidence shown above, the monetary policy stimulus period to promote economic recovery related to the **Great Recession**, lasted 7 years, (Jan 2009-Dec 2015).
 
 However, when quantitative easing^[For the purposes of the present investigation we use the term Quantitative easing to refer to a monetary policy tool employed by central banks to stimulate the economy and promote lending and investment. QE involves the central bank purchasing government bonds or other financial assets from commercial banks and other financial institutions. By doing so, the central bank injects new money into the financial system, increasing the money supply and lowering interest rates. The aim of quantitative easing is to encourage borrowing and spending, thereby boosting economic activity] seemed to be ending; on January 31, 2020, Department of Health and Human Services (HHS) under the Public Health Service Act, declared a public COVID-19 health emergency. This declaration allowed the HHS to activate emergency response mechanisms, mobilize resources and coordinate efforts to contain and mitigate the spread of the public health threat within the country. 
 
 Among those measures, as we now know, there were significant mobility restrictions that infringed an unprecedented toll on economic activity with emphasis in the labor market. Triggering a relevant economic slowdown, that required once more, a decisive intervention by the central bank authorities to prevent a deeper economic crisis and to stimulate a recovery.
 
-In this unprecedented complex global economic setting, the Federal Reserve of the United States decided to move the FFER from a $2.4%$ in July 2019 to an ultra low  $0.05\%$ in April 2020, (the lowest on record in this century) sending a clear signal to the markets in an effort to stimulate spending and investment aiming to correct the **sharp decline in consumer spending** associated with the labor market disruptions caused by the overall restrictive measures put in place during the global health emergency. 
+In this unprecedented complex global economic setting, the Federal Reserve of the United States decided to move the FFER from a $2.4\%$ in July 2019 to an ultra low  $0.05\%$ in April 2020, (the lowest on record in this century) sending a clear signal to the markets in an effort to stimulate spending and investment aiming to correct the **sharp decline in consumer spending** associated with the labor market disruptions caused by the overall restrictive measures put in place during the global health emergency. 
 
 This dovish monetary policy strategy was extended for almost two years and only started to be normalized by April 2022. 
 
@@ -450,19 +449,19 @@ For existing home owners, home equity has more than double during the last decad
 
 As we have seen, monetary policy is partially responsible for this trend, given a sustained period of quantitative easing. (starting from December 2008 with a Federal reserve effective rate (FFFER) = $0.16\%$ down from $5.26\%$ in July 2007 -prior to sub prime mortgage market collapse- Followed by a second ultra low FFER period that was implemented to cope with a deceleration of the economy in the presence of the global public health emergency triggered  by the COVID-19 restrictions, starting at 2020Q1 with FFER = $0.05\%$ down from FFER=$2.40 \%$ in june 2019. 
 
-**Who benefited from this historically monetary policy scenario  characterized by ultra low interest rate?** 
+**Who benefited from this historical monetary policy scenario  characterized by ultra low interest rate?** 
 
 Specially people who bought homes in attracting real state markets areas with dynamic internal migration patterns, who manage to **profit** from this  **historic ultra low interest rate** period, by entering the market and securing a Fixed-rate mortgage just after the sub prime mortgage collapse, that is **between December 2008 and November 2015.**  
 
-This movers took advantage of the economic stimulus provided the macroeconomic environment created with a monetary policy oriented for **quantitative easing**, a strategy  designed to lower the price of money in an effort to boost consumption and investment, among other things. For example, **home equity** for existing housing stock in the US in 2012Q1 was **$10.25$T** and it **grew to $33.78$T in 10 years**,  a **3X order of magnitude increase!**
+This movers took advantage of the economic stimulus provided by the macroeconomic environment created with a monetary policy oriented for **quantitative easing**, a strategy  designed to lower the price of money in an effort to boost consumption and investment, among other things. For example, **home equity** for existing housing stock in the US in 2012Q1 was **$10.25$T** and it **grew to $33.78$T in 10 years**,  a **3X order of magnitude increase!**
 
 In addition, detailed mortgage records kept by government sponsored enterprises such as Freddie Mac and Fannie Mae, allow to distinguish the type of loan granted to actual current mortgage clients, this data is important to show real estate investment trends across Metropolitan areas. 
 
 Nationwide **87.3%** of **Freddie Mac clients** are paying a loan for a house that is a **primary residence.** Almost **4%** of  Freddie Mac home buyers are buying a **second home**.  And **8.9%** are paying a home loan classified as **investment.** 
 
-If we think of **second home loans** as a proxy for social status, say, better off household get this type of loan, then the  families in the states of  **Virginia, Vermont, Delaware  Maine and Florida** are the places were this type of families mostly live. 
+If we think of **second home loans** as a proxy for social status, say, better off household apply for this type of loan, then the  families in the states of  **Virginia, Vermont, Delaware  Maine and Florida** are the places were this type of families mostly live. 
 
-Figure 7  below ranks metro (MSAs) by the number of loans classified as investment by Freddie Mac single family loan data for the first quarter of 2022 [@freddiemachomeSingleFamilyLoanLevel2023]. 
+Figure 7  below ranks metropolitan areas (MSAs) by the number of loans classified as investment by Freddie Mac single family loan data for the first quarter of 2022 [@freddiemachomeSingleFamilyLoanLevel2023]. 
 
 [Figure 7. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F7_invest.html)
 
@@ -497,9 +496,9 @@ The information above for loan category: investment,  indicates which metropolit
 
 Furthermore, data analysis at the state scale indicates that **California** is the state with the highest percentage of home loans classified as investment ($11.88\%$ a proportion statistically different from the US median $7.9\%$). Given the raising trend for home prices in the state, this pattern suggest the presence of speculative pressures, that may limit the supply of affordable homes in this particular area of the country. 
 
-Lets now analyze from a geographic perspective, how real estate markets behave during this economic policy changes.
+Lets now analyze from a geographic perspective, how home prices have appreciated during this economic policy changes.
 
-Figure 8 below shows a national perspective for the distribution of home price index at a moment before the implementation of a dovish monetary policy. 
+Figure 8 below shows a national perspective for the distribution of home price index developed by Freddie Mac in a monthly series which takes as base year 2000. The figure shows year 2006 figures in order to capture a moment in time prior to the implementation of a dovish monetary policy and then it allows comparison to the current year 2023.
 
 
 [Figure 8 HPI by state 2006](../speech/F6_hpi.html)
@@ -531,9 +530,9 @@ leafem::addMouseCoordinates(hpi06_map)%>%setView(zoom = 3.6, -96.5716694, 39.183
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
 
-Evidence suggest that before the great recession and prior to the implementation of quantitative easing monetary policies, the  Us housing market, featured California and Florida as the top most expensive regions of the country. Together with a well defined region along the north eastern cost with New York Virginia and Maryland comprised a traditional high cost set of states. Virtually the central regions of the country were not showing sings of significant house price increases as of 2006.
+Evidence suggest that before the great recession and prior to the implementation of quantitative easing monetary policies, the  US housing market, featured California and Florida as the top most expensive regions of the country. Together with a well defined region along the north eastern cost with New York Virginia and Maryland comprised a traditional high cost set of states. Virtually the central regions of the country were not showing sings of significant house price increases as of 2006.
 
-As we have shown, the implementation of historic measures to stabilize the economic environment lead to very especial and not usual conditions that served as changing forces that have impacted the real state market landscape. This factors created both,market incentives for investment opportunities as well as affordability issues for some segments of the US population, that in the face of being price-out are reinforcing internal migration patterns.
+As we have shown, the implementation of historic measures to stabilize the economic environment lead to very special and not usual conditions that served as changing forces that have impacted the real state market landscape. These factors created both, market incentives for investment opportunities as well as affordability issues for some segments of the US population, that in the face of being price-out are reinforcing current internal migration patterns.
 
 
 The following map shows the "after" scenario featuring HPI levels for 2023. 
@@ -568,7 +567,7 @@ Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base yea
 
 Following the implementation of macroeconomic policy with an extended period of favorable interest rates, empirical evidence suggest that the housing market have been diversifying out of the **traditional high cost regions** of the country. 
 
-In this regard we identify at least two important geographic patterns  I)Aa movement of high housing prices from the pacific west cost towards the northeastern states closer to Canadian border.  Also, considering the south, two Mexican border states are showing a rapidly increasing real state market: Arizona and Texas II) Traditionally expensive states in the north east, have been experiencing a relative cooling off in favor of emerging regions. 
+In this regard we identify at least two important geographic patterns  I) A movement of high housing prices from the pacific west cost towards the northeastern states closer to Canadian border.  Also, considering the south, two Mexican border states are showing a rapidly increasing real state market: Arizona and Texas II) Traditionally expensive states in the north east, have been experiencing a relative cooling off in favor of emerging regions. 
 
 
 There are two particular cases that require a closer examination:

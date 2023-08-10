@@ -71,9 +71,11 @@ knitr::write_bib(c(
 > *"Real estate is an imperishable asset, ever increasing in value. It is the most solid security that human ingenuity has devised. It is the basis of all security and about the only indestructible security"*    
 <div style="text-align: right"> --- Russell Sage</div>
 
-Economic relationships between Mexico and the US have been increasing at a dynamic pase during the first decades of this century. Partially responsible for this trend are specific policy instruments that have been designed to deliver a mutual benefit for the interests of both countries.
+Economic relationships between Mexico and the US have been increasing at a dynamic pace during the first decades of this century. Partially responsible for this trend are specific policy instruments that have been designed to deliver a mutual benefit for the interests of both countries.
 
-However at a local scale, particular economic sectors have been shaped by this partnership. From a public policy perspective one of those areas of concern  where there is a growing interest to understand bi national interaction is housing prices and the underlying real state markets. 
+Although particular economic sectors have been shaped by this partnership,  when considering strategic regions such as the US Mexico border, it is argued that the growing integration represents an opportunity area for local development. 
+
+From a public policy perspective one of those areas of concern  where there is a growing interest to understand bi national interaction is housing prices and the underlying real state markets. 
 
 Specially given that housing markets are closely related to economic determinants, including labor market dynamics, that influence a series of important social processes such as migration patterns; understanding house price fluctuations can be particularly relevant for regional development.
 
@@ -107,7 +109,7 @@ At a regional scale and particularly considering the US-Mexico border population
 
 While the manufacturing industrial sector demand for warehouse space for instance, has been a key driver of commercial land prices in these border urban areas, until recently, less understood were Mexico´s northern border city´s residential housing patterns. 
 
-A central argument for this work is that explaining regional economic dynamics is relevant to better understand local scale opportunities that the US-Mexico relationship offers to improve border residents´s quality of live.
+A central argument for this work is that explaining regional economic dynamics is relevant to better understand local scale opportunities that the US-Mexico relationship offers to improve border residents´s quality of life.
 
 Following a data driven approach this research work  analyzes housing prices on US Metropolitan areas and internal migration patterns within US states, with a focus in California and it´s southern border region. 
 
@@ -160,7 +162,7 @@ A central argument for this work is that explaining regional economic dynamics i
 
 Following a data driven approach this research work  analyzes housing prices on US Metropolitan areas and internal migration patterns within US states, with a focus in California and it´s southern border region. 
 
-This analysis is important to understand recent real state features such as residential space demand at bi-national urban areas and to provide key insights not just to implement adaptation policies to prevent negative side effects, but to design strategies based on evidence to guide a long run development process.           
+This analysis is important to understand recent real state features such as residential space demand at bi-national urban areas and to provide key insights to design strategies based on evidence to    guide a long run development process.         
 
 This book is organized into 3 chapters: Chapter I sets the stage to understand House prices as internal migration determinants, Chapter II examines homeless trends across US metropolitan areas a perspective that offers a look to a central issue when analyzing home affordability.  Chapter III explores bi national real estate market implications at a regional scale focusing on the US Mexico border presenting an emblematic case study:  the San Diego-Tijuana connection.
 
