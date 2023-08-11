@@ -19,7 +19,7 @@ We initially consider housing demand in relation to income. According to the bas
 
 Age, which captures experience and skills acquired overtime [@stiglitzAlternativeTheoriesInequality2022] and several personal characteristics that may include gender [@reardonIncomeInequalityIncome2011] and ethnicity [@goetzRaciallyConcentratedAreas2019], a particular important factor in the context of a diverse country like the US. 
 
-Together this factors impact productivity determining earning potential and actual income levels across occupations [@dumenilChangingPatternsIncome2022] and industries. 
+Together this factors impact productivity, determining earnings potential and actual income levels across occupations [@dumenilChangingPatternsIncome2022] and industries. 
 
 In the context of the housing market, empirical evidence suggest that less educated households are less likely to be homeowners, [@choiHeterogeneousEffectsInteractions2022], furthermore,  education inequality could be a factor contributing to an increasing lack of housing affordability in Metropolitan areas associated with particular highly skilled labor markets. 
 
@@ -29,19 +29,15 @@ Data on US population growth, shows that cities with more educated residents hav
 
 ## Data and Methods
 
-Note in data sources: We gather data on three main sources to evaluate internal migration patterns. Current Population Survey (CPS) 
-
-
-
 In this chapter the main source of information analyzed is the American Community Survey (ACS) 5 year estimates for the period 2017-2021. This official data set is the premier source for detailed population and housing information in the US. It is collected by the US Census Bureau and is publicly available for a wide set of geographical scales including Metropolitan Statistical areas (MSAs).   
 
 Although other temporal report formats are available for the ACS, this investigation choose the 5 year estimates for the most up to date release available at the moment of conducting this research given its reliable representativeness of the US population and its wide geographic coverage which allows to detect detailed spatial patterns.  
 
-To retrieve the data, Census API endpoints calls are made using Python and jupyter notebooks environment. The visualization and data management is done with R studio´s Rmarkdown integrated development environment.
+To retrieve the data, Census API endpoints calls are made using Python on jupyter notebooks environment. The visualization and data management is done with R studio´s Rmarkdown integrated development environment.
 
 In a first stage, exploratory data analysis is conducted to determine which MSA are receiving population coming from out of the state, For this purpose the variable *Geographical mobility in the past year by age for current residence in the United States*, (for Population 1 year and over in the United States) is considered.
 
-Although we are interested in documenting the magnitude of this flows, absolute values offer a partial perspective of the relative importance of such incoming population movements. Thus in order to control for the relative MSA size and important population characteristics such as ethnicity, we proceed to estimate a location quotient (LQ), this is a classical indicator commonly applied in regional science analysis based on the following specification $$LQ=\frac{A}{B}$$ where $A=\frac{PI_i}{\sum_{i=1}^{384}PI}$ and $B=\frac{P_i}{\sum_{i=1}^{384}P}$
+Although we are interested in documenting the magnitude of this flows, absolute values offer only a partial perspective of the relative importance of such incoming population movements. Thus,  in order to control for the relative MSA size and important population characteristics such as ethnicity, we proceed to estimate a location quotient (LQ), this is a classical indicator commonly applied in regional science analysis based on the following specification $$LQ=\frac{A}{B}$$ where $A=\frac{PI_i}{\sum_{i=1}^{384}PI}$ and $B=\frac{P_i}{\sum_{i=1}^{384}P}$
 
 In this particular case, **LQ** estimation considers the following variables: 
 
@@ -59,6 +55,8 @@ As can be seen form the specification, LQ is a relative measure, that captures t
 How real estate market dynamics and home prices in particular are driving the geographic mobility of the US population across state boundaries?  To analyze this issue we focus in the out of state population movement within US (MSAs).
 
 Figure 1, showns which Metropolitan areas have been attracting the most out of state population in the period 2017-2021.
+
+**Figure  1. Population moving from out of state by MSA of current residence in 2021**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -106,12 +104,13 @@ Source: José Luis Manzanares Rivera with data from:  Rivera[@uscensusbureauAmer
 
 According to ACS 2017-2021. 5 year estimates. New York-Newark-Jersey City, Washington-Arlington-Alexandria and Phoenix-Mesa-Chandler, AZ Metro Area received the greatest flows of inter state migration in this period. 
 
-Although Border MSA  are not particularly important destinations for in migration considering the total population,  San Diego-Chula Vista Carlsbad is the only MSA that is part of the top 20 MSA by its magnitude of inflows in the country. Some other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following:  Dallas-Fort Worth-Arlington, TX Metro Area rank $5^{th}$, 
-Los Angeles-Long Beach-Anaheim, CA Metro Area $8^{th}$ place and Houston-The Woodlands-Sugar Land, TX Metro Area, $12^{th}$ position.
+Although Border MSA  are not particularly important destinations for in migration considering the total population,  San Diego-Chula Vista-Carlsbad is the only MSA that is part of the top 20 MSA´s by its magnitude of inflows in the country. 
 
-This base scenario considers the total population, However, by incorporating population ethnicity as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
+Some other MSA located in border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following:  Dallas-Fort Worth-Arlington, TX Metro Area which ranks $5^{th}$, Los Angeles-Long Beach-Anaheim, CA Metro Area $8^{th}$ place and Houston-The Woodlands-Sugar Land, TX Metro Area, occupying $12^{th}$ position.
 
-**Figure 2  Hispanics moving from out of state  % of total population moved from out state 2021**
+This base scenario considers the total population, however, by incorporating population ethnicity as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
+
+**Figure 2  Hispanics moving from out of state by current MSA residence. % of total population moving from out state 2021**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -155,29 +154,34 @@ ggplotly(top20_hisp, tooltip=c("text", "Percent", "City" ))%>%
 
 Source: José Luis Manzanares Rivera based o ndata form ACS 5  yrs estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
 
-We find that 70% of the MSA where the majority of Hispanic population migrated to are located in the border with mexico.  The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo, all of theme in the Texas Lower Rio grande region. a low cost low income, High poverty rate area.
+We find that 70% of the MSA where the majority of Hispanic population migrated to,  are located in the border with México.  The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo, all of theme in the Texas Lower Rio grande region. a low cost low income, High poverty rate area.
 
-Interestingly from the above information we find a pattern Comprised of MSA´s where the common feature is a particular labor market suited for unskilled workforce. In this pattern we have Dalton, Georgia an area, home of the nation's floor-covering manufacturers hub and often refered as the Carpet Capital of the World. This is a Metropolitan area with a demographic structure with a majority Hispanic population, a feature that is indeed unique out of the border state region. 
+Interestingly from the above information we find a pattern Comprised of MSA´s where the common feature is a particular labor market suited for unskilled workforce. 
 
-As the case above, Yakima, Washington, another, MSA from the out of the border category that make up the top 20 destinations for Hispanics migrating out of state, is a region that has a unique labor market structure, in this case with an historical reliance on agriculture, specifically fruit production.
+In this pattern we have Dalton, Georgia, Yakima Washington and Grand Island, Nebraska. 
+
+Dalton is an area home of the nation's floor-covering manufacturers hub and often referred as the *Carpet Capital of the World*. This is a metropolitan area with a demographic structure with a majority Hispanic population, a feature that is indeed unique out of the border state region. 
+
+As the case above, Yakima Metropolitan Statistical Area (MSA), situated within the state of Washington, is another region out of the US-Mexico border that make up the top 20 destinations for Hispanics migrating out of state. 
+This region has a unique labor market structure, in this case with an historical reliance on agriculture, specifically fruit production.
 This agricultural focus has led to a labor market  characterized by seasonal fluctuations in demand which employs a diverse workforce, including unskilled laborers who engage in tasks such as picking and packing crops. According to the US Census Bureau the Hispanic or Latino community constitutes a substantial portion of Yakima's population today. 
 
+Similarly the case of Grand Island, Nebraska, situated within a predominantly agricultural region features a local economy that includes an important food processing and manufacturing activity that heavily relies on a labor intensive workforce. According to the US Census Bureau, the Hispanic segment in the area represents $33\%$ of the total population. [@uscensusbureauPopulationEstimatesEstimated2023]. 
 
-
-Before turning our attention to the interplay between ethnicity and geographic mobility we take on the association between income, Metropolitan area size as measure by its population and personal income. 
+Now we consider important housing demand side determinants in particular we are interested in the association between income, Metropolitan area size as measure by its population and personal income. 
 
 ## Housing demand determinants: population growth, income and home prices
 
 Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration, shape housing demand which in turn, given the scarcity principle that ultimately rules all human endeavor,  ensures an upward signal from the pricing system. 
 
-Although net migration flows allow to distinguish more subtle attraction elements that each geographic area is featuring, it is the population movement that manifest to balance supply and demand. But why population moves?  Centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to labor market dynamics in a given moment in time. 
+Although subtle attraction elements of each geographic area contribute to shape migration patterns, it is the net population movement that manifest to balance supply and demand. But why population moves?  Centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to labor market dynamics in a given moment in time. 
 
-Despite that home values by themselves act as signals to achieve  demand and supply equilibrium, this important factor can be particularly volatile when considering the real state market environment, given that forces such as expectations play a pivotal role, home prices fluctuations can be particularly susceptible to the wider macroeconomic policy decisions. 
+Despite that home values by themselves act as signals to achieve  demand and supply equilibrium, this important factor can be particularly volatile when considering the real estate market environment, given that forces such as expectations play a pivotal role, home prices fluctuations can be particularly susceptible to the wider macroeconomic policy decisions. 
 
-The following figure considers data on the factors discussed above, for all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distinguish patterns within the Us-Mexico border region.   
+The following figure considers data on the factors discussed above, for all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distinguish patterns within the US-Mexico border region.   
 
 
-**Figure 2 Housing market determinants: HPI, population and percapita income 2020**
+**Figure 3 Housing market determinants: HPI, population and percapita income 2020**
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
 
 ## THIS IS THE PLOT  income,  population,   hpi  2020 for border states msa.
@@ -214,21 +218,25 @@ ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>%
 
 # Detailed source site for smaller areas Such as Census tracks.  https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index-Datasets.aspx#qpo
 ```
-Source: Federal Housing Agency  [@fhfaHousePriceIndex2022]
+Source: José Lus Manzanars rivera base on data from Federal Housing Finance Agency  [@fhfaHousePriceIndex2022, @bureauofeconomicanalysisPersonalIncomeCounty2023]
 
 Although data provides sound evidence that personal per capita income and house prices are positively correlated, degrees of correlation varies between border state´s metropolitan areas, with the strongest relationship being observed by Californian MSA, where we also find the most expensive metropolitan areas of the border states considering housing prices. 
 
 In addition, there is only a weak positive relationship between house prices as measured by the HPI and population size, this is the case for New Mexico, where relative large size metropolitan areas such as Albuquerque still exhibit affordable house prices. Population size being a proxy for housing demand. 
 
-While this pattern found makes sense considering the basic principles of economics concerning scarcity, it also suggest that other factors influence house price fluctuations, including the underlying labor market structure and demand for highly skilled labor force, which is certainly the case for metropolitan areas located near the Silicon valley region in California such as the San Jose-Sunnyvale-Santa Clara msa, which is the most expensive metropolitan area in the whole country considering the house price index for 2022, but is not necessarily a big size metropolitan area.
+While this pattern found makes sense considering the basic principles of economics concerning scarcity, it also suggest that other factors influence house price fluctuations, including the underlying labor market structure and demand for highly skilled labor force, which is certainly the case for metropolitan areas located near the Silicon Valley region in California such as the San Jose-Sunnyvale-Santa Clara (MSA), which is the most expensive metropolitan area in the whole country considering the house price index for 2022, but is not necessarily a big size metropolitan area.
 
 
-Secondly, using a Cartesian approach to analyze resulting patterns from the above data representation, and dividing the  plot into four quadrants:  starting with the top right section being quadrant one, where the combination of higher than average house prices and  higher than average income levels are found and moving counter clock wise towards quadrant four, formed by the combination of higher than average house prices  together with lower than average personal income levels; we found that within the subset of msa that are located along the US-Mexico border, 95% lay inside the third quadrant, where there is a combination of below average personal income with relatively inexpensive house prices, Whereas only one  msa in this particular geographic region, which is San Diego-Chula vista-Carlsbad, is situated at the first quadrant.
+Secondly, using a Cartesian approach to analyze resulting patterns from the above data representation, and dividing the  plot into four quadrants:  starting with the top right section being quadrant one, where the combination of higher than average house prices and  higher than average income levels are found and moving counter clock wise towards quadrant four, formed by the combination of higher than average personal income together with lower than average house prices levels. 
+
+We found that within the subset of MSAs that are located along the US-Mexico border, 95% lay inside the third quadrant, where there is a combination of below average personal income with relatively inexpensive house prices, Whereas only one  MSA in this particular geographic region, is situated at the first quadrant, that is the San Diego-Chula vista-Carlsbad in California´s southern border. 
 
  
-This feature denotes a very different set of economic dynamics for the local movement of people across the border making San Diego-Chula Vista-Carlsbad a very prone area for out  migration, including cross border migration given the real state price differentials combined with the economic integration that bi national trade and manufacture hubs have developed in the Tijuana metropolitan area.  
+This feature denotes a very different set of economic dynamics for the local movement of people across the border, making San Diego-Chula Vista-Carlsbad a very prone area for out migration, including cross border migration given the real estate market price differentials combined with the economic integration that bi national trade and manufacture hubs have developed across the border in o the Mexican metropolitan area of Tijuana.   
 
-Furthermore,  considering the information for  year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices and we find for example that El Paso, TX, the second largest border metropolitan area  along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA.  the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US- Mexico border, Tijuana-San Diego being an emblematic case study.  
+Furthermore, considering the information for year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices. 
+
+It is observed that for example that El Paso, TX, the second largest metropolitan area along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA (MSA), the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US-Mexico border, Tijuana-San Diego being an relevant case study.  
 
 
 ```{r, include=FALSE}
@@ -513,6 +521,7 @@ names(  df)
 # we join 9 tables one for each ethnicity category. 
 
 ```
+
 ```{r, include=FALSE}
 
 ### DATA WRANGLING FOR MIGRATION RATES PER 1000 
@@ -567,6 +576,7 @@ rates100k<-all.ethnicitys%>%select(GEO_Code, B07004G_005E, B07004F_005E, B07004E
   
 # saveRDS(long_data, "rates_raw.rds")
 ```
+
 ```{r, include=FALSE, warning=FALSE, message=FALSE}
 
 ## This are the rates of migration from out of state  2017-2021
@@ -577,7 +587,7 @@ long_data<- readRDS("rates_raw.rds")
   rate_I<-long_data%>%filter(table_id=="B07004I_005E")%>%
     left_join(cities)%>%
     mutate(t.mig=sum(mig), num=mig/t.mig, t.pop=sum(B01001_001E), den=B01001_001E/t.pop, lq=round(num/den,2))
-### Here we ca see this raw rate bias, it favors structural demographic trends for example captures the effect of population moving to military bases and   colleges towns. 
+### Here we can see this raw rate bias, it favors structural demographic trends for example captures the effect of population moving to military bases and   colleges towns. 
   
 ## For Hispanics the highest raw rates are:   Jacksonville, NC, Hinesville, GA, Las Cruces, NM, Yuma,AZ, East Stroudsburg, PA
 # The first is a large military base. and the second too with Fort Stewart, the largest U.S. Army installation by area in the eastern United States.
@@ -626,19 +636,21 @@ geo_codes<-flows%>%select(GEO_Code, FULL2_NAME, City)
 #######################################
 ```
 
-As has been discussed in {Chapter1}, the state of California features the most expensive real state market in the country according to official estimations publish by the Bureau of Economic Analysis  (BEA), such as the Regional price parity housing component. 
+As has been discussed in chapter 1, currently, the state of California features the most expensive real estate market in the country according to official estimations such as the Regional price parity housing component published by the Bureau of Economic Analysis  (BEA). 
 
-Empirical evidence from the American Community Survey (ACS), internal migration flows, indicate that California is a leading state concerning negative migration flows and has been consistently experiencing negative net flows in its main Metropolitan areas.
+In addition, empirical evidence from the American Community Survey (ACS), internal migration flows, indicate that California is a leading state concerning negative migration flows and has been consistently experiencing negative net flows in its main Metropolitan areas.
 
 A question that is important to solve in the context is: Where are Californians moving to? Are they looking for more affordable locations?  How far are they moving? 
 
-Considering net migration flows reported by the ACS, almost half of the population ($43\%$) that decided to migrate out to a different Metropolitan area  did it across state lines. In fact only $7\%$ of the total destinations documented in the period 2016-2020, correspond to: within the state movements This reflects a dynamic demographic process with implications for both origin and destination MSAs.
+Considering net migration flows reported by the ACS, almost half of the population ($43\%$) that decided to migrate out to a different Metropolitan area, did it across state lines. In fact only $7\%$ of the total destinations documented in the period 2016-2020, correspond to: within the state movements. This reflects a dynamic demographic process with implications for both origin and destination MSAs, including tax revenue gains for the new host states along with infrastructure demands and increased pressures over key resources such as energy and water.  
 
 
-In light of the previous research question, Figure XX provides an analysis of the distribution of destination states based on their respective housing market affordability scale. This scale encompasses four distinct categories that correspond to the distribution of the regional price parity (RPP) indicator across states. The reference values for these categories are as follows: "High cost" (RPP > 125), "Expensive" (125 >= RPP > 110), "Affordable" (110 >= RPP > 70), and "Low cost" (RPP < 70). By employing this classification framework, we can gain valuable insights into the varying degrees of housing affordability among destination states.
+In light of the previous research question, Figure 4 provides an analysis of the distribution of destination states for Californians, based on a classification of housing market affordability. 
+
+This scale encompasses four distinct categories that correspond to the distribution of the regional price parity (RPP) indicator across states. The reference values for these categories are as follows: "High cost" (RPP > 125), "Expensive" (125 >= RPP > 110), "Affordable" (110 >= RPP > 70), and "Low cost" (RPP < 70). By employing this classification framework, we can gain valuable insights into the varying degrees of housing affordability among destination states.
 
 
-**Figure XX, Net migration flows from California, by state and Regional price parities**
+**Figure 4, Net migration flows from California, by state and Regional price parities**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -693,21 +705,14 @@ Although inter state patterns above are informative of the overall preferences  
 
 To achieve this goal we now analyze the negative net migration flows by metropolitan area for the state of California. 
 
+Figure 5 below shows results. In this representation, MSAs have been  classified to determine the housing market price level of the particular MSA using the House price index (HPI) from the Federal Housing Finance Agency (FHFA) for year 2016, which is the beginning year of the ACS sample period for migration flows 5 year release  estimates (2016-2020).  This year is selected to control the effect prior to the migration to the destination MSAs. 
 
-
-
-Figure xxxx below shows results. In this representation MSAs have been  classified to determine the housing market price level of the particular MSA using the House price index (HPI) from the Federal Housing Finance Agency (FHFA) for year 2016, which is the beginning year of the ACS sample period for migration flows 5 year release  estimates (2016-2020).  This year is selected to control the effect prior to the migration to the destination MSAs. 
-
-The classification is based on four categories to measure the savings potential (SP) implicit by the move. The savings potential is defined by the fraction that the HPI gap represents relative to origin housing prices level.   
-
-
-
-
-
+The classification is based on four categories to measure a variable called savings potential (SP). The savings potential implicit by the move is defined by the fraction that the HPI gap represents relative to origin housing prices level.  For example if  an HPI in the origin MSA is 128 and the destination MSA´s HPI  is 103, then the Saving potential implicit by the move expresed as percentage would be 25/128= 19.5 percent.
+It is important to notice that the HPI captures the evolution in time of house prices relative to a base year which is the same for all US MSA contained in the data set. 
 
 
 ```{r, include=FALSE}
-
+25/128
 ##  Data wrangling only to gett net flows for CAlifornia. 
 
 # Federal Housing Finance Agency  with   Base year  1995.
@@ -819,13 +824,13 @@ mutate(moved=moved*-1)%>%
 # we observe a Gini coef =.71 which reflects a highly unequal pattern of concentration of movers in a tggh   MSA set. 
 ```
 
-Although internal migrants moving out of California dispersed to virtually all geographic regions of the country, 80% of the total net flow of out of state migrants, moved to a highly concentrated fraction of places representing only 26% of the total 300 destination MSAs as shown in figure xx above.   
+Although internal migrants moving out of California dispersed to virtually all geographic regions of the country, 80% of the total net flow of out of state migrants, moved to a highly concentrated fraction of places representing only 26% of the total 300 destination MSAs as shown in figure 4 above.   
 
-Furthermore,  when we consider the housing market price differentials between origin and destination MSAs, it is found that  only 3.1 %  of the destinations present a negative hpi gap, (a negative HPi gap indicates a movement from a lower to a higher housing cost MSA). Once the magnitude of the net migration  by origin MSA flow is considered, the hpi gap proportion adjust to $6\%$ for movers to more costly areas. Which indicates that the vast majority $94\%$ of out of state migrants from California preferred a more affordable destination. 
+Furthermore,  when we consider the housing market price differentials between origin and destination MSAs, it is found that  only 3.1 %  of the destinations present a negative HPI gap, (a negative HPI gap indicates a movement from a lower to a higher housing cost MSA). Once the magnitude of the net migration  by origin MSA flow is considered, the HPI gap proportion adjust to $6\%$ for movers to more costly areas. Which indicates that the vast majority $94\%$ of out of state migrants from California preferred a more affordable destination. 
 
-The main destinations Metro areas during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
+The main destinations Metroolitan areas during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
 Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
-^[Interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which my indicate a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area].
+^[Interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may indicate a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area].
  
 ```{r, include=FALSE}
 
@@ -974,9 +979,9 @@ Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakers
 ## The bigger the size of the population flowing out From a particular MSA, the lower the HPI gap. That is, bigger negative net migration movements took place between MSAs with smaller HPI gaps or more similar housing markets. In addition this negative relationship  is not significan for  movers tbetween a low cost area and high cost MSA (negative Hpi gaps between orign and destination)  which indicates  that not necesarily big netfows take place to more expensive areas. 
 ```
 
-Figure xxx below shows the geographic distribution of destinations adding de HPI gap between origin and destination along with the net flow and  the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, accounts relative to the origin home price level. 
+Figure 5 below shows the geographic distribution of destinations adding de HPI gap between origin and destination along with the net flow and  the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, accounts relative to the origin home price level. 
 
-**Figure xxx  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin HPI 2020.**
+**Figure 5  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin HPI 2020.**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 

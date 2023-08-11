@@ -1,4 +1,4 @@
-# House prices, interest rates and investment opportunities.
+# House prices, interest rates and investment opportunities. 
 
 
 
@@ -65,7 +65,7 @@ This is an official indicator reported by the Bureau of economic analysis (BEA) 
 
 This indicator is particularly informative of the population purchasing power, specially it allows price comparisons relative to the national average.
 
-To capture demand side factors, Official population estimates from the US Census Bureau were obtained for years 2010-2020 [@uscensusbureauPopulationEstimatesEstimated2023, this is a variable that captures demographic dynamics overtime and serve as a proxy for housing demand.  
+To capture demand side factors, Official population estimates from the US Census Bureau were obtained for years 2010-2020 [@uscensusbureauPopulationEstimatesEstimated2023], this is a variable that captures demographic dynamics overtime and serve as a proxy for housing demand.  
 
 Per capita personal Income (PPI) by metropolitan area from the U.S. Bureau of Economic Analysis is also included.
 [@bureauofeconomicanalysisPersonalIncomeCounty2023]. This variable contributes to capture inequality and financial barriers to access the housing market. In addition the income to house price ratio is useful to inform on the contextual factors affecting the decisions to move. 
