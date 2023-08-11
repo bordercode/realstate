@@ -585,7 +585,7 @@ Economic Development: Phoenix has been a hub for economic development, attractin
 
 Migration patterns: According to the U.S. Census Bureau's population estimates and migration data, Idaho has experienced consistent net positive domestic migration (inflow of people from other states, particularly from high-cost areas like California and the Pacific Northwest) over the past two decades. 
 
-Within Idaho, specific Metropolitan Statistical Areas (MSAs) have experienced substantial population flows from other out-of-state MSAs. For example, the **Boise metropolitan area**, which includes Ada County, has been a major recipient of in-migration. It has attracted individuals and families from various out-of-state MSAs, including mainly areas in California, Washington and Oregon.  Chapter 5 covers this topic and analyses internal migration flows in detail.
+Within Idaho, specific Metropolitan Statistical Areas (MSAs) have experienced substantial population flows from other out-of-state MSAs. For example, the **Boise metropolitan area**, which includes Ada County, has been a major recipient of in-migration. It has attracted individuals and families from various out-of-state MSAs, including mainly areas in California, Washington and Oregon.  Chapter 2 analyses internal migration flows in detail.
 
 
 **Figure 8c HPI by state evolution over time 1975-2022**
@@ -603,7 +603,7 @@ image
 
 ```
 
-
+Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
 Finally figure 9 below represents the evolution of house prices for US Mexico border Metropolitan statistical areas. 
 

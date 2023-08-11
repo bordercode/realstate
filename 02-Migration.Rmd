@@ -45,10 +45,10 @@ Although we are interested in documenting the magnitude of this flows, absolute 
 
 In this particular case, **LQ** estimation considers the following variables: 
 
-$PI_i=B07004I_005E$ Where **B07004I_005E** is table id for data on Geographical mobility in the past year (Hispanic or Latino) for current residence in the United States for $MSA_i$. PI, represents the total population count of this variable for the 384 MSA included in the study.  So in essence **A** measures the proportion or relative importance that Hispanics moving from out of state in MSA_i, represent among the total population that moved from out of state for the reference period. 
+$PI_i=B07004I005E$ Where **B07004I_005E** is table id for data on Geographical mobility in the past year (Hispanic or Latino) for current residence in the United States for $MSA_i$. PI, represents the total population count of this variable for the 384 MSA included in the study.  So in essence **A** measures the proportion or relative importance that Hispanics moving from out of state in MSA_i, represent among the total population that moved from out of state for the reference period. 
 
 
-$P_i=B07001_065E$  where **B07001_065E**  is table id for data on Geographical mobility in the past year for current residence in the United States, category: Moved from different state, for $MSA_{i}$  And P, is the total for the 384 MSA considered in the study.  So in essence **B** measures the proportion that MSA represents within the total US MSA set. 
+$P_i=B07001065E$  where **B07001_065E**  is table id for data on Geographical mobility in the past year for current residence in the United States, category: Moved from different state, for $MSA_{i}$  And P, is the total for the 384 MSA considered in the study.  So in essence **B** measures the proportion that MSA represents within the total US MSA set. 
 
 
 As can be seen form the specification, LQ is a relative measure, that captures the geographic concentration of a particular variable relative to a reference area. 
@@ -56,7 +56,7 @@ As can be seen form the specification, LQ is a relative measure, that captures t
 
 ## Moving across state borders.  
 
-How real state market dynamics and home prices in particular are driving the geographic mobility of the US population across state boundaries.  To analyze this issue we focus in the out of state population movement within US (MSAs).
+How real estate market dynamics and home prices in particular are driving the geographic mobility of the US population across state boundaries?  To analyze this issue we focus in the out of state population movement within US (MSAs).
 
 Figure 1, showns which Metropolitan areas have been attracting the most out of state population in the period 2017-2021.
 
@@ -102,16 +102,16 @@ ggplotly(top20_mig, tooltip=c("text", "MoveinPop", "MSA" ))%>%
 # Houston-The Woodlands-Sugar Land, TX Metro Area 12
 # San Diego-Chula Vista-Carlsbad, CA Metro Area 18
 ```
-Source: José Luis Manzanares Rivera with dad from:  Rivera[@uscensusbureauAmericanCommunitySurvey2021]
+Source: José Luis Manzanares Rivera with data from:  Rivera[@uscensusbureauAmericanCommunitySurvey2021]
 
 According to ACS 2017-2021. 5 year estimates. New York-Newark-Jersey City, Washington-Arlington-Alexandria and Phoenix-Mesa-Chandler, AZ Metro Area received the greatest flows of inter state migration in this period. 
 
-Although Border MSA  are not particularly important destinations for in migration considering the total population,  San Diego-Chula Vista Carlsbad is the only MSA that is part of the top 20 MSA by its magnitude of inflows in the country. Some other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following:  Dallas-Fort Worth-Arlington, TX Metro Area rank 5, 
-Los Angeles-Long Beach-Anaheim, CA Metro Area 8th place and Houston-The Woodlands-Sugar Land, TX Metro Area, 12th position.
+Although Border MSA  are not particularly important destinations for in migration considering the total population,  San Diego-Chula Vista Carlsbad is the only MSA that is part of the top 20 MSA by its magnitude of inflows in the country. Some other MSA located in Border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following:  Dallas-Fort Worth-Arlington, TX Metro Area rank $5^{th}$, 
+Los Angeles-Long Beach-Anaheim, CA Metro Area $8^{th}$ place and Houston-The Woodlands-Sugar Land, TX Metro Area, $12^{th}$ position.
 
 This base scenario considers the total population, However, by incorporating population ethnicity as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
 
-
+**Figure 2  Hispanics moving from out of state  % of total population moved from out state 2021**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -153,14 +153,22 @@ ggplotly(top20_hisp, tooltip=c("text", "Percent", "City" ))%>%
 
 ```
 
+Source: José Luis Manzanares Rivera based o ndata form ACS 5  yrs estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
 
-******Here explain!!!!
+We find that 70% of the MSA where the majority of Hispanic population migrated to are located in the border with mexico.  The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo, all of theme in the Texas Lower Rio grande region. a low cost low income, High poverty rate area.
+
+Interestingly from the above information we find a pattern Comprised of MSA´s where the common feature is a particular labor market suited for unskilled workforce. In this pattern we have Dalton, Georgia an area, home of the nation's floor-covering manufacturers hub and often refered as the Carpet Capital of the World. This is a Metropolitan area with a demographic structure with a majority Hispanic population, a feature that is indeed unique out of the border state region. 
+
+As the case above, Yakima, Washington, another, MSA from the out of the border category that make up the top 20 destinations for Hispanics migrating out of state, is a region that has a unique labor market structure, in this case with an historical reliance on agriculture, specifically fruit production.
+This agricultural focus has led to a labor market  characterized by seasonal fluctuations in demand which employs a diverse workforce, including unskilled laborers who engage in tasks such as picking and packing crops. According to the US Census Bureau the Hispanic or Latino community constitutes a substantial portion of Yakima's population today. 
+
+
 
 Before turning our attention to the interplay between ethnicity and geographic mobility we take on the association between income, Metropolitan area size as measure by its population and personal income. 
 
 ## Housing demand determinants: population growth, income and home prices
 
-Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration shape housing demand  which in turn, given the scarcity principle that ultimately rules all human endeavor,  ensures an upward signal to the pricing system. 
+Basic economic theory suggest that housing demand is influenced by specific demographic factors. Population growth is a paramount factor, in particular the interaction between population outflows and those incoming that define net migration, shape housing demand which in turn, given the scarcity principle that ultimately rules all human endeavor,  ensures an upward signal from the pricing system. 
 
 Although net migration flows allow to distinguish more subtle attraction elements that each geographic area is featuring, it is the population movement that manifest to balance supply and demand. But why population moves?  Centrally another economic variable plays a key role to understand incentives to relocate or the basic decision to acquire a home. That is income, per capita income, which is directly related to labor market dynamics in a given moment in time. 
 
