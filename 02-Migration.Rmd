@@ -707,7 +707,7 @@ To achieve this goal we now analyze the negative net migration flows by metropol
 
 Figure 5 below shows results. In this representation, MSAs have been  classified to determine the housing market price level of the particular MSA using the House price index (HPI) from the Federal Housing Finance Agency (FHFA) for year 2016, which is the beginning year of the ACS sample period for migration flows 5 year release  estimates (2016-2020).  This year is selected to control the effect prior to the migration to the destination MSAs. 
 
-The classification is based on four categories to measure a variable called savings potential (SP). The savings potential implicit by the move is defined by the fraction that the HPI gap represents relative to origin housing prices level.  For example if  an HPI in the origin MSA is 128 and the destination MSA´s HPI  is 103, then the Saving potential implicit by the move expresed as percentage would be 25/128= 19.5 percent.
+The classification is based on four categories to measure a variable called savings potential (SP). The savings potential implicit by the move is defined by the fraction that the HPI gap represents relative to origin housing prices level.  For example if  an HPI in the origin MSA is 128 and the destination MSA´s HPI  is 103, then the Saving potential implicit by the move expressed as percentage would be 25/128= 19.5 percent.
 It is important to notice that the HPI captures the evolution in time of house prices relative to a base year which is the same for all US MSA contained in the data set. 
 
 
@@ -828,10 +828,6 @@ Although internal migrants moving out of California dispersed to virtually all g
 
 Furthermore,  when we consider the housing market price differentials between origin and destination MSAs, it is found that  only 3.1 %  of the destinations present a negative HPI gap, (a negative HPI gap indicates a movement from a lower to a higher housing cost MSA). Once the magnitude of the net migration  by origin MSA flow is considered, the HPI gap proportion adjust to $6\%$ for movers to more costly areas. Which indicates that the vast majority $94\%$ of out of state migrants from California preferred a more affordable destination. 
 
-The main destinations Metroolitan areas during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
-Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
-^[Interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may indicate a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area].
- 
 ```{r, include=FALSE}
 
 ## Do not run.
@@ -999,3 +995,7 @@ setView(zoom = 3.6, -96.5716694, 39.1836082)
 ```
 Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCountyMCDtoCountyMCD2023; @fhfaHousePriceIndex2022]
 
+
+The main destinations Metroolitan areas during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
+Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
+It is interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may in fact reflect a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area.
