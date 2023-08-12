@@ -108,11 +108,13 @@ Source: José Luis Manzanares Rivera with data from:  Rivera[@uscensusbureauAmer
 
 According to ACS 2017-2021. 5 year estimates. New York-Newark-Jersey City, Washington-Arlington-Alexandria and Phoenix-Mesa-Chandler, AZ Metro Area received the greatest flows of inter state migration in this period. 
 
-Although Border MSA  are not particularly important destinations for in migration considering the total population,  San Diego-Chula Vista-Carlsbad is the only MSA that is part of the top 20 MSA´s by its magnitude of inflows in the country. 
+Although Border MSA are not particularly important destinations for in migration considering the total population,  the border MSAS of San Diego-Chula Vista-Carlsbad, CA is the only MSA that is part of the top 20 MSA´s by its magnitude of inflows in the country. 
 
 Some other MSA located in border states but not in border adjacent areas with Mexico that form part of the top 20 list are the following:  Dallas-Fort Worth-Arlington, TX Metro Area which ranks $5^{th}$, Los Angeles-Long Beach-Anaheim, CA Metro Area $8^{th}$ place and Houston-The Woodlands-Sugar Land, TX Metro Area, occupying $12^{th}$ position.
 
-This base scenario considers the total population, however, by incorporating population ethnicity as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
+This base scenario considers the total population, however, by incorporating population ethnicity as a control variable, we gain insights into the geographical preferences of different racial groups, including Hispanics, Blacks, Whites, and Asians. This enables us to determine whether certain cities with higher living costs exhibit a greater attraction for specific population segments. 
+
+Additionally, we can identify the areas that are comparatively less appealing to each racial group. This analysis provides valuable information regarding the underlying factors that influence migration patterns and population dynamics.
 
 **Figure 2  Hispanics moving from out of state by current MSA residence. % of total population moving from out state 2021**
 
@@ -156,30 +158,32 @@ ggplotly(top20_hisp, tooltip=c("text", "Percent", "City" ))%>%
 
 ```
 
-Source: José Luis Manzanares Rivera based o ndata form ACS 5  yrs estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
+Source: José Luis Manzanares Rivera based on data form ACS 5 year estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
 
-We find that 70% of the MSA where the majority of Hispanic population migrated to,  are located in the border with México.  The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo, all of theme in the Texas Lower Rio grande region. a low cost low income, High poverty rate area.
+We find that 70% of the MSA where the majority of Hispanic population migrated to, are located in the border with México. The highest recipient being McAllen-Edinburg-Mission, followed by Brownsville-Harlingen and  Laredo, all of theme in the Texas Lower Rio grande Valley region, a low cost low income, high poverty rate area.
 
-Interestingly from the above information we find a pattern Comprised of MSA´s where the common feature is a particular labor market suited for unskilled workforce. 
+Considering the above raking we find a pattern Comprised of MSA´s where the common feature is a particular economic structure suited for labor intensive productive activities. 
 
-In this pattern we have Dalton, Georgia, Yakima Washington and Grand Island, Nebraska. 
+In this pattern we have Dalton, Georgia, Yakima Washington and Grand Island, Nebraska MSA´s. 
 
-Dalton is an area home of the nation's floor-covering manufacturers hub and often referred as the *Carpet Capital of the World*. This is a metropolitan area with a demographic structure with a majority Hispanic population, a feature that is indeed unique out of the border state region. 
+Dalton is an area home of the nation's floor-covering manufacturers hub and often referred as the *Carpet Capital of the World*. A great account about the history of the carpet industry in this city and its related labor market development during the industry´s boom can be found in the work by [@pattonWorldOpportunityTufting1997]. Today Dalton, Georgia is a metropolitan area with a demographic structure with a majority Hispanic population, a feature that is indeed unique out of the border state region. 
 
-As the case above, Yakima Metropolitan Statistical Area (MSA), situated within the state of Washington, is another region out of the US-Mexico border that make up the top 20 destinations for Hispanics migrating out of state. 
+As the case above, Yakima Metropolitan Statistical Area (MSA), situated within the state of Washington, is another region out of the US-Mexico border that make up the top 20 destinations for Hispanics moving out of state.
+
 This region has a unique labor market structure, in this case with an historical reliance on agriculture, specifically fruit production.
-This agricultural focus has led to a labor market  characterized by seasonal fluctuations in demand which employs a diverse workforce, including unskilled laborers who engage in tasks such as picking and packing crops. According to the US Census Bureau the Hispanic or Latino community constitutes a substantial portion of Yakima's population today. 
+This agricultural focus has led to a labor market  characterized by seasonal fluctuations in demand which employs a diverse workforce [@bentleyYakima2016], including unskilled laborers who engage in tasks such as picking and packing crops. According to the US Census Bureau the Hispanic or Latino community constitutes $58.9\%$ of the population, a considerable higher proportion than the State´s proportion of $13\%$ [@uscensusbureauacsUSCensusBureau2022]. 
 
 Similarly the case of Grand Island, Nebraska, situated within a predominantly agricultural region features a local economy that includes an important food processing and manufacturing activity that heavily relies on a labor intensive workforce. According to the US Census Bureau, the Hispanic segment in the area represents $33\%$ of the total population. [@uscensusbureauPopulationEstimatesEstimated2023]. 
 
 What about migration patterns between racial groups. Where are Asians mostly moving to? What about Blacks. We know where are Hispanics moving to but what about the White population.
-To explore this interesting questions, we estimate the Location Quotient (LQ) for the main racial categories included in the ACS. 
+To explore this particular aspects of internal migration process, we estimate the Location Quotient (LQ) for the main racial categories included in the American community survey  estimates. 
 Figure 3 show results for Asians, Blacks and the White  non Hispanic population.
 
 **Figure 3 MSA destinations for out of state migrants by race as measured by Location Quotient 2021**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(leaflet)
+library(leafsync)
 library(mapview)
 library(leafem)
 library(sf)
@@ -204,16 +208,15 @@ whites<-rate_H%>%select(City, State, lq)%>%  separate(City, into= c("MSA", "city
 whites_df <-whites%>% st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326)
 
 
-mapviewOptions(vector.palette=colorRampPalette(c("blue","orange","red")))
+mapa<-mapview(asians_df, map.types =  "CartoDB.Positron",cex="lq", zcol="lq", col.regions = wes_palette(n = 5, name = "Zissou1"),layer.name= "Asians",homebutton =TRUE)+ 
+mapview(blacks_df, map.types =  "OpenStreetMap.DE",cex="lq_blacks",  col.regions = wes_palette(n = 5, name = "Zissou1"),zcol="lq_blacks", layer.name= "Blacks",homebutton =FALSE) +
+mapview(whites_df, map.types =  "OpenStreetMap.DE",cex="lq_Whites", col.regions = wes_palette(n = 5, name = "Zissou1"), zcol="lq_Whites", layer.name= "Whites",homebutton =FALSE)
 
-mapa<-mapview(asians_df, map.types =  "OpenStreetMap.DE",cex="lq", zcol="lq", layer.name= "Asians",legend = FALSE,homebutton =TRUE)+
-  mapview(blacks_df, map.types =  "OpenStreetMap.DE",cex="lq_blacks", zcol="lq_blacks", layer.name= "Blacks",legend = FALSE,homebutton =TRUE)+
-  mapview(whites_df, map.types =  "OpenStreetMap.DE",cex="lq_Whites", zcol="lq_Whites", layer.name= "Whites",legend = FALSE,homebutton =TRUE)
-  
+
 leafem::addMouseCoordinates(mapa)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
 
 ```
-Source: José Luis Manzanares Rivera based o ndata form ACS 5  yrs estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
+Source: José Luis Manzanares Rivera based on data from ACS 5 years estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
 
 
 Asians are primarily migrating towards College towns and tech hub markets,The top five destinations are: Ithaca, NY home to Cornell University which is routinely ranked among the world's best universities. 	
