@@ -49,6 +49,10 @@ $P_i=B07001065E$  where **B07001_065E**  is table id for data on Geographical mo
 
 As can be seen form the specification, LQ is a relative measure, that captures the geographic concentration of a particular variable relative to a reference area. 
 
+To contribute to study housing affordability, in relation to internal migration flows, in section 2.3 I propose a classification for housing prices levels. By employing this classification framework, we can gain valuable insights into the varying degrees of housing affordability among destination states.
+
+This scale encompasses four distinct categories that correspond to the distribution of the regional price parity (RPP) indicator across states. The reference values for these categories are as follows: "High cost" (RPP > 125), "Expensive" (125 >= RPP > 110), "Affordable" (110 >= RPP > 70), and "Low cost" (RPP < 70). 
+
 
 ## Moving across state borders.  
 
@@ -168,6 +172,68 @@ This agricultural focus has led to a labor market  characterized by seasonal flu
 
 Similarly the case of Grand Island, Nebraska, situated within a predominantly agricultural region features a local economy that includes an important food processing and manufacturing activity that heavily relies on a labor intensive workforce. According to the US Census Bureau, the Hispanic segment in the area represents $33\%$ of the total population. [@uscensusbureauPopulationEstimatesEstimated2023]. 
 
+What about migration patterns between racial groups. Where are Asians mostly moving to? What about Blacks. We know where are Hispanics moving to but what about the White population.
+To explore this interesting questions, we estimate the Location Quotient (LQ) for the main racial categories included in the ACS. 
+Figure 3 show results for Asians, Blacks and the White  non Hispanic population.
+
+**Figure 3 MSA destinations for out of state migrants by race as measured by Location Quotient 2021**
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(leaflet)
+library(mapview)
+library(leafem)
+library(sf)
+
+#asians<-rate_D%>%mutate(race="Asian")%>%select(City, State, lq, race)%>%  separate(City, into= c("MSA", "city2"), sep="-", remove = FALSE)%>%separate(State, into = c("state", "state2"), sep = "-", remove = )%>%select(MSA, state, lq, race)%>%mutate(MSA_State = paste(MSA, state, sep = ", "))#
+
+asians<-read.csv("asians.csv")
+asians_df <-asians%>% st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326)
+
+rate_B<-readRDS("rate_B.rds")
+
+blacks<-rate_B%>%select(City, State, lq)%>%  separate(City, into= c("MSA", "city2"), sep="-", remove = FALSE)%>%separate(State, into = c("state", "state2"), sep = "-", remove = )%>%select(MSA, state, lq)%>%mutate(MSA_State = paste(MSA, state, sep = ", "))%>%  rename(lq_blacks=lq)%>%left_join(asians)%>% select(-X, -lq,-race, -MSA)
+
+blacks_df <-blacks%>% st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326)
+
+rate_H<-readRDS("rate_H.rds")
+
+whites<-rate_H%>%select(City, State, lq)%>%  separate(City, into= c("MSA", "city2"), sep="-", remove = FALSE)%>%separate(State, into = c("state", "state2"), sep = "-", remove = )%>%select(MSA, state, lq)%>%mutate(MSA_State = paste(MSA, state, sep = ", "))%>%
+  rename(lq_Whites=lq)%>%left_join(asians)%>%
+  select(-X, -lq,-race, -MSA)
+
+whites_df <-whites%>% st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326)
+
+
+mapviewOptions(vector.palette=colorRampPalette(c("blue","orange","red")))
+
+mapa<-mapview(asians_df, map.types =  "OpenStreetMap.DE",cex="lq", zcol="lq", layer.name= "Asians",legend = FALSE,homebutton =TRUE)+
+  mapview(blacks_df, map.types =  "OpenStreetMap.DE",cex="lq_blacks", zcol="lq_blacks", layer.name= "Blacks",legend = FALSE,homebutton =TRUE)+
+  mapview(whites_df, map.types =  "OpenStreetMap.DE",cex="lq_Whites", zcol="lq_Whites", layer.name= "Whites",legend = FALSE,homebutton =TRUE)
+  
+leafem::addMouseCoordinates(mapa)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
+
+```
+Source: José Luis Manzanares Rivera based o ndata form ACS 5  yrs estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
+
+
+Asians are primarily migrating towards College towns and tech hub markets,The top five destinations are: Ithaca, NY home to Cornell University which is routinely ranked among the world's best universities. 	
+
+Lafayette-West Lafayette, IN, MSA home of Perdue University which is a major research institution known for discoveries in science, technology, engineering and math.  
+
+San Jose-Sunnyvale-Santa Clara MSA, an area with world wide recognition as a hub for technology sector. 
+
+Ann Arbor, Michigan an area home to the University of Michigan which is considered to  be one of the top public research universities in the country and it is a leader in various fields, including medicine.
+Seattle-Tacoma-Bellevue MSA, another area with increasingly important activity in the tech sector, with a labor market linked to sillicon Valley companies such as Microsoft, amazon, Facebook and google.
+
+For the black population the highest relative concentrations of out of state migrants are mostly found in Military related towns:  Hinesville, GA, Killeen-Temple, TX, Clarksville, TN, Lawton, OK, which is in close proximity to military operations base Fort Sill, which is one of the four locations for Army Basic Combat Training. Columbus, GA area that that host Fort Moore, the United States Army's maneuver center of excellence and a major employer, is located south of the city in southern Muscogee and Chattahoochee counties. It supports more than 120,000 active-duty military, family members, reserve component soldiers, retirees and civilian employees on a daily basis.
+
+
+Concerning the White non Hispanic population it is interesting to note the places that are the least preferred to migrate. The top 5 MSA in this regard  lay right at the US-Mexico Border. With Laredo, Tx, being the MSA with the lowest concentration of out of state white movers, Foolowed by the 	
+Brownsville-Harlingen, TX, MSA, Madera, CA, 	
+McAllen-Edinburg-Mission, Tx and 	
+Vineland-Bridgeton, New Jersey, this last destination characterized by its concentration pf black population. 
+
+
 Now we consider important housing demand side determinants in particular we are interested in the association between income, Metropolitan area size as measure by its population and personal income. 
 
 ## Housing demand determinants: population growth, income and home prices
@@ -218,7 +284,7 @@ ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>%
 
 # Detailed source site for smaller areas Such as Census tracks.  https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index-Datasets.aspx#qpo
 ```
-Source: José Lus Manzanars rivera base on data from Federal Housing Finance Agency  [@fhfaHousePriceIndex2022, @bureauofeconomicanalysisPersonalIncomeCounty2023]
+Source: José Lus Manzanares Rivera base on data from Federal Housing Finance Agency  [@fhfaHousePriceIndex2022, @bureauofeconomicanalysisPersonalIncomeCounty2023]
 
 Although data provides sound evidence that personal per capita income and house prices are positively correlated, degrees of correlation varies between border state´s metropolitan areas, with the strongest relationship being observed by Californian MSA, where we also find the most expensive metropolitan areas of the border states considering housing prices. 
 
@@ -597,18 +663,30 @@ long_data<- readRDS("rates_raw.rds")
   
 # Blacks
   rate_B<-long_data%>%filter(table_id=="B07004B_005E")%>%
-    left_join(cities)
+    left_join(cities)%>%
+    mutate(t.mig=sum(mig), num=mig/t.mig, t.pop=sum(B01001_001E), den=B01001_001E/t.pop, lq=round(num/den,2))%>%
+  select(City, State, lq)
+  
+saveRDS(rate_B, "rate_B.rds")  
 # The highest rate are in Hinesville, GA  (Military base related migration),  Killeen-Temple, TX, which is known as a military "boom town
   
 # Asians alone no hispanic 
   
   rate_D<-long_data%>%filter(table_id=="B07004D_005E")%>%
-    left_join(cities)
+    left_join(cities)%>%
+    mutate(t.mig=sum(mig), num=mig/t.mig, t.pop=sum(B01001_001E), den=B01001_001E/t.pop, lq=round(num/den,2))
+
+saveRDS(rate_D, "rate_D.rds")     
 ### Asians are migrating towards Colleges towns and tech hub markets.
   
   # Whites  alone no hispanic 
    rate_H<-long_data%>%filter(table_id=="B07004H_005E")%>%
-    left_join(cities)
+    left_join(cities)%>%
+    mutate(t.mig=sum(mig), num=mig/t.mig, t.pop=sum(B01001_001E), den=B01001_001E/t.pop, lq=round(num/den,2))%>%
+  select(City, State, lq) 
+   
+saveRDS(rate_H, "rate_H.rds")   
+   
 ## Interesante Aqui podemos conjuntar la idea de racial differentiation. the question here is what are the places towards which, the white population is not  migrating.   The bottom 5 are:  Mexican border towns: Laredo, Brownsville, Madera CA, Vineland-Bridgeton, NJ. (A black town) McAllen-Edinburg-Mission and 
 ```
 
@@ -636,18 +714,19 @@ geo_codes<-flows%>%select(GEO_Code, FULL2_NAME, City)
 #######################################
 ```
 
+
+## The California exodus.
+
 As has been discussed in chapter 1, currently, the state of California features the most expensive real estate market in the country according to official estimations such as the Regional price parity housing component published by the Bureau of Economic Analysis  (BEA). 
 
-In addition, empirical evidence from the American Community Survey (ACS), internal migration flows, indicate that California is a leading state concerning negative migration flows and has been consistently experiencing negative net flows in its main Metropolitan areas.
+In addition, empirical evidence from the American Community Survey (ACS) internal migration flows, indicate that California is a leading state concerning negative migration flows and has been consistently experiencing negative net flows from its main Metropolitan areas.
 
 A question that is important to solve in the context is: Where are Californians moving to? Are they looking for more affordable locations?  How far are they moving? 
 
 Considering net migration flows reported by the ACS, almost half of the population ($43\%$) that decided to migrate out to a different Metropolitan area, did it across state lines. In fact only $7\%$ of the total destinations documented in the period 2016-2020, correspond to: within the state movements. This reflects a dynamic demographic process with implications for both origin and destination MSAs, including tax revenue gains for the new host states along with infrastructure demands and increased pressures over key resources such as energy and water.  
 
 
-In light of the previous research question, Figure 4 provides an analysis of the distribution of destination states for Californians, based on a classification of housing market affordability. 
-
-This scale encompasses four distinct categories that correspond to the distribution of the regional price parity (RPP) indicator across states. The reference values for these categories are as follows: "High cost" (RPP > 125), "Expensive" (125 >= RPP > 110), "Affordable" (110 >= RPP > 70), and "Low cost" (RPP < 70). By employing this classification framework, we can gain valuable insights into the varying degrees of housing affordability among destination states.
+In light of the previous research question, Figure 4 provides an analysis of the distribution of destination states for Californians, along with a classification of housing market affordability. 
 
 
 **Figure 4, Net migration flows from California, by state and Regional price parities**
@@ -975,7 +1054,7 @@ Furthermore,  when we consider the housing market price differentials between or
 ## The bigger the size of the population flowing out From a particular MSA, the lower the HPI gap. That is, bigger negative net migration movements took place between MSAs with smaller HPI gaps or more similar housing markets. In addition this negative relationship  is not significan for  movers tbetween a low cost area and high cost MSA (negative Hpi gaps between orign and destination)  which indicates  that not necesarily big netfows take place to more expensive areas. 
 ```
 
-Figure 5 below shows the geographic distribution of destinations adding de HPI gap between origin and destination along with the net flow and  the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, accounts relative to the origin home price level. 
+Figure 5 below shows the geographic distribution of destinations adding the HPI gap between origin and destination along with the net flow and the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, accounts relative to the origin home price level. 
 
 **Figure 5  Net out of state migration flows from California by destination MSA, HPI gap and savings as % of origin HPI 2020.**
 
@@ -984,7 +1063,6 @@ Figure 5 below shows the geographic distribution of destinations adding de HPI g
 location_MSA<-readRDS("location_MSA_coded.rds")%>%
   rename(Netflow=Pop)%>%
 mutate(savings=round(savings,2))  
-  
 
 allCA_out<-mapview(location_MSA, map.types =  "CartoDB.DarkMatter",cex="Netflow", zcol="savings", layer.name= "Savings %",legend = TRUE,homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)
 
@@ -996,6 +1074,6 @@ setView(zoom = 3.6, -96.5716694, 39.1836082)
 Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCountyMCDtoCountyMCD2023; @fhfaHousePriceIndex2022]
 
 
-The main destinations Metroolitan areas during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
+The main  Metropolitan areas destinations for Californiasns during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
 Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
 It is interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may in fact reflect a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area.

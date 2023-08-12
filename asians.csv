@@ -1,0 +1,385 @@
+,MSA,state,lq,race,MSA_State,Latitude,Longitude
+1,Abilene,TX,0.71,Asian,"Abilene, TX",32.4487364,-99.7331439
+2,Akron,OH,0.45,Asian,"Akron, OH",41.0814447,-81.5190053
+3,Albany,GA,0.4,Asian,"Albany, GA",31.5785074,-84.155741
+4,Albany,OR,0.46,Asian,"Albany, OR",44.6365107,-123.1059282
+5,Albany,NY,0.65,Asian,"Albany, NY",42.6525793,-73.7562317
+6,Albuquerque,NM,0.81,Asian,"Albuquerque, NM",35.0843859,-106.650422
+7,Alexandria,LA,0.29,Asian,"Alexandria, LA",31.3112936,-92.4451371
+8,Allentown,PA,0.52,Asian,"Allentown, PA",40.6022939,-75.4714098
+9,Altoona,PA,0.22,Asian,"Altoona, PA",40.5186809,-78.3947359
+10,Amarillo,TX,0.25,Asian,"Amarillo, TX",35.2219971,-101.8312969
+11,Ames,IA,0.47,Asian,"Ames, IA",42.0307812,-93.6319131
+12,Anchorage,AK,0.67,Asian,"Anchorage, AK",61.2175758,-149.8996785
+13,Ann Arbor,MI,3.62,Asian,"Ann Arbor, MI",42.2808256,-83.7430378
+14,Anniston,AL,1.02,Asian,"Anniston, AL",33.6598257,-85.8316318
+15,Appleton,WI,0.28,Asian,"Appleton, WI",44.2619309,-88.4153847
+16,Asheville,NC,0.17,Asian,"Asheville, NC",35.5950581,-82.5514869
+17,Athens,GA,0.89,Asian,"Athens, GA",33.9519347,-83.357567
+18,Atlanta,GA,1.23,Asian,"Atlanta, GA",33.748752,-84.3876845
+19,Atlantic City,NJ,0.28,Asian,"Atlantic City, NJ",39.3642834,-74.4229266
+20,Auburn,AL,0.23,Asian,"Auburn, AL",32.6098566,-85.4807825
+21,Augusta,GA,0.59,Asian,"Augusta, GA",33.4734978,-82.0105148
+22,Austin,TX,1.88,Asian,"Austin, TX",30.267153,-97.7430608
+23,Bakersfield,CA,0.21,Asian,"Bakersfield, CA",35.3732921,-119.0187125
+24,Baltimore,MD,1.03,Asian,"Baltimore, MD",39.2903848,-76.6121893
+25,Bangor,ME,0.69,Asian,"Bangor, ME",44.8016128,-68.7712257
+26,Barnstable Town,MA,0.12,Asian,"Barnstable Town, MA",41.7003208,-70.3002024
+27,Baton Rouge,LA,0.22,Asian,"Baton Rouge, LA",30.4514677,-91.1871466
+28,Battle Creek,MI,0.76,Asian,"Battle Creek, MI",42.3211522,-85.1797142
+29,Bay City,MI,0.18,Asian,"Bay City, MI",43.5944677,-83.8888647
+30,Beaumont,TX,0.13,Asian,"Beaumont, TX",30.080174,-94.1265562
+31,Beckley,WV,0.07,Asian,"Beckley, WV",37.7781702,-81.1881557
+32,Bellingham,WA,0.56,Asian,"Bellingham, WA",48.7519112,-122.4786854
+33,Bend,OR,0.43,Asian,"Bend, OR",44.0581728,-121.3153096
+34,Billings,MT,0.05,Asian,"Billings, MT",45.7832856,-108.5006904
+35,Binghamton,NY,0.43,Asian,"Binghamton, NY",42.0986867,-75.9179738
+36,Birmingham,AL,0.28,Asian,"Birmingham, AL",33.5185892,-86.8103567
+37,Bismarck,ND,0.05,Asian,"Bismarck, ND",46.8054947,-100.7876931
+38,Blacksburg,VA,1.5,Asian,"Blacksburg, VA",37.2295733,-80.4139393
+39,Bloomington,IL,0.42,Asian,"Bloomington, IL",40.4842027,-88.9936873
+40,Bloomington,IN,2.14,Asian,"Bloomington, IN",39.165325,-86.5263857
+41,Bloomsburg,PA,0.21,Asian,"Bloomsburg, PA",41.003698,-76.4549457
+42,Boise City,ID,0.34,Asian,"Boise City, ID",43.6150186,-116.2023137
+43,Boston,MA,1.82,Asian,"Boston, MA",42.3600825,-71.0588801
+44,Boulder,CO,1.7,Asian,"Boulder, CO",40.0149856,-105.2705456
+45,Bowling Green,KY,0,Asian,"Bowling Green, KY",36.9685219,-86.4808043
+46,Bremerton,WA,1.01,Asian,"Bremerton, WA",47.5650067,-122.6269768
+47,Bridgeport,CT,1.43,Asian,"Bridgeport, CT",41.1792258,-73.1894384
+48,Brownsville,TX,0.04,Asian,"Brownsville, TX",25.9017472,-97.4974838
+49,Brunswick,GA,0,Asian,"Brunswick, GA",31.1499528,-81.4914894
+50,Buffalo,NY,0.39,Asian,"Buffalo, NY",42.8864468,-78.8783689
+51,Burlington,NC,0.46,Asian,"Burlington, NC",36.0958949,-79.4372709
+52,Burlington,VT,0.96,Asian,"Burlington, VT",44.4758825,-73.212072
+53,California,MD,0.06,Asian,"California, MD",38.3004029,-76.5074542
+54,Canton,OH,0.14,Asian,"Canton, OH",40.7989473,-81.378447
+55,Cape Coral,FL,0.76,Asian,"Cape Coral, FL",26.5628537,-81.9495331
+56,Cape Girardeau,MO,0,Asian,"Cape Girardeau, MO",37.3058839,-89.5181476
+57,Carbondale,IL,0.81,Asian,"Carbondale, IL",37.7272727,-89.2167501
+58,Carson City,NV,1.61,Asian,"Carson City, NV",39.1637984,-119.7674034
+59,Casper,WY,0,Asian,"Casper, WY",42.848709,-106.2980824
+60,Cedar Rapids,IA,0.14,Asian,"Cedar Rapids, IA",41.9778795,-91.6656232
+61,Chambersburg,PA,0.36,Asian,"Chambersburg, PA",39.9375911,-77.6611022
+62,Champaign,IL,2.1,Asian,"Champaign, IL",40.1164204,-88.2433829
+63,Charleston,WV,0.25,Asian,"Charleston, WV",38.3498195,-81.6326234
+64,Charleston,SC,0.4,Asian,"Charleston, SC",32.7764749,-79.9310512
+65,Charlotte,NC,1.51,Asian,"Charlotte, NC",35.2270869,-80.8431267
+66,Charlottesville,VA,1.62,Asian,"Charlottesville, VA",38.0293059,-78.4766781
+67,Chattanooga,TN,0.43,Asian,"Chattanooga, TN",35.0457984,-85.3093995
+68,Cheyenne,WY,0.75,Asian,"Cheyenne, WY",41.1399814,-104.8202462
+69,Chicago,IL,1,Asian,"Chicago, IL",41.8781136,-87.6297982
+70,Chico,CA,0.16,Asian,"Chico, CA",39.7284944,-121.8374777
+71,Cincinnati,OH,0.9,Asian,"Cincinnati, OH",39.1031182,-84.5120196
+72,Clarksville,TN,0.6,Asian,"Clarksville, TN",36.5297706,-87.3594528
+73,Cleveland,TN,0.32,Asian,"Cleveland, TN",35.1595182,-84.8766115
+74,Cleveland,OH,0.57,Asian,"Cleveland, OH",41.49932,-81.6943605
+75,Coeur d'Alene,ID,0.32,Asian,"Coeur d'Alene, ID",47.6734632,-116.7812225
+76,College Station,TX,0.96,Asian,"College Station, TX",30.627977,-96.3344068
+77,Colorado Springs,CO,1.42,Asian,"Colorado Springs, CO",38.8338816,-104.8213634
+78,Columbia,MO,1.13,Asian,"Columbia, MO",38.9517053,-92.3340724
+79,Columbia,SC,0.97,Asian,"Columbia, SC",34.0007104,-81.0348144
+80,Columbus,GA,0.98,Asian,"Columbus, GA",32.4609764,-84.9877094
+81,Columbus,IN,2.12,Asian,"Columbus, IN",39.2014404,-85.9213796
+82,Columbus,OH,1.51,Asian,"Columbus, OH",39.9611755,-82.9987942
+83,Corpus Christi,TX,0.67,Asian,"Corpus Christi, TX",27.8005828,-97.396381
+84,Corvallis,OR,1.96,Asian,"Corvallis, OR",44.5645659,-123.2620435
+85,Crestview,FL,1.03,Asian,"Crestview, FL",30.7541808,-86.5727995
+86,Cumberland,MD,0.21,Asian,"Cumberland, MD",39.6528654,-78.7625185
+87,Dallas,TX,1.55,Asian,"Dallas, TX",32.7766642,-96.7969879
+88,Dalton,GA,0.36,Asian,"Dalton, GA",34.7698021,-84.9702228
+89,Danville,IL,0,Asian,"Danville, IL",40.124481,-87.6300207
+90,Daphne,AL,0.13,Asian,"Daphne, AL",30.6035255,-87.9036047
+91,Davenport,IA,0.63,Asian,"Davenport, IA",41.5236437,-90.5776367
+92,Dayton,OH,0.6,Asian,"Dayton, OH",39.7589478,-84.1916069
+93,Decatur,AL,0,Asian,"Decatur, AL",34.6059253,-86.9833417
+94,Decatur,IL,0.53,Asian,"Decatur, IL",39.8403147,-88.9548001
+95,Deltona,FL,0.43,Asian,"Deltona, FL",28.9005446,-81.2636738
+96,Denver,CO,0.98,Asian,"Denver, CO",39.7392358,-104.990251
+97,Des Moines,IA,0.83,Asian,"Des Moines, IA",41.5868353,-93.6249593
+98,Detroit,MI,0.66,Asian,"Detroit, MI",42.331427,-83.0457538
+99,Dothan,AL,0.27,Asian,"Dothan, AL",31.2232313,-85.3904888
+100,Dover,DE,0.99,Asian,"Dover, DE",39.158168,-75.5243682
+101,Dubuque,IA,0.9,Asian,"Dubuque, IA",42.506348,-90.6677347
+102,Duluth,MN,0.25,Asian,"Duluth, MN",46.7866719,-92.1004852
+103,Durham,NC,1.52,Asian,"Durham, NC",35.9940329,-78.898619
+104,East Stroudsburg,PA,0.75,Asian,"East Stroudsburg, PA",41.0030522,-75.1817547
+105,Eau Claire,WI,0.83,Asian,"Eau Claire, WI",44.811349,-91.4984941
+106,El Centro,CA,0.05,Asian,"El Centro, CA",32.792,-115.5630514
+107,Elizabethtown,KY,1.09,Asian,"Elizabethtown, KY",37.7030646,-85.8649408
+108,Elkhart,IN,0,Asian,"Elkhart, IN",41.6873832,-85.973517
+109,Elmira,NY,0.47,Asian,"Elmira, NY",42.0897965,-76.8077338
+110,El Paso,TX,0.48,Asian,"El Paso, TX",31.7618778,-106.4850217
+111,Enid,OK,1.5,Asian,"Enid, OK",36.3955891,-97.8783911
+112,Erie,PA,0.53,Asian,"Erie, PA",42.1292241,-80.085059
+113,Eugene,OR,0.94,Asian,"Eugene, OR",44.0520691,-123.0867536
+114,Evansville,IN,0.29,Asian,"Evansville, IN",37.9715592,-87.5710898
+115,Fairbanks,AK,1.69,Asian,"Fairbanks, AK",64.8400511,-147.7199756
+116,Fargo,ND,0.81,Asian,"Fargo, ND",46.8771863,-96.7898034
+117,Farmington,NM,0.25,Asian,"Farmington, NM",36.7280583,-108.2186856
+118,Fayetteville,NC,1.02,Asian,"Fayetteville, NC",35.0523673,-78.8783774
+119,Fayetteville,AR,1.25,Asian,"Fayetteville, AR",36.0626579,-94.1605839
+120,Flagstaff,AZ,0.14,Asian,"Flagstaff, AZ",35.1982836,-111.651302
+121,Flint,MI,0.14,Asian,"Flint, MI",43.0125274,-83.6874562
+122,Florence,SC,0.22,Asian,"Florence, SC",34.1954331,-79.7625625
+123,Florence,AL,0.09,Asian,"Florence, AL",34.79981,-87.677251
+124,Fond du Lac,WI,1.31,Asian,"Fond du Lac, WI",43.7730448,-88.4470508
+125,Fort Collins,CO,0.83,Asian,"Fort Collins, CO",40.5852602,-105.084423
+126,Fort Smith,AR,0.3,Asian,"Fort Smith, AR",35.3843722,-94.4209646
+127,Fort Wayne,IN,0.73,Asian,"Fort Wayne, IN",41.079273,-85.1393513
+128,Fresno,CA,0.63,Asian,"Fresno, CA",36.7377981,-119.7871247
+129,Gadsden,AL,0.13,Asian,"Gadsden, AL",34.014264,-86.0066386
+130,Gainesville,FL,0.88,Asian,"Gainesville, FL",29.6516344,-82.3248262
+131,Gainesville,GA,0.16,Asian,"Gainesville, GA",34.2978794,-83.8240663
+132,Gettysburg,PA,0.28,Asian,"Gettysburg, PA",39.8309293,-77.2310955
+133,Glens Falls,NY,0.18,Asian,"Glens Falls, NY",43.3095164,-73.6440058
+134,Goldsboro,NC,0.26,Asian,"Goldsboro, NC",35.3848841,-77.9927651
+135,Grand Forks,ND,1.45,Asian,"Grand Forks, ND",47.9252568,-97.0328547
+136,Grand Island,NE,0.09,Asian,"Grand Island, NE",40.9263957,-98.3420118
+137,Grand Junction,CO,0.24,Asian,"Grand Junction, CO",39.0638705,-108.5506486
+138,Grand Rapids,MI,0.44,Asian,"Grand Rapids, MI",42.9633599,-85.6680863
+139,Grants Pass,OR,0.13,Asian,"Grants Pass, OR",42.4390069,-123.3283925
+140,Great Falls,MT,0.4,Asian,"Great Falls, MT",47.5052849,-111.3007715
+141,Greeley,CO,0.41,Asian,"Greeley, CO",40.4233142,-104.7091322
+142,Green Bay,WI,0.85,Asian,"Green Bay, WI",44.5133188,-88.0132958
+143,Greensboro,NC,0.72,Asian,"Greensboro, NC",36.0726354,-79.7919754
+144,Greenville,NC,0.76,Asian,"Greenville, NC",35.612661,-77.3663538
+145,Greenville,SC,0.61,Asian,"Greenville, SC",34.8526176,-82.3940104
+146,Gulfport,MS,0.66,Asian,"Gulfport, MS",30.3674198,-89.0928155
+147,Hagerstown,MD,0.34,Asian,"Hagerstown, MD",39.6417629,-77.7199932
+148,Hammond,LA,0.22,Asian,"Hammond, LA",30.5043583,-90.4611995
+149,Hanford,CA,0.22,Asian,"Hanford, CA",36.3274502,-119.6456844
+150,Harrisburg,PA,1.2,Asian,"Harrisburg, PA",40.2731911,-76.8867008
+151,Harrisonburg,VA,0.78,Asian,"Harrisonburg, VA",38.4495688,-78.8689155
+152,Hartford,CT,1.19,Asian,"Hartford, CT",41.7658043,-72.6733723
+153,Hattiesburg,MS,0,Asian,"Hattiesburg, MS",31.3271189,-89.2903392
+154,Hickory,NC,0.63,Asian,"Hickory, NC",35.7344538,-81.3444573
+155,Hilton Head Island,SC,0.57,Asian,"Hilton Head Island, SC",32.216316,-80.752608
+156,Hinesville,GA,0.6,Asian,"Hinesville, GA",31.8315028,-81.6141099
+157,Homosassa Springs,FL,0.11,Asian,"Homosassa Springs, FL",28.8037059,-82.5761369
+158,Hot Springs,AR,0.05,Asian,"Hot Springs, AR",34.5077615,-93.0546003
+159,Houma,LA,0,Asian,"Houma, LA",29.5957696,-90.7195348
+160,Houston,TX,1.08,Asian,"Houston, TX",29.7604267,-95.3698028
+161,Huntington,WV,0.31,Asian,"Huntington, WV",38.4192496,-82.445154
+162,Huntsville,AL,0.52,Asian,"Huntsville, AL",34.7303688,-86.5861037
+163,Idaho Falls,ID,0.23,Asian,"Idaho Falls, ID",43.4926607,-112.0407584
+164,Indianapolis,IN,0.99,Asian,"Indianapolis, IN",39.768403,-86.158068
+165,Iowa City,IA,1.17,Asian,"Iowa City, IA",41.6578257,-91.5346169
+166,Ithaca,NY,10.47,Asian,"Ithaca, NY",42.4439614,-76.5018807
+167,Jackson,MI,0.26,Asian,"Jackson, MI",42.245869,-84.4013462
+168,Jackson,MS,0.18,Asian,"Jackson, MS",32.2987573,-90.1848103
+169,Jackson,TN,0.07,Asian,"Jackson, TN",35.6145169,-88.8139469
+170,Jacksonville,FL,0.94,Asian,"Jacksonville, FL",30.3321838,-81.655651
+171,Jacksonville,NC,1.77,Asian,"Jacksonville, NC",34.7540524,-77.4302414
+172,Janesville,WI,0.12,Asian,"Janesville, WI",42.6827885,-89.0187222
+173,Jefferson City,MO,0.01,Asian,"Jefferson City, MO",38.5767017,-92.1735164
+174,Johnson City,TN,0.85,Asian,"Johnson City, TN",36.3134397,-82.3534727
+175,Johnstown,PA,0,Asian,"Johnstown, PA",40.3267407,-78.9219698
+176,Jonesboro,AR,0.03,Asian,"Jonesboro, AR",35.835696,-90.7051346
+177,Joplin,MO,0.14,Asian,"Joplin, MO",37.0842271,-94.513281
+178,Kahului,HI,1.72,Asian,"Kahului, HI",20.8893016,-156.4728725
+179,Kalamazoo,MI,0.66,Asian,"Kalamazoo, MI",42.2917069,-85.5872286
+180,Kankakee,IL,0.01,Asian,"Kankakee, IL",41.1200325,-87.8611531
+181,Kansas City,MO,1.01,Asian,"Kansas City, MO",39.0997265,-94.5785667
+182,Kennewick,WA,0.44,Asian,"Kennewick, WA",46.2086683,-119.119948
+183,Killeen,TX,0.76,Asian,"Killeen, TX",31.1171194,-97.7277959
+184,Kingsport,TN,0.18,Asian,"Kingsport, TN",36.548434,-82.5618186
+185,Kingston,NY,0.06,Asian,"Kingston, NY",41.9270367,-73.9973608
+186,Knoxville,TN,0.38,Asian,"Knoxville, TN",35.9606384,-83.9207392
+187,Kokomo,IN,0,Asian,"Kokomo, IN",40.486427,-86.1336033
+188,La Crosse,WI,0.84,Asian,"La Crosse, WI",43.8137751,-91.2519017
+189,Lafayette,LA,0.25,Asian,"Lafayette, LA",30.2240897,-92.0198427
+190,Lafayette,IN,4.18,Asian,"Lafayette, IN",40.4167022,-86.8752869
+191,Lake Charles,LA,0.24,Asian,"Lake Charles, LA",30.2265949,-93.2173758
+192,Lake Havasu City,AZ,0.61,Asian,"Lake Havasu City, AZ",34.483901,-114.3224548
+193,Lakeland,FL,0.28,Asian,"Lakeland, FL",28.0394654,-81.9498042
+194,Lancaster,PA,0.57,Asian,"Lancaster, PA",40.0378755,-76.3055144
+195,Lansing,MI,0.88,Asian,"Lansing, MI",42.732535,-84.5555347
+196,Laredo,TX,0,Asian,"Laredo, TX",27.5035613,-99.5075519
+197,Las Cruces,NM,0.43,Asian,"Las Cruces, NM",32.3199396,-106.7636538
+198,Las Vegas,NV,2.51,Asian,"Las Vegas, NV",36.171563,-115.1391009
+199,Lawrence,KS,0.15,Asian,"Lawrence, KS",38.9716689,-95.2352501
+200,Lawton,OK,1.87,Asian,"Lawton, OK",34.6035669,-98.3959291
+201,Lebanon,PA,1.45,Asian,"Lebanon, PA",40.3409251,-76.4113497
+202,Lewiston,ID,0.26,Asian,"Lewiston, ID",46.4004089,-117.0011889
+203,Lewiston,ME,0.25,Asian,"Lewiston, ME",44.100351,-70.2147764
+204,Lexington,KY,0.54,Asian,"Lexington, KY",38.0405837,-84.5037164
+205,Lima,OH,0.07,Asian,"Lima, OH",40.742551,-84.1052256
+206,Lincoln,NE,0.97,Asian,"Lincoln, NE",40.813616,-96.7025955
+207,Little Rock,AR,0.28,Asian,"Little Rock, AR",34.7444618,-92.2880157
+208,Logan,UT,0.49,Asian,"Logan, UT",41.7369803,-111.8338359
+209,Longview,TX,0.07,Asian,"Longview, TX",32.5007037,-94.7404891
+210,Longview,WA,0.13,Asian,"Longview, WA",46.1381676,-122.9381672
+211,Los Angeles,CA,0.91,Asian,"Los Angeles, CA",34.0522342,-118.2436849
+212,Louisville/Jefferson County,KY,0.62,Asian,"Louisville/Jefferson County, KY",38.2526647,-85.7584557
+213,Lubbock,TX,0.24,Asian,"Lubbock, TX",33.5845617,-101.8456417
+214,Lynchburg,VA,0.5,Asian,"Lynchburg, VA",37.4137536,-79.1422464
+215,Macon,GA,0.15,Asian,"Macon, GA",32.8406946,-83.6324022
+216,Madera,CA,0,Asian,"Madera, CA",36.9613356,-120.0607176
+217,Madison,WI,1.96,Asian,"Madison, WI",43.0721661,-89.4007501
+218,Manchester,NH,1.44,Asian,"Manchester, NH",42.9956397,-71.4547891
+219,Manhattan,KS,1.4,Asian,"Manhattan, KS",39.1836082,-96.5716694
+220,Mankato,MN,0.42,Asian,"Mankato, MN",44.1635775,-93.9993996
+221,Mansfield,OH,0,Asian,"Mansfield, OH",40.75839,-82.5154471
+222,McAllen,TX,0.02,Asian,"McAllen, TX",26.2034071,-98.2300124
+223,Medford,OR,0.3,Asian,"Medford, OR",42.3265152,-122.8755949
+224,Memphis,TN,0.81,Asian,"Memphis, TN",35.1495343,-90.0489801
+225,Merced,CA,0.35,Asian,"Merced, CA",37.3021632,-120.4829677
+226,Miami,FL,0.44,Asian,"Miami, FL",25.7616798,-80.1917902
+227,Michigan City,IN,0.02,Asian,"Michigan City, IN",41.7075394,-86.8950297
+228,Midland,MI,0.55,Asian,"Midland, MI",43.6155825,-84.2472116
+229,Midland,TX,0.4,Asian,"Midland, TX",31.9973456,-102.0779146
+230,Milwaukee,WI,0.66,Asian,"Milwaukee, WI",43.0389025,-87.9064736
+231,Minneapolis,MN,0.91,Asian,"Minneapolis, MN",44.977753,-93.2650108
+232,Missoula,MT,1.46,Asian,"Missoula, MT",46.8721284,-113.9940314
+233,Mobile,AL,0.23,Asian,"Mobile, AL",30.6953657,-88.0398912
+234,Modesto,CA,0.26,Asian,"Modesto, CA",37.6392595,-120.9970014
+235,Monroe,LA,0.37,Asian,"Monroe, LA",32.5093109,-92.1193012
+236,Monroe,MI,0.07,Asian,"Monroe, MI",41.9164343,-83.3977101
+237,Montgomery,AL,0.95,Asian,"Montgomery, AL",32.3792233,-86.3077368
+238,Morgantown,WV,0.42,Asian,"Morgantown, WV",39.629526,-79.9558968
+239,Morristown,TN,0,Asian,"Morristown, TN",36.2139814,-83.2948922
+240,Mount Vernon,WA,0.3,Asian,"Mount Vernon, WA",48.4201105,-122.3374542
+241,Muncie,IN,0.36,Asian,"Muncie, IN",40.1933767,-85.3863599
+242,Muskegon,MI,0.14,Asian,"Muskegon, MI",43.2341813,-86.2483921
+243,Myrtle Beach,SC,0.2,Asian,"Myrtle Beach, SC",33.6890603,-78.8866943
+244,Napa,CA,0.32,Asian,"Napa, CA",38.2975381,-122.286865
+245,Naples,FL,0.59,Asian,"Naples, FL",26.1420358,-81.7948103
+246,Nashville,TN,0.67,Asian,"Nashville, TN",36.1626638,-86.7816016
+247,New Bern,NC,0.18,Asian,"New Bern, NC",35.108493,-77.0441143
+248,New Haven,CT,1.3,Asian,"New Haven, CT",41.308274,-72.9278835
+249,New Orleans,LA,0.34,Asian,"New Orleans, LA",29.9510658,-90.0715323
+250,New York,NY,1.3,Asian,"New York, NY",40.7127753,-74.0059728
+251,Niles,MI,0.42,Asian,"Niles, MI",41.8297694,-86.2541768
+252,North Port,FL,0.34,Asian,"North Port, FL",27.044224,-82.2359254
+253,Norwich,CT,1.33,Asian,"Norwich, CT",41.5242649,-72.0759105
+254,Ocala,FL,0.16,Asian,"Ocala, FL",29.1871986,-82.1400923
+255,Ocean City,NJ,0.23,Asian,"Ocean City, NJ",39.2776156,-74.5746001
+256,Odessa,TX,0.13,Asian,"Odessa, TX",31.8456816,-102.3676431
+257,Ogden,UT,0.27,Asian,"Ogden, UT",41.223,-111.9738304
+258,Oklahoma City,OK,0.5,Asian,"Oklahoma City, OK",35.4675602,-97.5164276
+259,Olympia,WA,0.75,Asian,"Olympia, WA",47.0378741,-122.9006951
+260,Omaha,NE,0.66,Asian,"Omaha, NE",41.2565369,-95.9345034
+261,Orlando,FL,0.69,Asian,"Orlando, FL",28.5383832,-81.3789269
+262,Oshkosh,WI,0.06,Asian,"Oshkosh, WI",44.0247062,-88.5426136
+263,Owensboro,KY,0.47,Asian,"Owensboro, KY",37.7719074,-87.1111676
+264,Oxnard,CA,0.79,Asian,"Oxnard, CA",34.1975048,-119.1770516
+265,Palm Bay,FL,0.53,Asian,"Palm Bay, FL",28.0344621,-80.5886646
+266,Panama City,FL,0.77,Asian,"Panama City, FL",30.1588129,-85.6602058
+267,Parkersburg,WV,0.23,Asian,"Parkersburg, WV",39.2667418,-81.5615135
+268,Pensacola,FL,0.96,Asian,"Pensacola, FL",30.421309,-87.2169149
+269,Peoria,IL,0.46,Asian,"Peoria, IL",40.6936488,-89.5889864
+270,Philadelphia,PA,1.45,Asian,"Philadelphia, PA",39.9525839,-75.1652215
+271,Phoenix,AZ,0.75,Asian,"Phoenix, AZ",33.4483771,-112.0740373
+272,Pine Bluff,AR,0.03,Asian,"Pine Bluff, AR",34.224908,-92.0033977
+273,Pittsburgh,PA,1.01,Asian,"Pittsburgh, PA",40.4406248,-79.9958864
+274,Pittsfield,MA,0.2,Asian,"Pittsfield, MA",42.4500845,-73.2453824
+275,Pocatello,ID,0.4,Asian,"Pocatello, ID",42.8621042,-112.4506191
+276,Portland,ME,0.35,Asian,"Portland, ME",43.6590993,-70.2568189
+277,Portland,OR,1.59,Asian,"Portland, OR",45.515232,-122.6783853
+278,Port St. Lucie,FL,0.05,Asian,"Port St. Lucie, FL",27.2730492,-80.3582261
+279,Poughkeepsie,NY,0.47,Asian,"Poughkeepsie, NY",41.7003713,-73.9209701
+280,Prescott Valley,AZ,0.61,Asian,"Prescott Valley, AZ",34.6096777,-112.315259
+281,Providence,RI,0.78,Asian,"Providence, RI",41.8239891,-71.4128343
+282,Provo,UT,0.51,Asian,"Provo, UT",40.2338438,-111.6585337
+283,Pueblo,CO,0.26,Asian,"Pueblo, CO",38.2544472,-104.6091409
+284,Punta Gorda,FL,0.21,Asian,"Punta Gorda, FL",26.9297836,-82.0453664
+285,Racine,WI,0,Asian,"Racine, WI",42.7261309,-87.7828523
+286,Raleigh,NC,2.18,Asian,"Raleigh, NC",35.7795897,-78.6381787
+287,Rapid City,SD,0.22,Asian,"Rapid City, SD",44.0805434,-103.2310149
+288,Reading,PA,0.37,Asian,"Reading, PA",40.3356483,-75.9268747
+289,Redding,CA,0.13,Asian,"Redding, CA",40.5865396,-122.3916754
+290,Reno,NV,1.78,Asian,"Reno, NV",39.529919,-119.8142691
+291,Richmond,VA,0.68,Asian,"Richmond, VA",37.5407246,-77.4360481
+292,Riverside,CA,0.46,Asian,"Riverside, CA",33.9806005,-117.3754942
+293,Roanoke,VA,1.03,Asian,"Roanoke, VA",37.2709704,-79.9414266
+294,Rochester,MN,1.01,Asian,"Rochester, MN",44.0121221,-92.4801989
+295,Rochester,NY,0.73,Asian,"Rochester, NY",43.1565779,-77.6088465
+296,Rockford,IL,0.27,Asian,"Rockford, IL",42.2711311,-89.0939952
+297,Rocky Mount,NC,0.08,Asian,"Rocky Mount, NC",35.9382103,-77.7905339
+298,Rome,GA,0.24,Asian,"Rome, GA",34.257038,-85.1646726
+299,Sacramento,CA,0.89,Asian,"Sacramento, CA",38.5815719,-121.4943996
+300,Saginaw,MI,0.08,Asian,"Saginaw, MI",43.4194699,-83.9508068
+301,St. Cloud,MN,0.05,Asian,"St. Cloud, MN",45.5579451,-94.1632404
+302,St. George,UT,0.59,Asian,"St. George, UT",37.0965278,-113.5684164
+303,St. Joseph,MO,0.02,Asian,"St. Joseph, MO",39.7674578,-94.846681
+304,St. Louis,MO,0.88,Asian,"St. Louis, MO",38.6270025,-90.1994042
+305,Salem,OR,0.33,Asian,"Salem, OR",44.9428975,-123.0350963
+306,Salinas,CA,0.59,Asian,"Salinas, CA",36.6777372,-121.6555013
+307,Salisbury,MD,0.58,Asian,"Salisbury, MD",38.3606736,-75.5993692
+308,Salt Lake City,UT,0.8,Asian,"Salt Lake City, UT",40.7607793,-111.8910474
+309,San Angelo,TX,1.45,Asian,"San Angelo, TX",31.4637723,-100.4370375
+310,San Antonio,TX,0.89,Asian,"San Antonio, TX",29.4251905,-98.4945922
+311,San Diego,CA,1.57,Asian,"San Diego, CA",32.715738,-117.1610838
+312,San Francisco,CA,1.94,Asian,"San Francisco, CA",37.7749295,-122.4194155
+313,San Jose,CA,3.74,Asian,"San Jose, CA",37.33874,-121.8852525
+314,San Luis Obispo,CA,0.42,Asian,"San Luis Obispo, CA",35.2827524,-120.6596156
+315,Santa Cruz,CA,0.36,Asian,"Santa Cruz, CA",36.9741171,-122.0307963
+316,Santa Fe,NM,0.47,Asian,"Santa Fe, NM",35.6869752,-105.937799
+317,Santa Maria,CA,1.37,Asian,"Santa Maria, CA",34.9530337,-120.4357191
+318,Santa Rosa,CA,0.17,Asian,"Santa Rosa, CA",38.440429,-122.7140548
+319,Savannah,GA,1.13,Asian,"Savannah, GA",32.0808989,-81.091203
+320,Scranton,PA,0.52,Asian,"Scranton, PA",41.408969,-75.6624122
+321,Seattle,WA,3.36,Asian,"Seattle, WA",47.6062095,-122.3320708
+322,Sebastian,FL,0.09,Asian,"Sebastian, FL",27.816415,-80.4706078
+323,Sebring,FL,0.81,Asian,"Sebring, FL",27.495592,-81.440907
+324,Sheboygan,WI,0.16,Asian,"Sheboygan, WI",43.7508284,-87.71453
+325,Sherman,TX,0.03,Asian,"Sherman, TX",33.6356618,-96.6088805
+326,Shreveport,LA,0.25,Asian,"Shreveport, LA",32.5251516,-93.7501789
+327,Sierra Vista,AZ,0.48,Asian,"Sierra Vista, AZ",31.5455001,-110.2772856
+328,Sioux City,IA,0.44,Asian,"Sioux City, IA",42.4963416,-96.4049408
+329,Sioux Falls,SD,0.43,Asian,"Sioux Falls, SD",43.5460223,-96.731265
+330,South Bend,IN,1.11,Asian,"South Bend, IN",41.6763545,-86.2519898
+331,Spartanburg,SC,0.37,Asian,"Spartanburg, SC",34.9495672,-81.9320482
+332,Spokane,WA,0.5,Asian,"Spokane, WA",47.6579711,-117.4235319
+333,Springfield,IL,0.45,Asian,"Springfield, IL",39.7817213,-89.6501481
+334,Springfield,MA,0.63,Asian,"Springfield, MA",42.1014831,-72.589811
+335,Springfield,MO,0.14,Asian,"Springfield, MO",37.2089572,-93.2922989
+336,Springfield,OH,0,Asian,"Springfield, OH",39.9242266,-83.8088171
+337,State College,PA,2.75,Asian,"State College, PA",40.7933949,-77.8600012
+338,Staunton,VA,0.2,Asian,"Staunton, VA",38.149576,-79.0716958
+339,Stockton,CA,0.4,Asian,"Stockton, CA",37.9577016,-121.2907796
+340,Sumter,SC,0.11,Asian,"Sumter, SC",33.9204354,-80.3414693
+341,Syracuse,NY,0.96,Asian,"Syracuse, NY",43.0481221,-76.1474244
+342,Tallahassee,FL,0.55,Asian,"Tallahassee, FL",30.4382559,-84.2807329
+343,Tampa,FL,0.92,Asian,"Tampa, FL",27.950575,-82.4571776
+344,Terre Haute,IN,0.3,Asian,"Terre Haute, IN",39.4667034,-87.4139092
+345,Texarkana,TX,0.03,Asian,"Texarkana, TX",33.425125,-94.0476882
+346,The Villages,FL,0.14,Asian,"The Villages, FL",28.927019,-82.0037608
+347,Toledo,OH,0.19,Asian,"Toledo, OH",41.6528052,-83.5378674
+348,Topeka,KS,0.06,Asian,"Topeka, KS",39.0473451,-95.6751576
+349,Trenton,NJ,2.22,Asian,"Trenton, NJ",40.2205824,-74.759717
+350,Tucson,AZ,0.81,Asian,"Tucson, AZ",32.2539787,-110.9741769
+351,Tulsa,OK,0.62,Asian,"Tulsa, OK",36.1539816,-95.992775
+352,Tuscaloosa,AL,0.83,Asian,"Tuscaloosa, AL",33.2098407,-87.5691735
+353,Twin Falls,ID,0,Asian,"Twin Falls, ID",42.5558381,-114.4700518
+354,Tyler,TX,0.11,Asian,"Tyler, TX",32.3512601,-95.3010624
+355,Urban Honolulu,HI,2.61,Asian,"Urban Honolulu, HI",21.3098845,-157.8581401
+356,Utica,NY,0.85,Asian,"Utica, NY",43.100903,-75.232664
+357,Valdosta,GA,0.6,Asian,"Valdosta, GA",30.8327022,-83.2784851
+358,Vallejo,CA,0.64,Asian,"Vallejo, CA",38.1040864,-122.2566367
+359,Victoria,TX,0,Asian,"Victoria, TX",28.8052674,-97.0035982
+360,Vineland,NJ,0.15,Asian,"Vineland, NJ",39.4863773,-75.0259637
+361,Virginia Beach,VA,1.1,Asian,"Virginia Beach, VA",36.8516437,-75.9792194
+362,Visalia,CA,0.2,Asian,"Visalia, CA",36.3301329,-119.2966367
+363,Waco,TX,0.43,Asian,"Waco, TX",31.549333,-97.1466695
+364,Walla Walla,WA,0.74,Asian,"Walla Walla, WA",46.0645809,-118.3430209
+365,Warner Robins,GA,0.12,Asian,"Warner Robins, GA",32.6130007,-83.624201
+366,Washington,DC,2.11,Asian,"Washington, DC",38.9071923,-77.0368707
+367,Waterloo,IA,0.9,Asian,"Waterloo, IA",42.492786,-92.3425775
+368,Watertown,NY,0.9,Asian,"Watertown, NY",43.9747838,-75.9107565
+369,Wausau,WI,0.55,Asian,"Wausau, WI",44.9591352,-89.6301221
+370,Weirton,WV,0.02,Asian,"Weirton, WV",40.4189566,-80.5895167
+371,Wenatchee,WA,0.12,Asian,"Wenatchee, WA",47.4234599,-120.3103494
+372,Wheeling,WV,0,Asian,"Wheeling, WV",40.0639616,-80.7209149
+373,Wichita,KS,0.49,Asian,"Wichita, KS",37.6871761,-97.330053
+374,Wichita Falls,TX,0.91,Asian,"Wichita Falls, TX",33.9137085,-98.4933873
+375,Williamsport,PA,0,Asian,"Williamsport, PA",41.2411897,-77.0010786
+376,Wilmington,NC,0.21,Asian,"Wilmington, NC",34.2103894,-77.8868117
+377,Winchester,VA,0,Asian,"Winchester, VA",39.1856597,-78.1633341
+378,Winston,NC,0.57,Asian,"Winston, NC",36.1039642,-80.254435
+379,Worcester,MA,0.49,Asian,"Worcester, MA",42.2625932,-71.8022934
+380,Yakima,WA,0.06,Asian,"Yakima, WA",46.6020711,-120.5058987
+381,York,PA,0.33,Asian,"York, PA",39.9625984,-76.727745
+382,Youngstown,OH,0.08,Asian,"Youngstown, OH",41.0997803,-80.6495194
+383,Yuba City,CA,0.15,Asian,"Yuba City, CA",39.1404477,-121.6169108
+384,Yuma,AZ,1.05,Asian,"Yuma, AZ",32.6926512,-114.6276916
