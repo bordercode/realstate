@@ -219,22 +219,28 @@ leafem::addMouseCoordinates(mapa)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
 Source: José Luis Manzanares Rivera based on data from ACS 5 years estimates.  [@uscensusbureauAmericanCommunitySurvey2021]
 
 
-Asians are primarily migrating towards College towns and tech hub markets,The top five destinations are: Ithaca, NY home to Cornell University which is routinely ranked among the world's best universities. 	
+From the location quotient estimation we find that Asians are primarily migrating towards College towns and tech hub markets. The top five concentration MSA'S are: Ithaca, NY home to Cornell University which is routinely ranked among the world's best universities 	which exhibits a concentration ten times higher than Asian's out of state migration levels in the country  (LQ=10.47).
 
-Lafayette-West Lafayette, IN, MSA home of Perdue University which is a major research institution known for discoveries in science, technology, engineering and math.  
+Lafayette-West Lafayette, IN, MSA home of Purdue University which is a major research institution known for discoveries in science, technology, engineering and math. Shows a LQ=4.18.
 
-San Jose-Sunnyvale-Santa Clara MSA, an area with world wide recognition as a hub for technology sector. 
+San Jose-Sunnyvale-Santa Clara MSA, an area with world wide recognition as a hub for technology sector. With a LQ=3.68
 
-Ann Arbor, Michigan an area home to the University of Michigan which is considered to  be one of the top public research universities in the country and it is a leader in various fields, including medicine.
-Seattle-Tacoma-Bellevue MSA, another area with increasingly important activity in the tech sector, with a labor market linked to sillicon Valley companies such as Microsoft, amazon, Facebook and google.
+Ann Arbor, Michigan an area home to the University of Michigan which is considered to  be one of the top public research universities in the country and it is a leader in various fields, including medicine. With a LQ=3.62.
 
-For the black population the highest relative concentrations of out of state migrants are mostly found in Military related towns:  Hinesville, GA, Killeen-Temple, TX, Clarksville, TN, Lawton, OK, which is in close proximity to military operations base Fort Sill, which is one of the four locations for Army Basic Combat Training. Columbus, GA area that that host Fort Moore, the United States Army's maneuver center of excellence and a major employer, is located south of the city in southern Muscogee and Chattahoochee counties. It supports more than 120,000 active-duty military, family members, reserve component soldiers, retirees and civilian employees on a daily basis.
+Seattle-Tacoma-Bellevue MSA, another area with increasingly important activity in the tech sector, with a labor market linked to silicon Valley companies such as Microsoft, Amazon, Facebook and Google. With a concentration three times that observed by this population group at the country scale (LQ=3.36).
+
+For the black population the highest relative concentrations of out of state migrants are mostly found in Military base related towns:  Hinesville, GA, (LQ=9.28), home of the Fort Stewart military installations which are the largest Army installation east of the Mississippi River, covering 280,000 acres (1,100 km2). 
 
 
-Concerning the White non Hispanic population it is interesting to note the places that are the least preferred to migrate. The top 5 MSA in this regard  lay right at the US-Mexico Border. With Laredo, Tx, being the MSA with the lowest concentration of out of state white movers, Foolowed by the 	
-Brownsville-Harlingen, TX, MSA, Madera, CA, 	
+Killeen-Temple, TX, which host Fort Hood, an army complex which is among the largest United States military installations worldwide (encompasses 340 square miles (bigger than the city of Dallas, TX) and employs about 37,000 military personnel) and is home to many units, such as the 1st Cavalry Division, 4th Infantry Division, Command III Corps, 504th Military Intelligence Brigade, 21st Cavalry Brigade Air Combat. (LQ=5.04). 
+
+
+Clarksville, TN, a MSA which host Fort Campbell, a United States Army installation where aircraft training operations are conducted. LQ=4.97.
+Lawton, OK. (LQ=4.73) a MSA  in close proximity to military operations base Fort Sill, which is one of the four locations for Army Basic Combat Training. And Columbus, GA (LQ=4.07) an area that host Fort Moore, the United States Army's maneuver center of excellence and a major employer, is located south of the city in southern Muscogee and Chattahoochee counties. It supports more than 120,000 active-duty military, family members, reserve component soldiers, retirees and civilian employees on a daily basis.
+
+Concerning the White non Hispanic population it is also of interest to note the places that are the least preferred to migrate. The bottom 5 MSA in this regard  lay right at the US-Mexico Border. With Laredo, Tx, being the MSA with the lowest concentration of out of state white movers, followed by the Brownsville-Harlingen, TX, MSA, Madera, CA, 	
 McAllen-Edinburg-Mission, Tx and 	
-Vineland-Bridgeton, New Jersey, this last destination characterized by its concentration pf black population. 
+Vineland-Bridgeton, New Jersey.
 
 
 Now we consider important housing demand side determinants in particular we are interested in the association between income, Metropolitan area size as measure by its population and personal income. 
