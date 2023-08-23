@@ -10,6 +10,8 @@ library(readr)
 library(ineq)
 library(parsetR)
 library(RColorBrewer)
+library(leaflet)
+library(leafem)
 ```
 
 
@@ -182,8 +184,9 @@ Figure 3 show results for Asians, Blacks and the White  non Hispanic population.
 **Figure 3 MSA destinations for out of state migrants by race as measured by Location Quotient 2021**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(wesanderson)
 library(leaflet)
-library(leafsync)
 library(mapview)
 library(leafem)
 library(sf)
@@ -932,6 +935,8 @@ Furthermore,  when we consider the housing market price differentials between or
 
 ## See https://personal.tcu.edu/kylewalker/interactive-flow-visualization-in-r.html
 ```
+
+
 ```{r, include=FALSE}
 
 #netflows<-readRDS("netflows_2016-2020.rds")
@@ -1086,3 +1091,57 @@ Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCount
 The main  Metropolitan areas destinations for Californiasns during the study period were:  Phoenix-Mesa-Chandler, AZ, Las Vegas-Henderson-Paradise, NV, Boise City, ID,  Denver-Aurora-Lakewood, CO and Houston-The Woodlands-Sugar Land, TX. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
 Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
 It is interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may in fact reflect a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area.
+
+
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(geosphere)
+
+
+b2a_geo<-read.csv("B2A_geo.csv")%>%
+  mutate(flow=as.factor(ifelse(abs(Net_B2A)>=1017, "Strong", ifelse(abs(Net_B2A)>=706,"Moderate","Light"))))
+
+flows <- gcIntermediate(b2a_geo[,3:2], b2a_geo[,6:5], sp = TRUE, addStartEnd = TRUE)
+
+flows$Net_B2A <- b2a_geo$Net_B2A
+
+flows$origin <- b2a_geo$origin
+
+flows$destination <- b2a_geo$destination
+flows$flow <- b2a_geo$flow
+
+hover <- paste0(b2a_geo$origin, " to ", 
+                b2a_geo$destination, ': ', 
+                as.character(b2a_geo$Net_B2A))
+
+custom_colors <- c("#FBF394", "#16E2CC", "#E21616")
+pal <- colorFactor(custom_colors, b2a_geo$flow)
+
+m<-leaflet() %>%
+  addProviderTiles('NASAGIBS.ViirsEarthAtNight2012') %>%
+  addPolylines(
+    data = flows,
+    color = ~pal(flow),  
+    label = hover, 
+    group = ~origin,
+    weight = b2a_geo$Net_B2A*.005
+  ) %>%
+  addLayersControl(
+    overlayGroups = unique(flows$origin),
+    options = layersControlOptions(collapsed = TRUE)
+  )
+     
+
+final<-leaflet::addLegend(m,
+  pal = pal,
+  values = flows$flow,
+  title = "Migration Intensity")
+
+  final  
+```
+
+
+
+

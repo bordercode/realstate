@@ -1,0 +1,78 @@
+origin,Latitude.A,Longitude.A,destination,Latitude.B,Longitude.B,Net_B2A
+"Alameda County,California",37.6016892,-121.7195459,"Maricopa County,Arizona",33.2917968,-112.4291464,-681
+"Alameda County,California",37.6016892,-121.7195459,"Clackamas County,Oregon",45.2023855,-122.1188945,-527
+"Alameda County,California",37.6016892,-121.7195459,"Multnomah County,Oregon",45.5145659,-122.5863212,-789
+"Alameda County,California",37.6016892,-121.7195459,"Salt Lake County,Utah",40.644188,-111.9522491,-509
+"Contra Costa County,California",37.8534093,-121.9017954,"King County,Washington",47.5480339,-121.9836029,-534
+"El Dorado County,California",38.7426376,-120.4357631,"Carson City,Nevada",39.1637984,-119.7674034,-573
+"Kern County,California",35.4937274,-118.8596804,"El Paso County,Texas",31.8039824,-106.2051484,-507
+"Los Angeles County,California",34.3871821,-118.1122679,"Maricopa County,Arizona",33.2917968,-112.4291464,-5723
+"Los Angeles County,California",34.3871821,-118.1122679,"Mohave County,Arizona",35.2143346,-113.7632828,-697
+"Los Angeles County,California",34.3871821,-118.1122679,"Pima County,Arizona",32.057499,-111.6660725,-1000
+"Los Angeles County,California",34.3871821,-118.1122679,"Palm Beach County,Florida",26.6514503,-80.2767327,-505
+"Los Angeles County,California",34.3871821,-118.1122679,"Ada County,Idaho",43.478767,-116.2420304,-565
+"Los Angeles County,California",34.3871821,-118.1122679,"Clark County,Nevada",36.0795613,-115.094045,-9524
+"Los Angeles County,California",34.3871821,-118.1122679,"Washoe County,Nevada",40.5608387,-119.6035495,-549
+"Los Angeles County,California",34.3871821,-118.1122679,"Deschutes County,Oregon",43.83251,-121.2616541,-1017
+"Los Angeles County,California",34.3871821,-118.1122679,"Lane County,Oregon",43.9610092,-122.6618227,-802
+"Los Angeles County,California",34.3871821,-118.1122679,"Multnomah County,Oregon",45.5145659,-122.5863212,-540
+"Los Angeles County,California",34.3871821,-118.1122679,"Washington County,Oregon",45.5469616,-123.1386021,-735
+"Los Angeles County,California",34.3871821,-118.1122679,"Collin County,Texas",33.1795213,-96.4929797,-1642
+"Los Angeles County,California",34.3871821,-118.1122679,"Comal County,Texas",29.8105572,-98.2212979,-706
+"Los Angeles County,California",34.3871821,-118.1122679,"Dallas County,Texas",32.8024682,-96.8350999,-596
+"Los Angeles County,California",34.3871821,-118.1122679,"Denton County,Texas",33.1418611,-97.179026,-926
+"Los Angeles County,California",34.3871821,-118.1122679,"Harris County,Texas",29.7751825,-95.3102505,-1437
+"Los Angeles County,California",34.3871821,-118.1122679,"Tarrant County,Texas",32.7732044,-97.3516558,-2594
+"Los Angeles County,California",34.3871821,-118.1122679,"Travis County,Texas",30.2097015,-97.6982272,-1557
+"Los Angeles County,California",34.3871821,-118.1122679,"Williamson County,Texas",30.7591685,-97.6982272,-620
+"Los Angeles County,California",34.3871821,-118.1122679,"Salt Lake County,Utah",40.644188,-111.9522491,-521
+"Los Angeles County,California",34.3871821,-118.1122679,"Utah County,Utah",40.0966287,-111.5706786,-682
+"Los Angeles County,California",34.3871821,-118.1122679,"King County,Washington",47.5480339,-121.9836029,-2242
+"Los Angeles County,California",34.3871821,-118.1122679,"Spokane County,Washington",47.5909399,-117.2776573,-648
+"Monterey County,California",36.6002236,-121.8947489,"Yuma County,Arizona",32.6527533,-113.9536466,-542
+"Orange County,California",33.7174708,-117.8311428,"Maricopa County,Arizona",33.2917968,-112.4291464,-4066
+"Orange County,California",33.7174708,-117.8311428,"Pinal County,Arizona",32.8162061,-111.2845025,-571
+"Orange County,California",33.7174708,-117.8311428,"Yavapai County,Arizona",34.6463981,-112.4291464,-563
+"Orange County,California",33.7174708,-117.8311428,"Ada County,Idaho",43.478767,-116.2420304,-1023
+"Orange County,California",33.7174708,-117.8311428,"Clark County,Nevada",36.0795613,-115.094045,-1151
+"Orange County,California",33.7174708,-117.8311428,"Lane County,Oregon",43.9610092,-122.6618227,-701
+"Orange County,California",33.7174708,-117.8311428,"Collin County,Texas",33.1795213,-96.4929797,-836
+"Orange County,California",33.7174708,-117.8311428,"Dallas County,Texas",32.8024682,-96.8350999,-881
+"Orange County,California",33.7174708,-117.8311428,"McLennan County,Texas",31.5182285,-97.179026,-577
+"Orange County,California",33.7174708,-117.8311428,"Williamson County,Texas",30.7591685,-97.6982272,-550
+"Placer County,California",39.0915751,-120.8039474,"Lyon County,Nevada",38.9524739,-119.1390642,-715
+"Riverside County,California",33.6825587,-115.4733554,"Maricopa County,Arizona",33.2917968,-112.4291464,-1091
+"Riverside County,California",33.6825587,-115.4733554,"Mohave County,Arizona",35.2143346,-113.7632828,-514
+"Riverside County,California",33.6825587,-115.4733554,"Clayton County,Georgia",33.5571944,-84.375233,-516
+"Riverside County,California",33.6825587,-115.4733554,"Clark County,Nevada",36.0795613,-115.094045,-1416
+"Sacramento County,California",38.47467,-121.3541631,"Maricopa County,Arizona",33.2917968,-112.4291464,-790
+"Sacramento County,California",38.47467,-121.3541631,"Ada County,Idaho",43.478767,-116.2420304,-575
+"Sacramento County,California",38.47467,-121.3541631,"Clark County,Nevada",36.0795613,-115.094045,-628
+"San Bernardino County,California",34.9592083,-116.419389,"Maricopa County,Arizona",33.2917968,-112.4291464,-1205
+"San Bernardino County,California",34.9592083,-116.419389,"Pima County,Arizona",32.057499,-111.6660725,-562
+"San Bernardino County,California",34.9592083,-116.419389,"Clark County,Nevada",36.0795613,-115.094045,-1805
+"San Bernardino County,California",34.9592083,-116.419389,"Salt Lake County,Utah",40.644188,-111.9522491,-909
+"San Bernardino County,California",34.9592083,-116.419389,"King County,Washington",47.5480339,-121.9836029,-585
+"San Diego County,California",33.0933809,-116.6081653,"Coconino County,Arizona",35.6647545,-111.4752851,-873
+"San Diego County,California",33.0933809,-116.6081653,"Maricopa County,Arizona",33.2917968,-112.4291464,-3037
+"San Diego County,California",33.0933809,-116.6081653,"Douglas County,Colorado",39.2587106,-104.9388853,-923
+"San Diego County,California",33.0933809,-116.6081653,"Clark County,Nevada",36.0795613,-115.094045,-588
+"San Diego County,California",33.0933809,-116.6081653,"Multnomah County,Oregon",45.5145659,-122.5863212,-552
+"San Diego County,California",33.0933809,-116.6081653,"El Paso County,Texas",31.8039824,-106.2051484,-653
+"San Diego County,California",33.0933809,-116.6081653,"Tarrant County,Texas",32.7732044,-97.3516558,-796
+"San Diego County,California",33.0933809,-116.6081653,"Kitsap County,Washington",47.6476607,-122.6412583,-931
+"San Francisco County,California",37.7749295,-122.4194155,"Multnomah County,Oregon",45.5145659,-122.5863212,-625
+"San Francisco County,California",37.7749295,-122.4194155,"King County,Washington",47.5480339,-121.9836029,-819
+"San Joaquin County,California",37.9175935,-121.1710389,"Knox County,Tennessee",36.0186934,-83.8473015,-629
+"San Mateo County,California",37.4337342,-122.4014193,"Travis County,Texas",30.2097015,-97.6982272,-568
+"Santa Barbara County,California",34.6099379,-120.0665236,"Maricopa County,Arizona",33.2917968,-112.4291464,-626
+"Santa Clara County,California",37.2938907,-121.7195459,"Clark County,Nevada",36.0795613,-115.094045,-1544
+"Santa Clara County,California",37.2938907,-121.7195459,"Jackson County,Oregon",42.334535,-122.7646577,-560
+"Santa Clara County,California",37.2938907,-121.7195459,"Washington County,Oregon",45.5469616,-123.1386021,-578
+"Santa Clara County,California",37.2938907,-121.7195459,"Collin County,Texas",33.1795213,-96.4929797,-749
+"Santa Clara County,California",37.2938907,-121.7195459,"Travis County,Texas",30.2097015,-97.6982272,-595
+"Santa Clara County,California",37.2938907,-121.7195459,"Williamson County,Texas",30.7591685,-97.6982272,-1413
+"Santa Clara County,California",37.2938907,-121.7195459,"King County,Washington",47.5480339,-121.9836029,-1293
+"Tulare County,California",36.1341739,-118.8596804,"Virginia Beach City,Virginia",36.8516437,-75.9792194,-1160
+"Ventura County,California",34.3704884,-119.1390642,"Maricopa County,Arizona",33.2917968,-112.4291464,-826
+"Ventura County,California",34.3704884,-119.1390642,"Clark County,Nevada",36.0795613,-115.094045,-998
