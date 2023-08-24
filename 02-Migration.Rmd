@@ -1145,10 +1145,13 @@ final<-leaflet::addLegend(m,
 ```
 Source: [@uscensusbureauacsCountyMCDtoCountyMCD2023]
 
-Among the 19 counties that fit the criteria as origin Counties for negative net out flows of people in the state of California, the main counties for emigration (origin places) were:  Los Angeles, San Diego, orange and San Bernardino.
+Among the 19 counties that fit the criteria as origin Counties with negative net out flows of people in the state of California, the main counties for emigration (origin places) were: Los Angeles, San Diego, Orange and San Bernardino.
 
-Several impacts and social process are influenced by housing market conditions and population movements across states. One such key issue of social concern is homelessness, this is a major problem that has been raising in the US particularly in some expensive Metropolitan areas.
-Is a phenomena that has been gaining attention from the public policy perspective as well. From the academic arena, many authors, including sociologist, economist, urban planners, geographers, psychologist, anthropologist or public health practitioners, are currently working to provide answers to an issue that reflects the inequalities of today´s society.
+Several impacts and social process are influenced by housing market conditions and population movements across states. One such key issue of social concern is homelessness, this is a major problem that has been raising in the US, particularly evident in some of the richest metropolitan areas of the country highlighting an intriguing paradox. 
+
+Homelessness is a phenomenon that has been studied by scientist with a great level of detail since the 1980s, nevertheless its persistence and in some cases, it´s growth, entiles an increasing attention from the public policy perspective as well as from the academic arena recently.
+
+Many authors, including sociologist, [@desmondEvictionReproductionUrban2012], economist, [@quigleyHomelessAmericaHomeless2001], urban planners, [@wolchMalignNeglectHomelessness1993,] public policy scientist, [@ravenhill2008culture], geographers, psychologist, anthropologist or public health practitioners, have conducted comprehensive investigations to provide answers to an issue that apparently reflects the inequalities of today´s society.
 
 With no doubt, the topic is complex and multifaceted, none the less is indeed a relevant subject that needs to be addressed, if the current affordability crisis as depicted by the growing gaps in variables such as income to house price ratios or rent prices, should be understood.
 
