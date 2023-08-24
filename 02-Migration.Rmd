@@ -1092,16 +1092,19 @@ The main  Metropolitan areas destinations for Californiasns during the study per
 Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
 It is interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may in fact reflect a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area.
 
+To undestand which counties are the ones that are sending migrants to other estates, the following map represents intensity of net migration flows from California at a county level as captured by the American Community survey from the Us Census Bureau 5 year estimates for the period 2016-2020. 
 
+Given the real estate market conditions already discused for California, the representation considers negative net out of state flows coming form counties in the golden state only, controling for those destinations with an anual net flow greater or equal to 500 people, a treshold determined acording to the overall distribution of the migration flows.  
 
+The categories for the level of intensity where defined as follows: **Strong**  if the net flow between the origin and destination county was greater or equal to 1017 people (which corresponded to the third  quartile), **moderate**  if the net flow value ranged between the 3rd quartile and the median, and **light intensity** for those counties with values lower to the first quartile..  Thus figure 6 provides further evidence of the relevance of communities connections in the wake of ever increasing housing prices that pose unaffordability issues for households in a wide scale.
 
+**FIgure 6 Origin-destination net migration intensity from California, 2020 by county**
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
 library(geosphere)
 
 
-b2a_geo<-read.csv("B2A_geo.csv")%>%
-  mutate(flow=as.factor(ifelse(abs(Net_B2A)>=1017, "Strong", ifelse(abs(Net_B2A)>=706,"Moderate","Light"))))
+b2a_geo<-read.csv("B2A_geo.csv")%>%mutate(flow=as.factor(ifelse(abs(Net_B2A)>=1017, "Strong", ifelse(abs(Net_B2A)>=706,"Moderate","Light"))))
 
 flows <- gcIntermediate(b2a_geo[,3:2], b2a_geo[,6:5], sp = TRUE, addStartEnd = TRUE)
 
