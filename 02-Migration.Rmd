@@ -1088,7 +1088,7 @@ setView(zoom = 3.6, -96.5716694, 39.1836082)
 Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCountyMCDtoCountyMCD2023; @fhfaHousePriceIndex2022]
 
 
-The main  Metropolitan areas destinations for Californiasns during the study period were:  Phoenix-Mesa-Chandler, Arizona, Las Vegas-Henderson-Paradise, Nevada, Boise City, Idaho  Denver-Aurora-Lakewood, Colorado and Houston-The Woodlands-Sugar Land, Texas. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
+The main metropolitan destinations for Californians during the study period were:  Phoenix-Mesa-Chandler, Arizona, Las Vegas-Henderson-Paradise, Nevada, Boise City, Idaho  Denver-Aurora-Lakewood, Colorado and Houston-The Woodlands-Sugar Land, Texas. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
 Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
 It is interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may in fact reflect a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area.
 
@@ -1096,7 +1096,7 @@ To undestand which counties are the ones that are sending migrants to other stat
 
 Given the real estate market conditions already discused for California, the representation considers negative net out of state flows coming from counties in the golden state only, controling for those destinations with an anual net flow greater or equal to 500 people, a treshold determined according to the overall distribution of the migration flows.  
 
-The categories for the level of intensity where defined as follows: **Strong**  if the net flow between the origin and destination county was greater or equal to 1017 people (which corresponded to the third  quartile), **moderate**  if the net flow value ranged between the 3rd quartile and the median, and **light intensity** for those counties with values lower to the first quartile.  Thus, figure 6 provides further evidence of the relevance of community connections in the wake of ever increasing housing prices that pose unaffordability issues for households in a wide scale.
+The categories for the level of intensity where defined as follows: **Strong**  if the net flow between the origin and destination county was greater or equal to 1017 people (which corresponded to the third  quartile of the distribution), **moderate**  if the net flow value ranged between the 3rd quartile and the median, and **light intensity** for those counties with values lower to the first quartile.  Thus, figure 6 provides further evidence of the relevance of community connections in the wake of ever increasing housing prices that pose unaffordability issues for households in a wide scale.
 
 **FIgure 6 Origin-destination net migration intensity from California, 2020 by county**
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
@@ -1134,9 +1134,8 @@ m<-leaflet() %>%
   addLayersControl(
     overlayGroups = unique(flows$origin),
     options = layersControlOptions(collapsed = TRUE)
-  )
-     
-
+  ) 
+      
 final<-leaflet::addLegend(m,
   pal = pal,
   values = flows$flow,
@@ -1145,6 +1144,8 @@ final<-leaflet::addLegend(m,
   final  
 ```
 Source: [@uscensusbureauacsCountyMCDtoCountyMCD2023]
+
+Among the 19 counties that fit the criteria as origin Counties for negative net out flows of people in the state of California, the main counties for emigration (origin places) were:  Los Angeles, San Diego, orange and San Bernardino.
 
 Several impacts and social process are influenced by housing market conditions and population movements across states. One such key issue of social concern is homelessness, this is a major problem that has been raising in the US particularly in some expensive Metropolitan areas.
 Is a phenomena that has been gaining attention from the public policy perspective as well. From the academic arena, many authors, including sociologist, economist, urban planners, geographers, psychologist, anthropologist or public health practitioners, are currently working to provide answers to an issue that reflects the inequalities of today´s society.
