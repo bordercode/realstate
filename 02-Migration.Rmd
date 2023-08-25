@@ -1151,12 +1151,12 @@ Several impacts and social process are influenced by housing market conditions a
 
 Homelessness is a phenomenon that has been studied by scientist with a great level of detail since the 1980s, nevertheless its persistence and in some cases, it´s growth, entiles an increasing attention from the public policy perspective as well as from the academic arena recently.
 
-Many authors, including sociologist, [@desmondEvictionReproductionUrban2012], economist, [@quigleyHomelessAmericaHomeless2001], urban planners, [@wolchMalignNeglectHomelessness1993,] public policy scientist, [@ravenhill2008culture], geographers, psychologist, anthropologist or public health practitioners, have conducted comprehensive investigations to provide answers to an issue that apparently reflects the inequalities of today´s society.
+Many authors, including sociologist, [@desmondEvictionReproductionUrban2012], economist, [@quigleyHomelessAmericaHomeless2001], urban planners, [@wolchMalignNeglectHomelessness1993,] public policy scientist, [@ravenhill2008culture], geographers [@Dozier], psychologist [@gilmerFidelityHousingFirst2014], anthropologist, [@zimmerman2022using] or public health practitioners [@fazelHealthHomelessPeople2014; @suBehavioralHealthCare2023; @presnallPredictorsSelfreportedGeneral2023; @onapa], have conducted comprehensive investigations to provide answers to an issue that apparently reflects the inequalities of today´s society.
 
-With no doubt, the topic is complex and multifaceted, none the less is indeed a relevant subject that needs to be addressed, if the current affordability crisis as depicted by the growing gaps in variables such as income to house price ratios or rent prices, should be understood.
+With no doubt, the topic is complex and multifaceted, nonetheless is indeed a relevant subject that needs to be addressed, if the current affordability crisis as depicted by the growing gaps in variables such as income to house price ratios or rent prices, should be understood.
 
 
-Current Public policy and regulation for the housing industry such as rent controls or eviction restrictions are but a reflection of a reality that indicates a need for integrated policies and structural changes.
+Current public policy and regulation for the housing industry such as rent controls or eviction restrictions are but a reflection of a reality that indicates a need for integrated policies and structural changes.
 
 This topic is dealt with in the following chapter, considering a vibrant region in California, whose implications extend beyond US borders. We aim to  explain the social processes that take place in the housing market in the context of the San Diego-Tijuana Border a region with unique characteristics that complement each other posing challenges and many opportunities. 
 
