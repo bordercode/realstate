@@ -1065,7 +1065,7 @@ Furthermore,  when we consider the housing market price differentials between or
 ## Expensive areas   Negative Hpi gap
 #hpigap_sizemove <- ggplot(Expensive, aes(ponderador, hpigap, label=City)) +geom_point(alpha = 0.7) +scale_size(range = c(1, 6))  +labs(x = 'Size of Moved', y = 'HPI Gap') +scale_x_log10(labels =  comma ) +geom_smooth(method="lm", se=FALSE, linewidth=.2 )+theme_classic()hpigap_sizemove
 
-## The bigger the size of the population flowing out From a particular MSA, the lower the HPI gap. That is, bigger negative net migration movements took place between MSAs with smaller HPI gaps or more similar housing markets. In addition this negative relationship  is not significan for  movers tbetween a low cost area and high cost MSA (negative Hpi gaps between orign and destination)  which indicates  that not necesarily big netfows take place to more expensive areas. 
+## The bigger the size of the population flowing out From a particular MSA, the lower the HPI gap. That is, bigger negative net migration movements took place between MSAs with smaller HPI gaps or more similar housing markets. In addition this negative relationship  is not significant for  movers between a low cost area and high cost MSA (negative Hpi gaps between orign and destination)  which indicates  that not necessarily big netfows take place to more expensive areas. 
 ```
 
 Figure 5 below shows the geographic distribution of destinations adding the HPI gap between origin and destination along with the net flow and the housing market savings indicator which represent the percentage that the HPI gap between origin and destination, accounts relative to the origin home price level. 
