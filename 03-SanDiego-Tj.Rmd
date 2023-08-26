@@ -1,5 +1,13 @@
 # The San Diego-Tijuana connection.
 
+```{r, message=FALSE,warning=FALSE,include=FALSE}
+
+
+library(tidyverse)
+```
+
+
+
 The housing market for Mexican cities at the US border has been attracting the attention of public policy officals and community organizations with a growing interest with particular emphasis after the 2009 financial crisis.  From the academic perspective several investigations have documented case studies where demand for residential space by population coming from the US[@kim2020emergence], are shaping the real state landscapes in the Mexican side.    
 
 A behavior that in turn, creates a local upward path for housing prices on border urban areas on the Mexican side such as Tijuana, where local people facing higher housing prices are being priced-out of specific residential locations, including areas near the central business district (CBD) as well as the areas in close proximity to border crossings which face an increased pressure to accommodate a growing housing demand that customers and real estate investors coming from the north, create. 
@@ -28,4 +36,18 @@ Historically, there has been several structural factors that contribute to housi
 
 As a result, a surge in real estate development has occurred in the area known as Playas de Tijuana and Rosarito, where property prices have experienced rapid growth during the last decade. 
 *!!!!!!! ATTENTION NEEDED HERE: data is needed to reinforce the argument. How house prices growth in this particular area compares to other urban areas in the country and to the average growth in the whole country?  INCLUDE DATA FOR MEXICNA REAL STATE PAGES SUCH AS INMUEBLES24 WITH COMPARATIVE TRENDS ANMONG THE MAIN CITIES*
+
+
+
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+
+##Source: https://www.irs.gov/statistics/soi-tax-stats-migration-data-2020-2021
+
+#  County-to-County Outflow    data set. 
+
+irs<-read.csv("countyoutflow2021_IRS.csv")
+
+getwd()
+```
 
