@@ -1,20 +1,21 @@
-# The San Diego-Tijuana connection.
+# The California-Phoenix connection: A search for affordability in the south west. 
+
+original (alternative title) **The San Diego-Tijuana connection.**
 
 ```{r, message=FALSE,warning=FALSE,include=FALSE}
-
-
 library(tidyverse)
 ```
 
 
 
-The housing market for Mexican cities at the US border has been attracting the attention of public policy officals and community organizations with a growing interest with particular emphasis after the 2009 financial crisis.  From the academic perspective several investigations have documented case studies where demand for residential space by population coming from the US[@kim2020emergence], are shaping the real state landscapes in the Mexican side.    
+The housing market for Mexican cities at the US border has been attracting the attention of public policy officials and community organizations with a growing interest with particular emphasis after the 2009 financial crisis.  From the academic perspective, several investigations have documented case studies where demand for residential space by population coming from the US [@kim2020emergence], are shaping the real state landscapes in the Mexican side.    
 
-A behavior that in turn, creates a local upward path for housing prices on border urban areas on the Mexican side such as Tijuana, where local people facing higher housing prices are being priced-out of specific residential locations, including areas near the central business district (CBD) as well as the areas in close proximity to border crossings which face an increased pressure to accommodate a growing housing demand that customers and real estate investors coming from the north, create. 
+A behavior that in turn, creates a local upward path for housing prices on border urban areas on the Mexican side such as Tijuana [@floresrobertoRobertoFloresHIR2023](https://drive.google.com/file/d/14xx2p2AGKfyKWB_GFeT2w1TWtTm96ahd/view?usp=sharing), where local people facing higher housing prices are being priced-out of specific residential locations, including areas near the central business district (CBD) and the so called golden residential area, 
+[@fabiantorressanchezKellerWilliamsFabian2023](https://drive.google.com/file/d/1lBY64zk_hQsV_epSw8E1MlXoA3IE665j/view?usp=sharing)  as well as the areas in close proximity to border crossings which face an increased pressure to accommodate a growing housing demand that customers and real estate investors coming from the north, create. 
 
-Indeed, there exists empirical evidence documented by experts scholars on the field such as  Soto-Rubui and Hausman, [@SOTORUBIO201976] indicating that the local real estate market has experimented continuous pressures that has resulted in affordability challenges for residents in Mexican border cities such as Tijuana, where competition for residential space has intensified. 
+Indeed, there is empirical evidence documented by experts scholars on the field, such as  Soto-Rubui and Hausman, [@SOTORUBIO201976] in their remarkable research, Soto-Rubui and Hausman, describe how the local real estate market in this border region, has experimented continuous pressures that has resulted in affordability challenges for residents in Mexican border cities such as Tijuana, where competition for residential space has intensified. 
 
-In this chapter the goal is to analyze the economic conditions that explain the movement of people from the US into Mexican border cities. And it´s effects on real estate industry, in particular the chapter focuses on the biggest Mexican border city Tijuana. 
+In this chapter the goal is to analyze the economic conditions that explain the movement of people from the US into Mexican border cities shading light on the effects over local real estate markets.  The chapter considers the current housing market conditions at the biggest Mexican border city, Tijuana, Baja California. 
 
 ## Why Tijuana is important when studiying housing prices in California.
 
@@ -42,6 +43,7 @@ As a result, a surge in real estate development has occurred in the area known a
 
 ```{r, include=FALSE, warning=FALSE, message=FALSE}
 
+
 ##Source: https://www.irs.gov/statistics/soi-tax-stats-migration-data-2020-2021
 
 #  County-to-County Outflow    data set. 
@@ -49,5 +51,30 @@ As a result, a surge in real estate development has occurred in the area known a
 irs<-read.csv("countyoutflow2021_IRS.csv")
 
 getwd()
+
+
+#arizona_irs<-read.csv("Irs_2021_az_inflows.csv")%>%na.omit()
+
+#names(arizona_irs)
+#income<-arizona_irs%>%mutate(income_return=ag_inc/individuals, ag_inc_percent=round(ag_inc/sum(ag_inc)*100,2), returns_prop=round(returns/sum(returns)*100,2))
+       
+#IRS  data insights 
+
+# Considering states flows. We find that california is the main contributor to inmigrants representing 30.4% of the total out of state IRS return filings. When analyzing data at county level  we see that Although Los Angeles county generates the biggest flow, in fact other counties located in the  state, in particular in the Silicon Valley region such as Santa clara bring greater gross incomes. The average agregate gros income for tax returns of population coming from california is 58.4 USD while Santa Clara county generates an average aggegrated gross income per return  five times larger   of 296.7 USD per tax file return).
+
+## In addition It is found that the income, as reflected by tax returns fillings, coming from states that not necessarily represent an important proportion of movers, is actually larger than that of  Californians, the main contributor state in terms of population movements into Arizona. The population with the larger gross income per tax return filling are in fact  coming  from the following states: Illinois, District of Columbia, New Jersey, New York and Massachusetts.  
+
+# Now, within Arizona there are specific counties and Metropolitan areas that figure as main attraction locations. As we discover in the previous chapter.The Phoenix-Chandler-Mesa MSA, located in the MAricopa County, is the principal destination for out of state flows comming to Arizona, and the main flows are comming from Los Angeles.
+
+
+
+#az2021_county<-read.csv("az_inflows2021_county.csv")
+# we ca see that the main flows are coming from  Los Angeles County in California. We can measure the importance of this flows in terms of Gross Adjusted income that individual tax returns from the IRS represent. Looking at this data, 
+
+## County inflows  data hHERE READ READ READ IT!!!!!
+
+
+## to analyze file read file and  concatenate Origin vars: State code and county code to get unique id for variable different state (filter this variable), then summarize var: number of returns at this ID filtered variable for grouped destination var:  County code. This give the total returns for counties coming from a different state.
+
 ```
 
