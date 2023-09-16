@@ -1,19 +1,19 @@
-# The California-Phoenix connection: A search for affordability in the south west. 
+# The San Diego-Tijuana connection.
 
-original (alternative title) **The San Diego-Tijuana connection.**
 
+*Alternative chapter* title: The California-Phoenix connection: A search for affordability in the south west.
 ```{r, message=FALSE,warning=FALSE,include=FALSE}
 library(tidyverse)
 ```
 
 
 
-The housing market for Mexican cities at the US border has been attracting the attention of public policy officials and community organizations with a growing interest with particular emphasis after the 2009 financial crisis.  From the academic perspective, several investigations have documented case studies where demand for residential space by population coming from the US [@kim2020emergence], are shaping the real state landscapes in the Mexican side.    
+The housing market for Mexican cities at the US border has been attracting the attention of public policy officials and community organizations with a growing interest with particular emphasis after the 2009 financial crisis.  From the academic perspective, several investigations have documented case studies where demand for residential space by population coming from the US [@kim2020emergence], are shaping the real estate landscapes in the Mexican side.    
 
 A behavior that in turn, creates a local upward path for housing prices on border urban areas on the Mexican side such as Tijuana [@floresrobertoRobertoFloresHIR2023](https://drive.google.com/file/d/14xx2p2AGKfyKWB_GFeT2w1TWtTm96ahd/view?usp=sharing), where local people facing higher housing prices are being priced-out of specific residential locations, including areas near the central business district (CBD) and the so called golden residential area, 
 [@fabiantorressanchezKellerWilliamsFabian2023](https://drive.google.com/file/d/1lBY64zk_hQsV_epSw8E1MlXoA3IE665j/view?usp=sharing)  as well as the areas in close proximity to border crossings which face an increased pressure to accommodate a growing housing demand that customers and real estate investors coming from the north, create. 
 
-Indeed, there is empirical evidence documented by experts scholars on the field, such as  Soto-Rubui and Hausman, [@SOTORUBIO201976] in their remarkable research, Soto-Rubui and Hausman, describe how the local real estate market in this border region, has experimented continuous pressures that has resulted in affordability challenges for residents in Mexican border cities such as Tijuana, where competition for residential space has intensified. 
+Indeed, there is empirical evidence documented by expert scholars on the field, such as  Soto-Rubui and Hausman, [@SOTORUBIO201976].  In their remarkable research, Soto-Rubui and Hausman, describe how the local real estate market in this border region, has experimented continuous pressures that has resulted in affordability challenges for residents in Mexican border cities such as Tijuana, where competition for residential space has intensified. 
 
 In this chapter the goal is to analyze the economic conditions that explain the movement of people from the US into Mexican border cities shading light on the effects over local real estate markets.  The chapter considers the current housing market conditions at the biggest Mexican border city, Tijuana, Baja California. 
 
@@ -32,7 +32,7 @@ According to official information provided by the Bureau of transportation stati
 
 This intense people movement reflects the underlying social dynamics that this region generates[@doi:10.1177/019791839603000407] which are strongly influenced by specific economic determinants, one such key driving factor being bi-national labor market conditions and housing market prices differentials.
 
-Historically, there has been several structural factors that contribute to housing shortages in the Mexican city of Tijuana.[@SOTORUBIO201976], however recently, added pressures of binational economic nature, to enter the housing market have emerged, for the local population living in specific neighborhoods situated in close proximity to border crossings or residential areas that are particularly attractive to US commuters and remote workers coming from the San Diego area and the southern California region.
+Historically, there has been several structural factors that contribute to housing shortages in the Mexican city of Tijuana.[@SOTORUBIO201976], however recently, added pressures of binational economic nature, to enter the housing market have emerged, for the local population living in specific neighborhoods situated in close proximity to border crossings or residential areas that are particularly attractive to US commuters and remote workers coming from the southern California region, particularly from the San Diego-Chula Vista-Carlsbad metropolitan statistical area.  
 
 
 As a result, a surge in real estate development has occurred in the area known as Playas de Tijuana and Rosarito, where property prices have experienced rapid growth during the last decade. 
@@ -76,5 +76,71 @@ getwd()
 
 ## to analyze file read file and  concatenate Origin vars: State code and county code to get unique id for variable different state (filter this variable), then summarize var: number of returns at this ID filtered variable for grouped destination var:  County code. This give the total returns for counties coming from a different state.
 
+```
+
+
+
+```{r, include=FALSE}
+## Source: Bureau of Transportation Statistics (BTS) Border Crossing Data  Inbound border crossing counts. Available at: https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data
+
+
+##This is the clean data for the map
+
+P2022<-read.csv("pedestrians2022.csv")
+Vehicles2022<-read.csv("Vehicles2022.csv")
+Buspassangers2022<-read.csv("BusPassengers2022.csv")
+Trucksloaded2022<-read.csv("Trucksloaded2022.csv")
+## Here hacer mapa para mostrar el volumen de trafico hacia el norte por cada Port of entry. summary of year 2022 counts for category pedestrians.
+```
+
+
+```{r, include=FALSE}
+################# Data wrangling ####################
+
+## This is the previous data wrangling to get the above individual data sets.
+
+#bordercrosings<-read.csv("Border_Crossing_Entry_Data.csv")%>%filter(Border!="US-Canada Border")%>%separate(Date, into = c("Month", "Year"), sep = " ", remove = FALSE)
+
+#Measures<-bordercrosings%>%group_by(Measure)%>%count()
+
+#Trucksloaded<-bordercrosings%>%filter(Measure=="Truck Containers Loaded"&Port.Name!="Boquillas"&Port.Name!="Ysleta"&Port.Name!="Cross Border Xpress")%>%filter(Year==2022)%>%select(-Border)%>%group_by(Port.Name, Year)%>%  summarize(Vehicles=sum(Value))
+## Data revels a clear pattern for crossings differentiated by type. with commercial cargo going through Laredo which has 2.5 times the traffic of the second most important port of entry for this means of transportation category. 
+
+## write.csv(Trucksloaded, "Trucksloaded2022.csv") 
+
+
+#bus_passangers<-bordercrosings%>%filter(Measure=="Bus Passengers"&Port.Name!="Boquillas"&Port.Name!="Ysleta"&Port.Name!="Cross Border Xpress")%>%filter(Year==2022)%>%select(-Border)%>%group_by(Port.Name, Year)%>%  summarize(Vehicles=sum(Value))
+
+## write.csv(bus_passangers, "BusPassengers2022.csv") 
+
+
+##Note: Data reveals that long distance travel  is preferred through Laredo, while  Pedestrian crossings, a category associated with local interaction is strongly  conducted at  California's ports of entry. 
+
+#Personal_Vehicles<-bordercrosings%>%filter(Measure=="Personal Vehicles"&Port.Name!="Boquillas"&Port.Name!="Ysleta"&Port.Name!="Cross Border Xpress")%>%filter(Year==2022)%>%select(-Border)%>%group_by(Port.Name, Year)%>%  summarize(Vehicles=sum(Value))
+
+## write.csv(Personal_Vehicles, "Vehicles2022.csv") 
+
+#pedestrians2022<-bordercrosings%>%filter(Measure=="Pedestrians"&Port.Name!="Boquillas"&Port.Name!="Ysleta"&Port.Name!="Cross Border Xpress")%>%filter(Year==2022)%>%select(-Border)%>%group_by(Port.Name, Year)%>%  summarize(Pedescross=sum(Value))
+
+#write.csv(pedestrians2022, "pedestrians2022.csv")
+
+## tenemos 25 Main ports of entry. Regulars since 1996. BOquillas , Ysleta y Cross Border Xpress are new and does not have consistent long term data yet.
+
+
+## Cuántos ports hay en la US MX border? 
+
+#ports<-pedestrians2022%>%group_by(Port.Name)%>%count()
+# Ans. There are 28 ports of entry at the US MX border.
+
+## Cuántos años tiene la base? 
+
+#years<-pedestrians%>%group_by(Year)%>%count()
+
+# ans  28 años.
+
+
+#months<-pedestrians%>%group_by(Port.Name,Measure,  Year)%>%count()
+
+#exclude<-months%>%filter(n<11)
 ```
 
