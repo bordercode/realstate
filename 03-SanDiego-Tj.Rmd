@@ -2,8 +2,14 @@
 
 
 *Alternative chapter* title: The California-Phoenix connection: A search for affordability in the south west.
+
 ```{r, message=FALSE,warning=FALSE,include=FALSE}
 library(tidyverse)
+library(mapview)
+library(leafem)
+library(leaflet)
+library(sf)
+library(RColorBrewer)
 ```
 
 
@@ -80,26 +86,18 @@ getwd()
 
 
 
-```{r, include=FALSE}
-## Source: Bureau of Transportation Statistics (BTS) Border Crossing Data  Inbound border crossing counts. Available at: https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data
-
-
-##This is the clean data for the map
-
-P2022<-read.csv("pedestrians2022.csv")
-Vehicles2022<-read.csv("Vehicles2022.csv")
-Buspassangers2022<-read.csv("BusPassengers2022.csv")
-Trucksloaded2022<-read.csv("Trucksloaded2022.csv")
-## Here hacer mapa para mostrar el volumen de trafico hacia el norte por cada Port of entry. summary of year 2022 counts for category pedestrians.
-```
-
 
 ```{r, include=FALSE}
+
 ################# Data wrangling ####################
 
-## This is the previous data wrangling to get the above individual data sets.
+## This is the previous data wrangling to get the below individual data sets.
 
 #bordercrosings<-read.csv("Border_Crossing_Entry_Data.csv")%>%filter(Border!="US-Canada Border")%>%separate(Date, into = c("Month", "Year"), sep = " ", remove = FALSE)
+
+
+#geo_ports<-bordercrosings%>%select(Port.Name, Latitude, Longitude)%>% distinct(Port.Name, .keep_all = TRUE)
+
 
 #Measures<-bordercrosings%>%group_by(Measure)%>%count()
 
@@ -143,4 +141,69 @@ Trucksloaded2022<-read.csv("Trucksloaded2022.csv")
 
 #exclude<-months%>%filter(n<11)
 ```
+
+
+```{r, include=FALSE}
+
+######  Data Wrangling  step  2.  set spatial objects ######
+
+
+## Source: Bureau of Transportation Statistics (BTS) Border Crossing Data  Inbound border crossing counts. Available at: https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data
+
+bordercrosings<-read.csv("Border_Crossing_Entry_Data.csv")%>%filter(Border!="US-Canada Border")%>%separate(Date, into = c("Month", "Year"), sep = " ", remove = FALSE)
+
+geo_ports<-bordercrosings%>%select(Port.Name, Latitude, Longitude)%>%
+  distinct(Port.Name, .keep_all = TRUE)
+##This is the clean data for the map
+
+P2022<-read.csv("pedestrians2022.csv")%>%
+  select(-X)%>%left_join(geo_ports, by="Port.Name")
+P2022_geo <- st_as_sf(P2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#saveRDS(P2022_geo, "P2022_geo.csv")
+
+Vehicles2022<-read.csv("Vehicles2022.csv")%>%
+  select(-X)%>%left_join(geo_ports, by="Port.Name")
+Vehicles_geo <- st_as_sf(Vehicles2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#saveRDS(Vehicles_geo, "Vehicles_geo.csv")
+
+Buspassangers2022<-read.csv("BusPassengers2022.csv")%>%
+  select(-X)%>%left_join(geo_ports, by="Port.Name")
+Buspassangers_geo <- st_as_sf(Buspassangers2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#saveRDS(Buspassangers_geo, "Buspassangers_geo.csv")
+
+Trucksloaded2022<-read.csv("Trucksloaded2022.csv")%>%
+  select(-X)%>%left_join(geo_ports, by="Port.Name")
+Trucksloaded_geo <- st_as_sf(Trucksloaded2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#saveRDS(Trucksloaded_geo, "Trucksloaded_geo.csv")
+
+```
+
+**Figure 1. US Mexico border ports of entry. North bound crossings. 2022: Pedestrians, Passenger vehicles, Trucks loaded and Bus passengers. **
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+## The map.
+
+## Source: Bureau of Transportation Statistics (BTS) Border Crossing Data  Inbound border crossing counts. Available at: https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data
+
+## Northboud crossings counts by type  2022 year totals.
+
+Trucksloaded_geo<-readRDS("Trucksloaded_geo.csv")
+Buspassangers_geo<-readRDS("Buspassangers_geo.csv")
+Vehicles_geo<-readRDS("Vehicles_geo.csv")
+P2022_geo<-readRDS("P2022_geo.csv")
+
+
+
+mapa<-mapview(P2022_geo, map.types =  "CartoDB.Positron",cex="Pedescross", zcol="Pedescross", layer.name= "Inbound border crossing Pedestrians",homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)+
+
+mapview(Vehicles_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Personal Vehicles passengers",homebutton =FALSE,col.regions=brewer.pal(9, "BuPu"), alpha.regions = 1, aplha = 0.2)+
+
+mapview(Buspassangers_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Bus Passengers",homebutton =FALSE,col.regions=brewer.pal(9, "Blues"), alpha.regions = 1, aplha = 0.2)+
+
+mapview(Trucksloaded_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Trucks loaded",homebutton =FALSE,col.regions=brewer.pal(9, "YlGn"), alpha.regions = 1, aplha = 0.2)
+    
+leafem::addMouseCoordinates(mapa)%>%setView(zoom = 5, -106.5716694, 31.1836082)
+  
+```
+Source: José Luis Manzanares Rivera with data from Bureau of Transportation Statistics (BTS) Border Crossing Data [@bts] 
+
 

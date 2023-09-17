@@ -164,6 +164,7 @@ The index depicts housing market prices taking 1995 as base year.  So higher val
 df<-readRDS("datageo2020.rds")%>%rename(Year=yr, MSA=msa.x, Annual.HPI.growth00.20=gwr00_20, State=state)
 
 
+
 # Adding a factor  variable for border states 
 df <- st_as_sf(df,  crs = 4326)
 ca<-filter(df,State==" CA"|State==" CA (MSAD)")
