@@ -590,17 +590,43 @@ Within Idaho, specific Metropolitan Statistical Areas (MSAs) have experienced su
 
 
 **Figure 8c HPI by state evolution over time 1975-2022**
-```{r, echo=FALSE, warning=FALSE, message=FALSE,fig.height=8, fig.width=10}
+```{r, include=FALSE}
+
+library(usmap)
+library(PNWColors)
+library(ggeasy)
+
+
+#master_freddie<-read.csv("fmhpi_master_file.csv") %>%filter(GEO_Type=="State", Year!="2023", GEO_Name!="HI", GEO_Name!= "DC",GEO_Name!="PR",Year>="2000")%>%group_by( Year,GEO_Name )%>% summarize(index=median(Index_SA))%>%   mutate(log=log(index), Year=as.numeric(Year))%>%   rename(state=GEO_Name)
+
+#pal <- pnw_palette("Bay", n=100, type="continuous")
+
+#plot <- plot_usmap(data = master_freddie, values = "index", labels=FALSE) + scale_fill_gradientn(colours = pal, name = "HPI")+easy_move_legend(to = c("right")) + theme(panel.background = element_rect(colour = "black"))
+
+#transition <- plot +labs(title = "HPI 2000-2022 {as.integer(frame_time)}") +transition_time(Year)+ ease_aes('linear')
+
+#transition
+
+#anim_save("usmap.gif", transition, width = 630, height = 500)
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
 library(magick)
+usmapmig <- image_read("usmap.gif")
+usmapmig
+```
+
+```{r,include=FALSE}
 
 ## Representing a map to show HPI (apretiation ) HPI 1975-2022  Using data from Freddie Mac. 
 
 # Base month  is The FMHPI is calculated so that the index value for December 2000 equals 100.
 
 # Read the .gif file
-image <- image_read("HPI_apreciation_map.gif")
-image
+#image <- image_read("HPI_apreciation_map.gif")
+#image
 
 ```
 

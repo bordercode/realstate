@@ -5,11 +5,14 @@
 
 ```{r, message=FALSE,warning=FALSE,include=FALSE}
 library(tidyverse)
+library(ggplot2)
 library(mapview)
 library(leafem)
 library(leaflet)
 library(sf)
 library(RColorBrewer)
+library(plainview)
+library(leafsync)
 ```
 
 
@@ -33,10 +36,80 @@ Notably, the historic influx of labor which has been robust since the 1970's is 
 This city hosts the busiest pedestrian and personal Vehicle passenger port of entry to the US along the northern Mexican Border. 
 
 According to official information provided by the Bureau of transportation statistics, during 2022, California ports of entry registered 16,104,055 pedestrian crossings and among these, the San Ysidro gate, situated right at Tijuana´s city heart, accounts for 6,678,157 pedestrian crossings, surpassing the traffic registered by second busiest port El Paso, by 82%.
+Figure 1 below provides a ground to compare border crossings by port of entry along the Us Mexico border.
 
-[INSERT PLOT HER FOR WIAT TIMES AND TRAFFIC BY TYPE: EJ. PASSANGER VS. TRUCKS (COMMERCIAL ACTIVITY)]
+**Figure 1. US Mexico border North bound crossings by ports of entry. 2022: Pedestrians, Passenger vehicles, Trucks loaded and Bus passengers. **
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+## The map.
 
-This intense people movement reflects the underlying social dynamics that this region generates[@doi:10.1177/019791839603000407] which are strongly influenced by specific economic determinants, one such key driving factor being bi-national labor market conditions and housing market prices differentials.
+## Source: Bureau of Transportation Statistics (BTS) Border Crossing Data  Inbound border crossing counts. Available at: https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data
+
+## Northboud crossings counts by type  2022 year totals.
+
+Trucksloaded_geo<-readRDS("Trucksloaded_geo.csv")
+Buspassangers_geo<-readRDS("Buspassangers_geo.csv")
+Vehicles_geo<-readRDS("Vehicles_geo.csv")
+P2022_geo<-readRDS("P2022_geo.csv")
+
+
+
+m1<-mapview(P2022_geo, map.types =  "CartoDB.Positron",cex="Pedescross", zcol="Pedescross", layer.name= "Inbound border crossing Pedestrians",homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)
+
+m2<-mapview(Vehicles_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Personal Vehicles passengers",homebutton =FALSE,col.regions=brewer.pal(9, "BuPu"), alpha.regions = 1, aplha = 0.2)
+
+m3<-mapview(Buspassangers_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Bus Passengers",homebutton =FALSE,col.regions=brewer.pal(9, "Blues"), alpha.regions = 1, aplha = 0.2)
+
+m4<-mapview(Trucksloaded_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Trucks loaded",homebutton =FALSE,col.regions=brewer.pal(9, "YlGn"), alpha.regions = 1, aplha = 0.2)
+    
+#leafem::addMouseCoordinates(mapa)%>%setView(zoom = 5.2, -106.4060849, 29.8918681)
+
+sync(m1, m2, m3, m4)
+
+#sync(list(m1, m2, m3, m4),sync = list(c(1, 4),                  c(2, 3)))  
+#latticeView(m1, m2, m3,m4)
+
+```
+Source: José Luis Manzanares Rivera with data from Bureau of Transportation Statistics (BTS) Border Crossing Data [@bts] 
+
+
+*Here.... Analyze results form plot. contrasts passeners behaviur vs. truck and commercial loads routes.*
+
+This intense people movement reflects the underlying social dynamics that this region generates[@doi:10.1177/019791839603000407] which is strongly influenced by specific economic determinants, one such key driving factor being bi-national labor market conditions and housing market prices differentials.
+
+**Figure 2. Wait times for Passenger Vehicles. Selected US-Mexico border ports of entry Septembrer 2022**
+
+```{r, include=FALSE}
+
+#### Plot Wrangling ##### NO run ###
+
+# sOURCE: U.S. Customs and Border  Protection  Historical Wait Times,  San Ysidro Port of entry Passenger lane General Lane.
+
+#  https://bwt.cbp.gov/historical
+
+#library(gganimate)
+
+#wait<-read.csv("waitimes2022.csv")%>%select(-c(X,X.1,X.2))%>%mutate(day=as.factor(day))%>%na.omit()
+
+#options(repr.plot.width = 8, repr.plot.height = 6)
+
+#p <- ggplot(wait, aes(Hour, wait.minutes, size = wait.minutes, colour = PortName)) +geom_point(alpha = 0.7) + scale_size(range = c(2, 12)) + scale_colour_manual(values=c("limegreen","black","yellow2", "blue", "red"))  + theme_light()+theme(legend.position = c(0.72, 0.14))+ guides(size = FALSE)+ labs(colour = NULL)+ scale_x_continuous(limits = c(0, 24),  breaks = seq(0, 24, by = 2),     labels = function(x) ifelse(x %% 2 == 0, as.character(x), ""),      expand = c(0, 0))+labs(title = 'Hour: {frame_time}', x = 'Hour', y = 'Wait times (min)') +transition_time(Hour) + ease_aes('linear')
+  
+#p
+#anim_save("waitimes2022.gif", p, width = 768, height = 576) 
+
+```
+
+
+```{r,echo= FALSE,  message=FALSE, Warnig=FALSE}
+
+library(magick)
+waitimage <- image_read("waitimes2022.gif")
+waitimage
+```
+Source: José Luis Manzanares Rivera based on data from U.S. Customs and Border  Protection.[@wait]  Historical Wait Times. Average values for Mondays, September 2022, General Lanes. 
+
+
+ 
 
 Historically, there has been several structural factors that contribute to housing shortages in the Mexican city of Tijuana.[@SOTORUBIO201976], however recently, added pressures of binational economic nature, to enter the housing market have emerged, for the local population living in specific neighborhoods situated in close proximity to border crossings or residential areas that are particularly attractive to US commuters and remote workers coming from the southern California region, particularly from the San Diego-Chula Vista-Carlsbad metropolitan statistical area.  
 
@@ -150,60 +223,26 @@ getwd()
 
 ## Source: Bureau of Transportation Statistics (BTS) Border Crossing Data  Inbound border crossing counts. Available at: https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data
 
-bordercrosings<-read.csv("Border_Crossing_Entry_Data.csv")%>%filter(Border!="US-Canada Border")%>%separate(Date, into = c("Month", "Year"), sep = " ", remove = FALSE)
+#bordercrosings<-read.csv("Border_Crossing_Entry_Data.csv")%>%filter(Border!="US-Canada Border")%>%separate(Date, into = c("Month", "Year"), sep = " ", remove = FALSE)
 
-geo_ports<-bordercrosings%>%select(Port.Name, Latitude, Longitude)%>%
-  distinct(Port.Name, .keep_all = TRUE)
-##This is the clean data for the map
+#geo_ports<-bordercrosings%>%select(Port.Name, Latitude, Longitude)%>%distinct(Port.Name, .keep_all = TRUE)
 
-P2022<-read.csv("pedestrians2022.csv")%>%
-  select(-X)%>%left_join(geo_ports, by="Port.Name")
-P2022_geo <- st_as_sf(P2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#This is the clean data for the map
+
+#P2022<-read.csv("pedestrians2022.csv")%>%select(-X)%>%left_join(geo_ports, by="Port.Name")
+#P2022_geo <- st_as_sf(P2022, coords = c("Longitude", "Latitude"), crs = 4326)
 #saveRDS(P2022_geo, "P2022_geo.csv")
 
-Vehicles2022<-read.csv("Vehicles2022.csv")%>%
-  select(-X)%>%left_join(geo_ports, by="Port.Name")
-Vehicles_geo <- st_as_sf(Vehicles2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#Vehicles2022<-read.csv("Vehicles2022.csv")%>%select(-X)%>%left_join(geo_ports, by="Port.Name")Vehicles_geo <- st_as_sf(Vehicles2022, coords = c("Longitude", "Latitude"), crs = 4326)
 #saveRDS(Vehicles_geo, "Vehicles_geo.csv")
 
-Buspassangers2022<-read.csv("BusPassengers2022.csv")%>%
-  select(-X)%>%left_join(geo_ports, by="Port.Name")
-Buspassangers_geo <- st_as_sf(Buspassangers2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#Buspassangers2022<-read.csv("BusPassengers2022.csv")%>%select(-X)%>%left_join(geo_ports, by="Port.Name")Buspassangers_geo <- st_as_sf(Buspassangers2022, coords = c("Longitude", "Latitude"), crs = 4326)
 #saveRDS(Buspassangers_geo, "Buspassangers_geo.csv")
 
-Trucksloaded2022<-read.csv("Trucksloaded2022.csv")%>%
-  select(-X)%>%left_join(geo_ports, by="Port.Name")
-Trucksloaded_geo <- st_as_sf(Trucksloaded2022, coords = c("Longitude", "Latitude"), crs = 4326)
+#Trucksloaded2022<-read.csv("Trucksloaded2022.csv")%>%select(-X)%>%left_join(geo_ports, by="Port.Name") Trucksloaded_geo <- st_as_sf(Trucksloaded2022, coords = c("Longitude", "Latitude"), crs = 4326)
 #saveRDS(Trucksloaded_geo, "Trucksloaded_geo.csv")
 
 ```
 
-**Figure 1. US Mexico border ports of entry. North bound crossings. 2022: Pedestrians, Passenger vehicles, Trucks loaded and Bus passengers. **
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-## The map.
-
-## Source: Bureau of Transportation Statistics (BTS) Border Crossing Data  Inbound border crossing counts. Available at: https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data
-
-## Northboud crossings counts by type  2022 year totals.
-
-Trucksloaded_geo<-readRDS("Trucksloaded_geo.csv")
-Buspassangers_geo<-readRDS("Buspassangers_geo.csv")
-Vehicles_geo<-readRDS("Vehicles_geo.csv")
-P2022_geo<-readRDS("P2022_geo.csv")
-
-
-
-mapa<-mapview(P2022_geo, map.types =  "CartoDB.Positron",cex="Pedescross", zcol="Pedescross", layer.name= "Inbound border crossing Pedestrians",homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)+
-
-mapview(Vehicles_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Personal Vehicles passengers",homebutton =FALSE,col.regions=brewer.pal(9, "BuPu"), alpha.regions = 1, aplha = 0.2)+
-
-mapview(Buspassangers_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Bus Passengers",homebutton =FALSE,col.regions=brewer.pal(9, "Blues"), alpha.regions = 1, aplha = 0.2)+
-
-mapview(Trucksloaded_geo, map.types =  "CartoDB.Positron",cex="Vehicles", zcol="Vehicles", layer.name= "Trucks loaded",homebutton =FALSE,col.regions=brewer.pal(9, "YlGn"), alpha.regions = 1, aplha = 0.2)
-    
-leafem::addMouseCoordinates(mapa)%>%setView(zoom = 5, -106.5716694, 31.1836082)
-  
-```
-Source: José Luis Manzanares Rivera with data from Bureau of Transportation Statistics (BTS) Border Crossing Data [@bts] 
 
 
