@@ -347,16 +347,10 @@ The following analysis contains the Google score trend for terms:  "affordable h
 
 [Figure 5 California Google trends score 2004-2023. Selected terms](../speech/F5_google_a.html)[Fig5b](../speech/F5_google_b.html)
 ```{r, echo=FALSE}
-
 # Plots  google trends.
-
-
 ts_foreclosure<-readRDS("ts_foreclosure.rds")
 ts_trends<-readRDS("ts_trends.rds")
 
-
-
-ggsearch <- list(
 dygraph(ts_trends,  group= "a", main = "Affordable home")%>% 
 dyRangeSelector()%>%
 dyHighlight(highlightCircleSize = 3, 
@@ -365,8 +359,12 @@ hideOnMouseOut = FALSE)%>%
 dySeries("score", label ="Term: Affordable home", fillGraph = TRUE)%>%
 dyAxis("y", label = "California. Google trends score")%>%
 dyLegend(width = 300)%>%
-dyEvent("2008-07-01", "Subprime mortgage market collpse 2008-07-01", labelLoc = "top", color = "red"),
-  
+dyEvent("2008-07-01", "Subprime mortgage market collpse 2008-07-01", labelLoc = "top", color = "red")
+```
+
+
+```{r, echo=FALSE}
+
 dygraph(ts_foreclosure, group= "a", main = "Terms: Eviction, Foreclosure")%>% dyRangeSelector()%>%
 dyHighlight(highlightCircleSize = 3, 
 highlightSeriesBackgroundAlpha = 0.2,
@@ -377,9 +375,9 @@ dySeries("eviction", color="#2874A6",label = "Evictions", axis = 'y2')%>%
 dyAxis("y2", label = "Score")%>%
 dyLegend(width = 300)%>%
 dyOptions(drawGrid = FALSE,  strokeWidth = c(1, 3))%>%
-dyEvent("2020-02-01", "January 31, 2020 COVID-19 Health emergency", labelLoc = "top", color = "gray"))
+dyEvent("2020-02-01", "January 31, 2020 COVID-19 Health emergency", labelLoc = "top", color = "gray")
 
-htmltools::browsable(htmltools::tagList(ggsearch))
+#htmltools::browsable(htmltools::tagList(ggsearch))
 
 
 #htmlwidgets::saveWidget(widget = GG5b, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F5_google_b.html",  selfcontained = TRUE)
@@ -401,7 +399,7 @@ Although this approach provides an nation wide perspective it captures a base tr
 
 
 [Figure 6 Real estate at market value and rising equity 1980-2023](../speech/F6a_equity.html), [See F6b](../speech/F6b_equity.html)
-```{r, echo=FALSE, fig.height=4, fig.width=6}
+```{r, echo=FALSE}
 # Plots.
 ## Rising equity 
 ## loading data 
@@ -409,9 +407,7 @@ Although this approach provides an nation wide perspective it captures a base tr
 ts_b101<-readRDS("ts_b101.rds")
 b101_e<-readRDS("b101_e.rds")
 
-## Dygraph plots
-
-dy_graph_equity <- list(
+## Dygraph plot
 dygraph(ts_b101,  group= "a", main = "Real estate at market value")%>% 
 dyRangeSelector()%>%
 dyHighlight(highlightCircleSize = 3, 
@@ -423,8 +419,12 @@ dyAxis("y", label = "(Trillion  USD, not)")%>%
 dyLegend(width = 300)%>%
 dyOptions(drawGrid = FALSE)%>% 
 dyEvent("2008-07-01", "Subprime mortgage market collpse", labelLoc = "bottom", color = "purple")%>%
-dyEvent("2020-04-01", "Quantitative Easing-Ultra Low interes rates-", labelLoc = "top", color = "blue"), 
-  
+dyEvent("2020-04-01", "Quantitative Easing-Ultra Low interes rates-", labelLoc = "top", color = "blue")
+```
+
+
+```{r, echo=FALSE}
+
 dygraph(b101_e, group= "a", main = "Raising Equity")%>% dyRangeSelector()%>%
 dyHighlight(highlightCircleSize = 3, 
 highlightSeriesBackgroundAlpha = 0.2,
@@ -434,9 +434,9 @@ dyAxis("y", label = "House stock Equity (Trillion)")%>%
 dySeries("Percent", label = "%" , color="#641E16",axis = 'y2', strokePattern = "dashed")%>%
 dyAxis("y2", label = "Share of total housing stock value ")%>%
 dyLegend(width = 300)%>%
-dyOptions(drawGrid = FALSE))
+dyOptions(drawGrid = FALSE)
 
-htmltools::browsable(htmltools::tagList(dy_graph_equity))
+# htmltools::browsable(htmltools::tagList(dy_graph_equity))
 
 #htmlwidgets::saveWidget(widget = F6b, file = "C:/Users/josel/Desktop/on/I/2023/HOUSING/realstate/speech/F6b_equity.html",  selfcontained = TRUE)
 
@@ -466,7 +466,7 @@ Figure 7  below ranks metropolitan areas (MSAs) by the number of loans classifie
 
 [Figure 7. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F7_invest.html)
 
-```{r, echo=FALSE, fig.height=6, fig.width=8}
+```{r, echo=FALSE, fig.height=6, fig.width=7}
 
 #top20_metros_inv<-readRDS("top20metros_invest.rds")%>%  mutate(USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")))%>% slice_max(t, n=20)
 
@@ -476,11 +476,30 @@ top20_metros_inv<-readRDS("top20_metros_inv.rds")%>%
   rename(Investment.Loans=t, MetropolitanArea=GEO_Name)%>%
   mutate(MSA=fct_reorder(MetropolitanArea, Investment.Loans))
 
+
+
+
+
+
 inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)) +
   geom_col() +
   scale_fill_manual(values = c("#AEB6BF", "#C0392B"), name="") +
   labs(      x = 'Total investment loans',
-       y = 'Metropolitan Statistical area')
+       y = 'Metropolitan Statistical area')+
+    theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+    )
+
+
+inv_plot <- inv_plot +
+  geom_text(
+    aes(label = MSA),
+    position = position_stack(vjust = 0.5), # Adjust the position of labels
+    size = 3, # Set the size of labels
+    color = "white" # Set the color of labels
+  )
+
 
 ggplotly(inv_plot)%>%
   layout(legend = list(orientation = "h", x = 0, y = -.05))
