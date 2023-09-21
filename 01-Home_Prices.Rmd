@@ -666,10 +666,10 @@ library(hrbrthemes)
 #master_freddie<-read.csv("fmhpi_master_file.csv")%>%inner_join(border)%>%group_by( Year,GEO_Name )%>% summarize(index=median(Index_SA))
 
 
-#cols <- c( "#E74C3C","#154360", "#1E8449", "yellow", "purple","red", "green", "blue")
+#cols <- c( "black","#154360", "#1E8449", "yellow", "purple","red", "green", "blue")
 
 
-#pplot <- master_freddie %>%ggplot(aes(x = Year, y = index, color = GEO_Name)) +geom_line() +geom_point() +geom_vline(xintercept =2007, linetype="dashed", color="black", size=.5)+geom_hline(yintercept =100,  color="dodgerblue4", size=.5, linetype="dashed")+scale_color_manual(values = cols, name = "") +  theme(legend.position = c(0.35, 0.7), panel.background = element_rect(fill = "white"))+labs(y = "HPI 2000=100") + transition_reveal(Year)+ scale_x_continuous(breaks = seq(min(master_freddie$Year), max(master_freddie$Year), by = 5))+ scale_y_continuous(n.breaks=8)+ annotate("text", x=2008, y=250, size=3.5,label="Subprime mortgage market collapse",angle = 90) + theme(legend.text = element_text(size = 14)) 
+#pplot <- master_freddie %>%ggplot(aes(x = Year, y = index, color = GEO_Name)) +geom_line() +geom_point() +geom_vline(xintercept =2007, linetype="dashed", color="black", size=.5)+geom_hline(yintercept =100,  color="dodgerblue4", size=.5, linetype="dashed")+scale_color_manual(values = cols, name = "") +  theme(legend.position = c(0.35, 0.7), panel.background = element_rect(fill = "white"))+labs(y = "HPI 2000=100") + transition_reveal(Year)+ scale_x_continuous(breaks = seq(min(master_freddie$Year), max(master_freddie$Year), by = 5))+ scale_y_continuous(n.breaks=8)+ annotate("text", x=2008, y=250, size=3.5,label="Subprime mortgage market collapse",angle = 90) + theme(legend.text = element_text(size = 14), axis.text = element_text(size = 13)) 
 
 #pplot
 #anim_save("hpi_border1975-2023.gif", pplot, width = 680, height = 500) 
