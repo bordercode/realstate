@@ -652,14 +652,14 @@ library(hrbrthemes)
 #cols <- c( "#E74C3C","#154360", "#1E8449", "yellow", "purple","red", "green", "blue")
 
 
-#pplot <- master_freddie %>%ggplot(aes(x = Year, y = index, color = GEO_Name)) +geom_line() +geom_point() +geom_vline(xintercept =2007, linetype="dashed", color="black", size=.5)+geom_hline(yintercept =100,  color="dodgerblue4", size=.5, linetype="dashed")+scale_color_manual(values = cols, name = "") +  theme(legend.position = "top",panel.background = element_rect(fill = "white")) +  # Set background to white labs(y = "HPI 1991=100") + transition_reveal(Year)+ scale_x_continuous(breaks = seq(min(master_freddie$Year), max(master_freddie$Year), by = 5))+ scale_y_continuous(n.breaks=8)+ annotate("text", x=2008, y=250, size=3.5,label="Subprime mortgage market collapse",angle = 90)+ annotate("text", x=1994, y=108, size=4,label="Base year")  
+#pplot <- master_freddie %>%ggplot(aes(x = Year, y = index, color = GEO_Name)) +geom_line() +geom_point() +geom_vline(xintercept =2007, linetype="dashed", color="black", size=.5)+geom_hline(yintercept =100,  color="dodgerblue4", size=.5, linetype="dashed")+scale_color_manual(values = cols, name = "") +  theme(legend.position = "top",panel.background = element_rect(fill = "white"))+labs(y = "HPI 2000=100") + transition_reveal(Year)+ scale_x_continuous(breaks = seq(min(master_freddie$Year), max(master_freddie$Year), by = 5))+ scale_y_continuous(n.breaks=8)+ annotate("text", x=2008, y=250, size=3.5,label="Subprime mortgage market collapse",angle = 90) 
 
 #pplot
 #anim_save("hpi_border1975-2023.gif", pplot, width = 768, height = 576) 
 
 ```
 
-```{r, echo= FALSE, fig.width=10, fig.height=8, message=FALSE, Warnig=FALSE}
+```{r, echo= FALSE, message=FALSE, Warnig=FALSE}
 ## Making the animated line plot
 library(magick)
 evolution <- image_read("hpi_border1975-2023.gif")
