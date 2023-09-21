@@ -597,7 +597,7 @@ library(PNWColors)
 library(ggeasy)
 
 
-#master_freddie<-read.csv("fmhpi_master_file.csv") %>%filter(GEO_Type=="State", Year!="2023", GEO_Name!="HI", GEO_Name!= "DC",GEO_Name!="PR",Year>="2000")%>%group_by( Year,GEO_Name )%>% summarize(index=median(Index_SA))%>%   mutate(log=log(index), Year=as.numeric(Year))%>%   rename(state=GEO_Name)
+#master_freddie<-read.csv("fmhpi_master_file.csv")%>%filter(GEO_Type=="State", Year!="2023", GEO_Name!="HI", GEO_Name!= "DC",GEO_Name!="PR",Year>="2000")%>%group_by( Year,GEO_Name )%>% summarize(index=median(Index_SA))%>%   mutate(log=log(index), Year=as.numeric(Year))%>%   rename(state=GEO_Name)
 
 #pal <- pnw_palette("Bay", n=100, type="continuous")
 
@@ -636,13 +636,36 @@ Finally figure 9 below represents the evolution of house prices for US Mexico bo
 
 **Figure 9 US-Mexico border (MSAs). Housing prices evolution**
 
+
+```{r, include=FALSE}
+
+## This is the data wrangling for plot HPI for border only MSA over  1975 - 2023. Base year  2000
+
+library(viridis)
+library(hrbrthemes)
+
+#border<-data.frame(GEO_Name=c("Yuma AZ", "Brownsville-Harlingen TX","El Centro CA","El Paso TX", "Laredo TX", "San Diego-Carlsbad CA","Sierra Vista-Douglas AZ", "McAllen-Edinburg-Mission TX"))
+
+#master_freddie<-read.csv("fmhpi_master_file.csv")%>%inner_join(border)%>%group_by( Year,GEO_Name )%>% summarize(index=median(Index_SA))
+
+
+#cols <- c( "#E74C3C","#154360", "#1E8449", "yellow", "purple","red", "green", "blue")
+
+
+#pplot <- master_freddie %>%ggplot(aes(x = Year, y = index, color = GEO_Name)) +geom_line() +geom_point() +geom_vline(xintercept =2007, linetype="dashed", color="black", size=.5)+geom_hline(yintercept =100,  color="dodgerblue4", size=.5, linetype="dashed")+scale_color_manual(values = cols, name = "") +  theme(legend.position = "top",panel.background = element_rect(fill = "white")) +  # Set background to white labs(y = "HPI 1991=100") + transition_reveal(Year)+ scale_x_continuous(breaks = seq(min(master_freddie$Year), max(master_freddie$Year), by = 5))+ scale_y_continuous(n.breaks=8)+ annotate("text", x=2008, y=250, size=3.5,label="Subprime mortgage market collapse",angle = 90)+ annotate("text", x=1994, y=108, size=4,label="Base year")  
+
+#pplot
+#anim_save("hpi_border1975-2023.gif", pplot, width = 768, height = 576) 
+
+```
+
 ```{r, echo= FALSE, fig.width=10, fig.height=8, message=FALSE, Warnig=FALSE}
 ## Making the animated line plot
 library(magick)
-evolution <- image_read("border_HPI_evolution.gif")
+evolution <- image_read("hpi_border1975-2023.gif")
 evolution
 ```
-
+Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023] 
 
 The clear upward trend for San Diego-Chula Vista-Carlsbad area situated right across the Border from the major Mexican border city Tijuana, certainly represents a relevant case study considering affordability restrictions and opportunities that appear given this close geographic proximity. 
 
