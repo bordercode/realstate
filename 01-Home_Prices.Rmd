@@ -466,7 +466,7 @@ Figure 7  below ranks metropolitan areas (MSAs) by the number of loans classifie
 
 [Figure 7. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F7_invest.html)
 
-```{r, echo=FALSE, fig.height=6, fig.width=7}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
 #top20_metros_inv<-readRDS("top20metros_invest.rds")%>%  mutate(USMXBorder=as.factor(ifelse(state%in%border_st$border,"USMXBorder","No Border")))%>% slice_max(t, n=20)
 
@@ -488,22 +488,17 @@ inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)
     axis.ticks.y = element_blank()
     )
 ## to place the lables inside the bars 
-geom_label(
-    aes(label = perc), 
-    hjust = 1, nudge_x = -.5,
-    size = 4, fontface = "bold", family = "Fira Sans",
-    ## turn into white box without outline
-    fill = "white", label.size = 0
-  ) 
 
 
 inv_plot <- inv_plot +
-  geom_text(
+     geom_text(
     aes(label = MSA),
-    position = position_stack(vjust = 0.5), # Adjust the position of labels
-    size = 3, # Set the size of labels
-    color = "white" # Set the color of labels
-  )
+    position = position_stack(vjust=.5), 
+size = 3.2,  
+color = "white")
+
+
+  
 
 ## To display as ggplot
 
