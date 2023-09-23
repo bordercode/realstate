@@ -31,9 +31,10 @@ In this chapter the goal is to analyze the conditions, including economic determ
 Tijuana, Baja California is located at the US Mexico border just across the city of San Diego. 
 Given it´s privilege location, Tijuana has become the biggest population center in all of Mexico´s norther border and a strategic economic regional manufacture hub covering a wide range of industries, including electronics, automotive parts, medical devices, aerospace components, textiles, and consumer goods and services.
 
-Notably, the historic influx of labor which has been robust since the 1970's is underpinned by a dynamic internal migration^[within the country] of individuals seeking livelihoods within the manufacturing sector[@kopinak2003globalization; @gallegosTijuanaBorderMigration2009], traditionally a low wage sector of the labor force[@kopinak2020wages]. Although this demographic trends were propelled by public policies dating back to 1965 with the emblematic  Border Industrialization Program (BIP) and bi national regulations such as the North American Free trade Agreement, (NAFTA) which was signed in December 1992, and subsequent USMCA (signed in November 2018), currently the intense trans border movement of people is subject to additional economic determinants that include asymmetries on housing market conditions between both sides of the border.    [@chavez2016border].
+Notably, the historic influx of labor which has been robust since the 1970's is underpinned by a dynamic internal migration^[within the country] of people seeking livelihoods within the manufacturing sector[@kopinak2003globalization; @gallegosTijuanaBorderMigration2009], traditionally a low wage sector of the labor force[@kopinak2020wages]. 
+Although this demographic trends were propelled by public policies dating back to 1965 with the emblematic  Border Industrialization Program (BIP) and bi national regulations such as the North American Free trade Agreement, (NAFTA) which was signed in December 1992, and subsequent USMCA (signed in November 2018), currently the intense trans border movement of people is subject to additional economic determinants that include asymmetries on housing market conditions between both sides of te border.    [@chavez2016border].
 
-This city hosts the busiest pedestrian and personal Vehicle passenger port of entry to the US along the northern Mexican Border. According to official information provided by the Bureau of transportation statistics, during 2022, California ports of entry registered 16,104,055 pedestrian crossings and among these, the San Ysidro gate, situated right at Tijuana´s city heart, accounts for 6,678,157 pedestrian crossings, surpassing the traffic registered by second busiest port El Paso, by 82%.
+This city of Tijuena currently hosts the busiest pedestrian and personal Vehicle passenger port of entry to the US along the northern Mexican Border. According to official information provided by the Bureau of transportation statistics, during 2022, California ports of entry registered 16,104,055 pedestrian crossings and among these, the San Ysidro gate, situated right at Tijuana´s city heart, accounts for 6,678,157 pedestrian crossings, [@bts], surpassing the traffic registered by second busiest port El Paso, by 82%.
 Figure 1 below provides evidence to compare border crossings by port of entry along the Us Mexico border.
 
 **Figure 1. US Mexico border North bound crossings by ports of entry. 2022: Pedestrians, Passenger vehicles, Trucks loaded and Bus passengers. **
@@ -69,10 +70,15 @@ sync(m1, m2, m3, m4)
 ```
 Source: José Luis Manzanares Rivera with data from Bureau of Transportation Statistics (BTS) Border Crossing Data [@bts] 
 
+There are two patterns that deserve a careful examination, we observe a clear difference between the western border ports of entry and those located at the East side of the border. While the San Ysidro port of entry dominates the pedestrian an passenger vehicle categories, when considering commercial cargo traffic and Bus passenger crossings, we see that actually the Texas-Tamaulipas border is  where the biggest traffic volume takes place. This pattern provide evidence of different underlaying economic forces that influence the regional and local real estate markets.
 
-*Here.... Analyze results form plot. contrasts passeners behaviur vs. truck and commercial loads routes.*
+For example, demand for space to lease and develop werehouse facilities is directly impacted by economic activities such as logistics which in turn are having a boost from near shoring strategies conducted by manufacturing firms associated with a tense US-China  trade relationship. The traffic that the Laredo port of entry is having in the category Trucks loaded is a reflection of the interconnected configuration that the manufacturing sector has developed within the US Mexico economomies.
 
-This intense people movement reflects the underlying social dynamics that this region generates[@doi:10.1177/019791839603000407] which is strongly influenced by specific economic determinants, one such key driving factor being bi-national labor market conditions and housing market prices differentials.
+In the other hand, the intense people movement observed in Tituana´s San Ysidro port of entry reflects the underlying social dynamics that this region generates[@doi:10.1177/019791839603000407] which is strongly influenced by specific economic determinants, one such key driving factor being a bi-national labor market and housing market prices differentials. 
+
+This factors make the commuting a regular part of life at the Tijuana-San Diego Border either by pedestrians or passenger vehicles. However given the volume of border crossings in this category, there are considerable productivity losses when taking into account the wait times that this massive volume of traffic generates, an issue that has been documented elsewhere by several studies including [@haralambidesSUPPLYCHAINBOTTLENECKS2004; @rodriguezEconomicImpactMore2022;@alfaroUSMexicoCommerceTracking2023].
+
+To understand the time involved in crossing the border,figure 2, presents a closer look at US-Mexico border ports of entry wait times for category passenger vehicles.
 
 **Figure 2. Wait times for Passenger Vehicles. Selected US-Mexico border ports of entry Septembrer 2022**
 
@@ -86,14 +92,15 @@ This intense people movement reflects the underlying social dynamics that this r
 
 #library(gganimate)
 
+
 #wait<-read.csv("waitimes2022.csv")%>%select(-c(X,X.1,X.2))%>%mutate(day=as.factor(day))%>%na.omit()
 
-#options(repr.plot.width = 8, repr.plot.height = 6)
+ #options(repr.plot.width = 8, repr.plot.height = 6)
 
-#p <- ggplot(wait, aes(Hour, wait.minutes, size = wait.minutes, colour = PortName)) +geom_point(alpha = 0.7) + scale_size(range = c(2, 12)) + scale_colour_manual(values=c("limegreen","black","yellow2", "blue", "red"))  + theme_light()+theme(legend.position = c(0.72, 0.14))+ guides(size = FALSE)+ labs(colour = NULL)+ scale_x_continuous(limits = c(0, 24),  breaks = seq(0, 24, by = 2),     labels = function(x) ifelse(x %% 2 == 0, as.character(x), ""),      expand = c(0, 0))+labs(title = 'Hour: {frame_time}', x = 'Hour', y = 'Wait times (min)') +transition_time(Hour) + ease_aes('linear')
+#p <- ggplot(wait, aes(Hour, wait.minutes, size = wait.minutes, colour = PortName)) +geom_point(alpha = 0.7) + scale_size(range = c(2, 12)) + scale_colour_manual(values=c("red","black","yellow2", "blue", "limegreen"),limits = c("SanYsidro", "Laredo(BridgeII)", "ElPaso(BOTA)", "Brownsville(Gateway)", "Nogales(Deconcini)"))  + theme_light()+theme(legend.position = "bottom", legend.box = "horizontal")+ guides(size = FALSE)+ labs(colour = NULL)+ scale_x_continuous(limits = c(0, 24),  breaks = seq(0, 24, by = 2),     labels = function(x) ifelse(x %% 2 == 0, as.character(x), ""),      expand = c(0, 0))+labs(title = 'Hour: {frame_time}', x = 'Hour', y = 'Wait times (min)') +transition_time(Hour) + ease_aes('linear')
   
 #p
-#anim_save("waitimes2022.gif", p, width = 768, height = 576) 
+#anim_save("waitimes2022.gif", p, width = 660, height = 500) 
 
 ```
 
@@ -104,19 +111,14 @@ library(magick)
 waitimage <- image_read("waitimes2022.gif")
 waitimage
 ```
-Source: José Luis Manzanares Rivera based on data from U.S. Customs and Border  Protection.[@wait]  Historical Wait Times. Average values for Mondays, September 2022, General Lanes. 
+Source: José Luis Manzanares Rivera based on data from U.S. Customs and Border  Protection.[@wait]  Historical Wait Times. Average values for Mondays, September 2022, General Lane. 
 
+## Unaffrodable housing, urban spraw and squatter areas  a hard reality in Tijuana.
 
- 
-
-Historically, there has been several structural factors that contribute to housing shortages in the Mexican city of Tijuana.[@SOTORUBIO201976], however recently, added pressures of binational economic nature, to enter the housing market have emerged, for the local population living in specific neighborhoods situated in close proximity to border crossings or residential areas that are particularly attractive to US commuters and remote workers coming from the southern California region, particularly from the San Diego-Chula Vista-Carlsbad metropolitan statistical area.  
+Historically, there has been several structural factors that contribute to housing shortages in the Mexican city of Tijuana.[@SOTORUBIO201976], however recently, added pressures to enter the housing market, of binational economic nature,  have emerged for the local population living in specific neighborhoods situated in close proximity to border crossings or residential areas that are particularly attractive to US commuters and remote workers coming from the southern California region, particularly from the San Diego-Chula Vista-Carlsbad metropolitan statistical area.  
 
 
 As a result, a surge in real estate development has occurred in the area known as Playas de Tijuana and Rosarito, where property prices have experienced rapid growth during the last decade. 
-*!!!!!!! ATTENTION NEEDED HERE: data is needed to reinforce the argument. How house prices growth in this particular area compares to other urban areas in the country and to the average growth in the whole country?  INCLUDE DATA FOR MEXICNA REAL STATE PAGES SUCH AS INMUEBLES24 WITH COMPARATIVE TRENDS ANMONG THE MAIN CITIES*
-
-
-
 
 ```{r, include=FALSE, warning=FALSE, message=FALSE}
 
@@ -141,7 +143,7 @@ getwd()
 
 ## In addition It is found that the income, as reflected by tax returns fillings, coming from states that not necessarily represent an important proportion of movers, is actually larger than that of  Californians, the main contributor state in terms of population movements into Arizona. The population with the larger gross income per tax return filling are in fact  coming  from the following states: Illinois, District of Columbia, New Jersey, New York and Massachusetts.  
 
-# Now, within Arizona there are specific counties and Metropolitan areas that figure as main attraction locations. As we discover in the previous chapter.The Phoenix-Chandler-Mesa MSA, located in the MAricopa County, is the principal destination for out of state flows comming to Arizona, and the main flows are comming from Los Angeles.
+# Now, within Arizona there are specific counties and Metropolitan areas that figure as main attraction locations. As we discover in the previous chapter.The Phoenix-Chandler-Mesa MSA, located in the MAricopa County, is the principal destination for out of state flows coming to Arizona, and the main flows are coming from Los Angeles.
 
 
 

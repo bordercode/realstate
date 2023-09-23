@@ -488,6 +488,14 @@ inv_plot<-ggplot(top20_metros_inv, aes(Investment.Loans, MSA, fill = USMXBorder)
     axis.ticks.y = element_blank()
     )
 ## to place the lables inside the bars 
+geom_label(
+    aes(label = perc), 
+    hjust = 1, nudge_x = -.5,
+    size = 4, fontface = "bold", family = "Fira Sans",
+    ## turn into white box without outline
+    fill = "white", label.size = 0
+  ) 
+
 
 inv_plot <- inv_plot +
   geom_text(
