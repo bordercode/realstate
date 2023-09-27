@@ -11,6 +11,7 @@ data-and-methods
 moving-across-state-borders.
 housing-demand-determinants-population-growth-income-and-home-prices
 the-california-exodus.
-the-san-diego-tijuana-connection.
-why-tijuana-is-important-when-studiying-housing-prices-in-california.
+binational-implications-the-san-diego-tijuana-housing-market-connection.
+why-tijuana-is-important-when-studiying-housing-prices-in-southern-california.
 unaffrodable-housing-urban-spraw-and-squatter-areas-a-hard-reality-in-tijuana.
+feeling-the-heath-the-california-phoenix-route-in-search-for-affordable-housing.
