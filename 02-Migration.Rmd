@@ -1078,7 +1078,7 @@ location_MSA<-readRDS("location_MSA_coded.rds")%>%
   rename(Netflow=Pop)%>%
 mutate(savings=round(savings,2))  
 
-allCA_out<-mapview(location_MSA, map.types =  "CartoDB.DarkMatter",cex="Netflow", zcol="savings", layer.name= "Savings %",legend = TRUE,homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, aplha = 0.2)
+allCA_out<-mapview(location_MSA, map.types =  "CartoDB.DarkMatter",cex="Netflow", zcol="savings", layer.name= "Savings %",legend = TRUE,homebutton =FALSE, col.regions=brewer.pal(9, "YlOrRd"), alpha.regions = 1, alpha = 0.2)
 
 
 leafem::addMouseCoordinates(allCA_out)%>%
