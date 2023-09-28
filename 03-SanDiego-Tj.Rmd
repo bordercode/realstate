@@ -118,7 +118,7 @@ Historically, there has been several structural factors that contribute to housi
 
 As a result, a surge in real estate development has occurred in the area known as Playas de Tijuana and Rosarito, where property prices have experienced rapid growth during the last decade. 
 
-**Figure 3. Tijuana Urban configuration**
+**Figure 3. Tijuana urban configuration and industrial buildings density distribution**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 industrial <-read_sf("Industrial_buildngs.shp")%>%select(osm_id,area,geometry)
@@ -146,15 +146,14 @@ royal<-"royalblue4"
 # El mapa usando mapview agregando cada capa.
 #tj<-mapview(geojson_data)
 
-tj<- mapview(industrial, legend = FALSE, cex=0.3, col.regions=deepink, alpha.regions=.5) +
-mapview(Industrial.Directional.Density, col.regions= purple, alpha.regions = .2)+mapview(Playas, col.regions= color)+mapview(Urban.Area, col.regions= black, alpha.regions = 0)+mapview(Urban.Sprawl, col.regions= rosy)+mapview(Expantion.sites, col.regions= salmon)+mapview(CBD.ZonaRio, col.regions= pastel) +  mapview(Downtown.Revolucion, col.regions= royal) 
+tj<- mapview(industrial, legend = FALSE, cex=0.3, col.regions=deepink, alpha.regions=.5) +mapview(Playas, col.regions= color)+mapview(Urban.Area, col.regions= black, alpha.regions = 0)+mapview(Urban.Sprawl, col.regions= rosy)+mapview(Expantion.sites, col.regions= salmon)+mapview(CBD.ZonaRio, col.regions= pastel) +  mapview(Downtown.Revolucion, col.regions= royal) 
 
 leafem::addMouseCoordinates(tj)%>%
-setView(zoom = 11, -116.8932356,  32.4690096)
+setView(zoom = 11, -116.8932356,  32.4990096)
 
 ```
 
-
+![](images/heatmap_TJ_buildings.jpg){width=100%}
 
 
 
