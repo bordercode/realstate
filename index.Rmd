@@ -163,7 +163,7 @@ Following a data driven approach this research work  analyzes housing prices on 
 
 This analysis is important to understand recent real state features such as residential space demand at bi-national urban areas and to provide key insights to design strategies based on evidence to    guide a long run development process.         
 
-This book is organized into 3 chapters: Chapter I sets the stage to understand House prices as internal migration determinants, Chapter II examines homeless trends across US metropolitan areas a perspective that offers a look to a central issue when analyzing home affordability.  Chapter III explores bi national real estate market implications at a regional scale focusing on the US Mexico border presenting an emblematic case study:  the San Diego-Tijuana connection.
+This book is organized into 4 chapters: Chapter I sets the stage to understand House prices across U.S Metropolitan areas  and links this prices to economic policy in particular to monetary policy decisions, Chapter II analyzes internal migration patterns in detail considering social implications.  Chapter III Presents the regional implications for Metropolitan area´s development considering the migration flow between Phoenix, Glendale Mesa Metropolitan Statistical Area in the Arizona  desert and the exodus from California. This chapter includes an analysis of IRS records as well as a careful consideration of the homelessness problem associated to non affordable housing conditions observed in specific Metropolitan Areas around the country.  The final chapter explores bi national real estate market implications at a regional scale focusing on the US Mexico border presenting an emblematic case study:  the San Diego-Tijuana connection.
 
 
 

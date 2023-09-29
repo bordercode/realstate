@@ -803,7 +803,7 @@ It is important to notice that the HPI captures the evolution in time of house p
 
 
 ```{r, include=FALSE}
-25/128
+
 ##  Data wrangling only to gett net flows for CAlifornia. 
 
 # Federal Housing Finance Agency  with   Base year  1995.
