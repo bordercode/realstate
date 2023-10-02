@@ -1,12 +1,12 @@
 # Feeling the heath: The California-Maricopa route, in search for affordable housing.
 
-In this chapter,  the aim is to analyze how regional migration flows from California, have foster the development of Phoenix, an increasingly important Metropolitan area located in Maricopa County on the Arizona desert heart land an area in  close proximity to the Mexican border.  We provide evidence based on Internal Revenue Service (IRS)  records to document another important aspect of migration patterns, that of income flows across state borders. 
+In this chapter, the aim is to analyze how regional migration flows from California have fostered the development of the Phoenix Metropolitan area. This region, located in Maricopa County on the Arizona desert heartland, is situated in close proximity to the Mexican border. We will provide evidence, based on Internal Revenue Service (IRS) records, to document another significant aspect of migration patterns: the flow of income across state borders.
 
-In addition we explore homelessness trends and policies that address this key social issue often related to housing affordability which is of particular importance for Claifornia Metropolitan areas.  
+In addition, we examine homelessness trends and policies addressing this critical social issue, often associated with housing affordability challenges, which hold particular significance for metropolitan areas in California and other urban areas across the country. 
 
 ## Data and methods. 
 
-In this chapter, exploratory data analysis is conducted to ilustrate supply side factors, and key challenges associated to unaffordability such as homelessness.  In addition we uncover the important effects of migrantion across state borders  from the perspective of the taxation and revenue at both origin and destination Metropolitan areas. The Internal Revenue service data  provides the opportunity to measure the magnitude of  revenue losses for the origin Metropolitan areas, While showing the scale of  positive contributions to the host area.
+In this chapter, we conduct exploratory data analysis to illustrate supply-side factors and key challenges related to housing unaffordability, such as homelessness. Additionally, we uncover the significant effects of migration across state borders from the perspective of taxation and revenue in both the origin and destination metropolitan areas. Internal Revenue Service data provides an opportunity to quantify revenue losses in the origin metropolitan areas while demonstrating the positive contributions to the host area's economy.
 
 The main source of information to achive this analysis comes from the Internal Revenue Service (IRS). In this conceptual strategy, Tax data represent a complementary view of population movements.  In order to approximate migration, the IRS records year-to-year address changes reported on individual income tax returns filed and documented by data on IRS Form 1040. 
 
