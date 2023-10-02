@@ -165,18 +165,20 @@ setView(zoom = 11, -116.8932356,  32.4990096)
 ```{r, include=FALSE, warning=FALSE, message=FALSE}
 
 
-##Source: https://www.irs.gov/statistics/soi-tax-stats-migration-data-2020-2021
+##Source: https://www.irs.gov/statistics/soi-tax-stats-migration-data-2020-2021  
+
+ #Amounts in thousands of dollars.
 
 #  County-to-County Outflow    data set. 
 
 irs<-read.csv("countyoutflow2021_IRS.csv")
 
-getwd()
 
 
 #arizona_irs<-read.csv("Irs_2021_az_inflows.csv")%>%na.omit()
 
 #names(arizona_irs)
+
 #income<-arizona_irs%>%mutate(income_return=ag_inc/individuals, ag_inc_percent=round(ag_inc/sum(ag_inc)*100,2), returns_prop=round(returns/sum(returns)*100,2))
        
 #IRS  data insights 
@@ -206,7 +208,7 @@ getwd()
 
 ################# Data wrangling ####################
 
-## This is the previous data wrangling to get the below individual data sets.
+## This is the previous data wrangling to get the below individual data sets. for border crossings.
 
 #bordercrosings<-read.csv("Border_Crossing_Entry_Data.csv")%>%filter(Border!="US-Canada Border")%>%separate(Date, into = c("Month", "Year"), sep = " ", remove = FALSE)
 

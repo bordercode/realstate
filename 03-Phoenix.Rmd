@@ -1,5 +1,23 @@
-# Feeling the heath: The california Phoenix-route in search for affordable housing.
+# Feeling the heath: The California-Maricopa route, in search for affordable housing.
 
-In this chapter the aim is to analyze how regional migration flows from California, have foster the development of Phoenix, an increasingly important Metropolitan area located on the Arizona desert and in close proximity to the Mexican border.  We provide evidence based on Internal Revenue Service (IRS)  records to document another important aspect of migration patterns, that of income flows across state borders. 
+In this chapter,  the aim is to analyze how regional migration flows from California, have foster the development of Phoenix, an increasingly important Metropolitan area located in Maricopa County on the Arizona desert heart land an area in  close proximity to the Mexican border.  We provide evidence based on Internal Revenue Service (IRS)  records to document another important aspect of migration patterns, that of income flows across state borders. 
 
-In addition we explore homelessness trends and policies that address this key social issue often related to housing affordability.
+In addition we explore homelessness trends and policies that address this key social issue often related to housing affordability which is of particular importance for Claifornia Metropolitan areas.  
+
+## Data and methods. 
+
+In this chapter, exploratory data analysis is conducted to ilustrate supply side factors, and key challenges associated to unaffordability such as homelessness.  In addition we uncover the important effects of migrantion across state borders  from the perspective of the taxation and revenue at both origin and destination Metropolitan areas. The Internal Revenue service data  provides the opportunity to measure the magnitude of  revenue losses for the origin Metropolitan areas, While showing the scale of  positive contributions to the host area.
+
+The main source of information to achive this analysis comes from the Internal Revenue Service (IRS). In this conceptual strategy, Tax data represent a complementary view of population movements.  In order to approximate migration, the IRS records year-to-year address changes reported on individual income tax returns filed and documented by data on IRS Form 1040. 
+
+In particular it records the number of residents that moved to a State or county and the origin from where they moved [@internalrevenueserviceMigrationDataUsers2021]. Data corresponds to calendar year 2020-2021, So it represents income earned during 2020. the most up to date information available at the moment of writing this book. 
+
+According to the IRS,this data captures the situation prior to late September of each calendar year and represent between 95 and 98 percent of total annual filings[@internalrevenueserviceMigrationDataUsers2021], so it provides an arguably complete base scenario to evaluate this topic at a geographic suitable scale.
+IN addition this source offers the age of the tax payer which is valuable to better understand migrants incomes profiles.
+
+
+# Revenu landscapes for origin and destination metropolitan areas.
+
+Considering population flows across state lines, the analysis indicates that California is the main contributor of out of state migration in the U.S. representing  one of three  or $30.4%$  of the total out of state IRS return filings.
+
+
