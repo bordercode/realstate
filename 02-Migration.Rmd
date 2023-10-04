@@ -259,7 +259,7 @@ Despite that home values by themselves act as signals to achieve  demand and sup
 The following figure considers data on the factors discussed above, for all Metropolitan statistical areas located at the US Mexico border States. The aim of the analysis is to capture the relationship among this important factors and distinguish patterns within the US-Mexico border region.   
 
 
-**Figure 3 Housing market determinants: HPI, population and percapita income 2020**
+**Figure 4 Housing market determinants: HPI, population and percapita income 2020**
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
 
 ## THIS IS THE PLOT  income,  population,   hpi  2020 for border states msa.

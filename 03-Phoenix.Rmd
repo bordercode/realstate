@@ -1,5 +1,11 @@
 # Feeling the heath: The California-Maricopa route, in search for affordable housing.
 
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+
+```
+
+
 In this chapter, the aim is to analyze how regional migration flows from California have fostered the development of the Phoenix Metropolitan area. This region, located in Maricopa County on the Arizona desert heartland, is situated in close proximity to the Mexican border. We will provide evidence, based on Internal Revenue Service (IRS) records, to document another significant aspect of migration patterns: the flow of income across state borders.
 
 In addition, we examine homelessness trends and policies addressing this critical social issue, often associated with housing affordability challenges, which hold particular significance for metropolitan areas in California and other urban areas across the country. 
@@ -8,16 +14,58 @@ In addition, we examine homelessness trends and policies addressing this critica
 
 In this chapter, we conduct exploratory data analysis to illustrate supply-side factors and key challenges related to housing unaffordability, such as homelessness. Additionally, we uncover the significant effects of migration across state borders from the perspective of taxation and revenue in both the origin and destination metropolitan areas. Internal Revenue Service data provides an opportunity to quantify revenue losses in the origin metropolitan areas while demonstrating the positive contributions to the host area's economy.
 
-The main source of information to achive this analysis comes from the Internal Revenue Service (IRS). In this conceptual strategy, Tax data represent a complementary view of population movements.  In order to approximate migration, the IRS records year-to-year address changes reported on individual income tax returns filed and documented by data on IRS Form 1040. 
+There are three  main sources of information to achieve this analysis.
 
-In particular it records the number of residents that moved to a State or county and the origin from where they moved [@internalrevenueserviceMigrationDataUsers2021]. Data corresponds to calendar year 2020-2021, So it represents income earned during 2020. the most up to date information available at the moment of writing this book. 
+First, supply side determinants are studied base on...
+
+
+comes from the Internal Revenue Service (IRS). In this conceptual strategy, Tax data represent a complementary view of population movements.  In order to approximate migration, the IRS records year-to-year address changes reported on individual income tax returns filed and documented by IRS Form 1040. 
+
+In particular this approach records the number of residents that moved to a State or county and the origin from where they moved [@internalrevenueserviceMigrationDataUsers2021]. Data corresponds to calendar year 2020-2021, So it represents income earned during 2020. the most up to date information available at the moment of writing this book. 
 
 According to the IRS,this data captures the situation prior to late September of each calendar year and represent between 95 and 98 percent of total annual filings[@internalrevenueserviceMigrationDataUsers2021], so it provides an arguably complete base scenario to evaluate this topic at a geographic suitable scale.
-IN addition this source offers the age of the tax payer which is valuable to better understand migrants incomes profiles.
+In addition this source provides demographic details such as the age of the tax payer, which is valuable to better understand migrants incomes profiles.
 
 
-# Revenu landscapes for origin and destination metropolitan areas.
+
+
+
+
+## Revenue landscapes for origin and destination metropolitan areas.
 
 Considering population flows across state lines, the analysis indicates that California is the main contributor of out of state migration in the U.S. representing  one of three  or $30.4%$  of the total out of state IRS return filings.
 
+
+```{r, include=FALSE}
+###populaiocesusdaa
+###https://www.census.gov/data/developers/data-sets/popest-popproj/popest.Vintage_2019.html#list-tab-2014455046
+
+### DATA WRANGLING FOR CONSTRUCTION PERMITS  ###
+
+###################################################
+
+#SOURCE: https://www.census.gov/construction/bps/msamonthly.html Survey of Construction. tOTAL  INCLUDES SINGLE unit  two units, three unit  and 5 or more units. permits refers to construction authorizations.  https://www.census.gov/construction/nrc/historical_data/index.html
+# See definitions at:  https://www.census.gov/construction/nrc/definitions/bps.html
+
+# Note. To use population census data  and construction permits to estimate the location quotient (to measure the relative concentration of construction activity controlling by population size ), we have the most up to date 2019 population estimates  and we can use 2019 permites data. Although there is data for construction for up to 2020. We are not able to use it because of the restriction in the US census bureau data.
+
+
+# Data on consruction permits for 2019 by msa
+permits<-read.csv("permits2019.csv")%>%
+separate(msa, into = c("msa", "state"), sep = ",", remove = TRUE)%>%mutate(t=sum(permits2019))
+                                                      # Data on population by MSA  for 2019  ACS  estiamte. 
+
+pop2019<-read.csv("pop2019.csv")%>%
+  rename(code=metropolitan.statistical.area.micropolitan.statistical.area)
+
+lq<-permits%>%left_join(pop2019)
+
+lq<-lq%>%mutate(tpop=sum(POP), num=(permits2019/POP)*100, den=(t/tpop)*100, lq=round((num/den)*100,2)) 
+
+medianlq<-lq%>%summarize(m=median(lq))
+                  
+lq<-lq
+
+
+```
 
