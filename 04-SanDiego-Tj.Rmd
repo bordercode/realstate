@@ -74,7 +74,7 @@ For example, demand for space to lease and develop werehouse facilities is direc
 
 In the other hand, the intense people movement observed in Tituana´s San Ysidro port of entry reflects the underlying social dynamics that this region generates[@doi:10.1177/019791839603000407] which is strongly influenced by specific economic determinants, one such key driving factor being a bi-national labor market and housing market prices differentials. 
 
-This factors make the commuting a regular part of life at the Tijuana-San Diego Border either by pedestrians or passenger vehicles. However given the volume of border crossings in this category, there are considerable productivity losses when taking into account the wait times that this massive volume of traffic generates, an issue that has been documented elsewhere by several studies including [@haralambidesSUPPLYCHAINBOTTLENECKS2004; @rodriguezEconomicImpactMore2022;@alfaroUSMexicoCommerceTracking2023].
+These factors make the commuting a regular part of life at the Tijuana-San Diego Border either by pedestrians or passenger vehicles. However given the volume of border crossings in this category, there are considerable productivity losses when taking into account the wait times that this massive volume of traffic generates, an issue that has been documented elsewhere by several studies including [@haralambidesSUPPLYCHAINBOTTLENECKS2004; @rodriguezEconomicImpactMore2022;@alfaroUSMexicoCommerceTracking2023].
 
 To understand the time involved in crossing the border,figure 2, presents a closer look at US-Mexico border ports of entry wait times for category passenger vehicles.
 
@@ -154,9 +154,12 @@ setView(zoom = 11, -116.8932356,  32.4990096)
 ```
 
 ![](images/heatmap_TJ_buildings.jpg){width=100%}
+Source: José Luis Manzanares Rivera with data from: Open Street map, QOSM, QGIS plug-in and INEGI open data geographic shape. 2023.
 
+The spatial relationship between industrial building's concentration and urban sprawl, points to specific infrastructure challenges for the metropolitan area.  At the same time, it indicates a connection between a labor market dominated by the manufacture sector and the social processes such as migration that characterize the urban expansion and economic growth of this mexican border city.
+As can be noted in figure 3,  the squatter areas that proliferate in the outskirts of the city around the industrial clusters, indicate disadvantages related to the availability of services that otherwise are common in the central areas of the city, areas that are no longer affordable to this population segments given  the increasing transformation of scarce apace and a dynamic short term rental markets that both local and  customers coming from the US side of the border, are consolidating. 
 
-
+The future holds many  challenges for border metropolitan areas in the mexican side, whose demographic pressures linked to its particular  location, require  proactive and innovative actions to prevent the deepening of the current housing  unaffordability trend.
 
 
 

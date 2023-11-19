@@ -1,5 +1,5 @@
 --- 
-title: "Moving south: The double price-out effect"
+title: "Patrones espaciales de migración interna asociados a las fluctuaciones en el mercado inmobiliario."
 author: "José Luis Manzanares Rivera"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -16,10 +16,12 @@ cover-image: "images/cover1.jpg"
 url: https://price-out.netlify.app/
 ---
 
-# Welcome {-}
+# XLIII CONGRESO NACIONAL Y XXVIII INTERNACIONAL DE GEOGRAFÍA
+DE LA SOCIEDAD CHILENA DE CIENCIAS GEOGRÁFICAS.
 
-This is the online site of the book *Moving south. The double priced-out effect*
+**Valdivia**, Región de los Rios, Chile.
 
+Noviembre 2023.
 
 <img src="images/cover1.jpg" class="cover" width="250" height="328"/>
 <hr>
@@ -30,7 +32,7 @@ If you find the research helpful, you can contribute to the project by:
 
 - Sharing it with your team and networks.
 
-- Commenting on digital media, for example, using the hashtag #Housingontheborder on Twitter.
+- Commenting on digital media, for example, using the hashtag #Housingontheborder on X.
 
 - Citing it or linking to it.
 
