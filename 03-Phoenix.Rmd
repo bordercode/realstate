@@ -1,4 +1,4 @@
-# Feeling the heath: The California-Maricopa route, in search for affordable housing.
+# Feeling the heat: The California-Maricopa route, in search for affordable housing.
 
 ```{r, include=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)

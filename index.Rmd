@@ -16,12 +16,13 @@ cover-image: "images/cover1.jpg"
 url: https://price-out.netlify.app/
 ---
 
-# XLIII CONGRESO NACIONAL Y XXVIII INTERNACIONAL DE GEOGRAFÍA
+# Patrones espaciales de migración interna.
+
+
+XLIII CONGRESO NACIONAL Y XXVIII INTERNACIONAL DE GEOGRAFÍA
 DE LA SOCIEDAD CHILENA DE CIENCIAS GEOGRÁFICAS.
 
-**Valdivia**, Región de los Rios, Chile.
-
-Noviembre 2023.
+**Valdivia**, Región de los Rios, Chile. **Noviembre 2023.**
 
 <img src="images/cover1.jpg" class="cover" width="250" height="328"/>
 <hr>
@@ -49,7 +50,7 @@ If you find the research helpful, you can contribute to the project by:
 library(downloadthis)
 
 download_link(
-  link = "https://www.dropbox.com/s/g9jz1nzh3nc2dns/Chile3030.pdf?dl=0",
+  link = "",
   button_label = "Download PDF file",
   button_type = "danger",
   has_icon = TRUE,
@@ -109,7 +110,7 @@ Empirically it can be argued that each of these economic features has been influ
 
 At a regional scale and particularly considering the US-Mexico border population centers, one of such areas where impacts are of concern, is real state and the resulting housing market.
 
-While the manufacturing industrial sector demand for warehouse space for instance, has been a key driver of commercial land prices in these border urban areas, until recently, less understood were Mexico´s northern border city´s residential housing patterns. 
+While the manufacturing industrial sector demand for warehouse space for instance, has been a key driver of commercial land prices in these border urban areas, until recently, less understood were Mexico´s northern border cities, residential housing patterns. 
 
 A central argument for this work is that explaining regional economic dynamics is relevant to better understand local scale opportunities that the US-Mexico relationship offers to improve border residents´s quality of life.
 
