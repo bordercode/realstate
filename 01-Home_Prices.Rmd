@@ -93,7 +93,7 @@ When we analyze real estate market fluctuations in the context of affordability 
 By xamining this aggregate economic indicator it is possible to distinguish which states of the country exhibit the most expensive housing markets and therefore which areas of the country represent particular challenges either for households entering the market or those families already paying a mortgage. 
 
 
-Regional price parties capture variations in the cost of living across different region of the country, this indicator is important because it helps to understand the relative purchasing power and living standards in different geographic areas and particularly when considering the housing component, it provides a measure to compare the real estate market conditions relative to the country.  
+Regional price parties capture variations in the cost of living across different regionS of the country, this indicator is important because it helps to understand the relative purchasing power and living standards in different geographic areas and particularly when considering the housing component, it provides a measure to compare the real estate market conditions relative to the country.  
 
 The RPP base level is the national average which takes a value of 100, so RPP values above this national threshold indicate relative more expensive states in terms of housing prices.
 
@@ -147,7 +147,7 @@ It can be seen that the US west coast border state of California has the highest
 
 In order to get a higher level of detail on the behavior of house price fluctuations,  metropolitan statistical areas around the country are now analyzed, considering the House price index developed by the Federal Housing Finance Agency, ^[indicated as FHFA for further reference in this work], this measure is explicitly designed to capture fluctuations of the housing market since it includes prices of new homes as discussed in the methodology section of this chapter.  
 
-The data analysis strategy design aims to extract the changes in prices over a two decade time frame for each metropolitan area so, we are able to measure not only which metropolitan areas have registered the bigger price gains between 2000 and 2020 but also it´s annual rate of growth. 
+The data analysis strategy design aims to extract the changes in prices over a two decade time frame for each metropolitan area so, we are able to measure not only which metropolitan areas have registered the bigger price gains between 2000 and 2020 but also the speed of that change, as measured by it´s annual rate of growth. 
 
 Measuring price fluctuations using the HPI developed by an independent federal agency such as FHFA, is important for two reasons in the context of this investigation: I) It informs on the potential changes on home equity fluctuations over time with a geographic perspective, which expose real estate investment opportunities  II) It reflects existing financial barriers and/or opportunities to entry into the housing market for households looking to relocate, so is an appropriate economic indicator that helps to explain  current internal migration patterns.  
 
