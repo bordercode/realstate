@@ -78,9 +78,9 @@ A third goal is to analyze non-conventional economic data^[Conventional economic
 
 This tool provides insights into the relative popularity of search terms over a particular period of time and across different regions. And it has become a relevant source for academic research recently from areas in the social sciences field as well as other disciplines such as natural sciences and public health. [@askitasTrendSpottingHousingMarket2016], [@avramescuNowcastingRomanianMigration2021], [@vazquezGRANDESDATOSGOOGLE2020], [@kamMonitoringDroughtAwareness2019].
 
-By analyzing the search volume data obtained from Google Trends, this data source allows us to observe and compare the changes in interest and search patterns for various topics using a score in the close domain [0-100], where 100 indicates the highest volume of searches for a particular place and time and 0 indicates the lowest volume for the term at a precise moment in time and location.
+By analyzing the search volume data obtained from Google Trends, this data source allows us to observe and compare the changes in preferences and search patterns for various topics using a score in the close domain [0-100], where 100 indicates the highest volume of searches for a particular place and time and 0 indicates the lowest volume for the term at a precise moment in time and location.
 
-By analyzing the search behavior of internet users, Google Trends offers a valuable resource for understanding the relative level of interest and attention that a topic or keyword generates within the online population. We analyze three important words that characterize equal number of aspects for the US housing markets: affordable home, Foreclosure and eviction. 
+By analyzing the search behavior of internet users, Google Trends offers a valuable resource for understanding the relative level of social attention that a topic or keyword generates within the online population. We analyze three important words that characterize equal number of aspects for the US housing markets: affordable home, Foreclosure and eviction. 
 This keywords allow to answer questions on where and when does people (Google users) are looking for this words, specially the term Foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
 
 
@@ -172,7 +172,7 @@ ca<-filter(df,State==" CA"|State==" CA (MSAD)")
 
 mapviewOptions(vector.palette=colorRampPalette(c("blue","orange","red")))
 
-mapa<-mapview(df, map.types =  "OpenStreetMap.DE",cex="hpi20", zcol="hpi20", layer.name= "MSA House Price Index",legend = FALSE,homebutton =FALSE)
+mapa<-mapview(df, map.types =  "OpenStreetMap.DE",cex="hpi20", zcol="hpi20", layer.name= "MSA House Price Index",legend = TRUE,homebutton =FALSE)
   
 leafem::addMouseCoordinates(mapa)%>%setView(zoom = 3.6, -96.5716694, 39.1836082)
 
