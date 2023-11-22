@@ -16,7 +16,7 @@ cover-image: "images/cover1.jpg"
 url: https://price-out.netlify.app/
 ---
 
-# Patrones espaciales de migración interna.
+# Patrones espaciales de migración interna. {-}
 
 
 XLIII CONGRESO NACIONAL Y XXVIII INTERNACIONAL DE GEOGRAFÍA

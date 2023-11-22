@@ -1,12 +1,9 @@
-patrones-espaciales-de-migración-interna.
 house-prices-interest-rates-and-investment-opportunities.
 data-and-methods.
 results.
 interest-rates-as-a-key-macroeconomic-policy-instrument-shaping-real-estate-decisions.
 capturing-housing-market-social-sentiment-embedded-in-google-search-engine-data.
 housing-market-reactions-and-potential-investment-opportunities.
-discussion.
-conclusions.
 internal-migration-patterns.
 data-and-methods
 moving-across-state-borders.
