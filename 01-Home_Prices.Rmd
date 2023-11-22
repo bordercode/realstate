@@ -155,7 +155,7 @@ Figure 2 below shows the House Price index (HPI) distribution across the 387 U.S
 
 The index depicts housing market prices taking 1995 as base year.  So higher values indicate a relative average increase overtime and therefore more expensive locations than those with smaller circles.   
 
-[Figure 2 Home price index HPI ](../rmd_output/speech/F2map.html).
+[Figure 2 Home price index HPI ](C:\Users\josel\Desktop\on\I\2023\HOUSING\realstate\speech\F2map.html).
 
 ```{r,  warning=FALSE, message=FALSE, echo=FALSE}
 
