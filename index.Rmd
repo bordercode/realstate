@@ -1,6 +1,5 @@
 --- 
-title: "Patrones espaciales de migración interna asociados a las fluctuaciones en el mercado inmobiliario."
-author: "José Luis Manzanares Rivera"
+title: "Uncovering us Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::bs4_book
@@ -11,18 +10,15 @@ biblio-style: apalike
 link-citations: yes
 colorlinks: yes
 graphics: yes
-description: "This is a research about housing access conditions for the mexican populaion living in cities located along the northern border. It provides a current characterization of the economic conditions that prevail in border communities and dive into emerging forces that shape the real state industry today in this strategic region."
+description: "This research explores the relationship between fluctuations in housing market prices and internal migration trends. It offers a contemporary characterization of the economic conditions prevalent in metropolitan areas across the United States and delves into the emerging forces shaping the real estate industry today at a regional scale. There is a particular emphasis on strategic areas of the country, such as the US-Mexico border. Interactive display and visualization is a center element of the book analysis strategy."
 cover-image: "images/cover1.jpg"
 url: https://price-out.netlify.app/
 ---
 
-# Patrones espaciales de migración interna. {-}
+# Welcome {-}
 
 
-XLIII CONGRESO NACIONAL Y XXVIII INTERNACIONAL DE GEOGRAFÍA
-DE LA SOCIEDAD CHILENA DE CIENCIAS GEOGRÁFICAS.
-
-**Valdivia**, Región de los Rios, Chile. **Noviembre 2023.**
+This is the online site of the book *Using Posit interactive mapping libraries to uncover current Housing market fluctuations and internal migration patterns.*
 
 <img src="images/cover1.jpg" class="cover" width="250" height="328"/>
 <hr>
