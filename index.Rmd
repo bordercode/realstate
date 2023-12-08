@@ -1,5 +1,5 @@
 --- 
-title: "Uncovering us Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries."
+title: "Uncovering US Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::bs4_book
@@ -33,7 +33,7 @@ If you find the research helpful, you can contribute to the project by:
 
 - Citing it or linking to it.
 
-- Enjoy the read by purchasing a copy at: [geoinsight]()
+- Enjoy the read by purchasing a copy at: [Alerce]()
 
 - You can also download a **free** copy in PDF or epub format.
 

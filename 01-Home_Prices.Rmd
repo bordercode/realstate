@@ -49,7 +49,7 @@ The study covers all 48 continental adjacent US states, excluding: District of C
 
 A primary goal is to explore real state market fluctuations over time, to achieve this purpose we measure three concepts: house price levels, price appreciation and purchasing parity based on housing prices. 
 
-To measure house price levels the main input variable is the quarterly seasonally adjusted house price index for the period 1995:Q1 (base year) to 2022:Q4 for 387 MSAs for which  Federal housing finance agency  (FHFA) price indices are available. 
+To measure house price levels, the main input variable is the quarterly seasonally adjusted house price index for the period 1995:Q1 (base year) to 2022:Q4 for 387 MSAs for which  Federal housing finance agency  (FHFA) price indices are available. 
 
 The FHFA House Price Index (FHFA HPI) is a broad economic measure of the movement of single family house prices in the United States [@fhfaHousePriceIndex2022].  The data set analyzed in this chapter contains purchase only  transactions, the aim is to capture the price level fluctuations a feature estimated by using sales price data as opposed to appreciation. (which considers a repeat transaction methodology).
 
@@ -80,8 +80,8 @@ This tool provides insights into the relative popularity of search terms over a 
 
 By analyzing the search volume data obtained from Google Trends, this data source allows us to observe and compare the changes in preferences and search patterns for various topics using a score in the close domain [0-100], where 100 indicates the highest volume of searches for a particular place and time and 0 indicates the lowest volume for the term at a precise moment in time and location.
 
-By analyzing the search behavior of internet users, Google Trends offers a valuable resource for understanding the relative level of social attention that a topic or keyword generates within the online population. We analyze three important words that characterize equal number of aspects for the US housing markets: affordable home, Foreclosure and eviction. 
-This keywords allow to answer questions on where and when does people (Google users) are looking for this words, specially the term Foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
+By analyzing the search behavior of internet users, Google Trends offers a valuable resource for understanding the relative level of social attention that a topic or keyword generates within the online population. We analyze three important words that characterize equal number of aspects for the US housing markets: affordable home, foreclosure and eviction. 
+This keywords allow to answer questions on where and when does people (Google users) are looking for this words, specially the term foreclosure, serve as a proxy for home owners interest whereas eviction represents the renter´s segment. 
 
 
 ## Results.
@@ -90,10 +90,10 @@ The analysis is organized in two stages: the first provides a national approach 
 
 When we analyze real estate market fluctuations in the context of affordability housing, understanding regional inflation patterns is crucial. In particular in this section the analysis starts by exploring the housing component for the regional price parity (RPP), this is an indicator developed by the Bureau of Economic Analysis (BEA) to measure price fluctuations at a regional scale. 
 
-By xamining this aggregate economic indicator it is possible to distinguish which states of the country exhibit the most expensive housing markets and therefore which areas of the country represent particular challenges either for households entering the market or those families already paying a mortgage. 
+By examining this aggregate economic indicator it is possible to distinguish which states of the country exhibit the most expensive housing markets and therefore which areas of the country represent particular challenges either for households entering the market or those families already paying a mortgage. 
 
 
-Regional price parties capture variations in the cost of living across different regionS of the country, this indicator is important because it helps to understand the relative purchasing power and living standards in different geographic areas and particularly when considering the housing component, it provides a measure to compare the real estate market conditions relative to the country.  
+Regional price parities capture variations in the cost of living across different regions of the country, this indicator is important because it helps to understand the relative purchasing power and living standards in different geographic areas and particularly when considering the housing component, it provides a measure to compare the real estate market conditions relative to the country.  
 
 The RPP base level is the national average which takes a value of 100, so RPP values above this national threshold indicate relative more expensive states in terms of housing prices.
 
