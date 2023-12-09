@@ -446,11 +446,11 @@ dyOptions(drawGrid = FALSE)
 Source: José Luis Manzanares Rivera based on data from [@federalreseveFinancialAccountsUnited2023]
 
 
-As the monetary policy strategy incorporated by economic agents, existing home owners, home equity has more than double during the last decade (from 2006Q4 to 2022Q4 with a 213% growth).
+As monetary policy measures were incorporated by the markets, existing home owner's home equity more than double during the last decade (from 2006Q4 to 2022Q4 with a 213% growth).
 
 **Why there was such growth in home equity in the nation during the last decade?** 
 
-As we have seen, monetary policy is partially responsible for this trend, given a sustained period of quantitative easing. (starting from December 2008 with a Federal reserve effective rate (FFFER) = $0.16\%$ down from $5.26\%$ in July 2007 -prior to sub prime mortgage market collapse- Followed by a second ultra low FFER period that was implemented to cope with a deceleration of the economy in the presence of the global public health emergency triggered  by the COVID-19 restrictions, starting at 2020Q1 with FFER = $0.05\%$ down from FFER=$2.40 \%$ in june 2019. 
+As we have seen, special monetary policy measures took place in response to the macroeconomic scenario, given a combined period of ultra low interest rates, reinforced by quantitative^[While QE and low interest rates often go hand in hand, is worth nothing that they are distinct policy tools. QE is a specific strategy involving the purchase of assets, while low interest rates refer to the level at which the central bank sets its benchmark interest rate. In this particular case, both policy tools were used.] easing intended to induce liquidity to the markets. Starting from December 2008 with a Federal reserve effective rate (FFFER) = $0.16\%$ down from $5.26\%$ in July 2007 -prior to sub prime mortgage market collapse- Followed by a second ultra low FFER period that was implemented to cope with a deceleration of the economy in the presence of the global public health emergency triggered  by the COVID-19 restrictions, starting at 2020Q1 with FFER = $0.05\%$ down from FFER=$2.40 \%$ in june 2019. 
 
 **Who benefited from this historical monetary policy scenario  characterized by ultra low interest rate?** 
 
