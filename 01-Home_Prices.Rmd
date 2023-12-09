@@ -456,17 +456,17 @@ As we have seen, special monetary policy measures took place in response to this
 
 Specially people who bought homes in attracting real estate markets areas with dynamic internal migration patterns, who manage to **profit** from this  **historic ultra low interest rate** period, by entering the market and securing a Fixed-rate mortgage just after the sub prime mortgage collapse, that is **between December 2008 and November 2015.**  
 
-This movers took advantage of the economic stimulus provided by the macroeconomic environment created with a monetary policy oriented for **quantitative easing**, a strategy  designed to lower the price of money in an effort to boost consumption and investment, among other things. For example, **home equity** for existing housing stock in the US in 2012Q1 was **$10.25$T** and it **grew to $33.78$T in 10 years**,  a **3X order of magnitude increase!**
+This movers took advantage of the economic stimulus provided by the macroeconomic environment created with a monetary policy oriented for **quantitative easing**, and dovish interest rates, a strategy  designed to lower the price of money in an effort to boost consumption and investment, among other things. For example, **home equity** for existing housing stock in the US in 2012Q1 was **$10.25$T** and it **grew to $33.78$T in 10 years**, virtually a 3X fold increase!**
 
-In addition, detailed mortgage records kept by government sponsored enterprises such as Freddie Mac and Fannie Mae, allow to distinguish the type of loan granted to actual current mortgage clients, this data is important to show real estate investment trends across Metropolitan areas. 
+In addition, as the housing market gain stem after the policy actions, investment trends across Metropolitan areas start to develop reshaping the home prices geography and creating incentives for people to relocate.   Detailed mortgage records kept by government sponsored enterprises such as Freddie Mac and Fannie Mae, allow to distinguish the type of loan granted to actual current mortgage clients, this data is important to show real estate reconfiguration in terms of housing demand. 
 
-Nationwide **87.3%** of **Freddie Mac clients** are paying a loan for a house that is a **primary residence.** Almost **4%** of  Freddie Mac home buyers are buying a **second home**.  And **8.9%** are paying a home loan classified as **investment.** 
+Considering data for 2022, nationwide **87.3%** of **Freddie Mac clients** are paying a loan for a house that is a **primary residence.** Almost **4%** of  Freddie Mac home buyers are buying a **second home**.  And **8.9%** are paying a home loan classified as **investment.** 
 
 If we think of **second home loans** as a proxy for social status, say, better off household apply for this type of loan, then the  families in the states of  **Virginia, Vermont, Delaware  Maine and Florida** are the places were this type of families mostly live. 
 
 Figure 7  below ranks metropolitan areas (MSAs) by the number of loans classified as investment by Freddie Mac single family loan data for the first quarter of 2022 [@freddiemachomeSingleFamilyLoanLevel2023]. 
 
-[Figure 7. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1](../speech/F7_invest.html)
+**Figure 7. Top 20 Metropolitan Areas. Investment Home loans 2022-Q1**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -521,10 +521,10 @@ Furthermore, data analysis at the state scale indicates that **California** is t
 
 Lets now analyze from a geographic perspective, how home prices have appreciated during this economic policy changes.
 
-Figure 8 below shows a national perspective for the distribution of home price index developed by Freddie Mac in a monthly series which takes as base year 2000. The figure shows year 2006 figures in order to capture a moment in time prior to the implementation of a dovish monetary policy and then it allows comparison to the current year 2023.
+Figure 8 below shows a national perspective for the distribution of home price index developed by Freddie Mac in a monthly series which takes as base year 2000. The figure shows year 2006 data in order to capture a moment in time prior to the implementation of a dovish monetary policy and then it allows comparison to the current year 2023.
 
 
-[Figure 8 HPI by state 2006](../speech/F6_hpi.html)
+**Figure 8 HPI by state 2006**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -553,9 +553,9 @@ leafem::addMouseCoordinates(hpi06_map)%>%setView(zoom = 3.6, -96.5716694, 39.183
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
 
-Evidence suggest that before the great recession and prior to the implementation of quantitative easing monetary policies, the  US housing market, featured California and Florida as the top most expensive regions of the country. Together with a well defined region along the north eastern cost with New York Virginia and Maryland comprised a traditional high cost set of states. Virtually the central regions of the country were not showing sings of significant house price increases as of 2006.
+Evidence suggest that before the great recession and prior to the implementation of quantitative easing monetary policies, the  US housing market, featured California and Florida as the top most expensive regions of the country. Together with a well defined region along the north eastern cost with New York, Virginia and Maryland comprised a traditional high cost set of states. Virtually the central regions of the country were not showing sings of significant house price increases as of 2006.
 
-As we have shown, the implementation of historic measures to stabilize the economic environment lead to very special and not usual conditions that served as changing forces that have impacted the real estate market landscape. These factors created both, market incentives for investment opportunities as well as affordability issues for some segments of the US population, that in the face of being price-out are reinforcing current internal migration patterns.
+As we have shown, the implementation of historic measures to stabilize the economic environment lead to very special and not usual conditions that served as changing forces that have impacted the real estate market landscape. These factors created both, market incentives for investment opportunities as well as affordability issues for some segments of the US population, that, in the face of being price-out are reinforcing current internal migration patterns.
 
 
 The following map shows the "after" scenario featuring HPI levels for 2023. 
