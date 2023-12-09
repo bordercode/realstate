@@ -592,15 +592,15 @@ Following the implementation of macroeconomic policy with an extended period of 
 In this regard we identify at least two important geographic patterns  I) A movement of high housing prices from the pacific west cost towards the northeastern states closer to Canadian border.  Furthermore, considering the south, two Mexican border states are showing a rapidly increasing real estate market: Arizona and Texas II) Traditionally expensive states in the north east, have been experiencing a relative cooling off in favor of emerging regions. 
 
 
-There are two particular cases that require a closer examination:
+Among the emerging regions, there are two particular cases that require a closer examination:
 
 
-**The case of Arizona** The significant House Price Index (HPI) increase observed in Arizona, particularly in the Phoenix metropolitan area, can be attributed to various real estate elements and economic features. Some factors that may explain this trend include: population growth and economic development, both factors impacting prices via a growing housing demand. 
+**The case of Arizona** The significant House Price Index (HPI) increase observed in Arizona, particularly in the Phoenix metropolitan statistical area, can be attributed to various real estate elements and economic features. Some factors that may explain this trend include: population growth and economic development, both factors impacting prices via a growing housing demand. 
 
-Population Growth: Phoenix has experienced substantial population growth over the last two decades. The increasing population creates a higher demand for housing, leading to upward pressure on home prices, as shown  by  figure 9 below.
+Population Growth: Phoenix has experienced substantial population growth over the last two decades. The increasing population creates a higher demand for housing, leading to upward pressure on home prices.
 
 
-Economic Development: Phoenix has been a hub for economic development, attracting industries such as technology, finance, healthcare, and manufacturing. The presence of major companies, business-friendly policies related to tax regulations, and a growing job market have contributed to the region's economic growth. This, in turn, stimulates demand for housing which exhibits a direct positive relation to price increases as we will now analyze using population, per capita income and house prices at a metropolitan area scale for selected US-Mexico Border (MSAs).
+Economic Development: Phoenix has been a hub for economic development, attracting industries such as technology, finance, healthcare, and manufacturing. The presence of major companies, business-friendly policies related to tax regulations, and a growing job market have contributed to the region's economic growth. This, in turn, stimulates demand for housing which exhibits a direct positive relation to price increases. The next chapter analyses this relationship in detail. 
 
 
 **The case of Idaho.** 
@@ -655,7 +655,7 @@ Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base yea
 
 Finally figure 9 below represents the evolution of house prices for US Mexico border Metropolitan statistical areas. 
 
-**Figure 9 US-Mexico border (MSAs). Housing prices evolution**
+**Figure 9 US-Mexico border (MSAs). Housing prices evolution 1975-2020**
 
 
 ```{r, include=FALSE}
