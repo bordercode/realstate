@@ -561,8 +561,7 @@ As we have shown, the implementation of historic measures to stabilize the econo
 The following map shows the "after" scenario featuring HPI levels for 2023. 
 
 
-
-[Figure 8b HPI by state 2023](../speech/F7_hpi23.html)
+**Figure 8b HPI by state 2023**
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 library(wesanderson)
@@ -588,9 +587,9 @@ leafem::addMouseCoordinates(hpi23_map)%>%setView(zoom = 3.6, -96.5716694, 39.183
 ```
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
-Following the implementation of macroeconomic policy with an extended period of favorable interest rates, empirical evidence suggest that the housing market have been diversifying out of the **traditional high cost regions** of the country. 
+Following the implementation of macroeconomic policy with an extended period of favorable interest rates, empirical evidence suggest that the housing market have been diversifying out of the **traditional high cost regions**^[For the purposes of this investigation, traditional high cost regions refers to  California, Florida and the north eastern cost states of New York, Virginia and Maryland] of the country. 
 
-In this regard we identify at least two important geographic patterns  I) A movement of high housing prices from the pacific west cost towards the northeastern states closer to Canadian border.  Also, considering the south, two Mexican border states are showing a rapidly increasing real estate market: Arizona and Texas II) Traditionally expensive states in the north east, have been experiencing a relative cooling off in favor of emerging regions. 
+In this regard we identify at least two important geographic patterns  I) A movement of high housing prices from the pacific west cost towards the northeastern states closer to Canadian border.  Furthermore, considering the south, two Mexican border states are showing a rapidly increasing real estate market: Arizona and Texas II) Traditionally expensive states in the north east, have been experiencing a relative cooling off in favor of emerging regions. 
 
 
 There are two particular cases that require a closer examination:
