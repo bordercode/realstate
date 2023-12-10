@@ -273,6 +273,21 @@ The following figure considers data on the factors discussed above, for all Metr
 only_border2020<-readRDS("df_inc_pop_hpi2020.rds")%>%
   mutate(state=as.factor(state))
 
+## just a proof test for correlation statistical significance ## 
+
+##cor_test_by_state <- function(subset) {   result <- cor.test(subset$pp_inccome, subset$hpi)   return(data.frame( correlation = result$estimate,     conf_interval_low = result$conf.int[1],     conf_interval_high = result$conf.int[2],p_value = result$p.value))}
+
+# Apply the function to each state
+#cor_test_results <- by(only_border2020, only_border2020$state, cor_test_by_state)
+
+# Convert the result to a data frame
+#cor_test_df <- do.call(rbind, cor_test_results)
+#print(significant_results)
+
+# Print or view the result
+#print(cor_test_df)
+#significant_results <- cor_test_df$p_value < 0.05
+
 p <- ggplot(only_border2020, aes(pp_inccome, hpi, size = Population, colour = state, label=msa)) +
   geom_point(alpha = 0.7) +
   scale_size(range = c(1, 6))  +
@@ -301,23 +316,24 @@ ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>%
 ```
 Source: José Lus Manzanares Rivera base on data from Federal Housing Finance Agency  [@fhfaHousePriceIndex2022, @bureauofeconomicanalysisPersonalIncomeCounty2023]
 
-Although data provides sound evidence that personal per capita income and house prices are positively correlated, degrees of correlation varies between border state´s metropolitan areas, with the strongest relationship being observed by Californian MSA, where we also find the most expensive metropolitan areas of the border states considering housing prices. 
+Although data provides sound evidence that personal per capita income and house prices are positively correlated in California, (where we also find the most expensive metropolitan areas of the border states considering housing prices), with a statistical significant relationship (Corr = 0.8727813, p-value = $6.106278e-09$ < $\alpha$ 0.05) degrees of correlation varies between the rest border states metropolitan areas, with not significant correlations in Arizona and New Mexico and only a weak relationship being observed by Texas MSA's (corr=$0.45$, p-value = $2.675287e-02$, $\alpha$=0.05).
+).
 
-In addition, there is only a weak positive relationship between house prices as measured by the HPI and population size, this is the case for New Mexico, where relative large size metropolitan areas such as Albuquerque still exhibit affordable house prices. Population size being a proxy for housing demand. 
+In addition, there is only a weak positive relationship between house prices as measured by the HPI and population size (population size being a proxy for housing demand), a good example of this behavior is the case for New Mexico, where relative large size metropolitan areas such as Albuquerque still exhibit affordable house prices. 
 
 While this pattern found makes sense considering the basic principles of economics concerning scarcity, it also suggest that other factors influence house price fluctuations, including the underlying labor market structure and demand for highly skilled labor force, which is certainly the case for metropolitan areas located near the Silicon Valley region in California such as the San Jose-Sunnyvale-Santa Clara (MSA), which is the most expensive metropolitan area in the whole country considering the house price index for 2022, but is not necessarily a big size metropolitan area.
 
 
 Secondly, using a Cartesian approach to analyze resulting patterns from the above data representation, and dividing the  plot into four quadrants:  starting with the top right section being quadrant one, where the combination of higher than average house prices and  higher than average income levels are found and moving counter clock wise towards quadrant four, formed by the combination of higher than average personal income together with lower than average house prices levels. 
 
-We found that within the subset of MSAs that are located along the US-Mexico border, 95% lay inside the third quadrant, where there is a combination of below average personal income with relatively inexpensive house prices, Whereas only one  MSA in this particular geographic region, is situated at the first quadrant, that is the San Diego-Chula vista-Carlsbad in California´s southern border. 
+We found that within the subset of MSAs that are located along the US-Mexico border, 95% lay inside the third quadrant,that is they exhibit a combination of below average personal income with relatively inexpensive house prices, Whereas only one  MSA in this particular geographic region, is situated at the first quadrant, which is the San Diego-Chula vista-Carlsbad in California´s southern border. 
 
  
-This feature denotes a very different set of economic dynamics for the local movement of people across the border, making San Diego-Chula Vista-Carlsbad a very prone area for out migration, including cross border migration given the real estate market price differentials combined with the economic integration that bi national trade and manufacture hubs have developed across the border in o the Mexican metropolitan area of Tijuana.   
+This feature denotes a very different set of economic dynamics for the local movement of people across the border, making San Diego-Chula Vista-Carlsbad a very prone area for outmigration, including cross-border migration. This is due to the real estate market price differentials combined with the economic integration that bi-national trade and manufacturing hubs have developed across the border in the Mexican metropolitan area of Tijuana.  
 
 Furthermore, considering the information for year 2020, there is evidence of sharp differences among border metropolitan areas ^[defined for the purposes of this investigation as urban areas that lay  along the border line] house prices. 
 
-It is observed that for example that El Paso, TX, the second largest metropolitan area along the US-Mexico border, has a HPI 70% lower than  San Diego´s, CA (MSA), the city across Tijuana.  These patterns provide evidence of the relevance to study the housing markets in specific locations along the US-Mexico border, Tijuana-San Diego being a relevant case study.  
+Examining major urban centers within the US-Mexico border region reveals noteworthy differentials, particularly evident in the comparison between El Paso, TX, and San Diego, CA. As the second-largest metropolitan area along the US-Mexico border, El Paso exhibits a Home Price Index (HPI) approximately 70% lower than that of San Diego, a prominent city in the transborder region. Such marked variations underscore the importance of investigating housing markets in specific locales along the US-Mexico border, with the Tijuana-San Diego corridor serving as a pertinent case study for in-depth analysis.
 
 
 ```{r, include=FALSE}
@@ -734,7 +750,7 @@ geo_codes<-flows%>%select(GEO_Code, FULL2_NAME, City)
 
 As has been discussed in chapter 1, currently, the state of California features the most expensive real estate market in the country according to official estimations such as the Regional price parity housing component published by the Bureau of Economic Analysis  (BEA). 
 
-In addition, empirical evidence from the American Community Survey (ACS) internal migration flows, indicate that California is a leading state concerning negative migration flows and has been consistently experiencing negative net flows from its main Metropolitan areas.
+In addition, empirical evidence from the American Community Survey (ACS) internal migration flows, indicate that California is a leading state concerning negative migration flows and has been consistently experiencing negative net flows from its main Metropolitan areas during the last decade. 
 
 A question that is important to solve in the context is: Where are Californians moving to? Are they looking for more affordable locations?  How far are they moving? 
 
