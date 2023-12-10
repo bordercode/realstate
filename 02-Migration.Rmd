@@ -15,7 +15,9 @@ library(leafem)
 ```
 
 
-In this chapter, we explore the interplay among: geographic mobility of the population, income, and ethnicity, with a specific emphasis on analyzing out-of-state mobility for current residence at Metropolitan areas as the primary geographic unit of analysis. Drawing on economic theory, our study delves into the intricate dynamics that shape the patterns of population movement, shedding light on the factors influencing individuals' decisions to relocate across state lines. By examining the nexus of geographic mobility, income differentials, and racial composition, we aim to deepen our understanding of the complex interrelationships within metropolitan contexts and their implications for regional economic development with a focus on the Hispanic population. 
+In this chapter, we explore the interplay among: geographic mobility of the population, income, and ethnicity, with a specific emphasis on analyzing out-of-state mobility for current residence at Metropolitan areas as the primary geographic unit of analysis. Drawing on economic theory, our study delves into the intricate dynamics that shape the patterns of population movement, shedding light on the factors influencing individuals' decisions to relocate across state lines. 
+
+By examining the nexus of geographic mobility, income differentials, and racial composition, we aim to deepen our understanding of the complex interrelationships within metropolitan contexts and their implications for regional economic development with a focus on the Hispanic population. 
 
 We initially consider housing demand in relation to income. According to the basic principles of human capital theory, lay out during the last century by pioneer scholars such as: Ted Schultz, Jacob Mincer, Milton Friedman, Sherwin Rosen and of course, Gary Becker in his classic book:  Human Capital: A Theoretical and Empirical Analysis with Special Reference to Education [@beckerInvestmentHumanCapital1962],  income is determined among other factors, by education attainment levels,  both formal as represented by a particular schooling degree or a specific job training. 
 

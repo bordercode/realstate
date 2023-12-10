@@ -68,7 +68,7 @@ This indicator is particularly informative of the population purchasing power, s
 To capture demand side factors, Official population estimates from the US Census Bureau were obtained for years 2010-2020 [@uscensusbureauPopulationEstimatesEstimated2023], this is a variable that captures demographic dynamics overtime and serve as a proxy for housing demand.  
 
 Per capita personal Income (PPI) by metropolitan area from the U.S. Bureau of Economic Analysis is also included.
-[@bureauofeconomicanalysisPersonalIncomeCounty2023]. This variable contributes to capture inequality and financial barriers to access the housing market. In addition the income to house price ratio is useful to inform on the contextual factors affecting the decisions to move. 
+[@bureauofeconomicanalysisPersonalIncomeCounty2023]. This variable contributes to capture inequality and financial barriers to access the housing market. 
 
 A second goal of this chapter is to reveal the impact of monetary policy shifts on housing demand by examining time series data for interest rates. Specifically, we analyze how changes in interest rates influence the demand for home loans, which, in turn, has a significant effect on home prices.
 
@@ -653,7 +653,7 @@ usmapmig
 
 Source: José Luis Manzanares Rivera based on data from Freddie Mac HPI base year 2000 [@freddiemacFreddieMacHouse2023].
 
-Finally figure 9 below represents the evolution of house prices for US Mexico border Metropolitan statistical areas. 
+Finally figure 9 below represents the evolution of house prices for US Mexico border Metropolitan statistical areas over the last four decades.  
 
 **Figure 9 US-Mexico border (MSAs). Housing prices evolution 1975-2020**
 
