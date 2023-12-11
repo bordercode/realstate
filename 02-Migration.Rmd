@@ -316,8 +316,7 @@ ggplotly(p,tooltip = c("label","colour","x", "size", "hpi"))%>%
 ```
 Source: José Lus Manzanares Rivera base on data from Federal Housing Finance Agency  [@fhfaHousePriceIndex2022, @bureauofeconomicanalysisPersonalIncomeCounty2023]
 
-Although data provides sound evidence that personal per capita income and house prices are positively correlated in California, (where we also find the most expensive metropolitan areas of the border states considering housing prices), with a statistical significant relationship (Corr = 0.8727813, p-value = $6.106278e-09$ < $\alpha$ 0.05) degrees of correlation varies between the rest border states metropolitan areas, with not significant correlations in Arizona and New Mexico and only a weak relationship being observed by Texas MSA's (corr=$0.45$, p-value = $2.675287e-02$, $\alpha$=0.05).
-).
+Although data provides sound evidence that personal per capita income and house prices are positively correlated in California, (where we also find the most expensive metropolitan areas of the border states considering housing prices), with a statistical significant relationship^[Corr = 0.8727813, p-value = $6.106278e-09$ < $\alpha$ 0.05] degrees of correlation varies between the rest border states metropolitan areas, with not significant correlations in Arizona and New Mexico and only a weak relationship being observed by Texas MSA's^[corr=$0.45$, p-value = $2.675287e-02$, $\alpha$=0.05].
 
 In addition, there is only a weak positive relationship between house prices as measured by the HPI and population size (population size being a proxy for housing demand), a good example of this behavior is the case for New Mexico, where relative large size metropolitan areas such as Albuquerque still exhibit affordable house prices. 
 
@@ -760,7 +759,7 @@ Considering net migration flows reported by the ACS, almost half of the populati
 In light of the previous research question, Figure 4 provides an analysis of the distribution of destination states for Californians, along with a classification of housing market affordability. 
 
 
-**Figure 4, Net migration flows from California, by state and Regional price parities**
+**Figure 4. Net migration flows from California, by state and Regional price parities 2020**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -768,7 +767,7 @@ In light of the previous research question, Figure 4 provides an analysis of the
 #### plot for  type of  state migration  Affordable or High cost
 
 
-#netflows<-readRDS("netflows_2016-2020.rds")
+netflows<-readRDS("netflows_2016-2020.rds")
 
 #CA<-netflows%>%filter(State=="CA"&MOVEDNET<0)%>%group_by(FULL2_NAME)%>%  summarize(flow=sum(MOVEDNET))%>%mutate(City2 = str_extract(FULL2_NAME, "^[^,]+"),State2 = str_extract(FULL2_NAME, "\\b[A-Z]{2}\\b"),Area2 = str_extract(FULL2_NAME, "\\b[^,]+$"), type=ifelse(State2=="CA",1,0))%>%na.omit
 
@@ -813,7 +812,7 @@ In accordance with the findings, among those Californian households choosing to 
 
 Although inter state patterns above are informative of the overall preferences  of Californian internal migrants, it is important to determine which particular Metropolitan areas within these states have been the main destinations. 
 
-To achieve this goal we now analyze the negative net migration flows by metropolitan area for the state of California. 
+To achieve this goal we now analyze the negative net migration flows (that is, flows in which emigration surpassed arrivals) by metropolitan area for the state of California. 
 
 Figure 5 below shows results. In this representation, MSAs have been  classified to determine the housing market price level of the particular MSA using the House price index (HPI) from the Federal Housing Finance Agency (FHFA) for year 2016, which is the beginning year of the ACS sample period for migration flows 5 year release  estimates (2016-2020).  This year is selected to control the effect prior to the migration to the destination MSAs. 
 
