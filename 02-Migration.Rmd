@@ -816,7 +816,9 @@ To achieve this goal we now analyze the negative net migration flows (that is, f
 
 Figure 5 below shows results. In this representation, MSAs have been  classified to determine the housing market price level of the particular MSA using the House price index (HPI) from the Federal Housing Finance Agency (FHFA) for year 2016, which is the beginning year of the ACS sample period for migration flows 5 year release  estimates (2016-2020).  This year is selected to control the effect prior to the migration to the destination MSAs. 
 
-The classification is based on four categories to measure a variable called savings potential (SP). The savings potential implicit by the move is defined by the fraction that the HPI gap represents relative to origin housing prices level.  For example if  an HPI in the origin MSA is 128 and the destination MSA´s HPI  is 103, then the Saving potential implicit by the move expressed as percentage would be 25/128= 19.5 percent.
+The classification is based on four categories to measure a variable called savings potential (SP). The savings potential implicit by the move is defined by the fraction that the HPI gap represents relative to origin housing prices level.  
+
+For instance if  an HPI in the origin MSA is 128 and the destination MSA´s HPI  is 103, then the Saving potential implicit by the move expressed as percentage would be 25/128= 19.5 percent.
 It is important to notice that the HPI captures the evolution in time of house prices relative to a base year which is the same for all US MSA contained in the data set. 
 
 
@@ -935,7 +937,7 @@ mutate(moved=moved*-1)%>%
 
 Although internal migrants moving out of California dispersed to virtually all geographic regions of the country, 80% of the total net flow of out of state migrants, moved to a highly concentrated fraction of places representing only 26% of the total 300 destination MSAs as shown in figure 4 above.   
 
-Furthermore,  when we consider the housing market price differentials between origin and destination MSAs, it is found that  only 3.1 %  of the destinations present a negative HPI gap, (a negative HPI gap indicates a movement from a lower to a higher housing cost MSA). Once the magnitude of the net migration  by origin MSA flow is considered, the HPI gap proportion adjust to $6\%$ for movers to more costly areas. Which indicates that the vast majority $94\%$ of out of state migrants from California preferred a more affordable destination. 
+Furthermore,  when we consider the housing market price differentials between origin and destination MSAs, it is found that  only 3.1 %  of the destinations present a negative HPI gap, (a negative HPI gap indicates a movement from a lower to a higher housing cost MSA). Once the magnitude of the net migration  by origin MSA flow is considered, the HPI gap proportion adjust to $6\%$ for movers to more costly areas. Which indicates that the vast majority $94\%$ of out of state migrants from California choose a more affordable destination. 
 
 ```{r, include=FALSE}
 
@@ -1108,9 +1110,9 @@ Source: José Luis Manzanares Rivera based on data from [@uscensusbureauacsCount
 
 The main metropolitan destinations for Californians during the study period were:  Phoenix-Mesa-Chandler, Arizona, Las Vegas-Henderson-Paradise, Nevada, Boise City, Idaho  Denver-Aurora-Lakewood, Colorado and Houston-The Woodlands-Sugar Land, Texas. Whereas the top local (within state) destinations were:  Riverside-San Bernardino-Ontario, 
 Sacramento-Roseville-Folsom, San Francisco-Oakland-Berkeley, Stockton and Bakersfield Metro areas.
-It is interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, Which may in fact reflect a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area.
+It is interesting to note in the case of Riverside-San Bernardino-Ontario Metro area, it is a periphery location to Los Angeles, which may in fact, reflect a price-out effect from the more expensive Los Angeles-Long Beach-Anaheim Metro Area.
 
-To undestand which counties are the ones that are sending migrants to other states, the following map represents intensity of net migration flows from California at a county level as captured by the American Community survey from the Us Census Bureau 5 year estimates for the period 2016-2020. 
+To undestand which counties are the ones that are sending migrants to other states, the following map represents intensity of net migration flows from California at a county level as captured by the American Community survey from the US Census Bureau 5 year estimates for the period 2016-2020. 
 
 Given the real estate market conditions already discused for California, the representation considers negative net out of state flows coming from counties in the golden state only, controling for those destinations with an anual net flow greater or equal to 500 people, a treshold determined according to the overall distribution of the migration flows.  
 
@@ -1121,9 +1123,8 @@ The categories for the level of intensity where defined as follows: **Strong**  
 
 library(geosphere)
 
-
 b2a_geo<-read.csv("B2A_geo.csv")%>%mutate(flow=as.factor(ifelse(abs(Net_B2A)>=1017, "Strong", ifelse(abs(Net_B2A)>=706,"Moderate","Light"))))
-
+###
 flows <- gcIntermediate(b2a_geo[,3:2], b2a_geo[,6:5], sp = TRUE, addStartEnd = TRUE)
 
 flows$Net_B2A <- b2a_geo$Net_B2A
@@ -1137,11 +1138,11 @@ hover <- paste0(b2a_geo$origin, " to ",
                 b2a_geo$destination, ': ', 
                 as.character(b2a_geo$Net_B2A))
 
-custom_colors <- c("#FBF394", "#16E2CC", "#E21616")
+custom_colors <- c("#060c0f", "#0000ff", "#E21616")
 pal <- colorFactor(custom_colors, b2a_geo$flow)
 
 m<-leaflet() %>%
-  addProviderTiles('NASAGIBS.ViirsEarthAtNight2012') %>%
+  addProviderTiles('CartoDB.Voyager') %>%
   addPolylines(
     data = flows,
     color = ~pal(flow),  
@@ -1160,6 +1161,7 @@ final<-leaflet::addLegend(m,
   title = "Migration Intensity")
 
   final  
+
 ```
 Source: [@uscensusbureauacsCountyMCDtoCountyMCD2023]
 
@@ -1176,5 +1178,5 @@ With no doubt, the topic is complex and multifaceted, nonetheless is indeed a re
 
 Current public policy and regulation for the housing industry such as rent controls or eviction restrictions are but a reflection of a reality that indicates a need for integrated policies and structural changes.
 
-This topic is dealt with in the following chapter, considering a vibrant region in California, whose implications extend beyond US borders. We aim to  explain the social processes that take place in the housing market in the context of the San Diego-Tijuana Border a region with unique characteristics that complement each other posing challenges and many opportunities. 
+This topic is dealt with in the following chapter, considering a vibrant region in California, whose implications extend beyond US borders. We aim to explain the social processes that take place in the housing market in the context of the San Diego-Tijuana border, a region with unique MSAs characteristics that complement each other posing challenges and many opportunities. 
 
