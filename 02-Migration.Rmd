@@ -1163,11 +1163,11 @@ final<-leaflet::addLegend(m,
   final  
 
 ```
-Source: [@uscensusbureauacsCountyMCDtoCountyMCD2023]
+Source: José Luis Manzanares Rivera using data from [@uscensusbureauacsCountyMCDtoCountyMCD2023]
 
-Among the 19 counties that fit the criteria as origin Counties with negative net out flows of people in the state of California, the main counties for emigration (origin places) were: Los Angeles, San Diego, Orange and San Bernardino.
+Among the 19 counties that fit the criteria as origin Counties with negative net out flows of people in the state of California, the main counties for emigration (origin places) were: Los Ángeles, San Diego, Orange and San Bernardino.
 
-Several impacts and social process are influenced by housing market conditions and population movements across states. One such key issue of social concern is homelessness, this is a major problem that has been raising in the US, particularly evident in some of the richest metropolitan areas of the country highlighting an intriguing paradox. 
+Several impacts and social processes are influenced by housing market conditions and population movements across states. One key issue of social concern is homelessness, a major problem that has been escalating in the United States. This issue is particularly evident in some of the highest-income metropolitan areas of the country, highlighting an intriguing paradox. 
 
 Homelessness is a phenomenon that has been studied by scientist with a great level of detail since the 1980s, nevertheless its persistence and in some cases, it´s growth, entiles an increasing attention from the public policy perspective as well as from the academic arena recently.
 
