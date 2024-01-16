@@ -1,0 +1,6 @@
+Old text. 
+
+Chapter  03.   file: 03-Phoenix.Rmd
+
+In this chapter, the aim is to analyze how regional migration flows from California have search to new destinations, particularly to Metropolitan areas in the south west states such as the Phoenix Metropolitan area, contributing to its recent development. 
+

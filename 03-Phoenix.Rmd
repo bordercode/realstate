@@ -1,4 +1,4 @@
-# Feeling the heat: The California-Maricopa route, in search for affordable housing.
+# Feeling the heat: The California-Arizona route, in search for affordable housing.
 
 ```{r, include=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -6,9 +6,13 @@ library(tidyverse)
 ```
 
 
-In this chapter, the aim is to analyze how regional migration flows from California have search to new destinations, particularly to Metropolitan areas in the south west states such as the Phoenix Metropolitan area, contributing to its recent development. 
+In this chapter, our focus is to examine regional migration patterns originating from California. We specifically investigate the movement of people toward new destinations, with a notable emphasis on Arizona State and the Phoenix Metropolitan area, in the Southwest region.  The main goal is to highlight  these internal migration patterns in the context of underlying housing pricing conditions. This analysis adds to existing knowledge by providing a detailed understanding of the relationship between regional migration and the economic evolution of metropolitan areas in the US southern border states, thereby contributing to the literature from a contemporary economic development  perspective. 
 
-This MSA, located in Maricopa County on the Arizona desert heartland, is situated in close proximity to the Mexican border. We will provide evidence, based on Internal Revenue Service (IRS) records, to document another significant aspect of migration patterns: the flow of income across state borders.
+
+Given the volume of immigrants moving from California to Arizona, during the last decades, and the regional economic development opportunities created recently, the Phoenix MSA, represent an interesting case study, where housing pricing trends and geographic attributes provide valuable insights to understand peoples incentives to relocate. 
+
+
+This metropolitan area is located in Maricopa County at the heart of the Arizona desert, and is situated in close proximity to the Mexican border. To document another significant aspect of migration patterns in this chapter, we will provide evidence of the flow of income across state borders, relying on official records maintained by the Internal Revenue Service (IRS). 
 
 In addition, we examine homelessness trends and policies addressing this critical social issue, often associated with housing affordability challenges, which hold particular significance for metropolitan areas in California and other urban areas across the country. According to the US Congress, the problem of homelessness has become more severe and, in the absence of more effective efforts, is expected to become dramatically worse, [@legalinformationinstituteCode113012023].
 
@@ -16,7 +20,7 @@ From an empirical perspective, analyzing homelessness is of particular importanc
 
 From a theoretical stand point, however, it is well documented that the causes of homelessness are many and complex, and homeless, individuals or families, have diverse needs. Common determinants point-out by scholars specializing on the topic include: mental Health issues, substance abuse, and family instability. From a sociological perspective, social isolation and lack of social support [@isolation; @isolation_mental] has been investigated worldwide as triggers contributing to this condition. 
 
-However, in this chapter I focus the attention on economic factors, in fact currently data on homeless population across US states and metropolitan areas indicate that the higher proportion of homeless population in the US is found in California [@nationalalliancetoendhomelessnessStateHomelessness20232023]. California, as documented elsewhere, is home to 12% of the USA's population, but to 30% of the nation’s homeless population, some 170,000 people [@calihomeless], and is, as shown in the previous chapter, the state with the most expensive housing market in the country. 
+However, in this chapter I focus the attention on economic factors, in fact currently data on homeless population across US states and metropolitan areas indicate that the higher proportion of homeless population in the US is found in California [@nationalalliancetoendhomelessnessStateHomelessness20232023]. California, as documented elsewhere, is home to 12% of the USA's population, but to 30% of the nation’s homeless population, some 170,000 people [@calihomeless], and is at the same time, as shown in the previous chapter, the state with the most expensive housing market in the country. 
 
 Despite its nature, the raising homelessness problem has been approached by units of local government and private voluntary organizations with mixed results in light of the available resources. 
 
