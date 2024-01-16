@@ -26,16 +26,18 @@ Despite its nature, the raising homelessness problem has been approached by unit
 
 The efficient allocation of resources is critical, therefore, a deep understanding of the causes can provide valuable insights to policy makers and practitioners including social workers and local providers of services to design strategies to mitigate this pressing social issue, by definition related to the housing market. 
 
+To provide a conceptual understanding about the economic forces shaping the housing market it is Paramount to analyze supply side factors in addition to demand driven determinants.  for this task the chapter covers  new single-family and multifamily housing units construction trends  including statistics on sales of new single-family houses. 
+
 ## Data and methods. 
 
 In this chapter, we conduct exploratory data analysis using the integrated development environment for  RStudio, a programming language suitable for statistical computing and graphics.  Additionally, API calls are applied via jupyter notebook,  a web-based interactive computing platform from Python programming language to access US Census Bureau official data. 
 
 
-we uncover the significant effects of migration across state borders from the perspective of taxation and revenue in both the origin and destination metropolitan areas. Internal Revenue Service data provides an opportunity to quantify revenue losses in the origin metropolitan areas while demonstrating the positive contributions to the host area's economy.
+We uncover the significant effects of migration across state borders from the perspective of taxation and revenue in both the origin and destination metropolitan areas. Internal Revenue Service data provides an opportunity to quantify revenue losses in the origin metropolitan areas while demonstrating the positive contributions to the host area's economy.
 
 There are three main sources of information considered to conduct this analysis.
 
-First, supply side determinants are studied base on  the US census Bureau Survey of Construction, a product whose purpose is to provide national and regional statistics on starts and completions of new single-family and multifamily housing units and statistics on sales of new single-family houses in the United States,[@soc]. The frequency of this survey is monthly and annual. A key variable of interest from this survey for this analysis is construction authorizations for new units which are summarized  as the total number of building permits for a given month or year. 
+First, supply side determinants are studied base on the US census Bureau Survey of Construction, a product whose purpose is to provide national and regional statistics on starts and completions of new single-family and multifamily housing units and statistics on sales of new single-family houses in the United States,[@soc]. The frequency of this survey is monthly and annual. A key variable of interest from this survey for this analysis is construction authorizations for new units which are summarized  as the total number of building permits for a given month or year. 
 
 In addition to supply side housing data, taxation information comes from the Internal Revenue Service (IRS) records. In this conceptual strategy, Tax data represent a complementary view of population movements.  In order to approximate migration, the IRS records year-to-year address changes reported on individual income tax returns filed and documented by IRS Form 1040. 
 
