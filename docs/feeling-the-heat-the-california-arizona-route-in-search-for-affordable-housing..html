@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>3 Feeling the heat: The California-Arizona route, in search for affordable housing. | Uncovering US Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries.</title>
+<meta name="description" content="In this chapter, our focus is to examine regional migration patterns originating from California. We specifically investigate the movement of people toward new destinations, with a notable...">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
+<meta property="og:title" content="3 Feeling the heat: The California-Arizona route, in search for affordable housing. | Uncovering US Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries.">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://price-out.netlify.app/feeling-the-heat-the-california-arizona-route-in-search-for-affordable-housing..html">
+<meta property="og:image" content="https://price-out.netlify.app/images/cover1.jpg">
+<meta property="og:description" content="In this chapter, our focus is to examine regional migration patterns originating from California. We specifically investigate the movement of people toward new destinations, with a notable...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3 Feeling the heat: The California-Arizona route, in search for affordable housing. | Uncovering US Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries.">
+<meta name="twitter:description" content="In this chapter, our focus is to examine regional migration patterns originating from California. We specifically investigate the movement of people toward new destinations, with a notable...">
+<meta name="twitter:image" content="https://price-out.netlify.app/images/cover1.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/font-awesome-5.13.0/js/script.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.0/leaflet.js"></script><script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script><script src="libs/leaflet-providers-plugin-2.2.0/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet">
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet">
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet">
+<script src="libs/HomeButton-0.0.1/home-button.js"></script><script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script><script src="libs/Leaflet.Sync-0.0.5/L.Map.Sync.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Uncovering US Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries.</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="prologue.html">Prologue</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="house-prices-interest-rates-and-investment-opportunities..html"><span class="header-section-number">1</span> House prices, interest rates and investment opportunities.</a></li>
+<li><a class="" href="internal-migration-patterns..html"><span class="header-section-number">2</span> Internal migration patterns.</a></li>
+<li><a class="active" href="feeling-the-heat-the-california-arizona-route-in-search-for-affordable-housing..html"><span class="header-section-number">3</span> Feeling the heat: The California-Arizona route, in search for affordable housing.</a></li>
+<li><a class="" href="binational-implications-the-san-diego-tijuana-housing-market-connection..html"><span class="header-section-number">4</span> Binational implications: The San Diego-Tijuana housing market connection.</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="feeling-the-heat-the-california-arizona-route-in-search-for-affordable-housing." class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Feeling the heat: The California-Arizona route, in search for affordable housing.<a class="anchor" aria-label="anchor" href="#feeling-the-heat-the-california-arizona-route-in-search-for-affordable-housing."><i class="fas fa-link"></i></a>
+</h1>
+<p>In this chapter, our focus is to examine regional migration patterns originating from California. We specifically investigate the movement of people toward new destinations, with a notable emphasis on Arizona State and the Phoenix Metropolitan area, in the Southwest region. The main goal is to highlight these internal migration patterns in the context of underlying housing pricing conditions. This analysis adds to existing knowledge by providing a detailed understanding of the relationship between regional migration and the economic evolution of metropolitan areas in the US southern border states, thereby contributing to the literature from a contemporary economic development perspective.</p>
+<p>Given the volume of immigrants moving from California to Arizona, during the last decades, and the regional economic development opportunities created recently, the Phoenix MSA, represent an interesting case study, where housing pricing trends and geographic attributes provide valuable insights to understand peoples incentives to relocate.</p>
+<p>This metropolitan area is located in Maricopa County at the heart of the Arizona desert, and is situated in close proximity to the Mexican border. To document another significant aspect of migration patterns in this chapter, we will provide evidence of the flow of income across state borders, relying on official records maintained by the Internal Revenue Service (IRS).</p>
+<p>In addition, we examine homelessness trends and policies addressing this critical social issue, often associated with housing affordability challenges, which hold particular significance for metropolitan areas in California and other urban areas across the country. According to the US Congress, the problem of homelessness has become more severe and, in the absence of more effective efforts, is expected to become dramatically worse, <span class="citation">(<a href="references.html#ref-legalinformationinstituteCode113012023">Legal Information institute 2023</a>)</span>.</p>
+<p>From an empirical perspective, analyzing homelessness is of particular importance when studying the California housing market. This significance arises due to the financial barriers that hinder market access in this region of the country, which often prevents homeless population from exiting this vulnerable condition. Furthermore, the State has demonstrated robust public policy support, evident in leading initiatives currently in place and undergoing testing, notably those addressing eviction restrictions, critical,in the aftermath of historical events that exacerbated the homeless problem in the state, such as the covid-19 global health emergency. And measures related to provide shelter</p>
+<p>From a theoretical stand point, however, it is well documented that the causes of homelessness are many and complex, and homeless, individuals or families, have diverse needs. Common determinants point-out by scholars specializing on the topic include: mental Health issues, substance abuse, and family instability. From a sociological perspective, social isolation and lack of social support <span class="citation">(<a href="references.html#ref-isolation">Marzana et al. 2023</a>; <a href="references.html#ref-isolation_mental">Jenkins et al. 2023</a>)</span> has been investigated worldwide as triggers contributing to this condition.</p>
+<p>However, in this chapter I focus the attention on economic factors, in fact currently data on homeless population across US states and metropolitan areas indicate that the higher proportion of homeless population in the US is found in California <span class="citation">(<a href="references.html#ref-nationalalliancetoendhomelessnessStateHomelessness20232023">National Alliance to end homelessness 2023</a>)</span>. California, as documented elsewhere, is home to 12% of the USA’s population, but to 30% of the nation’s homeless population, some 170,000 people <span class="citation">(<a href="references.html#ref-calihomeless">Margot Kushel and Tiana Moore 2023</a>)</span>, and is at the same time, as shown in the previous chapter, the state with the most expensive housing market in the country.</p>
+<p>Despite its nature, the raising homelessness problem has been approached by units of local government and private voluntary organizations with mixed results in light of the available resources.</p>
+<p>The efficient allocation of resources is critical, therefore, a deep understanding of the causes can provide valuable insights to policy makers and practitioners including social workers and local providers of services to design strategies to mitigate this pressing social issue, by definition related to the housing market.</p>
+<p>Furthermore, to provide a conceptual understanding about the economic forces shaping the housing market, in addition to demand related determinants studied in previous chapters such as house prices or personal income, it is paramount to analyze supply side factors, for this task the present chapter covers new single-family and multifamily housing units construction trends including statistics on sales of new single-family houses.</p>
+<div id="data-and-methods.-1" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Data and methods.<a class="anchor" aria-label="anchor" href="#data-and-methods.-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this chapter, we conduct exploratory data analysis using the integrated development environment for RStudio, a programming language suitable for statistical computing and graphics. Additionally, API calls are applied via jupyter notebook, a web-based interactive computing platform from Python programming language to access US Census Bureau official data.</p>
+<p>We uncover the significant effects of migration across state borders from the perspective of taxation and revenue in both the origin and destination metropolitan areas. Internal Revenue Service data provides an opportunity to quantify revenue losses in the origin metropolitan areas while demonstrating the positive contributions to the host area’s economy.</p>
+<p>There are three main sources of information considered to conduct this analysis.</p>
+<p>First, supply side determinants are studied base on the US census Bureau Survey of Construction, a product whose purpose is to provide national and regional statistics on starts and completions of new single-family and multifamily housing units and statistics on sales of new single-family houses in the United States,<span class="citation">(<a href="references.html#ref-soc">US Census Bureau 2019</a>)</span>. The frequency of this survey is monthly and annual. A key variable of interest from this survey for this analysis is construction authorizations for new units which are summarized as the total number of building permits for a given month or year.</p>
+<p>In addition to housing supply data from the supply side, tax-related information is derived from records maintained by the Internal Revenue Service (IRS). Within this conceptual framework, tax data provide a supplementary perspective on population movements. To approximate migration, the IRS records year-to-year address changes reported in individual income tax returns filed using IRS Form 1040</p>
+<p>This approach specifically records the number of residents who relocated to a particular state or county, along with the location from which they moved <span class="citation">(<a href="references.html#ref-internalrevenueserviceMigrationDataUsers2021">Internal Revenue Service and Statistics of Income Division 2021</a>)</span>. The data corresponds to the calendar year 2020-2021, representing income earned during 2020, and stands as the most up-to-date information available at the time of writing this book.</p>
+<p>According to the Internal Revenue Service (IRS), this dataset reflects the situation prior to late September of each calendar year and represents between 95 and 98 percent of total annual filings <span class="citation">(<a href="references.html#ref-internalrevenueserviceMigrationDataUsers2021">Internal Revenue Service and Statistics of Income Division 2021</a>)</span>. Therefore, it offers a arguably comprehensive foundation for assessing this topic on a geographically relevant scale. Additionally, this source furnishes demographic details, including the age of the taxpayer, which proves valuable in enhancing our comprehension of migrant income profiles.</p>
+<p>Finally, the analysis includes homeless records from the U.S. Department of Housing and Urban Development (HUD).<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;or purposes of this chapter, the terms “homeless”, “homeless individual”, and “homeless person” means an individual or family who lacks a fixed, regular, and adequate nighttime residence.&lt;/p&gt;"><sup>15</sup></a></p>
+</div>
+<div id="constructions-permits-supply-side-constraints-and-rapid-development-two-faces-of-the-same-coin." class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Constructions Permits, supply side constraints and rapid development: two faces of the same coin.<a class="anchor" aria-label="anchor" href="#constructions-permits-supply-side-constraints-and-rapid-development-two-faces-of-the-same-coin."><i class="fas fa-link"></i></a>
+</h2>
+<p>Construction permits for new homes are key variable to</p>
+</div>
+<div id="revenue-landscapes-for-origin-and-destination-metropolitan-areas." class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Revenue landscapes for origin and destination metropolitan areas.<a class="anchor" aria-label="anchor" href="#revenue-landscapes-for-origin-and-destination-metropolitan-areas."><i class="fas fa-link"></i></a>
+</h2>
+<p>Considering population flows across state lines, the analysis indicates that California is the main contributor of out of state migration in the U.S. representing one out of three or <span class="math inline">\(30.4\%\)</span> of the total out of state IRS return filings.</p>
+</div>
+<div id="affordability-price-out-affect-and-homelesness." class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Affordability, price out affect and homelesness.<a class="anchor" aria-label="anchor" href="#affordability-price-out-affect-and-homelesness."><i class="fas fa-link"></i></a>
+</h2>
+<p>Here most include delinquency rates (mortgage default) from freddie mac data base,<br>
+try a regression model for price out effect</p>
+<p>D= income+population + prices HPI or regional price parity hoousing.</p>
+<p>On this topic, see paper <a href="https://www.gotoby.com/userfiles/documents/How%20Fees%20Force%20Home%20Buyers%20Out%20of%20the%20Market.pdf" class="uri">https://www.gotoby.com/userfiles/documents/How%20Fees%20Force%20Home%20Buyers%20Out%20of%20the%20Market.pdf</a>
+affordability standard: ability to qualify for a mortgage. To qualify for conventional loans, housing expenses should not exceed <strong>28 percent of homebuyers’ gross monthly income.</strong></p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">po2014</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"2014-price-out.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>So here we may need a price to income ratio.
+The affordability standard is thus a
+ratio of housing expenses to income, and the number of households that qualify for a mortgage to buy a home of a given
+price will depend on the income of households in an area and current mortgage rates.</p>
+<p>Sources for this approach:
+The American Community Survey (ACS) or median family income published by the Department of Housing and Urban Development (HUD)</p>
+<p>Goood idea here is to include density kernels to show income across demographic groups and selected Metro areas. Totaly important include Californian MSA such as Sunnyvale or Los Angeles, the main exporter of population in the state.</p>
+<p><strong>Assumptions:</strong> Other assumptions used in the priced out calculations are a down payment equal to 10 percent of the purchase price and a <em>30-year fixed rate mortgage</em>
+Some other methodological issues:
+The ACS reports both median home values and real estate taxes paid and, thus, allows estimating the effective property tax rates for all metro areas. For the US, the median rate
+is $12 per $1,000 of property value. Property hazard insurance rates are constructed based on the 2007 ACS Public Use
+Microdata Sample (PUMS)3
+. For the US as a whole, the insurance rates work out to $5 per $1,000 of property value.
+Map homeless trends.
+To estimate median new home prices for states and metropolitan areas, NAHB relies on data reported by the 2013
+Census Bureau’s Building Permits Survey and Survey of Construction (SOC).</p>
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="internal-migration-patterns..html"><span class="header-section-number">2</span> Internal migration patterns.</a></div>
+<div class="next"><a href="binational-implications-the-san-diego-tijuana-housing-market-connection..html"><span class="header-section-number">4</span> Binational implications: The San Diego-Tijuana housing market connection.</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#feeling-the-heat-the-california-arizona-route-in-search-for-affordable-housing."><span class="header-section-number">3</span> Feeling the heat: The California-Arizona route, in search for affordable housing.</a></li>
+<li><a class="nav-link" href="#data-and-methods.-1"><span class="header-section-number">3.1</span> Data and methods.</a></li>
+<li><a class="nav-link" href="#constructions-permits-supply-side-constraints-and-rapid-development-two-faces-of-the-same-coin."><span class="header-section-number">3.2</span> Constructions Permits, supply side constraints and rapid development: two faces of the same coin.</a></li>
+<li><a class="nav-link" href="#revenue-landscapes-for-origin-and-destination-metropolitan-areas."><span class="header-section-number">3.3</span> Revenue landscapes for origin and destination metropolitan areas.</a></li>
+<li><a class="nav-link" href="#affordability-price-out-affect-and-homelesness."><span class="header-section-number">3.4</span> Affordability, price out affect and homelesness.</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Uncovering US Housing market fluctuations and internal migration patterns using Posit interactive mapping libraries.</strong>" was written by . It was last built on 2024-01-16.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

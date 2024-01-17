@@ -26,7 +26,7 @@ Despite its nature, the raising homelessness problem has been approached by unit
 
 The efficient allocation of resources is critical, therefore, a deep understanding of the causes can provide valuable insights to policy makers and practitioners including social workers and local providers of services to design strategies to mitigate this pressing social issue, by definition related to the housing market. 
 
-To provide a conceptual understanding about the economic forces shaping the housing market it is Paramount to analyze supply side factors in addition to demand driven determinants.  for this task the chapter covers  new single-family and multifamily housing units construction trends  including statistics on sales of new single-family houses. 
+Furthermore, to provide a conceptual understanding about the economic forces shaping the housing market, in addition to demand related determinants studied in previous chapters such as house prices or personal income, it is paramount to analyze supply side factors,  for this task the present chapter covers  new single-family and multifamily housing units construction trends  including statistics on sales of new single-family houses. 
 
 ## Data and methods. 
 
@@ -39,14 +39,14 @@ There are three main sources of information considered to conduct this analysis.
 
 First, supply side determinants are studied base on the US census Bureau Survey of Construction, a product whose purpose is to provide national and regional statistics on starts and completions of new single-family and multifamily housing units and statistics on sales of new single-family houses in the United States,[@soc]. The frequency of this survey is monthly and annual. A key variable of interest from this survey for this analysis is construction authorizations for new units which are summarized  as the total number of building permits for a given month or year. 
 
-In addition to supply side housing data, taxation information comes from the Internal Revenue Service (IRS) records. In this conceptual strategy, Tax data represent a complementary view of population movements.  In order to approximate migration, the IRS records year-to-year address changes reported on individual income tax returns filed and documented by IRS Form 1040. 
+In addition to housing supply data from the supply side, tax-related information is derived from records maintained by the Internal Revenue Service (IRS). Within this conceptual framework, tax data provide a supplementary perspective on population movements. To approximate migration, the IRS records year-to-year address changes reported in individual income tax returns filed using IRS Form 1040 
 
-In particular this approach records the number of residents that moved to a State or county and the origin from where they moved [@internalrevenueserviceMigrationDataUsers2021]. Data corresponds to calendar year 2020-2021, So it represents income earned during 2020. the most up to date information available at the moment of writing this book. 
+This approach specifically records the number of residents who relocated to a particular state or county, along with the location from which they moved [@internalrevenueserviceMigrationDataUsers2021]. The data corresponds to the calendar year 2020-2021, representing income earned during 2020, and stands as the most up-to-date information available at the time of writing this book.
 
-According to the IRS,this data captures the situation prior to late September of each calendar year and represent between 95 and 98 percent of total annual filings[@internalrevenueserviceMigrationDataUsers2021], so it provides an arguably complete base scenario to evaluate this topic at a geographic suitable scale.
-In addition this source provides demographic details such as the age of the tax payer, which is valuable to better understand migrants incomes profiles.
+According to the Internal Revenue Service (IRS), this dataset reflects the situation prior to late September of each calendar year and represents between 95 and 98 percent of total annual filings [@internalrevenueserviceMigrationDataUsers2021]. Therefore, it offers a arguably comprehensive foundation for assessing this topic on a geographically relevant scale. Additionally, this source furnishes demographic details, including the age of the taxpayer, which proves valuable in enhancing our comprehension of migrant income profiles.
 
 Finally, the analysis includes homeless records from the U.S. Department of Housing and Urban Development (HUD).^[or purposes of this chapter, the terms “homeless”, “homeless individual”, and “homeless person” means an individual or family who lacks a fixed, regular, and adequate nighttime residence.]
+
 
 ## Constructions Permits, supply side constraints and rapid development: two faces of the same coin. 
 
