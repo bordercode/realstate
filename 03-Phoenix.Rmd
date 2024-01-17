@@ -113,6 +113,20 @@ Census Bureau’s Building Permits Survey and Survey of Construction (SOC).
 
 
 # Data on construction permits for 2019 by msa
+library(readxl)
+
+excel_file_name <- "soc21.xls"
+data <- read_excel(excel_file_name)
+
+str(data)
+
+excel_file_name <- "metro_cust.xls"
+data <- read_excel(excel_file_name)
+
+
+
+
+
 permits<-read.csv("permits2019.csv")%>%
 separate(msa, into = c("msa", "state"), sep = ",", remove = TRUE)%>%mutate(t=sum(permits2019))
 
